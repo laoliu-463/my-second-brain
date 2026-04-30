@@ -2,7 +2,7 @@
 title: Akkkk缺失视频补抓与转写索引
 tags: [内容创作, 抖音, 视频下载, ASR, 原文补全]
 created: 2026-04-30
-updated: 2026-04-30
+updated: 2026-05-01
 sources: [creator_contents_cleaned.csv, Akkkk缺失视频清单.csv, Akkkk缺失视频媒体信息.csv, Akkkk缺失视频转写汇总.csv]
 ---
 
@@ -86,7 +86,23 @@ sources: [creator_contents_cleaned.csv, Akkkk缺失视频清单.csv, Akkkk缺失
 - 2024-07-14 11:26:21 · `7391451333640899850` · 状态：missing_video / empty · 原因：downloaded file too small · [抖音链接](https://www.douyin.com/video/7391451333640899850)
 - 2024-04-05 14:44:09 · `7354393760408685851` · 状态：missing_video / empty · 原因：downloaded file too small · [抖音链接](https://www.douyin.com/video/7354393760408685851)
 
+<!-- AUTO-SUMMARY-START -->
+## 总结提炼
+
+缺失文案的视频并不是边角料，反而构成了这组资料里最值得继续补全的一层。它们往往互动不低，说明很多关键信息并不在 CSV 文本列里，而是在口播、语气、节奏和评论区反馈里。
+
+从资料建设角度看，这页既是补抓清单，也是提醒：如果只看可见文案，容易低估这个账号真正的传播强度和内容密度。
+
+## 与认知系列的连接
+
+- [[互联网实操篇]]：体现了内容生产与归档过程中“文本不等于全部内容”的现实。
+- [[网络规则篇]]：平台展示层与数据字段之间的断裂，本身就是规则问题。
+- [[案例分析篇]]：这些无文案高互动样本很适合作为后续拆解案例。
+<!-- AUTO-SUMMARY-END -->
+
 ## 相关概念
+
+- [[知识库/06-内容创作与传播/Akkkk内容主题提炼与认知映射|Akkkk内容主题提炼与认知映射]]
 
 - [[Akkkk视频原文归档索引|Akkkk视频原文归档索引]]
 - [[知识库/06-内容创作与传播/Akkkk视频原文归档/Akkkk视频原文归档目录|Akkkk视频原文归档目录]]
