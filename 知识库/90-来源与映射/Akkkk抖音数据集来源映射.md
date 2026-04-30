@@ -53,6 +53,7 @@ sources: [00-收集箱/未命名.md, creator_contents_cleaned.csv, creator_comme
 - [[知识库/06-内容创作与传播/抖音创作者Akkkk高互动样本|抖音创作者Akkkk高互动样本]]
 - [[知识库/06-内容创作与传播/抖音创作者Akkkk评论区画像|抖音创作者Akkkk评论区画像]]
 - [[Akkkk视频原文归档索引|Akkkk视频原文归档索引]]
+- [[知识库/06-内容创作与传播/Akkkk缺失视频补抓与转写索引|Akkkk缺失视频补抓与转写索引]]
 
 ## 整理原则
 
@@ -66,7 +67,8 @@ sources: [00-收集箱/未命名.md, creator_contents_cleaned.csv, creator_comme
 - 对高收藏无文本视频做 ASR/OCR，补充内容主题。
 - 建立逐条内容主题标签表。
 - 将评论情绪分为求助、共鸣、质疑、复述、行动反馈等类型。
-- 补齐逐条 `视频内容原文（ASR/OCR）`，当前只完成 CSV 文案原文归档。
+- 校对 `raw/sources/Akkkk缺失视频转写/` 中的 ASR 草稿，并将确认后的内容回填到逐条 `视频内容原文（ASR/OCR）`。
+- 对 4 条 `request is not allowed` 视频重新导出有效下载链接或使用登录态人工补抓。
 
 ## 相关概念
 
@@ -74,4 +76,5 @@ sources: [00-收集箱/未命名.md, creator_contents_cleaned.csv, creator_comme
 - [[知识库/06-内容创作与传播/抖音创作者Akkkk高互动样本|抖音创作者Akkkk高互动样本]]
 - [[知识库/06-内容创作与传播/抖音创作者Akkkk评论区画像|抖音创作者Akkkk评论区画像]]
 - [[Akkkk视频原文归档索引|Akkkk视频原文归档索引]]
+- [[知识库/06-内容创作与传播/Akkkk缺失视频补抓与转写索引|Akkkk缺失视频补抓与转写索引]]
 

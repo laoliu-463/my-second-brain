@@ -14,6 +14,21 @@
 
 ---
 
+## [2026-04-30] ingest | Akkkk 缺失视频补抓与 ASR 草稿
+
+- 对 `creator_contents_cleaned.csv` 中 50 条 `content_text` 为空的视频进行补抓
+- 下载目录：`raw/assets/Akkkk缺失视频/`
+- 清单文件：
+  - `raw/sources/Akkkk缺失视频清单.csv`
+  - `raw/sources/Akkkk缺失视频媒体信息.csv`
+  - `raw/sources/Akkkk缺失视频转写汇总.csv`
+- 结果：46 条视频下载成功，总大小约 1.09GB；4 条返回 `request is not allowed`，未下载
+- 使用 `faster-whisper tiny/int8` 生成 46 条 ASR 草稿，输出至 `raw/sources/Akkkk缺失视频转写/`
+- 创建检查入口：[[知识库/06-内容创作与传播/Akkkk缺失视频补抓与转写索引|Akkkk缺失视频补抓与转写索引]]
+- 注意：ASR 为机器初稿，尚未人工校对；可用于核查视频内容，但不应视为最终逐字稿
+
+---
+
 ## [2026-04-30] ingest | Akkkk 抖音数据集整理
 
 - 从 `00-收集箱/未命名.md` 读取两个 CSV 来源：`creator_contents_cleaned.csv`、`creator_comments_cleaned.csv`
