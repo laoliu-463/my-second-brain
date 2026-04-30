@@ -1,0 +1,78 @@
+﻿Option Compare Database
+Option Explicit
+
+Public Function 筛选点击(ByVal 控件名 As String)
+    On Error GoTo ErrHandler
+    Dim f As Form
+    Set f = Forms("人员信息查询")
+
+    Select Case 控件名
+        Case "地区表"
+            f.Controls("地区").Value = Nz(f.Controls("地区表").Value, Null)
+            f.Controls("单位").Value = Null
+            f.Controls("科室").Value = Null
+            f.Controls("单位表").RowSource = "SELECT [区名], [单位] FROM [人员信息表] GROUP BY [区名], [单位] HAVING [区名]=Forms![人员信息查询]![地区表] ORDER BY [单位];"
+            f.Controls("单位表").Requery
+            f.Controls("科室表").RowSource = "SELECT [区名] FROM [人员信息表] GROUP BY [区名] HAVING [区名]='0';"
+            f.Controls("科室表").Requery
+
+        Case "单位表"
+            f.Controls("单位").Value = Nz(f.Controls("单位表").Value, Null)
+            f.Controls("科室").Value = Null
+            f.Controls("科室表").RowSource = "SELECT [区名], [单位], [科室] FROM [人员信息表] GROUP BY [区名], [单位], [科室] HAVING [区名]=Forms![人员信息查询]![地区表] AND [单位]=Forms![人员信息查询]![单位表] ORDER BY [科室];"
+            f.Controls("科室表").Requery
+
+        Case "科室表"
+            f.Controls("科室").Value = Nz(f.Controls("科室表").Value, Null)
+
+        Case "性别表"
+            f.Controls("性别").Value = Nz(f.Controls("性别表").Value, Null)
+
+        Case "民族表"
+            f.Controls("民族").Value = Nz(f.Controls("民族表").Value, Null)
+
+        Case "学历表"
+            f.Controls("学历").Value = Nz(f.Controls("学历表").Value, Null)
+
+        Case "政治面貌表"
+            f.Controls("政治面貌").Value = Nz(f.Controls("政治面貌表").Value, Null)
+    End Select
+
+    f.Controls("人员信息查询表").Requery
+    Exit Function
+
+ErrHandler:
+    MsgBox "筛选失败：" & Err.Description, vbExclamation, "人员信息查询"
+End Function
+
+Public Function 清除全部条件()
+    On Error GoTo ErrHandler
+    Dim f As Form
+    Set f = Forms("人员信息查询")
+
+    f.Controls("地区").Value = Null
+    f.Controls("单位").Value = Null
+    f.Controls("科室").Value = Null
+    f.Controls("性别").Value = Null
+    f.Controls("民族").Value = Null
+    f.Controls("学历").Value = Null
+    f.Controls("政治面貌").Value = Null
+
+    f.Controls("地区表").Value = Null
+    f.Controls("单位表").Value = Null
+    f.Controls("科室表").Value = Null
+    f.Controls("性别表").Value = Null
+    f.Controls("民族表").Value = Null
+    f.Controls("学历表").Value = Null
+    f.Controls("政治面貌表").Value = Null
+
+    f.Controls("单位表").RowSource = "SELECT [区名], [单位] FROM [人员信息表] GROUP BY [区名], [单位] ORDER BY [区名], [单位];"
+    f.Controls("单位表").Requery
+    f.Controls("科室表").RowSource = "SELECT [区名] FROM [人员信息表] GROUP BY [区名] HAVING [区名]='0';"
+    f.Controls("科室表").Requery
+    f.Controls("人员信息查询表").Requery
+    Exit Function
+
+ErrHandler:
+    MsgBox "清除失败：" & Err.Description, vbExclamation, "人员信息查询"
+End Function
