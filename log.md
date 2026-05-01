@@ -12,6 +12,25 @@
 
 ---
 
+## [2026-05-01] enrich | 学习资料整理：补充免费权威资源
+
+- 用户要求补全五本书籍内容和免费在线资源
+- 搜索结果：主流平台（Z-Library/Anna's Archive/sci-hub）被封锁或连接超时
+- 改用已验证的免费资源：
+  - **Project Gutenberg**（7万+公版书）：Frank Fetter《Principles of Economics》、John Stuart Mill《Principles of Political Economy》、Ricardo《大卫·李嘉图》、Marx《Das Kapital》(marxists.org)
+  - **Internet Archive**：Maslow《Motivation and Personality》《Toward a Psychology of Being》
+  - **CTEXT**：竹书纪年全文在线阅读
+  - **中国慕课平台**：中国大学MOOC、国家智慧教育平台、学堂在线、超星尔雅、学习强国
+- 附录新增内容：
+  - 五领域各 A/B/C/D/E 四大板块（教材+课程+核心框架+学术数据库）
+  - 每本推荐教材注明作者、版本、出版社、免费获取方式
+  - 各课程提供平台+链接
+  - 各领域核心知识框架图
+  - 综合免费学术平台汇总表
+- 文件从 1261 行扩展至 1649 行
+
+---
+
 ## [2026-05-01] reorganize | 根目录散页归并入知识库
 
 - 用户要求将之前分散的草稿文件全部迁移到 Obsidian 知识库对应目录
