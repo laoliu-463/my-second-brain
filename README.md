@@ -1,6 +1,6 @@
 # My Second Brain
 
-基于 LLM Wiki 模式的个人知识库。
+基于 LLM Wiki 模式的个人知识库，当前可由 Hermes Agent / Codex / Claude 持续接管维护。
 
 ## 什么是 LLM Wiki？
 
@@ -17,13 +17,16 @@
 
 ```
 ├── raw/                    # 原始资源（不可变）
+│   ├── assets/            # 图片、视频、附件
 │   └── sources/           # 文档来源
-├── 知识库/                 # 维基页面（LLM 生成和维护）
+├── 知识库/                 # 正式 wiki 页面
 ├── 00-收集箱/             # 信息录入源头
+├── 00-收件箱/             # 草稿与待归位文本
 ├── index.md              # 内容索引
 ├── log.md                # 活动日志
 ├── agent.md              # LLM Wiki 模式说明
-└── CLAUDE.md            # 知识库配置
+├── AGENTS.md             # 主维护规范
+└── CLAUDE.md             # Claude 兼容规范
 ```
 
 ## 工作方式
@@ -35,5 +38,19 @@
 ## 快速开始
 
 1. 阅读 [[agent]] 了解 LLM Wiki 模式
-2. 阅读 [[CLAUDE.md]] 了解本知识库的结构和约定
-3. 浏览 [[index]] 查看现有内容
+2. 阅读 [[AGENTS.md]] 了解当前知识库维护规范
+3. 若使用 Claude 兼容代理，再阅读 [[CLAUDE.md]]
+4. 浏览 [[index]] 查看现有内容
+
+## Hermes Agent 接管建议
+
+若由 Hermes Agent 持续维护本库，建议将它的默认工作顺序固定为：
+
+1. 读取 `AGENTS.md`
+2. 读取 `index.md`
+3. 读取 `log.md`
+4. 根据任务类型执行 `ingest / query / lint`
+5. 任何正式修改后，同步更新 `index.md` 与 `log.md`
+6. 定期检查 `00-收集箱/`、`00-收件箱/` 和 `90-来源与映射/` 是否存在积压
+
+Hermes 的目标不是只回答问题，而是持续维护知识网络的结构、来源追踪和导航质量。
