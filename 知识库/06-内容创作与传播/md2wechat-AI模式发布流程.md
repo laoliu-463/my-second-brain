@@ -205,6 +205,8 @@ md2wechat convert article.md --mode ai \
 
 **优化 prompt 文件路径：** `/tmp/optimized_prompt.txt`
 
+**极简主义主题 prompt 文件：** `/tmp/optimized_prompt_minimal.txt`
+
 ### 验证命令
 ```bash
 # 检查是否有外部资源引用

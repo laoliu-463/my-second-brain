@@ -2,7 +2,13 @@
 
 ---
 
-## [2026-05-03] enrich | md2wechat AI模式：优化HTML排版，去除CDN字体依赖
+## [2026-05-03] enrich | md2wechat AI模式：新增极简主义主题生成
+
+- 新增极简主义主题 prompt：纯白背景 #ffffff、近黑文字 #1a1a1a、静谧蓝强调 #2563eb
+- 风格特点：居中 680px 宽度、宽松行高 1.8、无装饰符号、充足留白
+- 验证：grep 无外部依赖，test-draft 推送成功，media_id 已获取
+- 文件备份：ai主题-prompt-极简主义.txt 保存到知识库
+- 文档已更新：md2wechat-AI模式发布流程.md
 
 - 问题：内置 autumn-warm 主题 prompt 自相矛盾（禁止 style 标签 + 字体通过CDN链接）
 - 原因：子代理在 HTML 中加了 `<style>@import url('fonts.googleapis.com...')</style>`，微信公众号编辑器会过滤
