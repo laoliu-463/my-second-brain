@@ -205,7 +205,7 @@ md2wechat convert article.md --mode ai \
 
 **优化 prompt 文件路径：** `/tmp/optimized_prompt.txt`
 
-**极简主义 v3（合并版）prompt 文件：** `/tmp/optimized_prompt_minimal_v3.txt`（v1蓝色+v2参数）
+**深度认知/干货菁英风 prompt 文件：** `/tmp/optimized_prompt_cognition.txt`
 
 ### 验证命令
 ```bash
