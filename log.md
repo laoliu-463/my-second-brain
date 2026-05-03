@@ -536,3 +536,16 @@
 
 *知识库初始化完成*
 
+---
+
+## [2026-05-03] ingest | md2wechat AI 模式发布流程验证
+
+- 测试微信公众号 AI 模式完整发布链路
+- `convert --mode ai`：成功生成 prompt（5155 字节）
+- subagent 执行 prompt：成功生成 HTML（5205 字节，秋日暖光主题）
+- `test-draft` 创建草稿：成功，media_id `LZfQeDRIVZbX1DOPkTjB3nEhbISA1TCSMHFSO58wP76fD8NOiA5v8p7VXNimgNGm`
+- 阻塞点：WSL 出口 IP 42.84.233.154 白名单（已解决）
+- 新建页面：[[md2wechat-AI模式发布流程]] → 知识库/06-内容创作与传播/
+- 更新导航中心：增加 AI 模式入口和流程摘要
+- 草稿已推送至微信公众号后台 → 草稿箱（Hermes Agent 测试文章）
+
