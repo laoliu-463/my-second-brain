@@ -205,7 +205,9 @@ md2wechat convert article.md --mode ai \
 
 **优化 prompt 文件路径：** `/tmp/optimized_prompt.txt`
 
-**深度认知/干货菁英风 prompt 文件：** `/tmp/optimized_prompt_cognition.txt`
+**深度认知/干货菁英风 v4（终极版）prompt 文件：** `/tmp/optimized_prompt_cognition_v4.txt`
+
+**推荐使用 v4 终极版**，包含 TL;DR 摘要模块、中英文混排规范、金句 ✦ 前缀、克制 Emoji 使用。
 
 ### 验证命令
 ```bash
