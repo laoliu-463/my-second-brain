@@ -172,7 +172,44 @@ api:
 |------|------|
 | 配置 IP 白名单 42.84.233.154 | 微信公众号后台添加 |
 | 验证 access_token 获取 | 成功返回 token |
-| test-draft 草稿创建 | 成功，media_id 已获取 |
+| test-draft 草稿创建 v1 | 成功，含 `<style>@import` 字体（兼容性存疑） |
+| HTML 排版优化 | 去除外部依赖，修复 CDN 字体问题 |
+| test-draft 草稿创建 v2 | 成功，无外部资源依赖 |
+
+## HTML 排版优化记录
+
+### 问题：内置 autumn-warm 主题的 CDN 字体问题
+
+内置 `autumn-warm` 主题 prompt 第 97 行写"字体通过CDN链接"，与"禁止 `<style>` 标签"矛盾。子代理生成的 HTML 包含：
+```html
+<style>@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');</style>
+```
+微信公众号编辑器会过滤 `<style>` 标签和外部链接，导致字体回退到系统默认。
+
+### 解决方案：使用 --custom-prompt 传入优化版提示词
+
+**Step 3 改为：**
+```bash
+# 使用优化后的 prompt（已修复 CDN 字体问题）
+md2wechat convert article.md --mode ai \
+  --custom-prompt "$(cat /tmp/optimized_prompt.txt)" \
+  --output /tmp/article.html --json
+```
+
+**优化 prompt 关键改动：**
+- 绝对禁止 `<style>`、`<head>`、`<link>` 标签
+- 绝对禁止任何外部 CDN 链接、@import
+- 字体只通过 `font-family` 内联在每个元素上
+- HTML 从 `<body>` 内的 `<div>` 开始
+- 使用纯 CSS 系统字体栈（无外部依赖）
+
+**优化 prompt 文件路径：** `/tmp/optimized_prompt.txt`
+
+### 验证命令
+```bash
+# 检查是否有外部资源引用
+grep -E '<style|<head|<link|@import' /tmp/article.html
+# 应无输出
 
 ## 相关概念
 

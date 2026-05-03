@@ -2,7 +2,15 @@
 
 ---
 
-## [2026-05-03] ingest | Akkkk高互动视频认知分析：5条爆款补全+认知映射
+## [2026-05-03] enrich | md2wechat AI模式：优化HTML排版，去除CDN字体依赖
+
+- 问题：内置 autumn-warm 主题 prompt 自相矛盾（禁止 style 标签 + 字体通过CDN链接）
+- 原因：子代理在 HTML 中加了 `<style>@import url('fonts.googleapis.com...')</style>`，微信公众号编辑器会过滤
+- 解决：使用 `--custom-prompt` 参数传入优化版提示词
+- 优化内容：禁止 style/head/link 标签，禁止任何外部资源，字体通过系统字体栈内联
+- 验证：grep 无 style/head/link/@import，test-draft 推送成功
+- 文档更新：md2wechat-AI模式发布流程.md 增加"HTML 排版优化记录"章节
+- 文件备份：ai主题-prompt-优化版.txt 保存到知识库
 
 - 对 Top5 高互动无文本视频（ASR转写稿）进行完整阅读与主题提炼
 - 5条视频主题：#1教育改命观崩塌、#2父母财富与债务线、#3命运认知框架、#4预测应验回归、#5认知越狱代价
