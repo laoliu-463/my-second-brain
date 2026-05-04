@@ -3,7 +3,7 @@ title: 深入浅出Node.js
 author: 朴灵 / 人民邮电出版社
 tags: [nodejs, javascript, 后端, 异步]
 category: 02-后端知识体系/04-Node.js体系
-source: "C:/Users/caojianing/Downloads/NotebookLM可上传书籍/深入浅出Node.js.pdf"
+source: "raw/sources/深入浅出Node.js.pdf"
 created: 2026-05-03
 updated: 2026-05-03
 type: book-summary

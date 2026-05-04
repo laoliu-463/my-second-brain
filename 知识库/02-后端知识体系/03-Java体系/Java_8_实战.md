@@ -3,7 +3,7 @@ title: Java 8 实战
 author: Martin Gulpers / 人民邮电出版社
 tags: [java, java8, 函数式编程, stream]
 category: 02-后端知识体系/03-Java体系
-source: "C:/Users/caojianing/Downloads/NotebookLM可上传书籍/Java 8 实战.pdf"
+source: "raw/sources/Java 8 实战.pdf"
 created: 2026-05-03
 updated: 2026-05-03
 type: book-summary

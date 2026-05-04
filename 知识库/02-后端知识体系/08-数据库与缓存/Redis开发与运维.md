@@ -3,7 +3,7 @@ title: Redis开发与运维
 author: 付磊 / 电子工业出版社
 tags: [redis, 缓存, nosql, 数据库]
 category: 02-后端知识体系/08-数据库与缓存
-source: "C:/Users/caojianing/Downloads/NotebookLM可上传书籍/Redis开发与运维(付磊).pdf"
+source: "raw/sources/Redis开发与运维(付磊).pdf"
 created: 2026-05-03
 updated: 2026-05-03
 type: book-summary

@@ -3,7 +3,7 @@ title: Linux多线程服务端编程
 author: 陈硕 / 电子工业出版社
 tags: [linux, 多线程, 服务端, 网络编程]
 category: 02-后端知识体系/05-系统编程
-source: "C:/Users/caojianing/Downloads/NotebookLM可上传书籍/Linux多线程服务端编程 书签高清非扫描 - 陈硕.pdf"
+source: "raw/sources/Linux多线程服务端编程 书签高清非扫描 - 陈硕.pdf"
 created: 2026-05-03
 updated: 2026-05-03
 type: book-summary

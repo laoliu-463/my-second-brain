@@ -3,7 +3,7 @@ title: Pro Git中文PDF版
 author: Scott Chacon / 人民邮电出版社
 tags: [git, 版本控制, 协作]
 category: 02-后端知识体系/07-开发工具
-source: "C:/Users/caojianing/Downloads/NotebookLM可上传书籍/Pro Git中文PDF版.pdf"
+source: "raw/sources/Pro Git中文PDF版.pdf"
 created: 2026-05-03
 updated: 2026-05-03
 type: book-summary

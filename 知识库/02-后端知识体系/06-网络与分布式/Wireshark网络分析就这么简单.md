@@ -3,7 +3,7 @@ title: Wireshark网络分析就这么简单
 author: 林信满 / 电子工业出版社
 tags: [wireshark, 网络分析, 抓包, tcpdump]
 category: 02-后端知识体系/06-网络与分布式
-source: "C:/Users/caojianing/Downloads/NotebookLM可上传书籍/Wireshark网络分析就这么简单.pdf"
+source: "raw/sources/Wireshark网络分析就这么简单.pdf"
 created: 2026-05-03
 updated: 2026-05-03
 type: book-summary

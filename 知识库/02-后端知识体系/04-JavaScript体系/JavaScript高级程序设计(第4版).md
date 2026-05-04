@@ -3,7 +3,7 @@ title: JavaScript高级程序设计（第4版）
 author: Nicholas C. Zakas / 人民邮电出版社
 tags: [javascript, 红宝书, es6, 进阶]
 category: 02-后端知识体系/04-JavaScript体系
-source: "待补充"
+source: "raw/sources/JavaScript高级程序设计（第4版 中文高清）.pdf"
 created: 2026-05-03
 updated: 2026-05-03
 type: book-summary

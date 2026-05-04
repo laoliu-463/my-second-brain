@@ -3,7 +3,7 @@ title: Linux高性能服务器编程
 author: 游双 / 机械工业出版社
 tags: [linux, 高性能, 网络编程, 服务器]
 category: 02-后端知识体系/05-系统编程
-source: "C:/Users/caojianing/Downloads/NotebookLM可上传书籍/Linux高性能服务器编程.pdf"
+source: "raw/sources/Linux高性能服务器编程.pdf"
 created: 2026-05-03
 updated: 2026-05-03
 type: book-summary

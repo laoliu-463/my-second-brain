@@ -3,7 +3,7 @@ title: 深入理解TypeScript
 author: 陈小龙 / 人民邮电出版社
 tags: [typescript, javascript, 类型系统]
 category: 02-后端知识体系/04-JavaScript体系
-source: "C:/Users/caojianing/Downloads/NotebookLM可上传书籍/深入理解 TypeScript.pdf"
+source: "raw/sources/深入理解 TypeScript.pdf"
 created: 2026-05-03
 updated: 2026-05-03
 type: book-summary

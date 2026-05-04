@@ -3,7 +3,7 @@ title: javascript高级程序设计
 author: Nicholas C. Zakas / 人民邮电出版社
 tags: [javascript, 红宝书, 基础]
 category: 02-后端知识体系/04-Node.js体系
-source: "C:/Users/caojianing/Downloads/NotebookLM可上传书籍/javascript高级程序设计.pdf"
+source: "raw/sources/javascript高级程序设计.pdf"
 created: 2026-05-03
 updated: 2026-05-03
 type: book-summary

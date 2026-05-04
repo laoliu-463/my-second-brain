@@ -3,7 +3,7 @@ title: 深入React技术栈
 author: 陈天河 / 人民邮电出版社
 tags: [react, javascript, 前端, 框架]
 category: 02-后端知识体系/04-JavaScript体系
-source: "C:/Users/caojianing/Downloads/NotebookLM可上传书籍/深入React技术栈.pdf"
+source: "raw/sources/深入React技术栈.pdf"
 created: 2026-05-03
 updated: 2026-05-03
 type: book-summary

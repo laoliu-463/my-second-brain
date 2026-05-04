@@ -3,7 +3,7 @@ title: tcp源码分析
 author: W. Richard Stevens / 机械工业出版社
 tags: [tcp, ip, 网络协议, 源码分析]
 category: 02-后端知识体系/06-网络与分布式
-source: "C:/Users/caojianing/Downloads/NotebookLM可上传书籍/tcp源码分析.pdf"
+source: "raw/sources/tcp源码分析.pdf"
 created: 2026-05-03
 updated: 2026-05-03
 type: book-summary

@@ -3,7 +3,7 @@ title: Java核心技术卷2高级特性
 author: Cay S. Horstmann / 机械工业出版社
 tags: [java, corejava, 高级特性]
 category: 02-后端知识体系/03-Java体系
-source: "C:/Users/caojianing/Downloads/NotebookLM可上传书籍/Java核心技术卷2高级特性原书第10版.pdf"
+source: "raw/sources/Java核心技术卷2高级特性原书第10版.pdf"
 created: 2026-05-03
 updated: 2026-05-03
 type: book-summary

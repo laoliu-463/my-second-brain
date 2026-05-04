@@ -3,7 +3,7 @@ title: CSS揭秘
 author: Lea Verou / 人民邮电出版社
 tags: [css, 前端, 布局, 动画]
 category: 02-后端知识体系/04-JavaScript体系
-source: "C:/Users/caojianing/Downloads/NotebookLM可上传书籍/CSS揭秘.pdf"
+source: "raw/sources/CSS揭秘.pdf"
 created: 2026-05-03
 updated: 2026-05-03
 type: book-summary
