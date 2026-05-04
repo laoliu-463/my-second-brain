@@ -3,7 +3,7 @@ title: Spring实战（第4版）
 author: Craig Walls / 人民邮电出版社
 tags: [spring, java, 企业开发]
 category: 02-后端知识体系/03-Java体系
-source: "待补充"
+source: "raw/sources/Spring实战中文版（第4版）.pdf"
 created: 2026-05-03
 updated: 2026-05-03
 type: book-summary
