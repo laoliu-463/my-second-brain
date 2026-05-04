@@ -23,4 +23,5 @@ TypeScript 深入指南，从基础类型到高级类型体操，系统掌握 TS
 ## 实践应用
 
 ## 相关资源
-- 源文件：C:/Users/caojianing/Downloads/NotebookLM可上传书籍/深入理解 TypeScript.pdf
+- PDF阅读：[[raw/sources/深入理解 TypeScript.pdf|打开 PDF]]
+- 源文件路径：C:/Users/caojianing/Downloads/NotebookLM可上传书籍/深入理解 TypeScript.pdf

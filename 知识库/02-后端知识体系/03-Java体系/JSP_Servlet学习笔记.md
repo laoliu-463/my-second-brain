@@ -23,4 +23,5 @@ Java Web 编程经典学习笔记，JSP + Servlet 是 Java Web 开发基础。
 ## 实践应用
 
 ## 相关资源
-- 源文件：C:/Users/caojianing/Downloads/NotebookLM可上传书籍/JSP_Servlet学习笔记(第2版).pdf
+- PDF阅读：[[raw/sources/JSP_Servlet学习笔记(第2版).pdf|打开 PDF]]
+- 源文件路径：C:/Users/caojianing/Downloads/NotebookLM可上传书籍/JSP_Servlet学习笔记(第2版).pdf

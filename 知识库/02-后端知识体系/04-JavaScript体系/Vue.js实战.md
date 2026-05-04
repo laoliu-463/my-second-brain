@@ -23,4 +23,5 @@ Vue.js 2.x 实战指南，覆盖组件、Vuex、路由等核心概念。
 ## 实践应用
 
 ## 相关资源
-- 源文件：C:/Users/caojianing/Downloads/NotebookLM可上传书籍/Vue.js实战.pdf
+- PDF阅读：[[raw/sources/Vue.js实战.pdf|打开 PDF]]
+- 源文件路径：C:/Users/caojianing/Downloads/NotebookLM可上传书籍/Vue.js实战.pdf

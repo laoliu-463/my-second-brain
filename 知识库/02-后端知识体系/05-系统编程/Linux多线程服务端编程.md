@@ -130,4 +130,5 @@ type: book-summary
 ## 实践应用
 
 ## 相关资源
-- 源文件：C:/Users/caojianing/Downloads/NotebookLM可上传书籍/Linux多线程服务端编程 书签高清非扫描 - 陈硕.pdf
+- PDF阅读：[[raw/sources/Linux多线程服务端编程 书签高清非扫描 - 陈硕.pdf|打开 PDF]]
+- 源文件路径：C:/Users/caojianing/Downloads/NotebookLM可上传书籍/Linux多线程服务端编程 书签高清非扫描 - 陈硕.pdf

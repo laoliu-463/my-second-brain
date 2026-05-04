@@ -130,4 +130,5 @@ Java 8 新特性实战指南，覆盖 Lambda、Stream、Optional 等函数式编
 ## 实践应用
 
 ## 相关资源
-- 源文件：C:/Users/caojianing/Downloads/NotebookLM可上传书籍/Java 8 实战.pdf
+- PDF阅读：[[raw/sources/Java 8 实战.pdf|打开 PDF]]
+- 源文件路径：C:/Users/caojianing/Downloads/NotebookLM可上传书籍/Java 8 实战.pdf

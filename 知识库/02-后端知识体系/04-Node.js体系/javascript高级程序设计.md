@@ -23,4 +23,5 @@ JavaScript 高级程序设计，红宝书，JS 语言核心权威读物（注意
 ## 实践应用
 
 ## 相关资源
-- 源文件：C:/Users/caojianing/Downloads/NotebookLM可上传书籍/javascript高级程序设计.pdf
+- PDF阅读：[[raw/sources/javascript高级程序设计.pdf|打开 PDF]]
+- 源文件路径：C:/Users/caojianing/Downloads/NotebookLM可上传书籍/javascript高级程序设计.pdf

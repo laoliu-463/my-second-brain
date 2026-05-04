@@ -130,4 +130,5 @@ type: book-summary
 ## 实践应用
 
 ## 相关资源
-- 源文件：待补充
+- PDF阅读：[[raw/sources/你不知道的JavaScript（上卷）.pdf|打开 PDF]]
+- 源文件路径：待补充

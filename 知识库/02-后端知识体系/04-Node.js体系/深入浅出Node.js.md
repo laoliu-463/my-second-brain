@@ -130,4 +130,5 @@ type: book-summary
 ## 实践应用
 
 ## 相关资源
-- 源文件：C:/Users/caojianing/Downloads/NotebookLM可上传书籍/深入浅出Node.js.pdf
+- PDF阅读：[[raw/sources/深入浅出Node.js.pdf|打开 PDF]]
+- 源文件路径：C:/Users/caojianing/Downloads/NotebookLM可上传书籍/深入浅出Node.js.pdf

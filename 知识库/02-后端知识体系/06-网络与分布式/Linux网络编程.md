@@ -23,4 +23,5 @@ Linux 网络编程经典，覆盖 socket 编程、TCP/UDP、高级 I/O 模型。
 ## 实践应用
 
 ## 相关资源
-- 源文件：C:/Users/caojianing/Downloads/NotebookLM可上传书籍/Linux网络编程.pdf
+- PDF阅读：[[raw/sources/Linux网络编程.pdf|打开 PDF]]
+- 源文件路径：C:/Users/caojianing/Downloads/NotebookLM可上传书籍/Linux网络编程.pdf

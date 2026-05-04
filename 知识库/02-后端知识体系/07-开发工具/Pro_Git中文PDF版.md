@@ -130,4 +130,5 @@ Git 官方权威指南，从基础到高级，覆盖分支、GitHub 协作、Git
 ## 实践应用
 
 ## 相关资源
-- 源文件：C:/Users/caojianing/Downloads/NotebookLM可上传书籍/Pro Git中文PDF版.pdf
+- PDF阅读：[[raw/sources/Pro Git中文PDF版.pdf|打开 PDF]]
+- 源文件路径：C:/Users/caojianing/Downloads/NotebookLM可上传书籍/Pro Git中文PDF版.pdf
