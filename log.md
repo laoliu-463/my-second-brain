@@ -11,6 +11,15 @@
 - 文件备份：ai主题-prompt-深度认知干货菁英风v4终极版.txt 保存到知识库
 - 文档已更新
 
+## [2026-05-03] organize | C盘新发现12本技术书籍入库：数学基础/操作系统/编译原理（11本入库，Rudin英文版扫描）
+
+- 新增目录：知识库/02-后端知识体系/11-数学基础、12-计算机组成与体系结构、13-编译原理
+- PDF来源：C:\Users\caojianing\Downloads\专业课电子资料
+- 11本书：离散数学(Rosen 7e 826p TOC 604条)、现代操作系统(Tanenbaum 4e 626p TOC 508条)、鸟哥Linux私房菜(1051p TOC 615条)、计算机组成结构化方法(582p TOC 289条)、计算机科学导论(450p TOC 428条)、编译原理龙书(631p TOC 631条)、数据结构C++版(524p TOC 502条)、线性代数(567p TOC 90条)、概率导论(456p TOC 180条)、Rudin数学分析中文(381p TOC 13条)
+- raw/sources 新增 11 个 PDF，总计 49 个 PDF
+- index.md 更新，新增 11 个页面，总计 54 个后端知识体系页面
+- log.md 已更新
+
 ## [2026-05-03] organize | NotebookLM书籍导入知识库：建立技术书籍Wiki体系（37本PDF）
 
 - 源路径：C:\Users\caojianing\Downloads\NotebookLM可上传书籍

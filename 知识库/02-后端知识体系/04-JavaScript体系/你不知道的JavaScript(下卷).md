@@ -16,6 +16,10 @@ type: book-summary
 ## 一句话描述
 深入 ES6 新增特性：Symbol、Proxy、Reflect、Set/Map、Iterator 等。
 
+## 相关资源
+
+PDF阅读：[[raw/sources/你不知道的JavaScript（下卷）.pdf|打开 PDF]]
+
 ## 核心内容
 
 共 290 页，218 条目录。
@@ -125,10 +129,3 @@ type: book-summary
   - ... 共 218 条目录，完整版见源文件
 
 > 完整目录见源文件 PDF。
-
-
-## 实践应用
-
-## 相关资源
-- PDF阅读：[[raw/sources/你不知道的JavaScript（下卷）.pdf|打开 PDF]]
-- 源文件：raw/sources/你不知道的JavaScript（下卷）.pdf

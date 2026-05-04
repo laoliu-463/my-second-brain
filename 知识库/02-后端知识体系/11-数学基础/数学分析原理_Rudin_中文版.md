@@ -16,6 +16,10 @@ type: book-summary
 ## 一句话描述
 数学分析原理（Rudin），中文版，与英文版为同一本书的不同语言版本，二选一学习即可。
 
+## 相关资源
+
+PDF阅读：[[raw/sources/数学分析原理(Rudin_着)中文版.pdf|打开 PDF]]
+
 ## 核心内容
 
 共 381 页，13 条目录。
@@ -37,11 +41,3 @@ type: book-summary
   - 第11章 Lebesgue 理论（第342页）
 
 > 完整目录见源文件 PDF。
-
-## 关键概念
-
-## 实践应用
-
-## 相关资源
-- PDF阅读：[[raw/sources/数学分析原理(Rudin_着)中文版.pdf|打开 PDF]]
-- 源文件路径：raw/sources/数学分析原理(Rudin_着)中文版.pdf

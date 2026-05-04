@@ -16,6 +16,10 @@ type: book-summary
 ## 一句话描述
 鸟哥的 Linux 私房菜基础学习篇第四版，Linux 入门必读，覆盖鸟哥学习环境、Linux 基本操作、权限、vim、shell、磁盘管理、软件安装等。
 
+## 相关资源
+
+PDF阅读：[[raw/sources/鸟哥的Linux私房菜-基础学习篇(第四版)高清完整书签PDF版.pdf|打开 PDF]]
+
 ## 核心内容
 
 共 1051 页，615 条目录。
@@ -145,11 +149,3 @@ type: book-summary
   - ... 共 615 条目录，完整版见源文件
 
 > 完整目录见源文件 PDF。
-
-## 关键概念
-
-## 实践应用
-
-## 相关资源
-- PDF阅读：[[raw/sources/鸟哥的Linux私房菜-基础学习篇(第四版)高清完整书签PDF版.pdf|打开 PDF]]
-- 源文件路径：raw/sources/鸟哥的Linux私房菜-基础学习篇(第四版)高清完整书签PDF版.pdf

@@ -16,6 +16,10 @@ type: book-summary
 ## 一句话描述
 陈硕经典之作，深入讲解 Linux 多线程网络编程、muduo 库设计思想。
 
+## 相关资源
+
+PDF阅读：[[raw/sources/Linux多线程服务端编程 书签高清非扫描 - 陈硕.pdf|打开 PDF]]
+
 ## 核心内容
 
 共 713 页，302 条目录。
@@ -125,10 +129,3 @@ type: book-summary
   - ... 共 302 条目录，完整版见源文件
 
 > 完整目录见源文件 PDF。
-
-
-## 实践应用
-
-## 相关资源
-- PDF阅读：[[raw/sources/Linux多线程服务端编程 书签高清非扫描 - 陈硕.pdf|打开 PDF]]
-- 源文件路径：C:/Users/caojianing/Downloads/NotebookLM可上传书籍/Linux多线程服务端编程 书签高清非扫描 - 陈硕.pdf

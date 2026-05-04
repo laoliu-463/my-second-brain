@@ -16,12 +16,6 @@ type: book-summary
 ## 一句话描述
 用 Wireshark 工具分析网络流量，是排查网络问题的实用指南。
 
-## 核心内容
-
-## 关键概念
-
-## 实践应用
-
 ## 相关资源
-- PDF阅读：[[raw/sources/Wireshark网络分析就这么简单.pdf|打开 PDF]]
-- 源文件路径：C:/Users/caojianing/Downloads/NotebookLM可上传书籍/Wireshark网络分析就这么简单.pdf
+
+PDF阅读：[[raw/sources/Wireshark网络分析就这么简单.pdf|打开 PDF]]

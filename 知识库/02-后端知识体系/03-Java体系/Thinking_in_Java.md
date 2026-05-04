@@ -16,12 +16,6 @@ type: book-summary
 ## 一句话描述
 Java 编程思想，Java 领域圣经，从设计哲学角度深度解析 Java 语言。
 
-## 核心内容
-
-## 关键概念
-
-## 实践应用
-
 ## 相关资源
-- PDF阅读：[[raw/sources/Thinking+in+Java+4th+Edition（JAVA编程思想 第四版 英文版）.pdf|打开 PDF]]
-- 源文件路径：待补充
+
+PDF阅读：[[raw/sources/Thinking+in+Java+4th+Edition（JAVA编程思想 第四版 英文版）.pdf|打开 PDF]]

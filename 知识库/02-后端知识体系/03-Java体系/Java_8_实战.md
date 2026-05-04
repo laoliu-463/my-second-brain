@@ -16,6 +16,10 @@ type: book-summary
 ## 一句话描述
 Java 8 新特性实战指南，覆盖 Lambda、Stream、Optional 等函数式编程核心。
 
+## 相关资源
+
+PDF阅读：[[raw/sources/Java 8 实战.pdf|打开 PDF]]
+
 ## 核心内容
 
 共 374 页，313 条目录。
@@ -125,10 +129,3 @@ Java 8 新特性实战指南，覆盖 Lambda、Stream、Optional 等函数式编
   - ... 共 313 条目录，完整版见源文件
 
 > 完整目录见源文件 PDF。
-
-
-## 实践应用
-
-## 相关资源
-- PDF阅读：[[raw/sources/Java 8 实战.pdf|打开 PDF]]
-- 源文件路径：C:/Users/caojianing/Downloads/NotebookLM可上传书籍/Java 8 实战.pdf

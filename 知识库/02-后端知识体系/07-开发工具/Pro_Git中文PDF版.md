@@ -16,6 +16,10 @@ type: book-summary
 ## 一句话描述
 Git 官方权威指南，从基础到高级，覆盖分支、GitHub 协作、Git 工作流。
 
+## 相关资源
+
+PDF阅读：[[raw/sources/Pro Git中文PDF版.pdf|打开 PDF]]
+
 ## 核心内容
 
 共 518 页，124 条目录。
@@ -125,10 +129,3 @@ Git 官方权威指南，从基础到高级，覆盖分支、GitHub 协作、Git
   - ... 共 124 条目录，完整版见源文件
 
 > 完整目录见源文件 PDF。
-
-
-## 实践应用
-
-## 相关资源
-- PDF阅读：[[raw/sources/Pro Git中文PDF版.pdf|打开 PDF]]
-- 源文件路径：C:/Users/caojianing/Downloads/NotebookLM可上传书籍/Pro Git中文PDF版.pdf

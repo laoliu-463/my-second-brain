@@ -16,12 +16,6 @@ type: book-summary
 ## 一句话描述
 SSM（Spring + SpringMVC + MyBatis）是当前 Java 企业开发主流框架组合。
 
-## 核心内容
-
-## 关键概念
-
-## 实践应用
-
 ## 相关资源
-- PDF阅读：[[raw/sources/Spring MVC+MYBatis企业应用实战.pdf|打开 PDF]]
-- 源文件路径：待补充
+
+PDF阅读：[[raw/sources/Spring MVC+MYBatis企业应用实战.pdf|打开 PDF]]

@@ -16,20 +16,14 @@ type: book-summary
 ## 一句话描述
 数学分析原理（Rudin），数学系经典教材，英文原版，覆盖实数系统、拓扑、序列、连续、可微、黎曼积分等。
 
+## 相关资源
+
+PDF阅读：[[raw/sources/Rudin.pdf|打开 PDF]]
+
 ## 核心内容
 
 共 351 页，0 条目录。
 
 ### 目录索引（部分）
 
-
-
 > 完整目录见源文件 PDF。
-
-## 关键概念
-
-## 实践应用
-
-## 相关资源
-- PDF阅读：[[raw/sources/Rudin.pdf|打开 PDF]]
-- 源文件路径：raw/sources/Rudin.pdf

@@ -16,6 +16,10 @@ type: book-summary
 ## 一句话描述
 深入浅出 Node.js，Node.js 领域标杆读物，深度讲解 Node.js 异步 I/O、事件循环、模块系统、网络编程。
 
+## 相关资源
+
+PDF阅读：[[raw/sources/深入浅出Node.js.pdf|打开 PDF]]
+
 ## 核心内容
 
 共 353 页，297 条目录。
@@ -125,10 +129,3 @@ type: book-summary
   - ... 共 297 条目录，完整版见源文件
 
 > 完整目录见源文件 PDF。
-
-
-## 实践应用
-
-## 相关资源
-- PDF阅读：[[raw/sources/深入浅出Node.js.pdf|打开 PDF]]
-- 源文件路径：C:/Users/caojianing/Downloads/NotebookLM可上传书籍/深入浅出Node.js.pdf

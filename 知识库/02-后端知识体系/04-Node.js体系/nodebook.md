@@ -16,12 +16,6 @@ type: book-summary
 ## 一句话描述
 Node.js 基础入门经典，全面讲解 Node.js 环境、模块、异步 I/O、Express、Koa 等核心内容。
 
-## 核心内容
-
-## 关键概念
-
-## 实践应用
-
 ## 相关资源
-- PDF阅读：[[raw/sources/nodebook.pdf|打开 PDF]]
-- 源文件路径：C:/Users/caojianing/Downloads/NotebookLM可上传书籍/nodebook.pdf
+
+PDF阅读：[[raw/sources/nodebook.pdf|打开 PDF]]

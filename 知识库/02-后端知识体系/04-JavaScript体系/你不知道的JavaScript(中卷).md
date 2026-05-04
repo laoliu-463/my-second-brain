@@ -16,6 +16,10 @@ type: book-summary
 ## 一句话描述
 深入 JavaScript 异步编程、Promise、生成器、模块化等中高级主题。
 
+## 相关资源
+
+PDF阅读：[[raw/sources/你不知道的JavaScript（中卷）.pdf|打开 PDF]]
+
 ## 核心内容
 
 共 382 页，240 条目录。
@@ -125,10 +129,3 @@ type: book-summary
   - ... 共 240 条目录
 
 > 完整目录见源文件 PDF。
-
-
-## 实践应用
-
-## 相关资源
-- PDF阅读：[[raw/sources/你不知道的JavaScript（中卷）.pdf|打开 PDF]]
-- 源文件：raw/sources/你不知道的JavaScript（中卷）.pdf
