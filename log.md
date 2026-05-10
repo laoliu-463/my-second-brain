@@ -651,4 +651,6 @@
 - 新增：08-招商结算与佣金体系（colonelsettlement_order表结构+金额字段分单位说明/colonel_activity+product_operation_state实体/佣金公式：serviceFeeNet=ticketIncome-techServiceFee-talentCommission/毛利grossProfit三层减法/按activityId分桶+O(n)遍历避免O(n²)/分账比例配置（system_config表/活动级别override>全局默认/比例校验负数无效回退默认值）/multiplyCent精度处理HALF_UP四舍五入/CommissionSummary7字段结果）
 - 新增：09-达人管理与资格体系（Talent表结构+27字段+douyin_uid主键/虚拟字段13个（enrichTalentCards动态填充/月销/私海公海/认领人信息/档位计算）/TalentClaim公海私海分离/保护期机制/Redis分布式锁防并发抢单/归属覆盖+操作日志/Enrich状态机5种状态+EnrichOrchestrator/TalentInputParser解析抖音链接或号/等级推算LV0/LV1/LV2/批量IN分批查询200条/达人详情页四表JOIN优化/DataScope三级过滤）
 - 新增：10-商品运营与活动链路（ProductSnapshot快照表+ProductOperationState运营状态表分离查询+PickSourceMapping归因双写/ProductBizStatus状态机6状态+流转图+各操作前置条件约束/转链流程：ASSIGNED→PROMOTION_LINK→LINKED/推广链接生成（generateLink调用+pick_extra构建）/双重保存PromotionLink+PickSourceMapping（nativeColonelBuyin resolved分支）/选品库入选条件+分页游标模式（200条一批）/两表分离查询+内存拼接替代JOIN/商品按负责人分页getAssignedPickPage/已知名Bug：colonelBuyinId写入null导致归因链路断裂）
+- 新增：11-爬虫数据采集体系（CrawlerBase基类+模板方法模式（fetch睡眠nextUa指数退避）/UaPool5个UA覆盖iOS/Android/iPad/Windows/Mac/DouyinTalentCrawler爬取流程：URL编码+3次重试+10秒超时+JSON解析+credit_score边界0-5/两个定时任务：每30分钟全量爬取talent表+每2小时增量更新crawler_talent_info表（均受public-page-crawl-enabled配置控制，默认关闭）/crawlAndSave逐条upsert/搜索优先crawler_talent_info表再回退talent表/findByTalentId带双表回退/已知约束：无代理池+无IP轮换+upsert无事务打包）
+
 
