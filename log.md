@@ -646,4 +646,5 @@
 - index.md总览页+Java体系索引页+全局index.md同步更新，页面数51→56
 - 补充：02-核心领域模型详解和03-本地与三方调用SOP分离补充真实源码细节，04-核心代码流程详解已删除（内容合并入现有3篇）
 - 新增：04-测试规范与TDD评估（JUnit5+Mockito+AssertJ规范、JaCoCo 80% LINE覆盖率规则、TDD成熟度评估：项目为测试后置非TDD、改进建议含短期/中期/长期三档路径）
+- 新增：05-认证授权体系（JWT无状态认证+Spring Security Filter双保险、JwtAuthInterceptor纵深防御、双Token刷新、Redis黑名单吊销、@RequireRoles角色校验AOP、@DataScope数据权限AOP、BCrypt密码、dataScope三级体系）
 

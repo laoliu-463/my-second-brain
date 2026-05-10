@@ -24,6 +24,9 @@ sources: [P1-5.2任务上下文, ProductService.java, AttributionService.java, P
 ### Part 4：测试规范与 TDD 评估
 [[DDD实战-团长SaaS系统/04-测试规范与TDD评估]]
 
+### Part 5：认证授权体系
+[[DDD实战-团长SaaS系统/05-认证授权体系]]
+
 ## 核心问题背景（P1-5.2）
 
 **根因**：活动创建时 `colonel_activity` 表的 `colonel_buyin_id` 主字段为 null（COALESCE UPSERT 问题），但 `extra_data` JSONB 字段有值。旧代码只查主字段不查 `extra_data`，导致抖店原生归因链路断裂。

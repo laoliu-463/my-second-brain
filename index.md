@@ -59,7 +59,8 @@
 | [[DDD实战-团长SaaS系统/01-战略设计-限界上下文划分]] | 5 个限界上下文划分：Activity、Promotion Channel、Order、Settlement、Integration | 2026-05-10 |
 | [[DDD实战-团长SaaS系统/02-核心领域模型详解]] | 聚合根、值对象、领域服务（ColonelBuyinIdResolver、AttributionPolicy）详解 | 2026-05-10 |
 | [[DDD实战-团长SaaS系统/03-本地与三方调用SOP分离]] | 6 个阶段 SOP 梳理，本地数据库操作与抖音 API 调用完全分开 | 2026-05-10 |
-| [[DDD实战-团长SaaS系统/04-测试规范与TDD评估]] | JUnit5 + Mockito + AssertJ 测试规范、JaCoCo 80% 覆盖率门槛、TDD 成熟度评估与改进路径 | 2026-05-10 |
+| [[DDD实战-团长SaaS系统/04-测试规范与TDD评估]] | JUnit5 + Mockito + AssertJ 测试规范、JaCoCo 80% 覆盖率门槛、TDD 成熟度评估 | 2026-05-10 |
+| [[DDD实战-团长SaaS系统/05-认证授权体系]] | JWT 无状态认证 + Spring Security Filter + AOP 鉴权（@RequireRoles + @DataScope）、双 Token 刷新、Redis 黑名单、BCrypt 密码 | 2026-05-10 |
 
 ### 04-JavaScript体系 / Node.js体系
 
