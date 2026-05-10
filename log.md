@@ -644,4 +644,5 @@
 - 新增4个文档：index.md、01-战略设计、02-核心领域模型、03-本地与三方调用SOP分离
 - 核心内容：团长SaaS系统DDD拆解，5个限界上下文、核心聚合与值对象、ColonelBuyinIdResolver分层解析策略（POLICY）、AttributionPolicy归因策略链、本地vs三方调用SOP完全分离
 - index.md总览页+Java体系索引页+全局index.md同步更新，页面数51→56
+- 补充：02-核心领域模型详解和03-本地与三方调用SOP分离补充真实源码细节，04-核心代码流程详解已删除（内容合并入现有3篇）
 

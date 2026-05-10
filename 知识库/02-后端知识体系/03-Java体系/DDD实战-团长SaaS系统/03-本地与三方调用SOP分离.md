@@ -3,7 +3,7 @@ title: 03-本地与三方调用SOP分离
 tags: [DDD, 本地操作, 三方API, 抖音开放平台, SOP]
 created: 2026-05-10
 updated: 2026-05-10
-sources: [ProductService.java, AttributionService.java, PickSourceMappingService.java]
+sources: [ProductService.java, AttributionService.java, PickSourceMappingService.java, ProductBizStatus.java]
 ---
 
 # 03-本地与三方调用 SOP 分离
@@ -71,6 +71,33 @@ sources: [ProductService.java, AttributionService.java, PickSourceMappingService
 
 ---
 
+## 商品业务状态机（ProductBizStatus）
+
+理解 SOP 阶段二和三的前提：商品在活动中有一个业务状态机，限制了每个阶段允许的操作。
+
+```
+PENDING_AUDIT (待审核)
+    ↓ auditProduct(approved=true)
+APPROVED (已通过)
+    ↓ assignProduct(assigneeId)
+ASSIGNED (已分配)
+    ↓ generatePromotionLink()
+LINKED (已转链)
+    ↓ 转链失败
+PENDING_AUDIT (回退) / ASSIGNED (回退)
+```
+
+| 状态 | 含义 | 允许的操作 |
+|---|---|---|
+| `PENDING_AUDIT` | 待审核 | `auditProduct` |
+| `APPROVED` | 已通过 | `assignProduct` |
+| `ASSIGNED` | 已分配 | `generatePromotionLink`（首次转链） |
+| `LINKED` | 已转链 | `generatePromotionLink`（重新转链） |
+
+转链的前置条件：`state.bizStatus` 必须为 `ASSIGNED`（首次）或 `LINKED`（重新）。
+
+---
+
 ## 阶段二：商品入库
 
 **输入**：活动 ID + 抖店商品 ID
@@ -120,97 +147,151 @@ sources: [ProductService.java, AttributionService.java, PickSourceMappingService
         ├─ 查 product_snapshot 表
         └─ 返回 ProductSnapshot
 
+        源码：ProductService.java:897
+        ProductSnapshot snapshot = ensureSnapshotExists(activityId, productId);
+
 步骤2  resolveColonelBuyinIdForNativeMapping(activityId, productId)
-        返回 NativeColonelBuyinResolution{colonelBuyinId, source}
-        │
         ├─ ① 查 product_snapshot.raw_payload.extra_data.colonel_buyin_id    ← 本地读
         ├─ ② 查 product_operation_state.audit_payload.extra_data            ← 本地读
         ├─ ③ 查 colonel_activity 主字段 colonel_buyin_id                   ← 本地读
         │       + extra_data JSONB（patch 新增 fallback）                 ← 本地读
         └─ ④ hydrateColonelActivityMeta() 返回 null（不触发 API）
 
+        源码：ProductService.java:898
+        NativeColonelBuyinResolution nativeColonelBuyin =
+            resolveColonelBuyinIdForNativeMapping(
+                snapshot.getActivityId(), snapshot.getProductId());
+
+        源码（分层策略）：ProductService.java:1101-1119
+        源码（第3层修复点）：ProductService.java:1121-1141
+
 步骤3  判断 colonelBuyinId 是否有值
         ├─ 有值 → 写 native mapping（source_type=NATIVE）
         └─ 无值 → 跳过 native mapping，打 warn 日志
+
+        源码：ProductService.java:956-1003
+        if (nativeColonelBuyin.resolved()) {
+            pickSourceMappingService.saveOrUpdate(..., colonelBuyinId,
+                    PickSourceMappingService.SOURCE_TYPE_NATIVE);
+        } else {
+            pickSourceMappingService.saveOrUpdate(..., null);  // 无 colonelBuyinId
+        }
 ```
 
 ### 3b. 抖音 API 调用
 
 ```
 步骤4  douyinPromotionGateway.generateLink()
-        buyin.promotionLink.generate
+        接口：buyin.promotionLink.generate
         输入：externalUniqueId、promotionScene、商品列表、needShortLink
         输出：promoteLink、shortLink、pickSource、shortId、pickExtra
-        ──────────────────────────────────────────────────────────────
-        调用方式：
-        DouyinPromotionGateway.PromotionLinkCommand cmd =
-            new PromotionLinkCommand(externalUniqueId, scene, productIds, needShortLink,
-                new PromotionContext(userId, deptId, productId, activityId, ...));
+
+        源码：ProductService.java:916-933
         DouyinPromotionGateway.PromotionLinkResult result =
-            douyinPromotionGateway.generateLink(cmd);
+            douyinPromotionGateway.generateLink(
+                new DouyinPromotionGateway.PromotionLinkCommand(
+                        finalExternalId,          // 抖店 API 必填
+                        finalPromotionScene,      // 推广场景，4=商品详情页
+                        List.of(snapshot.getProductId()),
+                        needShortLink,
+                        new DouyinPromotionGateway.PromotionContext(
+                                userId, deptId,
+                                snapshot.getProductId(),
+                                snapshot.getActivityId(),
+                                snapshot.getDetailUrl(),
+                                finalScene, talentId,
+                                desiredPickExtra   // 达人标识
+                        )
+                )
+        );
 ```
 
 ### 3c. 本地写（基于 API 结果）
 
 ```
 步骤5  保存 promotion_link 表（INSERT）
-        ├─ linkId、activityId、productId、userId
-        ├─ promotionUrl（推广长链）
-        ├─ shortLink（短链）
-        ├─ pickSource、pickExtra（抖店返回）
-        └─ status = ACTIVE
-        ──────────────────────────────────────────────────────────────
+
+        源码：ProductService.java:935-953
+        PromotionLink link = new PromotionLink();
+        link.setId(UUID.randomUUID());
+        link.setProductId(snapshot.getProductId());
+        link.setActivityId(snapshot.getActivityId());
+        link.setTalentId(talentId);
+        link.setChannelUserId(userId);
+        link.setChannelUserName(user.getRealName());
+        link.setOriginalProductUrl(snapshot.getDetailUrl());
+        link.setPromotionUrl(result.promoteLink());
+        link.setShortUrl(result.shortLink());
+        link.setPickSource(result.pickSource());   // 抖店返回
+        link.setPickExtra(result.pickExtra());     // 达人标识
+        link.setLinkStatus("ACTIVE");
+        link.setOperatorId(userId);
+        link.setOperatorName(user.getRealName());
+        link.setCreatedAt(LocalDateTime.now());
+        link.setUpdatedAt(LocalDateTime.now());
         promotionLinkMapper.insert(link);
 ```
 
-### 3d. 条件触发：API 补水（ colonelBuyinId 仍为 null 时）
+### 3d. 条件触发：API 补水（colonelBuyinId 仍为 null 时）
 
 ```
 步骤6  如果 3a.步骤2 的 colonelBuyinId 仍为 null
         调用 hydrateColonelActivityMeta()
-        │
-        │  调用抖音 API
-        ├─ activityApi.detail(null, activityId)
-        │  enterprise.marketing.promotion.activity.detail
-        │
-        │  解析响应
-        ├─ 读 data.colonel_buyin_id（19位数字）
-        ├─ 读 data.extra_data.colonel_buyin_id（兜底）
-        │
-        │  写回本地
-        └─ colonelActivityMapper.upsertRealActivityMeta()
-           UPSERT 到 colonel_activity 表
-           （主字段 colonel_buyin_id + extra_data JSONB）
-        ──────────────────────────────────────────────────────────────
-        注意：UPSERT 用 COALESCE，新值非 null 时才覆盖旧值
-        如果旧记录主字段为 null，新值写入成功
-        失败则跳过，不阻断转链主流程
+
+        源码：ProductService.java:1143-1175
+        // 第4层兜底：调抖音 API 回填
+        private String hydrateColonelActivityMeta(String activityId) {
+            try {
+                Map<String, Object> response = activityApi.detail(null, activityId);
+                Map<String, Object> data = readPrimaryDataNode(response);
+                Long colonelBuyinId = readLong(data,
+                        "colonel_buyin_id", "colonelBuyinId");
+                if (colonelBuyinId == null || colonelBuyinId <= 0L) return null;
+
+                // UPSERT 到 colonel_activity 表（含 extra_data JSONB）
+                colonelActivityMapper.upsertRealActivityMeta(...);
+                return String.valueOf(colonelBuyinId);
+            } catch (Exception ex) {
+                // 不阻断转链主流程
+                log.warn("Hydrate colonel activity meta failed, activityId={}",
+                        activityId, ex);
+                return null;
+            }
+        }
 ```
 
-### 3e. 条件触发：写 native mapping（ colonelBuyinId 有值时）
+### 3e. 条件触发：写 native mapping（colonelBuyinId 有值时）
 
 ```
 步骤7  if (nativeColonelBuyin.resolved())
+
+        源码：ProductService.java:956-980
         pickSourceMappingService.saveOrUpdate(
-            userId, userRealName, deptId,
-            talentId, talentName,
-            shortId, uuidSeed,
-            pickSource,        // ← 传入 colonelBuyinId（关键）
-            productId,
-            activityId,
-            sourceUrl,
-            convertedUrl,
-            promotionLinkId,
-            scene,
-            pickExtra,
-            colonelBuyinId,    // ← 传入 colonelBuyinId（关键）
-            SOURCE_TYPE_NATIVE // ← sourceType = NATIVE（关键）
+                userId,
+                user != null ? user.getRealName() : "unknown",
+                deptId,
+                talentId,
+                null,
+                result.shortId(),
+                null,
+                result.pickSource(),          // 抖店返回的 pickSource
+                snapshot.getProductId(),
+                snapshot.getActivityId(),
+                snapshot.getDetailUrl(),
+                result.promoteLink(),
+                link.getId(),
+                finalScene,
+                result.pickExtra(),
+                nativeColonelBuyin.colonelBuyinId(),   // ← colonelBuyinId 写入
+                PickSourceMappingService.SOURCE_TYPE_NATIVE  // ← sourceType
         );
-        ──────────────────────────────────────────────────────────────
+
         saveOrUpdate 内部逻辑：
         ├─ existing == null → INSERT 新记录
         ├─ existing != null → UPDATE（更新 userId、validUntil）
         └─ DuplicateKeyException → 并发保护，skip
+
+        源码：PickSourceMappingService.java（核心 upsert 逻辑）
 ```
 
 ### 完整时序图
@@ -223,26 +304,27 @@ sources: [ProductService.java, AttributionService.java, PickSourceMappingService
   │          │←─snapshot──────────│                │                  │
   │          │                                     │                  │
   │          │──resolveColonelBuyinId────────────→│                  │
-  │          │  ├─snapshot.extra_data.buyinId      │                  │
-  │          │  ├─operationState.audit_payload      │                  │
-  │          │  ├─activity主字段（null）           │                  │
-  │          │  └─activity.extra_data（null）─────→│ UPSERT返回null   │
-  │          │←─返回null──────────────────────────│                  │
+  │          │  ├─snapshot.raw_payload.extra_data.buyinId            │
+  │          │  ├─operationState.audit_payload                      │
+  │          │  ├─activity主字段（null）                           │
+  │          │  └─activity.extra_data（null）────→│ UPSERT返回null  │
+  │          │←─返回NativeColonelBuyinResolution.unresolved()─────│
   │          │                                     │                  │
-  │          │──generateLink─────────────────────→│ 抖音API         │
-  │          │←─返回promoteLink/pickSource────────│                  │
+  │          │──generateLink─────────────────────→│  抖音API         │
+  │          │←─返回promoteLink/pickSource─────────────────────────│
   │          │                                     │                  │
-  │          │──upsertRealActivityMeta────────────────────────────────→│
-  │          │                    UPSERT(colonel_buyin_id+extra_data) │
-  │          │←─返回null─────────────────────────│                  │
+  │          │──upsertRealActivityMeta───────────────────────────────→│
+  │          │           UPSERT(colonel_buyin_id+extra_data)        │
+  │          │←─UPSERT成功────────────────────────────────────────│
   │          │                                     │                  │
   │          │──resolveColonelBuyinId（重试）─────→│                  │
-  │          │  └─activity.extra_data（有值）────→│ UPSERT成功      │
-  │          │←─返回colonelBuyinId────────────────│                  │
+  │          │  └─activity.extra_data（有值）────→│ UPSERT成功     │
+  │          │←─返回NativeColonelBuyinResolution(COLONEL_ACTIVITY)──│
   │          │                                     │                  │
   │          │──saveOrUpdate(NATIVE)────────────────────────────────→│
-  │          │                        INSERT native mapping           │
-  │          │←─成功──────────────────────────────│                  │
+  │          │               INSERT native mapping                      │
+  │          │  (source_type='NATIVE', colonelBuyinId有值)            │
+  │          │←─成功────────────────────────────────────────────────│
   │←─返回链接──│                                     │                  │
 ```
 
