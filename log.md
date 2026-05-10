@@ -647,4 +647,5 @@
 - 补充：02-核心领域模型详解和03-本地与三方调用SOP分离补充真实源码细节，04-核心代码流程详解已删除（内容合并入现有3篇）
 - 新增：04-测试规范与TDD评估（JUnit5+Mockito+AssertJ规范、JaCoCo 80% LINE覆盖率规则、TDD成熟度评估：项目为测试后置非TDD、改进建议含短期/中期/长期三档路径）
 - 新增：06-抖店开放平台集成（DouyinConfig/SDK初始化/双Token/Code换Token/提前异步刷新/token状态查询/gateway模式/条件注入/ContractFixtureProvider/订单同步滑动窗口/分页/同步锁/归因决策树/AttributionSourceNormalizer字段拍平/通道一pick_source归因（三级匹配）/通道二colonel_order_info归因（三级精确度+双团长/独家归属merchantId+talentUid/PickSourceMapping表结构/归因原因码15种/NATIVE类型/已知Bug：colonelBuyinId写入null+NO_PICK_SOURCE订单业务限制/抖店API清单6个）
+- 新增：07-样品生命周期（样品状态机8个状态+流转图+状态约束字段/超时关闭Job（每日2点/分布式锁+本地锁降级/COALESCE三时间字段判断超时起点）/出单自动完成（三条件channelUserId+talentUid+productId匹配/extra_data取talent_uid或author_id/状态日志）/达人资格校验（近30天销售额门槛+等级LV0/LV1/LV2/等级标准化A→LV2/B→LV1+粉丝数推算/ EligibilityResult五字段）/状态日志sample_status_log表）
 
