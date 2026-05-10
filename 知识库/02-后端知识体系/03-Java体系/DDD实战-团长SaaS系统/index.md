@@ -1,0 +1,44 @@
+---
+title: DDD实战-团长SaaS系统
+tags: [DDD, Java, SpringBoot, PostgreSQL, 抖音开放平台]
+created: 2026-05-10
+updated: 2026-05-10
+sources: [P1-5.2任务上下文, ProductService.java, AttributionService.java, PickSourceMappingService.java]
+---
+
+# DDD实战-团长SaaS系统
+
+基于真实业务需求（抖店团长 SaaS 管理平台）进行的 DDD 架构拆解与实战分析。技术栈：Spring Boot + Vue 3 + PostgreSQL + Redis + 抖音开放平台 API。
+
+## 系列索引
+
+### Part 1：战略设计（限界上下文划分）
+[[DDD实战-团长SaaS系统/01-战略设计-限界上下文划分]]
+
+### Part 2：核心领域模型详解
+[[DDD实战-团长SaaS系统/02-核心领域模型详解]]
+
+### Part 3：本地与三方调用 SOP 分离
+[[DDD实战-团长SaaS系统/03-本地与三方调用SOP分离]]
+
+## 核心问题背景（P1-5.2）
+
+**根因**：活动创建时 `colonel_activity` 表的 `colonel_buyin_id` 主字段为 null（COALESCE UPSERT 问题），但 `extra_data` JSONB 字段有值。旧代码只查主字段不查 `extra_data`，导致抖店原生归因链路断裂。
+
+**修复**：在 `ColonelBuyinIdResolver.resolveFromActivity()` 增加 `extra_data` fallback 查询，让分层解析策略（POLICY）补全最后一层。
+
+## 技术栈
+
+| 层级 | 技术选型 |
+|---|---|
+| 后端 | Spring Boot + MyBatis-Plus |
+| 数据库 | PostgreSQL + Redis |
+| 前端 | Vue 3 + Pinia + Axios |
+| 三方 API | 抖音开放平台（精选联盟、订单、推广链接） |
+| 部署 | Docker Compose + 宝塔面板 |
+
+## 相关概念
+
+- [[Spring实战(第4版)]]（Spring Boot 框架基础）
+- [[Thinking_in_Java]]（Java 面向对象设计）
+- [[DDD_血色绿茵联赛项目]]（DDD 实战参考）
