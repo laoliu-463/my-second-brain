@@ -7,7 +7,7 @@
 |||| 类别 | 页面数 | 最后更新 |
 |||------|--------|----------|
 | 总览与索引 | 1 | - |
-| 后端知识体系 | 55 | 2026-05-10 |
+| 后端知识体系 | 56 | 2026-05-10 |
 | 地缘政治 | 92 | 2026-05-01 |
 | 认知与成长 | 48 | 2026-05-03 |
 | 方法论与工具 | 13 | 2026-05-03 |
@@ -59,6 +59,7 @@
 | [[DDD实战-团长SaaS系统/01-战略设计-限界上下文划分]] | 5 个限界上下文划分：Activity、Promotion Channel、Order、Settlement、Integration | 2026-05-10 |
 | [[DDD实战-团长SaaS系统/02-核心领域模型详解]] | 聚合根、值对象、领域服务（ColonelBuyinIdResolver、AttributionPolicy）详解 | 2026-05-10 |
 | [[DDD实战-团长SaaS系统/03-本地与三方调用SOP分离]] | 6 个阶段 SOP 梳理，本地数据库操作与抖音 API 调用完全分开 | 2026-05-10 |
+| [[DDD实战-团长SaaS系统/04-核心代码流程详解]] | 基于真实源码的 4 个核心流程逐行解析：generatePromotionLink、ColonelBuyinIdResolver、PickSourceMapping.saveOrUpdate、AttributionService.resolveAttribution | 2026-05-10 |
 
 ### 04-JavaScript体系 / Node.js体系
 
