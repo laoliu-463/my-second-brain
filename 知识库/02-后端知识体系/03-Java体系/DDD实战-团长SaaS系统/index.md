@@ -48,6 +48,15 @@ sources: [P1-5.2任务上下文, ProductService.java, AttributionService.java, P
 ### Part 12：爬虫数据采集体系
 [[DDD实战-团长SaaS系统/11-爬虫数据采集体系]]
 
+### Part 13：数据库架构概览
+[[DDD实战-团长SaaS系统/12-数据库架构概览]]
+
+### Part 14：前端技术栈与工程结构
+[[DDD实战-团长SaaS系统/13-前端技术栈与工程结构]]
+
+### Part 15：Maven 依赖与版本清单
+[[DDD实战-团长SaaS系统/14-Maven依赖与版本清单]]
+
 ## 核心问题背景（P1-5.2）
 
 **根因**：活动创建时 `colonel_activity` 表的 `colonel_buyin_id` 主字段为 null（COALESCE UPSERT 问题），但 `extra_data` JSONB 字段有值。旧代码只查主字段不查 `extra_data`，导致抖店原生归因链路断裂。
