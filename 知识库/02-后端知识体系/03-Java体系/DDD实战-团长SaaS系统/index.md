@@ -24,7 +24,10 @@ sources: [P1-5.2任务上下文, ProductService.java, AttributionService.java, P
 ### Part 4：测试规范与 TDD 评估
 [[DDD实战-团长SaaS系统/04-测试规范与TDD评估]]
 
-### Part 5：认证授权体系
+### Part 5：抖店开放平台集成
+[[DDD实战-团长SaaS系统/06-抖店开放平台集成]]
+
+### Part 6：认证授权体系
 [[DDD实战-团长SaaS系统/05-认证授权体系]]
 
 ## 核心问题背景（P1-5.2）
