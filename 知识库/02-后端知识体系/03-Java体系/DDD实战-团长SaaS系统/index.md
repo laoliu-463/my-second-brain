@@ -21,9 +21,6 @@ sources: [P1-5.2任务上下文, ProductService.java, AttributionService.java, P
 ### Part 3：本地与三方调用 SOP 分离
 [[DDD实战-团长SaaS系统/03-本地与三方调用SOP分离]]
 
-### Part 4：核心代码流程详解
-[[DDD实战-团长SaaS系统/04-核心代码流程详解]]
-
 ## 核心问题背景（P1-5.2）
 
 **根因**：活动创建时 `colonel_activity` 表的 `colonel_buyin_id` 主字段为 null（COALESCE UPSERT 问题），但 `extra_data` JSONB 字段有值。旧代码只查主字段不查 `extra_data`，导致抖店原生归因链路断裂。
