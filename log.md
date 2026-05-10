@@ -638,3 +638,12 @@
 - 待处理：内容创作系列待核实断链
 - 薄弱区：Hermes演讲/程序员调研项目页已过时，建议后续评估是否归档或删除
 
+## [2026-05-10] ingest | DDD实战-团长SaaS系统：基于P1-5.2任务沉淀3篇DDD架构文档
+
+- 新建目录：`知识库/02-后端知识体系/03-Java体系/DDD实战-团长SaaS系统/`
+- 新增4个文档：index.md、01-战略设计、02-核心领域模型、03-本地与三方调用SOP分离
+- 核心内容：团长SaaS系统DDD拆解，5个限界上下文、核心聚合与值对象、ColonelBuyinIdResolver分层解析策略（POLICY）、AttributionPolicy归因策略链、本地vs三方调用SOP完全分离
+- 根因：colonel_activity主字段colonel_buyin_id为null（COALESCE UPSERT问题），但extra_data JSONB有值，旧代码只查主字段不查extra_data
+- 修复点：resolveColonelBuyinIdFromActivity()增加extra_data fallback（patch已打入）
+- index.md总览页+Java体系索引页+全局index.md同步更新，页面数51→55
+
