@@ -646,5 +646,5 @@
 - index.md总览页+Java体系索引页+全局index.md同步更新，页面数51→56
 - 补充：02-核心领域模型详解和03-本地与三方调用SOP分离补充真实源码细节，04-核心代码流程详解已删除（内容合并入现有3篇）
 - 新增：04-测试规范与TDD评估（JUnit5+Mockito+AssertJ规范、JaCoCo 80% LINE覆盖率规则、TDD成熟度评估：项目为测试后置非TDD、改进建议含短期/中期/长期三档路径）
-- 新增：05-认证授权体系（JWT无状态认证+Spring Security Filter双保险、JwtAuthInterceptor纵深防御、双Token刷新、Redis黑名单吊销、@RequireRoles角色校验AOP、@DataScope数据权限AOP、BCrypt密码、dataScope三级体系、RBAC三表模型sys_user/role/menu、菜单权限矩阵与分配流程、Token即时吊销机制、数据安全六层：参数校验（jakarta.validation+GlobalExceptionHandler）、SQL注入防护（MyBatis-Plus参数化）、操作审计日志（OperationLogInterceptor）、敏感字段脱敏（mask保留前4末4）、统一响应结构ApiResult防泄露、安全缺失项清单）
+- 新增：05-认证授权体系（JWT无状态认证+Spring Security Filter双保险、JwtAuthInterceptor纵深防御、双Token刷新、Redis黑名单吊销、@RequireRoles角色校验AOP、@DataScope数据权限AOP、BCrypt密码、dataScope三级体系、RBAC三表模型sys_user/role/menu、菜单权限矩阵与分配流程、Token即时吊销机制、数据安全六层：参数校验（jakarta.validation+GlobalExceptionHandler）、SQL注入防护（MyBatis-Plus参数化）、操作审计日志（OperationLogInterceptor）、敏感字段脱敏（mask保留前4末4）、统一响应结构ApiResult防泄露、安全缺失项清单、高可用与运维：Docker Compose单机部署、现有HA配置清单（健康检查/命名卷/restart on-failure）、缺失HA能力清单（多实例/主从/熔断/监控等12项）、4个关键风险场景、JVM OOM/抖店API超时/健康检查假阳性/Job中断、改进建议P0/P1/P2三档、三套Compose环境隔离）
 
