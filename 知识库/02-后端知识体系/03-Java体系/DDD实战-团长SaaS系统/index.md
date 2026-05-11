@@ -3,7 +3,7 @@ title: DDD实战-团长SaaS系统
 tags: [DDD, Java, SpringBoot, PostgreSQL, 抖音开放平台]
 created: 2026-05-10
 updated: 2026-05-10
-sources: [P1-5.2任务上下文, ProductService.java, AttributionService.java, PickSourceMappingService.java]
+sources: [ProductService.java, AttributionService.java, PickSourceMappingService.java, OrderAttributionReplayService.java]
 ---
 
 # DDD实战-团长SaaS系统
@@ -24,40 +24,52 @@ sources: [P1-5.2任务上下文, ProductService.java, AttributionService.java, P
 ### Part 4：测试规范与 TDD 评估
 [[DDD实战-团长SaaS系统/04-测试规范与TDD评估]]
 
-### Part 5：抖店开放平台集成
-[[DDD实战-团长SaaS系统/06-抖店开放平台集成]]
-
-### Part 6：认证授权体系
+### Part 5：认证授权体系
 [[DDD实战-团长SaaS系统/05-认证授权体系]]
 
-### Part 7：抖店开放平台集成
+### Part 6：抖店开放平台集成
 [[DDD实战-团长SaaS系统/06-抖店开放平台集成]]
 
-### Part 8：样品生命周期
+### Part 7：样品生命周期
 [[DDD实战-团长SaaS系统/07-样品生命周期]]
 
-### Part 9：招商结算与佣金体系
+### Part 8：招商结算与佣金体系
 [[DDD实战-团长SaaS系统/08-招商结算与佣金体系]]
 
-### Part 10：达人管理与资格体系
+### Part 9：达人管理与资格体系
 [[DDD实战-团长SaaS系统/09-达人管理与资格体系]]
 
-### Part 11：商品运营与活动链路
+### Part 10：商品运营与活动链路
 [[DDD实战-团长SaaS系统/10-商品运营与活动链路]]
 
-### Part 12：爬虫数据采集体系
+### Part 11：爬虫数据采集体系
 [[DDD实战-团长SaaS系统/11-爬虫数据采集体系]]
 
-### Part 13：数据库架构概览
+### Part 12：数据库架构概览
 [[DDD实战-团长SaaS系统/12-数据库架构概览]]
 
-### Part 14：前端技术栈与工程结构
+### Part 13：前端技术栈与工程结构
 [[DDD实战-团长SaaS系统/13-前端技术栈与工程结构]]
 
-### Part 15：Maven 依赖与版本清单
+### Part 14：Maven 依赖与版本清单
 [[DDD实战-团长SaaS系统/14-Maven依赖与版本清单]]
 
-## 核心问题背景（P1-5.2）
+### Part 15：独家达人与独家商家体系
+[[DDD实战-团长SaaS系统/15-独家达人与独家商家体系]]
+
+### Part 16：操作审计日志体系
+[[DDD实战-团长SaaS系统/16-操作审计日志体系]]
+
+### Part 17：达人数据补全 Provider 体系
+[[DDD实战-团长SaaS系统/17-达人数据补全Provider体系]]
+
+### Part 18：Webhook 事件接收与消费体系
+[[DDD实战-团长SaaS系统/18-Webhook事件接收与消费体系]]
+
+### Part 19：归因重放与历史订单修复
+[[DDD实战-团长SaaS系统/19-归因重放与历史订单修复]]
+
+## 核心问题背景
 
 **根因**：活动创建时 `colonel_activity` 表的 `colonel_buyin_id` 主字段为 null（COALESCE UPSERT 问题），但 `extra_data` JSONB 字段有值。旧代码只查主字段不查 `extra_data`，导致抖店原生归因链路断裂。
 

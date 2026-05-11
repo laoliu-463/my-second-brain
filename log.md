@@ -655,6 +655,11 @@
 - 新增：12-数据库架构概览（PostgreSQL+MyBatis-Plus/27个ALTER脚本管理/下划线命名+@TableField映射/核心表清单17张/归因索引+PickSourceMapping索引/JSONB字段extra_data使用/金额字段Long分单位/软删除deleted字段）
 - 新增：13-前端技术栈与工程结构（Vue3+Pinia+Axios+Vite/目录结构views/api/stores/components/router/composables/路由按data/orders/product/ops/dashboard分层/Axios封装request拦截器+统一响应处理+错误处理/Pinia按域划分useUserStore/usePermissionStore/已知约束：无TypeScript/无全局UI库/无前端CI）
 - 新增：14-Maven依赖与版本清单（SpringBoot3.2.5/JakartaEE9+包名变化/MyBatis-PlusSpringBoot3专用starter/jjwt0.12.5三件套/hutool-all+jsoup1.17.2/lombok/knife4j/actuator/多阶段Docker构建+maven3.9-eclipse-temurin-17）
+- 新增：15-独家达人与独家商家体系（ExclusiveTalent双条件：服务费占比≥70%+有效样品≥10个/月/独家达人按talentUid+yyyy-MM生效月份去重/ExclusiveMerchant单条件：服务费占比≥70%/归因优先级：独家商家→独家达人→pick_source通道→colonel_order_info通道/evaluateMonth月度评估事务/JDBC原生SQL分页）
+- 新增：16-操作审计日志体系（PostgreSQL分区表op_log_yyyy_MM/auto-create partition on write+ConcurrentHashMap缓存已确认分区/ensureLogPartition创建分区+索引/cleanupOldPartitions按月DROP PARTITION删除过期分区（避免DELETE产生dead tuples）/幂等eventKey机制/DROP TABLE vs DELETE对比/JSONB字段CAST(? AS jsonb)/recordSystemAction记录非HTTP系统操作/findPage默认查89天）
+- 新增：17-达人数据补全Provider体系（TalentEnrichOrchestrator调度4个Provider按priority升序短路/InternalBusinessTalentProvider(p=20占位符)+ThirdPartyTalentProvider(p=10占位符)+ManualTalentProvider(p=90兜底)+TestTalentProvider(p=99)/字段来源TalentFieldSource溯源表/enrich状态机SUCCESS→NO_DATA/forceRefresh强制刷新vs增量补全/TalentDataSource枚举5种来源）
+- 新增：18-Webhook事件接收与消费体系（captureColonelOpenEvent接收→幂等eventKey+SHA256+payloadHash防篡改→DuplicateKeyException二次确认/consume消费：doudian_alliance_colonelOpenEvent标记CONSUMED/其他UNSUPPORTED→IGNORED/异常FAILED可replayUnfinished重放/4状态机RECEIVED→CONSUMED|IGNORED|FAILED/replayUnfinished查RECEIVED+FAILED按时间顺序重消费/事件重放ReplayResult(scanned/consumed/failed)）
+- 新增：19-归因重放与历史订单修复（replay(orderIds/reason/limit/dryRun)/loadOrders指定ID或批量扫UNATTRIBUTED订单/归因结果11字段统计/applyAttribution写入归因字段+fillUserNames/核心safeToUpdate判断：native归因时mappingCreatedAt必须在order.createTime之前/mapping之后创建→unsafe不更新/dryRun模式先预览不写入/典型场景：全量重放/NO_PICK_SOURCE修复/dry-run验证/ReplayResult含unsafeCount+colonelBuyinIdMismatch+ambiguousMapping）
 
 
 
