@@ -662,4 +662,11 @@
 - 新增：19-归因重放与历史订单修复（replay(orderIds/reason/limit/dryRun)/loadOrders指定ID或批量扫UNATTRIBUTED订单/归因结果11字段统计/applyAttribution写入归因字段+fillUserNames/核心safeToUpdate判断：native归因时mappingCreatedAt必须在order.createTime之前/mapping之后创建→unsafe不更新/dryRun模式先预览不写入/典型场景：全量重放/NO_PICK_SOURCE修复/dry-run验证/ReplayResult含unsafeCount+colonelBuyinIdMismatch+ambiguousMapping）
 
 
+## [2026-05-11] ingest | 补充教务管理系统逐字稿并修复面试备战索引漏挂
+
+- 新增页面：[[知识库/07-面试备战/04-项目经验梳理/05-教务管理系统项目逐字稿（展开版）|教务管理系统项目逐字稿（展开版）]]，将“项目整体、拆分逻辑、微服务组件、性能优化、事务与索引、难点、上线情况、项目亮点”拆成可直接背的展开版
+- 更新 [[知识库/07-面试备战/04-项目经验梳理/04-完整逐字稿版|完整逐字稿版]]，补充到教务系统展开版的互链，避免长稿与专题页脱节
+- 更新 [[知识库/07-面试备战/index|面试备战索引]]，修复 `04-完整逐字稿版.md` 未被上级索引页接住的问题，并新增教务系统展开版入口
+- 更新 `index.md`：补充“面试备战”分类，修正后端知识体系、内容创作与传播的页面统计，并同步全局最后更新时间
+- 当前薄弱区：`知识库/01-总览与索引/知识库目录结构（2026版）.md` 的全局统计口径仍明显滞后，后续宜单独做一次索引类 lint
 
