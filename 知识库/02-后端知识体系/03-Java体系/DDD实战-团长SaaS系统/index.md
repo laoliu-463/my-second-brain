@@ -89,4 +89,3 @@ sources: [ProductService.java, AttributionService.java, PickSourceMappingService
 
 - [[Spring实战(第4版)]]（Spring Boot 框架基础）
 - [[Thinking_in_Java]]（Java 面向对象设计）
-- [[DDD_血色绿茵联赛项目]]（DDD 实战参考）
