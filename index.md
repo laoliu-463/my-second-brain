@@ -46,7 +46,8 @@
 
 ||| 页面 | 摘要 | 更新时间 |
 ||------|------|----------|
-| [[Java 8 实战]] | Java 8 新特性实战指南，覆盖 Lambda、Stream、Optional 函数式编程核心 | 2026-05-03 |
+|| [[Java注释]] | Java 注释类型（单行/多行/文档）及 @author/@param/@return 等标签，厨师类比记忆法 | 2026-05-12 |
+|| [[Java 8 实战]] | Java 8 新特性实战指南，覆盖 Lambda、Stream、Optional 函数式编程核心 | 2026-05-03 |
 | [[Java核心技术卷2高级特性]] | 涵盖并发编程、网络编程、JDBC、XML处理等高级特性 | 2026-05-03 |
 | [[Spring实战（第4版）]] | Spring 框架实战指南，第 4 版覆盖 Spring Boot，Java 企业开发入门必读 | 2026-05-03 |
 | [[Spring MVC+MyBatis企业应用实战]] | SSM 框架组合实战，Java 企业开发主流框架 | 2026-05-03 |
