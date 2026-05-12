@@ -5,7 +5,9 @@ author:
   - "[[soulteary@gmail.com]]"
 published: 2020-10-22
 created: 2026-05-12
-description: "跟其他常见的编程语言不同，Java将编译过程分成了两个部分，这就对性能带来了一定的影响。而即时（Just In Time, JIT）编译器能够提高Java程序的运行速度。本文会先解析一下即时编译器的原理，然后再分享一些在美团实践的经验，希望能对大家有所帮助或者启发。"
+status: 已整理
+outputs:
+  - 知识库/02-后端知识体系/02-计算机基础/JIT编译器详解.md
 tags:
   - "clippings"
 ---
