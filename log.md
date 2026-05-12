@@ -55,6 +55,15 @@
 
 ---
 
+## [2026-05-12] ingest | Java中equals与hashCode入库
+
+- 来源：用户提供的 Java == 和 equals 整理笔记（费曼风格）
+- 归档：`02-后端知识体系/03-Java体系/Java中equals与hashCode.md`
+- 内容：==运算符（基本比值/引用比地址）/Object默认equals比地址/String&Integer重写equals/Integer缓存/自动拆箱陷阱/空指针问题/equals与hashCode契约/自定义对象重写/代码题10道/面试标准回答
+- 同步更新 index.md Java体系分类
+
+---
+
 ## [2026-05-12] ingest | 收件箱 JIT 编译器详解入库
 
 - 来源：00-收件箱/Java即时编译器原理解析及实践.md（美团技术博客）

@@ -51,6 +51,7 @@
 || [[Java移位运算符]] | 左移<<右移>>无符号>>>&乘除2幂/HashMap扩容/权限位/状态压缩/哈希扰动/协议解析 | 2026-05-12 |
 || [[Java基本数据类型]] | 8种基本类型（int/long/double/char/boolean）+默认值/基本vs引用/记忆口诀 | 2026-05-12 |
 || [[Java包装类型与自动装箱拆箱]] | 8种包装类型/自动装箱valueOf&拆箱xxxValue/Integer缓存-128~127/==比较规则/equals安全比较 | 2026-05-12 |
+|| [[Java中equals与hashCode]] | ==运算符（基本比值/引用比地址）/equals默认Object比地址/String&Integer重写比内容/hashCode与equals契约/代码题10道 | 2026-05-12 |
 || [[Java 8 实战]] | Java 8 新特性实战指南，覆盖 Lambda、Stream、Optional 函数式编程核心 | 2026-05-03 |
 | [[Java核心技术卷2高级特性]] | 涵盖并发编程、网络编程、JDBC、XML处理等高级特性 | 2026-05-03 |
 | [[Spring实战（第4版）]] | Spring 框架实战指南，第 4 版覆盖 Spring Boot，Java 企业开发入门必读 | 2026-05-03 |
