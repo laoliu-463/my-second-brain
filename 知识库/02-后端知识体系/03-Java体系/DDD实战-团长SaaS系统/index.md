@@ -77,14 +77,20 @@ sources: [ProductService.java, AttributionService.java, PickSourceMappingService
 
 ## 技术栈
 
-| 层级 | 技术选型 |
-|---|---|
-| 后端 | Spring Boot + MyBatis-Plus |
-| 数据库 | PostgreSQL + Redis |
-| 前端 | Vue 3 + Pinia + Axios |
-| 三方 API | 抖音开放平台（精选联盟、订单、推广链接） |
-| 部署 | Docker Compose + 宝塔面板 |
-
+| 层级             | 技术选型                       |      |
+| -------------- | -------------------------- | ---- |
+| 后端             | Spring Boot + MyBatis-Plus |      |
+| 数据库            | PostgreSQL + Redis         |      |
+| 前端             | Vue 3 + Pinia + Axios      |      |
+| 三方 API         | 抖音开放平台（精选联盟、订单、推广链接）       |      |
+| 部署             | Docker Compose + 宝塔面板      |      |
+| 账号             | 密码                         | 角色   |
+| admin          | admin123                   | 管理员  |
+| biz_leader     | admin123                   | 招商组长 |
+| biz_staff      | admin123                   | 招商专员 |
+| channel_leader | admin123                   | 渠道组长 |
+| channel_staff  | admin123                   | 渠道专员 |
+| ops_staff      | admin123                   | 运营   |
 ## 相关概念
 
 - [[Spring实战(第4版)]]（Spring Boot 框架基础）
