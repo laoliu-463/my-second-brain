@@ -2,8 +2,8 @@
 title: DDD实战-团长SaaS系统
 tags: [DDD, Java, SpringBoot, PostgreSQL, 抖音开放平台]
 created: 2026-05-10
-updated: 2026-05-10
-sources: [ProductService.java, AttributionService.java, PickSourceMappingService.java, OrderAttributionReplayService.java]
+updated: 2026-05-16
+sources: [ProductService.java, AttributionService.java, PickSourceMappingService.java, OrderAttributionReplayService.java, scripts/]
 ---
 
 # DDD实战-团长SaaS系统
@@ -68,6 +68,9 @@ sources: [ProductService.java, AttributionService.java, PickSourceMappingService
 
 ### Part 19：归因重放与历史订单修复
 [[DDD实战-团长SaaS系统/19-归因重放与历史订单修复]]
+
+### Part 20：脚本与 QA 体系
+[[DDD实战-团长SaaS系统/20-脚本与QA体系]]
 
 ## 核心问题背景
 
