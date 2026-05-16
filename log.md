@@ -2,6 +2,28 @@
 
 ---
 
+## [2026-05-16] ingest | mattpocock/skills 研究 + Hermes skills 升级
+
+- 来源：https://github.com/mattpocock/skills（86k ⭐，Matt Pocock 开源 agent skills 仓库）
+- 归档：`知识库/05-智能体与Agent体系/mattpocock-skills研究.md`
+  - 目录结构、skill 格式规范（SKILL.md + YAML frontmatter）
+  - 核心 skill 详解：handoff、diagnose、caveman、grill-me、zoom-out、tdd、triage、to-prd、to-issues、prototype、grill-with-docs、improve-codebase-architecture
+  - 对 Hermes 的启发：skill-first、vertical slices、no vibe coding
+- 新建 Hermes skills（4个）：
+  1. `handoff` → 会话移交文档（保存到临时文件，引用而非复制已有制品）
+  2. `grill-me` → 苏格拉底追问（每次一问，穷尽决策树分支）
+  3. `caveman` → 极简压缩沟通（削减~75% token，保留技术准确性）
+  4. `zoom-out` → 宏观视角（给出模块地图，禁止递归调用）
+- 升级 `hermes-agent` skill：
+  - version 2.0.0 → 2.1.0
+  - 新增 Personality & Core Principles 段落（mattpocock 方法论注入）
+  - related_skills 补充 handoff、grill-me、caveman、zoom-out
+  - 核心原则：Skill-First Behavior、Session End Handoff、Vertical Slices、No Vibe Coding
+- 索引更新：`index.md` 方法论与工具 14→16，新增 mattpocock-skills研究 条目
+- 同步更新 `log.md`
+
+---
+
 ## [2026-05-16] lint | DDD SaaS 多文档 Docker 环境对齐（批量）
 
 - 发现：多个知识库文档中残留旧 Docker 描述（3 套 docker-compose 文件、local-mock 三轨等）
