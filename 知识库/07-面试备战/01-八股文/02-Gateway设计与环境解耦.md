@@ -2,8 +2,8 @@
 title: Gateway 设计与环境解耦
 tags: [Java, Spring, 设计模式, Gateway, 八股文]
 created: 2026-05-11
-updated: 2026-05-11
-sources: [SAAS/docs/02-架构设计, SAAS/docs/03-Test与Real网关契约]
+updated: 2026-05-16
+sources: [SAAS/docs/02-架构设计, SAAS/docs/03-Test与Real网关契约, SAAS/docs/06-部署与对接计划]
 ---
 
 # Gateway 设计与环境解耦
@@ -158,13 +158,16 @@ spring:
 | `DouyinPromotionGateway` | ✅ | ✅ | 已完成 |
 | `LogisticsGateway` | ✅ | ❌ | 待对接 |
 
-## 五、环境三轨设计
+## 五、环境双轨设计
+
+> 注：`local-mock` 已于 2026-05-15 收敛为历史参考，当前只保留 `test` / `real-pre` 双轨。
 
 | 环境 | 用途 | Profile | 数据 |
 |---|---|---|---|
-| `local-mock` | 本地人工联调 | `local-mock` | Mock 数据，可 reset/seed |
-| `test` | 自动化测试/隔离测试 | `test` | Mock 数据，与人工联调分离 |
-| `real-pre` | 真实 SDK 联调/浏览器回归 | `real` | 真实抖店数据，独立端口 |
+| `test` | 功能/权限测试/Mock联调/自动化 | `test` | Mock 数据，`saas_test` / Redis DB 1 |
+| `real-pre` | 真实SDK联调 | `real-pre` | 真实抖店数据，`saas_real_pre` / Redis DB 0 |
+
+**单活设计**：同一时间只允许启动一套环境，统一 project name `saas-active`，通过 `.env.test` / `.env.real-pre` 切换。
 
 ```
 ┌─────────────────────────────────────────────────┐

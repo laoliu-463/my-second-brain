@@ -2,12 +2,15 @@
 
 ---
 
-## [2026-05-16] lint | DDD SaaS Docker 环境描述过时
+## [2026-05-16] lint | DDD SaaS 多文档 Docker 环境对齐（批量）
 
-- 发现：`05-认证授权体系.md` 第 12.6 节描述了 3 套 docker-compose 文件（test/real-pre/prod），但实际已合并为单套 `docker-compose.yml` + `.env.test` / `.env.real-pre` 切换
-- 动作：更新第 12.6 节为实际的一键启动脚本（`start-test.ps1` / `start-real-pre.ps1` / `stop-all.ps1`）和使用说明
-- 同步更新 frontmatter 的 `updated` 日期（2026-05-10 → 2026-05-16）和 `sources`（去掉 docker-compose.test/real-pre/prod.yml，新增 docker-compose.yml、.env.test、.env.real-pre 和启动脚本）
-- 同步更新 `index.md` 中 DDD SaaS 总览的更新日期（2026-05-10 → 2026-05-16）
+- 发现：多个知识库文档中残留旧 Docker 描述（3 套 docker-compose 文件、local-mock 三轨等）
+- 动作：
+  1. `05-认证授权体系.md` §12.6：替换旧 docker-compose.{test,real-pre,prod}.yml 表格为单套 docker-compose.yml + 一键启动脚本；修正 `docker-compose.real-pre.yml` 引用为 `docker-compose.yml`
+  2. `05-认证授权体系.md` frontmatter：`updated` 2026-05-10→2026-05-16，`sources` 替换为当前实际文件
+  3. `02-Gateway设计与环境解耦.md` §五：环境三轨→双轨（删除 local-mock），新增单活 `saas-active` 说明；frontmatter `updated`→2026-05-16，`sources` 补充 `06-部署与对接计划`
+  4. `index.md` DDD 总览：`updated` 2026-05-10→2026-05-16，05-认证授权体系摘要补充"Docker 单活环境脚本"
+- 同步更新 `log.md`
 
 ---
 
