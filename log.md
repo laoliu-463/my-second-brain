@@ -10,7 +10,18 @@
   2. `05-认证授权体系.md` frontmatter：`updated` 2026-05-10→2026-05-16，`sources` 替换为当前实际文件
   3. `02-Gateway设计与环境解耦.md` §五：环境三轨→双轨（删除 local-mock），新增单活 `saas-active` 说明；frontmatter `updated`→2026-05-16，`sources` 补充 `06-部署与对接计划`
   4. `index.md` DDD 总览：`updated` 2026-05-10→2026-05-16，05-认证授权体系摘要补充"Docker 单活环境脚本"
+  5. `index.md` DDD 系列目录：补全 06-20（共15个），顶部分类计数 81→96
 - 同步更新 `log.md`
+
+---
+
+## [2026-05-16] lint | DDD 系列目录补全（Part 06-20）
+
+- 发现：主 index.md DDD 系列只有 01-05，DDD 06-20 共15个文档缺失
+- 动作：
+  1. 主 `index.md`：在 05 条目后追加 06-20 共15行，顶部分类计数 81→96
+  2. DDD系列/index.md：已在本轮之前更新（添加 Part 20 条目 + frontmatter updated）
+  3. `log.md`：本条记录
 
 ---
 
