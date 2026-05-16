@@ -2,6 +2,15 @@
 
 ---
 
+## [2026-05-16] lint | DDD SaaS Docker 环境描述过时
+
+- 发现：`05-认证授权体系.md` 第 12.6 节描述了 3 套 docker-compose 文件（test/real-pre/prod），但实际已合并为单套 `docker-compose.yml` + `.env.test` / `.env.real-pre` 切换
+- 动作：更新第 12.6 节为实际的一键启动脚本（`start-test.ps1` / `start-real-pre.ps1` / `stop-all.ps1`）和使用说明
+- 同步更新 frontmatter 的 `updated` 日期（2026-05-10 → 2026-05-16）和 `sources`（去掉 docker-compose.test/real-pre/prod.yml，新增 docker-compose.yml、.env.test、.env.real-pre 和启动脚本）
+- 同步更新 `index.md` 中 DDD SaaS 总览的更新日期（2026-05-10 → 2026-05-16）
+
+---
+
 ## [2026-05-13] ingest | 大学物理(A)I重修课程说明入库
 
 - 来源：用户提供的“2026春大学物理(A)I重修课程情况说明（本部+旅顺）”

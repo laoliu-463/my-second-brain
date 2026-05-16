@@ -60,7 +60,7 @@
 | [[Java核心技术卷2高级特性]] | 涵盖并发编程、网络编程、JDBC、XML处理等高级特性 | 2026-05-03 |
 | [[Spring实战（第4版）]] | Spring 框架实战指南，第 4 版覆盖 Spring Boot，Java 企业开发入门必读 | 2026-05-03 |
 | [[Spring MVC+MyBatis企业应用实战]] | SSM 框架组合实战，Java 企业开发主流框架 | 2026-05-03 |
-| [[DDD实战-团长SaaS系统/index|DDD实战-团长SaaS系统]] | 基于抖店团长 SaaS 真实业务的 DDD 架构拆解：限界上下文、核心领域模型、本地与三方调用 SOP 分离 | 2026-05-10 |
+| [[DDD实战-团长SaaS系统/index|DDD实战-团长SaaS系统]] | 基于抖店团长 SaaS 真实业务的 DDD 架构拆解：限界上下文、核心领域模型、本地与三方调用 SOP 分离 | 2026-05-16 |
 | [[JSP_Servlet学习笔记]] | Java Web 编程经典，JSP + Servlet 底层基础 | 2026-05-03 |
 | [[Thinking in Java]] | Java 编程思想，Java 领域圣经，从设计哲学角度深度解析 | 2026-05-03 |
 
