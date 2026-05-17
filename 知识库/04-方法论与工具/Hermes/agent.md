@@ -1,3 +1,11 @@
+---
+title: LLM Wiki
+tags: [LLM Wiki, Hermes, Agent, 知识库维护]
+created: 2026-05-03
+updated: 2026-05-17
+sources: [agent.md]
+---
+
 # LLM Wiki
 
 A pattern for building personal knowledge bases using LLMs.

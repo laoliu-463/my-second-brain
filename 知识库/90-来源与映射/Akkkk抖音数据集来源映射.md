@@ -2,7 +2,7 @@
 title: Akkkk抖音数据集来源映射
 tags: [来源映射, 数据集, 抖音, 内容创作]
 created: 2026-04-30
-updated: 2026-05-01
+updated: 2026-05-17
 sources: [00-收集箱/未命名.md, creator_contents_cleaned.csv, creator_comments_cleaned.csv]
 ---
 
@@ -11,6 +11,8 @@ sources: [00-收集箱/未命名.md, creator_contents_cleaned.csv, creator_comme
 ## 概述
 
 本页记录 `00-收集箱/未命名.md` 引用的两个 CSV 数据集如何映射到知识库页面。
+
+> 维护备注：2026-05-17 已将该收集箱入口补为“已整理”状态页，仅保留来源追踪和输出页面指向。
 
 ## 来源文件
 
@@ -97,4 +99,3 @@ sources: [00-收集箱/未命名.md, creator_contents_cleaned.csv, creator_comme
 - [[知识库/06-内容创作与传播/抖音创作者Akkkk评论区画像|抖音创作者Akkkk评论区画像]]
 - [[Akkkk视频原文归档索引|Akkkk视频原文归档索引]]
 - [[知识库/06-内容创作与传播/Akkkk缺失视频补抓与转写索引|Akkkk缺失视频补抓与转写索引]]
-
