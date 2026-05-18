@@ -81,6 +81,9 @@ sources: [ProductService.java, AttributionService.java, PickSourceMappingService
 ### Part 23：七领域设计总览
 [[DDD实战-团长SaaS系统/23-七领域设计总览]]
 
+### Part 24：V1.6 骨架与当前项目现状对比
+[[DDD实战-团长SaaS系统/24-V1.6骨架与当前项目现状对比]]
+
 ## 设计来源补充
 
 2026-05-18 新增的 `saas系统文件.zip` 已归档到 `raw/sources/抖音团长SaaS设计文档/`。该来源包含 V1 交付范围表、技术落地设计、总体骨架、V2.2 旧版需求和 8 份领域设计文档。来源追踪见 [[知识库/90-来源与映射/抖音团长SaaS设计文档来源映射|抖音团长SaaS设计文档来源映射]]。
