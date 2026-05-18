@@ -2,13 +2,13 @@
 title: DDD实战-团长SaaS系统
 tags: [DDD, Java, SpringBoot, PostgreSQL, 抖音开放平台]
 created: 2026-05-10
-updated: 2026-05-16
-sources: [ProductService.java, AttributionService.java, PickSourceMappingService.java, OrderAttributionReplayService.java, scripts/]
+updated: 2026-05-18
+sources: [ProductService.java, AttributionService.java, PickSourceMappingService.java, OrderAttributionReplayService.java, scripts/, raw/sources/抖音团长SaaS设计文档/]
 ---
 
 # DDD实战-团长SaaS系统
 
-基于真实业务需求（抖店团长 SaaS 管理平台）进行的 DDD 架构拆解与实战分析。技术栈：Spring Boot + Vue 3 + PostgreSQL + Redis + 抖音开放平台 API。
+基于真实业务需求（抖店团长 SaaS 管理平台）进行的 DDD 架构拆解与实战分析。当前系列包含两类材料：既有 Spring Boot + Vue 3 + PostgreSQL + Redis 的实现复盘，以及 2026-05-18 新归档的 FastAPI + Celery V1 设计文档摘要。两套口径可互相对照，但不直接互相覆盖。
 
 ## 系列索引
 
@@ -72,6 +72,19 @@ sources: [ProductService.java, AttributionService.java, PickSourceMappingService
 ### Part 20：脚本与 QA 体系
 [[DDD实战-团长SaaS系统/20-脚本与QA体系]]
 
+### Part 21：V1 交付范围与业务链
+[[DDD实战-团长SaaS系统/21-V1交付范围与业务链]]
+
+### Part 22：FastAPI 技术落地蓝图
+[[DDD实战-团长SaaS系统/22-FastAPI技术落地蓝图]]
+
+### Part 23：七领域设计总览
+[[DDD实战-团长SaaS系统/23-七领域设计总览]]
+
+## 设计来源补充
+
+2026-05-18 新增的 `saas系统文件.zip` 已归档到 `raw/sources/抖音团长SaaS设计文档/`。该来源包含 V1 交付范围表、技术落地设计、总体骨架、V2.2 旧版需求和 8 份领域设计文档。来源追踪见 [[知识库/90-来源与映射/抖音团长SaaS设计文档来源映射|抖音团长SaaS设计文档来源映射]]。
+
 ## 核心问题背景
 
 **根因**：活动创建时 `colonel_activity` 表的 `colonel_buyin_id` 主字段为 null（COALESCE UPSERT 问题），但 `extra_data` JSONB 字段有值。旧代码只查主字段不查 `extra_data`，导致抖店原生归因链路断裂。
@@ -98,3 +111,7 @@ sources: [ProductService.java, AttributionService.java, PickSourceMappingService
 
 - [[Spring实战(第4版)]]（Spring Boot 框架基础）
 - [[Thinking_in_Java]]（Java 面向对象设计）
+- [[DDD实战-团长SaaS系统/21-V1交付范围与业务链]]
+- [[DDD实战-团长SaaS系统/22-FastAPI技术落地蓝图]]
+- [[DDD实战-团长SaaS系统/23-七领域设计总览]]
+- [[知识库/90-来源与映射/抖音团长SaaS设计文档来源映射]]
