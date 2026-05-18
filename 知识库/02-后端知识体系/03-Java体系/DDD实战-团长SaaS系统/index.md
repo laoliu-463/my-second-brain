@@ -82,7 +82,9 @@ sources: [ProductService.java, AttributionService.java, PickSourceMappingService
 [[DDD实战-团长SaaS系统/23-七领域设计总览]]
 
 ### Part 24：V1.6 骨架与当前项目现状对比
-[[DDD实战-团长SaaS系统/24-V1.6骨架与当前项目现状对比]]
+|[[DDD实战-团长SaaS系统/24-V1.6骨架与当前项目现状对比]]
+
+|[[DDD实战-团长SaaS系统/25-V1交付范围逐条对照]]
 
 ## 设计来源补充
 
