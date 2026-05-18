@@ -2,7 +2,20 @@
 
 ---
 
-## [2026-05-16] ingest | mattpocock/skills 研究 + Hermes skills 升级
+## [2026-05-18] ingest | V1.6骨架对比分析入库 + Part 24 新增
+
+- 来源：用户提供的 V1.6 骨架静态对比结论（未直接提供原始文档，通过源码和设计文档交叉比对产出）
+- 新建：`24-V1.6骨架与当前项目现状对比.md`
+  - 9项对比维度：阶段、技术栈、领域划分、事件驱动、Gateway、状态机、独家规则、数据看板、部署
+  - 4个最关键差异点：事件骨架是目标态、真正护城河未写入V1.6、独家规则口径需定稿、数据看板是SQL聚合不是事件汇总
+  - 落地建议：不替换文档、重命名为V2.3架构目标草案、更新docs/02-架构设计.md、补"当前实现vs目标骨架"章节
+- 索引更新：DDD系列/index.md 新增 Part 24 条目
+- 来源映射：`抖音团长SaaS设计文档来源映射.md` 页面映射表新增第5行
+- 同步更新 `log.md`
+
+---
+
+## [2026-05-18] ingest | mattpocock/skills 研究 + Hermes skills 升级
 
 - 来源：https://github.com/mattpocock/skills（86k ⭐，Matt Pocock 开源 agent skills 仓库）
 - 归档：`知识库/05-智能体与Agent体系/mattpocock-skills研究.md`
