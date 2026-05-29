@@ -2,17 +2,35 @@
 
 ---
 
-## [2026-05-29] ingest | 抖音团长SaaS代码结构整理
+## [2026-05-29] ingest | 抖音团长SaaS完整项目文档整理
 
-- 根据 `D:\Projects\SAAS` 项目图谱，创建 3 个代码结构索引页面：
-  - [[DDD实战-团长SaaS系统/28-后端代码结构索引]]：Spring Boot 后端包结构（annotation、aspect、auth、common、config、controller、domain、douyin、dto、entity、event、gateway、job、mapper、security、service、testsupport、util、vo）与七领域对应关系
-  - [[DDD实战-团长SaaS系统/29-前端代码结构索引]]：Vue 3 前端目录（views、api、stores、components、composables、router、types、utils）与七领域映射
-  - [[DDD实战-团长SaaS系统/30-前后端映射对照]]：前端 API 文件（auth.ts、sys.ts、product.ts、activityProduct.ts、talent.ts、sample.ts、order.ts、commission.ts、performance.ts、data.ts、dashboard.ts、ruleCenter.ts、douyin.ts）与后端 Controller 映射表
-- 更新全局 `index.md`，后端知识体系分类页数 89→92，新增 3 个代码结构索引页
-- 来源：项目代码扫描（backend/src、frontend/src）、docs/00-10 主干文档、接管地图
+根据 `D:\Projects\SAAS` 项目，将 docs/ 主干文档、领域合同、流程、对接和 ADR 全部整理到知识库，共创建 32 个新页面：
 
-- 使用用户提供的 PDF 打开密码抽取《大学物理（A）I练习与提高》质点、刚体、狭义相对论和期末模拟卷文字；临时解密文件未写入 `raw/`
-- 新增 [[知识库/08-大学物理复习/09-期末复习讲义与公式表|期末复习讲义与公式表]]，按 2026 春考试要求整理期末范围、核心公式、题型速查和不要求知识点
+**主干契约（8页）**
+- [[DDD实战-团长SaaS系统/31-V1交付范围与边界|V1交付范围与边界]]：V1 必做/简化/不做/V2 预留边界，冲突处理规则
+- [[DDD实战-团长SaaS系统/32-业务闭环总览|业务闭环总览]]：总体闭环流程图、六条主链路索引
+- [[DDD实战-团长SaaS系统/35-事件契约总表|事件契约总表]]：11 个领域事件的契约记录
+- [[DDD实战-团长SaaS系统/36-API契约总表|API契约总表]]：13 类内部 API + 6 项第三方 API
+- [[DDD实战-团长SaaS系统/37-数据模型总表|数据模型总表]]：12 个数据模型/表族的存储边界
+- [[DDD实战-团长SaaS系统/45-第三方对接总览|第三方对接总览]]：6 项第三方对接总览
+- [[DDD实战-团长SaaS系统/47-测试验收总览|测试验收总览]]：Playwright E2E 命令、状态分类
+- [[DDD实战-团长SaaS系统/48-部署运行总览|部署运行总览]]：test/real-pre 环境口径、Docker Compose
+
+**七领域合同（9页）**
+- [[DDD实战-团长SaaS系统/34-七领域领域合同|七领域领域合同]]（索引页）+ 8 个领域详情页（34a-h）
+
+**主链路流程（6页）**
+- 渠道主链路、招商主链路、管理主链路、订单归因链路、寄样交作业链路、业绩计算链路
+
+**第三方对接文档（6页）**
+- 转链与pick_source归因、抖音授权与Token、活动商品同步、订单同步、物流接口、达人信息获取
+
+**架构决策 ADR（6页）**
+- ADR-001 模块化单体、ADR-002 V1范围优先级（含8个已发现冲突）、ADR-003 订单域只存事实、ADR-004 业绩域负责最终归属、ADR-005 分析模块只读汇总、ADR-006 real-pre作为上线前联调环境
+
+**来源**：`D:\Projects\SAAS\docs\00-10` 主干文档、`docs\领域\*.md`、`docs\流程\*.md`、`docs\对接\*.md`、`docs\决策\*.md`
+
+同步更新 `index.md`：后端知识体系分类页数 92→121，总 wiki 页面 340→369
 - 新增 [[知识库/08-大学物理复习/10-题目答案与解题模板|题目答案与解题模板]]，整理两套期末模拟卷答案、课件题答案和质点/刚体/静电场/相对论计算模板
 - 更新大学物理索引、课程说明、题目汇总、练习范围页和两张来源映射页，移除“待解密”旧口径并补上讲义/答案入口
 - 同步更新全局 `index.md` 与 [[知识库/01-总览与索引/知识库目录结构（2026版）|知识库目录结构（2026版）]]，大学物理复习分类页数 10→12，正式 wiki 页面 327→329
