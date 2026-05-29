@@ -2,13 +2,13 @@
 title: DDD实战-团长SaaS系统
 tags: [DDD, Java, SpringBoot, PostgreSQL, 抖音开放平台]
 created: 2026-05-10
-updated: 2026-05-18
-sources: [ProductService.java, AttributionService.java, PickSourceMappingService.java, OrderAttributionReplayService.java, scripts/, raw/sources/抖音团长SaaS设计文档/]
+updated: 2026-05-29
+sources: [ProductService.java, AttributionService.java, PickSourceMappingService.java, OrderAttributionReplayService.java, scripts/, raw/sources/抖音团长SaaS设计文档/, D:/Projects/SAAS/]
 ---
 
 # DDD实战-团长SaaS系统
 
-基于真实业务需求（抖店团长 SaaS 管理平台）进行的 DDD 架构拆解与实战分析。当前系列包含两类材料：既有 Spring Boot + Vue 3 + PostgreSQL + Redis 的实现复盘，以及 2026-05-18 新归档的 FastAPI + Celery V1 设计文档摘要。两套口径可互相对照，但不直接互相覆盖。
+基于真实业务需求（抖店团长 SaaS 管理平台）进行的 DDD 架构拆解与实战分析。当前系列包含三类材料：既有 Spring Boot + Vue 3 + PostgreSQL + Redis 的实现复盘、2026-05-18 归档的 FastAPI + Celery V1 设计文档摘要，以及 2026-05-29 对 `D:\Projects\SAAS` 当前代码项目的 Harness Engineering 接管地图。三套口径可互相对照，但不能互相覆盖。
 
 ## 系列索引
 
@@ -82,17 +82,22 @@ sources: [ProductService.java, AttributionService.java, PickSourceMappingService
 [[DDD实战-团长SaaS系统/23-七领域设计总览]]
 
 ### Part 24：V1.6 骨架与当前项目现状对比
-|[[DDD实战-团长SaaS系统/24-V1.6骨架与当前项目现状对比]]
+[[DDD实战-团长SaaS系统/24-V1.6骨架与当前项目现状对比]]
 
 ### Part 25：V1 交付范围逐条对照
-|[[DDD实战-团长SaaS系统/25-V1交付范围逐条对照]]
+[[DDD实战-团长SaaS系统/25-V1交付范围逐条对照]]
 
 ### Part 26：V1 与 V2.2 需求差异对照表
-|[[DDD实战-团长SaaS系统/26-V1与V2.2需求差异对照表]]
+[[DDD实战-团长SaaS系统/26-V1与V2.2需求差异对照表]]
+
+### Part 27：当前代码项目接管地图
+[[DDD实战-团长SaaS系统/27-当前代码项目接管地图]]
 
 ## 设计来源补充
 
 2026-05-18 新增的 `saas系统文件.zip` 已归档到 `raw/sources/抖音团长SaaS设计文档/`。该来源包含 V1 交付范围表、技术落地设计、总体骨架、V2.2 旧版需求和 8 份领域设计文档。来源追踪见 [[知识库/90-来源与映射/抖音团长SaaS设计文档来源映射|抖音团长SaaS设计文档来源映射]]。
+
+2026-05-29 新增的当前代码项目接管页来自 `D:\Projects\SAAS` 活跃仓库扫描，不复制到 `raw/`。该来源追踪见 [[知识库/90-来源与映射/抖音团长SaaS当前项目来源映射|抖音团长SaaS当前项目来源映射]]。
 
 ## 核心问题背景
 
@@ -123,4 +128,6 @@ sources: [ProductService.java, AttributionService.java, PickSourceMappingService
 - [[DDD实战-团长SaaS系统/21-V1交付范围与业务链]]
 - [[DDD实战-团长SaaS系统/22-FastAPI技术落地蓝图]]
 - [[DDD实战-团长SaaS系统/23-七领域设计总览]]
+- [[DDD实战-团长SaaS系统/27-当前代码项目接管地图]]
 - [[知识库/90-来源与映射/抖音团长SaaS设计文档来源映射]]
+- [[知识库/90-来源与映射/抖音团长SaaS当前项目来源映射]]
