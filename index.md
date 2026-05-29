@@ -7,7 +7,7 @@
 ||||| 类别 | 页面数 | 最后更新 |
 ||||------|--------|----------|
 || 总览与索引 | 1 | 2026-05-22 |
-|| 后端知识体系 | 121 | 2026-05-29 |
+|| 后端知识体系 | 142 | 2026-05-29 |
 || 方法论与工具 | 14 | 2026-05-17 |
 || 智能体与Agent体系 | 1 | 2026-05-17 |
 || 内容创作与传播 | 45 | 2026-05-17 |
@@ -61,7 +61,7 @@
 | [[Java核心技术卷2高级特性]] | 涵盖并发编程、网络编程、JDBC、XML处理等高级特性 | 2026-05-03 |
 | [[Spring实战（第4版）]] | Spring 框架实战指南，第 4 版覆盖 Spring Boot，Java 企业开发入门必读 | 2026-05-03 |
 | [[Spring MVC+MyBatis企业应用实战]] | SSM 框架组合实战，Java 企业开发主流框架 | 2026-05-03 |
-| [[DDD实战-团长SaaS系统/index|DDD实战-团长SaaS系统]] | 抖店团长 SaaS DDD 系列：Spring Boot 实战实现、FastAPI 设计来源和当前代码项目接管地图 | 2026-05-29 |
+| [[DDD实战-团长SaaS系统/index|DDD实战-团长SaaS系统]] | 抖店团长 SaaS DDD 系列：早期实战、FastAPI 设计来源、当前代码项目接管、代码图谱和 real-pre 验收部署口径 | 2026-05-29 |
 | [[JSP_Servlet学习笔记]] | Java Web 编程经典，JSP + Servlet 底层基础 | 2026-05-03 |
 | [[Thinking in Java]] | Java 编程思想，Java 领域圣经，从设计哲学角度深度解析 | 2026-05-03 |
 
@@ -69,7 +69,7 @@
 
 ||| 页面 | 摘要 | 更新时间 |
 |||------|------|----------|
-| [[DDD实战-团长SaaS系统/index|总览]] | 系列索引页：20 篇 Spring Boot 实战复盘 + 3 篇 FastAPI V1 设计来源摘要 | 2026-05-18 |
+| [[DDD实战-团长SaaS系统/index|总览]] | 系列索引页：早期 Spring Boot 实战复盘、FastAPI/V1 设计来源、当前 Spring Boot + Vue 代码项目地图 | 2026-05-29 |
 | [[DDD实战-团长SaaS系统/01-战略设计-限界上下文划分]] | 5 个限界上下文划分：Activity、Promotion Channel、Order、Settlement、Integration | 2026-05-10 |
 | [[DDD实战-团长SaaS系统/02-核心领域模型详解]] | 聚合根、值对象、领域服务（ColonelBuyinIdResolver、AttributionPolicy）详解 | 2026-05-10 |
 | [[DDD实战-团长SaaS系统/03-本地与三方调用SOP分离]] | 6 个阶段 SOP 梳理，本地数据库操作与抖音 API 调用完全分开 | 2026-05-10 |
@@ -97,9 +97,18 @@
 | [[DDD实战-团长SaaS系统/25-V1交付范围逐条对照]] | V1 合同 vs 当前项目逐条对表，含差异处理方式和 V2 后移清单 | 2026-05-19 |
 | [[DDD实战-团长SaaS系统/26-V1与V2.2需求差异对照表]] | V2.2 完整规划版 vs V1 交付合同的需求差异总表，含四象限分类和交付底线 | 2026-05-19 |
 | [[DDD实战-团长SaaS系统/27-当前代码项目接管地图]] | `D:\Projects\SAAS` 当前代码项目的 Harness Engineering 接管地图，区分当前事实、历史设计和验收证据链 | 2026-05-29 |
+| [[DDD实战-团长SaaS系统/28-代码图谱总览与脉络索引]] | code-review-graph 视角的项目社区、执行流、热点节点和排查入口 | 2026-05-29 |
 | [[DDD实战-团长SaaS系统/28-后端代码结构索引]] | Spring Boot 后端包结构：controller、service、domain、entity、mapper、dto 与七领域对应关系 | 2026-05-29 |
+| [[DDD实战-团长SaaS系统/29-后端代码图谱脉络]] | 后端 Controller、Service、Gateway、Mapper、Security、Job 的图谱化排查脉络 | 2026-05-29 |
 | [[DDD实战-团长SaaS系统/29-前端代码结构索引]] | Vue 3 前端目录：views、api、stores、components 与七领域和 API 层映射 | 2026-05-29 |
+| [[DDD实战-团长SaaS系统/30-前端页面与API图谱脉络]] | 前端 views、api、router、utils、Playwright 之间的图谱化调用关系 | 2026-05-29 |
 | [[DDD实战-团长SaaS系统/30-前后端映射对照]] | 前端 API 文件与后端 Controller 映射表，含七领域数据流闭环与视图关联 | 2026-05-29 |
+| [[DDD实战-团长SaaS系统/31-测试验收与QA图谱脉络]] | Maven、Vitest、Playwright、runtime QA 脚本和验收证据索引的分层地图 | 2026-05-29 |
+| [[DDD实战-团长SaaS系统/32-代码图谱风险与维护清单]] | 高连接节点、大文件、大函数、关键执行流与后续维护取证清单 | 2026-05-29 |
+| [[DDD实战-团长SaaS系统/46-权限与数据范围]] | self/group/all 数据范围、角色权限、后端校验和 E2E 验证口径 | 2026-05-29 |
+| [[DDD实战-团长SaaS系统/47-测试验收总览]] | test/mock 与 real-pre 验收分层、脚本入口和 PASS/BLOCKED/PENDING 状态口径 | 2026-05-29 |
+| [[DDD实战-团长SaaS系统/48-部署运行总览]] | test/real-pre 双环境、Docker Compose、端口、mock 开关和部署后验证路径 | 2026-05-29 |
+| [[DDD实战-团长SaaS系统/49-real-pre上线前总审查与受控部署]] | 2026-05-28 release 审查结论：可受控部署，但不等于正式全量上线或 real-pre P0 全量 PASS | 2026-05-29 |
 | [[抖店团长SaaS-业务体系/index|抖店团长SaaS-业务体系]] | 业务视角：V1范围→主链路→七领域→工程支撑。基于 docs/ 主干文档 | 2026-05-29 |
 | [[抖店团长SaaS-技术体系/index|抖店团长SaaS-技术体系]] | 代码视角：代码结构→数据模型→API→第三方对接→测试→部署→ADR。基于项目代码扫描 | 2026-05-29 |
 

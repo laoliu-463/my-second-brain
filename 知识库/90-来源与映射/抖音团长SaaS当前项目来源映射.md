@@ -33,6 +33,8 @@ sources:
 | `D:\Projects\SAAS\docs\流程\` | 业务流程 | 渠道、招商、管理、订单归因、寄样交作业、业绩计算 |
 | `D:\Projects\SAAS\docs\验收\` | 验收证据入口 | V1 P0、real-pre、E2E、回归脚本和证据索引 |
 | `D:\Projects\SAAS\docs\决策\` | ADR | 模块化单体、V1 范围优先级、订单 / 业绩 / 分析边界 |
+| `D:\Projects\SAAS\docs\release\` | release 审查 | real-pre 上线前总审查报告、PASS/PENDING/BLOCKED 口径 |
+| `D:\Projects\SAAS\docs\deploy\` | 部署文档 | 服务器初始化、Docker 手动部署、回滚、Jenkins 规划和部署报告 |
 | `D:\Projects\SAAS\backend\pom.xml` | 后端依赖事实 | Spring Boot、Java、MyBatis-Plus、PostgreSQL、Redis、JWT、Testcontainers、JaCoCo |
 | `D:\Projects\SAAS\frontend\package.json` | 前端依赖事实 | Vue 3、TypeScript、Vite、Naive UI、Pinia、Vue Router、Vitest |
 | `D:\Projects\SAAS\package.json` | 验收脚本入口 | Playwright、real-pre、P0、角色、视觉、前端测试脚本 |
@@ -62,10 +64,8 @@ sources:
 | [[抖店团长SaaS-业务体系/04-七领域合同/订单域|订单域]] | `docs/领域/订单域.md` | 订单事实、退款事实、归因输入，只存事实不算提成 |
 | [[抖店团长SaaS-业务体系/04-七领域合同/业绩域|业绩域]] | `docs/领域/业绩域.md` | 最终归属、提成、冲正，双轨金额计算 |
 | [[抖店团长SaaS-业务体系/04-七领域合同/分析模块|分析模块]] | `docs/领域/分析模块.md` | 只读汇总、报表、看板，不重算业绩归属 |
-| [[抖店团长SaaS-业务体系/05-事件契约|事件契约]] | `docs/00-10/05-事件契约.md` | 9个核心领域事件的触发条件和消费方 |
-| [[抖店团长SaaS-业务体系/05-权限与数据范围|权限与数据范围]] | `docs/00-10/06-权限与数据范围.md` | `self/group/all` 定义与技术实现 |
-| [[抖店团长SaaS-业务体系/05-API契约|API契约]] | `docs/00-10/07-API契约.md` | 13类内部 API + 6项第三方 API 入口 |
-| [[抖店团长SaaS-业务体系/05-数据模型|数据模型]] | `docs/00-10/08-数据模型.md` | 12个数据模型/表族的存储边界，与领域对应 |
+| [[抖店团长SaaS-业务体系/05-事件契约|事件契约]] | `docs/04-事件契约总表.md` | 核心领域事件的触发条件和消费方 |
+| [[抖店团长SaaS-业务体系/05-权限与数据范围|权限与数据范围]] | `docs/07-权限与数据范围.md` | `self/group/all` 定义与技术实现 |
 
 ### 技术体系（代码视角，来自项目代码扫描）
 
@@ -77,12 +77,12 @@ sources:
 | [[抖店团长SaaS-技术体系/02-前后端映射|前后端映射]] | 后端 Controller + 前端 api/ 目录对照 | 14个前端 API 文件 ↔ 后端 Controller 映射表 |
 | [[抖店团长SaaS-技术体系/03-数据模型|数据模型]] | 数据库表结构 + 项目代码 | 12个数据模型/表族，与七领域对应 |
 | [[抖店团长SaaS-技术体系/04-API契约|API契约]] | 后端 Controller 接口定义 | 13类内部 API + 6项第三方 API 入口 |
-| [[抖店团长SaaS-技术体系/05-抖音授权与Token|抖音授权与Token]] | `backend/src/main/java/com/colonel/saas/douyin/` + `docs/第三方/抖音授权.md` | OAuth 授权码换 Token、刷新、过期处理 |
-| [[抖店团长SaaS-技术体系/05-活动商品同步|活动商品同步]] | `douyin/` 模块 + `docs/第三方/活动商品同步.md` | 活动商品同步、商品库入库 |
-| [[抖店团长SaaS-技术体系/05-转链与pick_source归因|转链与pick_source归因]] | `douyin/` + `docs/第三方/转链.md` | `buyin.instPickSourceConvert`、双开关控制 |
-| [[抖店团长SaaS-技术体系/05-订单同步|订单同步]] | `douyin/` + `docs/第三方/订单同步.md` | 抖店订单同步、退款事实、幂等 |
-| [[抖店团长SaaS-技术体系/05-物流接口|物流接口]] | `douyin/` + `docs/第三方/物流.md` | 寄样发货、物流查询、BLOCKED 证据 |
-| [[抖店团长SaaS-技术体系/05-达人信息获取|达人信息获取]] | `douyin/` + `docs/第三方/达人信息.md` | 达人资料补全、权限包限制 |
+| [[抖店团长SaaS-技术体系/05-抖音授权与Token|抖音授权与Token]] | `backend/src/main/java/com/colonel/saas/douyin/` + `docs/对接/抖音授权与Token.md` | OAuth 授权码换 Token、刷新、过期处理 |
+| [[抖店团长SaaS-技术体系/05-活动商品同步|活动商品同步]] | `douyin/` 模块 + `docs/对接/活动商品同步.md` | 活动商品同步、商品库入库 |
+| [[抖店团长SaaS-技术体系/05-转链与pick_source归因|转链与pick_source归因]] | `douyin/` + `docs/对接/转链与pick_source归因.md` | `buyin.instPickSourceConvert`、双开关控制 |
+| [[抖店团长SaaS-技术体系/05-订单同步|订单同步]] | `douyin/` + `docs/对接/订单同步.md` | 抖店订单同步、退款事实、幂等 |
+| [[抖店团长SaaS-技术体系/05-物流接口|物流接口]] | `douyin/` + `docs/对接/物流接口.md` | 寄样发货、物流查询、BLOCKED 证据 |
+| [[抖店团长SaaS-技术体系/05-达人信息获取|达人信息获取]] | `douyin/` + `docs/对接/达人信息获取.md` | 达人资料补全、权限包限制 |
 | [[抖店团长SaaS-技术体系/06-测试验收|测试验收]] | `docs/09-测试验收总览.md`、`docs/验收/`、`package.json` | Playwright E2E 命令、状态分类（PASS/BLOCKED/PENDING/FAIL） |
 | [[抖店团长SaaS-技术体系/07-部署运行|部署运行]] | `docs/10-部署运行总览.md`、Docker Compose、`.env.test` | test/real-pre 双环境、Docker Compose、端口约束 |
 | [[抖店团长SaaS-技术体系/08-ADR/index|ADR 索引]] | `docs/决策/` 全部 ADR 文档 | 6个核心架构决策记录索引 |
@@ -93,12 +93,21 @@ sources:
 | [[抖店团长SaaS-技术体系/08-ADR/ADR-005|ADR-005]] | `docs/决策/ADR-005-分析模块只读汇总.md` | 分析模块只读汇总 |
 | [[抖店团长SaaS-技术体系/08-ADR/ADR-006|ADR-006]] | `docs/决策/ADR-006-real-pre作为上线前联调环境.md` | real-pre 关闭 mock，PASS 须真实接口证据 |
 
-### 历史系列（FastAPI 设计来源，已归档，不新增页面）
+### DDD 系列与当前项目专项
 
 | 正式页面 | 使用来源 | 沉淀内容 |
 | --- | --- | --- |
-| [[DDD实战-团长SaaS系统/index|DDD实战-团长SaaS系统]] | 当前项目地图 + FastAPI 设计文档 | 保留系列索引（FastAPI 设计来源 + V1/V2 设计对照），不新增页面 |
+| [[DDD实战-团长SaaS系统/index|DDD实战-团长SaaS系统]] | 当前项目地图 + FastAPI 设计文档 + 当前项目专项页 | 系列索引：早期实战、历史设计、当前代码项目、图谱和验收部署口径 |
 | [[DDD实战-团长SaaS系统/27-当前代码项目接管地图|当前代码项目接管地图]] | `AGENTS.md`、`CLAUDE.md`、`docs/README.md`、`docs/00-10`、`pom.xml`、`package.json`、code-review-graph | 当前项目定位、技术栈、目录地图、领域闭环、运行验收口径 |
+| [[DDD实战-团长SaaS系统/28-代码图谱总览与脉络索引|代码图谱总览与脉络索引]] | code-review-graph:SAAS | 图谱统计、社区、关键执行流、热点节点和排查入口 |
+| [[DDD实战-团长SaaS系统/29-后端代码图谱脉络|后端代码图谱脉络]] | code-review-graph + `backend/src/main/java` | 后端 Controller、Service、Gateway、Mapper、Security、Job 的结构关系 |
+| [[DDD实战-团长SaaS系统/30-前端页面与API图谱脉络|前端页面与API图谱脉络]] | code-review-graph + `frontend/src` | 前端页面、API、路由、错误提示和 E2E 脉络 |
+| [[DDD实战-团长SaaS系统/31-测试验收与QA图谱脉络|测试验收与QA图谱脉络]] | code-review-graph + `package.json` + `docs/验收/` + `.claude/qa/` | 测试资产、QA 脚本、E2E bridge 和证据索引 |
+| [[DDD实战-团长SaaS系统/32-代码图谱风险与维护清单|代码图谱风险与维护清单]] | code-review-graph hub / bridge / large function 结果 | 高连接节点、大文件、大函数、criticality flow 和维护取证清单 |
+| [[DDD实战-团长SaaS系统/46-权限与数据范围|权限与数据范围]] | `docs/07-权限与数据范围.md` | self/group/all、角色权限、后端校验和 E2E 口径 |
+| [[DDD实战-团长SaaS系统/47-测试验收总览|测试验收总览]] | `docs/09-测试验收总览.md` | test/mock 与 real-pre 验收分层、脚本入口和状态分类 |
+| [[DDD实战-团长SaaS系统/48-部署运行总览|部署运行总览]] | `docs/10-部署运行总览.md` | test/real-pre 双环境、Docker Compose、端口和 mock 开关 |
+| [[DDD实战-团长SaaS系统/49-real-pre上线前总审查与受控部署|real-pre上线前总审查与受控部署]] | `docs/release/real-pre上线总审查报告-20260528-171543.md` | 可受控部署结论、未达成项、PENDING/BLOCKED 边界和后续验证路径 |
 
 ## 明确排除
 

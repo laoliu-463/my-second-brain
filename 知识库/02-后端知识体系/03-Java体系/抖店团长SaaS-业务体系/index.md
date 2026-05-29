@@ -57,5 +57,5 @@ sources:
 
 ## 相关概念
 
-- [[抖店团长SaaS技术体系]] — 代码架构视角
+- [[抖店团长SaaS-技术体系/index|抖店团长SaaS技术体系]] — 代码架构视角
 - [[DDD实战-团长SaaS系统/index]] — 原有 DDD 实战系列（含历史 FastAPI 设计来源）
