@@ -2,7 +2,14 @@
 
 ---
 
-## [2026-05-23] ingest | 大学物理复习讲义与题目答案整理
+## [2026-05-29] ingest | 抖音团长SaaS代码结构整理
+
+- 根据 `D:\Projects\SAAS` 项目图谱，创建 3 个代码结构索引页面：
+  - [[DDD实战-团长SaaS系统/28-后端代码结构索引]]：Spring Boot 后端包结构（annotation、aspect、auth、common、config、controller、domain、douyin、dto、entity、event、gateway、job、mapper、security、service、testsupport、util、vo）与七领域对应关系
+  - [[DDD实战-团长SaaS系统/29-前端代码结构索引]]：Vue 3 前端目录（views、api、stores、components、composables、router、types、utils）与七领域映射
+  - [[DDD实战-团长SaaS系统/30-前后端映射对照]]：前端 API 文件（auth.ts、sys.ts、product.ts、activityProduct.ts、talent.ts、sample.ts、order.ts、commission.ts、performance.ts、data.ts、dashboard.ts、ruleCenter.ts、douyin.ts）与后端 Controller 映射表
+- 更新全局 `index.md`，后端知识体系分类页数 89→92，新增 3 个代码结构索引页
+- 来源：项目代码扫描（backend/src、frontend/src）、docs/00-10 主干文档、接管地图
 
 - 使用用户提供的 PDF 打开密码抽取《大学物理（A）I练习与提高》质点、刚体、狭义相对论和期末模拟卷文字；临时解密文件未写入 `raw/`
 - 新增 [[知识库/08-大学物理复习/09-期末复习讲义与公式表|期末复习讲义与公式表]]，按 2026 春考试要求整理期末范围、核心公式、题型速查和不要求知识点
