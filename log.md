@@ -1152,3 +1152,26 @@
 - 新建 [[知识库/02-后端知识体系/03-Java体系/DDD实战-团长SaaS系统/31-测试验收与QA图谱脉络|测试验收与QA图谱脉络]]、[[知识库/02-后端知识体系/03-Java体系/DDD实战-团长SaaS系统/32-代码图谱风险与维护清单|代码图谱风险与维护清单]]，补齐 28-代码图谱页引用但缺失的图谱分层页
 - 新建 [[知识库/02-后端知识体系/03-Java体系/DDD实战-团长SaaS系统/49-real-pre上线前总审查与受控部署|real-pre上线前总审查与受控部署]]，沉淀 2026-05-28 release 报告的“可受控部署，但不是正式全量上线 / real-pre P0 全量 PASS”边界
 - 更新 [[知识库/90-来源与映射/抖音团长SaaS当前项目来源映射|抖音团长SaaS当前项目来源映射]]、全局 `index.md` 和 [[知识库/01-总览与索引/知识库目录结构（2026版）|知识库目录结构（2026版）]]，同步后端知识体系 142 页、正式 wiki 页面 384 页
+
+## [2026-06-02] ingest | SAAS 项目 Harness 规范导入知识库
+
+### 背景
+用户确认关键路径：项目 `D:\Projects\SAAS`，知识库 `D:\Docs\Books\my second brain`。本次从项目 harness/ 目录读取全部规范文档，导入知识库。
+
+### 新建页面（4个）
+- [[知识库/02-后端知识体系/SAAS-Harness规范/00-Harness规范总览]] — 五大子系统、核心文件索引、DoD、状态口径、禁止事项
+- [[知识库/02-后端知识体系/SAAS-Harness规范/SAAS-DDD优化路线图]] — 13 阶段路线图、顺序理由、验收标准
+- [[知识库/02-后端知识体系/SAAS-Harness规范/SAAS-任务路由表]] — 任务类型分流表、PowerShell 命令入口
+- [[知识库/02-后端知识体系/SAAS-Harness规范/SAAS-领域状态跟踪]] — 七域状态、三条主链、P0 阻塞项
+
+### 规范要点记录
+- 执行入口：`powershell -NoProfile -ExecutionPolicy Bypass -File .\harness\commands\agent-do.ps1 -Env real-pre -Scope full -Message "..."`
+- Scope 四种：`full` / `backend` / `frontend` / `docs`
+- DoD 11 条：构建→重启→健康→验证→evidence→commit→远端部署→retro→剩余风险
+- 状态口径：`PASS` / `PARTIAL` / `BLOCKED` / `PENDING` / `FAIL`
+- DDD 顺序：用户域→配置域→订单域→业绩域→分析模块→商品域→达人域→寄样域→Outbox→前端领域化→E2E
+- real-pre 绝对禁止：清库、down -v、删除 volume、改 mock、打开 test 开关
+
+### 同步
+- `index.md` 后端知识体系：142→146 页
+- 已在 `index.md` 添加 `### SAAS-Harness规范` 小节
