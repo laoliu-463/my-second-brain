@@ -54,6 +54,9 @@
 - [[skills/real-pre-debug]] - real-pre 排障 skill
 - [[skills/frontend-ux]] - 前端 UX skill
 - [[skills/evidence-report]] - 证据报告 skill
+- [[skills/git-batch-submit]] - Git 批量提交 skill
+- [[skills/git-change-control]] - Git 变更管控 skill
+- [[skills/post-task-gc]] - 任务后 GC skill
 
 ## Instructions（各领域执行规范）
 
@@ -118,3 +121,43 @@
 - [[prompts/p0-fix]] - P0 修复提示词
 - [[prompts/real-pre-debug]] - real-pre 排障提示词
 - [[prompts/release-check]] - 发布检查提示词
+
+## Doc 聚合文档（Harness 五子系统索引）
+
+### 01-Instructions
+
+- [[doc/01-instructions/01-项目执行协议]] - 项目执行协议
+- [[doc/01-instructions/02-V1交付合同]] - V1 交付合同
+- [[doc/01-instructions/03-禁止范围与安全边界]] - 禁止范围与安全边界
+- [[doc/01-instructions/04-文档优先级与冲突处理]] - 文档优先级与冲突处理
+- [[doc/01-instructions/05-领域边界总表]] - 领域边界总表
+
+### 02-Tools
+
+- [[doc/02-tools/01-现有脚本与命令索引]] - 现有脚本与命令索引
+- [[doc/02-tools/02-后续Agent默认执行流程]] - Agent 默认执行流程
+- [[doc/02-tools/03-构建重启部署命令规划]] - 构建重启部署命令规划
+
+### 03-Environment
+
+- [[doc/03-environment/01-test环境说明]] - test 环境说明
+- [[doc/03-environment/02-real-pre环境说明]] - real-pre 环境说明
+- [[doc/03-environment/03-remote-real-pre部署说明]] - 远端部署说明
+- [[doc/03-environment/04-Docker-Compose服务地图]] - 服务地图
+
+### 04-State
+
+- [[doc/04-state/01-当前项目状态]] - 当前项目状态
+- [[doc/04-state/02-业务闭环状态]] - 业务闭环状态
+- [[doc/04-state/03-P0-P1问题台账]] - P0/P1 问题台账
+- [[doc/04-state/04-real-pre证据索引]] - real-pre 证据索引
+- [[doc/04-state/05-文档债务与冲突台账]] - 文档债务与冲突台账
+
+### 05-Feedback
+
+- [[doc/05-feedback/01-上线验收清单]] - 上线验收清单
+- [[doc/05-feedback/02-业务闭环验证清单]] - 业务闭环验证清单
+- [[doc/05-feedback/03-任务完成证据报告模板]] - 证据报告模板
+- [[doc/05-feedback/04-任务后复盘模板]] - 任务后复盘模板
+- [[doc/05-feedback/05-Harness持续迭代规则]] - Harness 持续迭代规则
+- [[doc/05-feedback/06-旧内容生命周期规则]] - 旧内容生命周期规则
