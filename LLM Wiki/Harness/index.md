@@ -1,5 +1,8 @@
 # Harness Engineering 知识索引
 
+> [!info]
+> 上次对齐审计：[[知识库对齐报告-20260603]]
+
 ## 核心入口
 
 - [[00-Harness-Engineering]] - 总览
