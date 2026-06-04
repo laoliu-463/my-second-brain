@@ -1,0 +1,20 @@
+# Knowledge Base Task Matrix
+
+## 任务卡索引
+
+| 任务 ID | 描述 | 优先级 | 状态 |
+|---|---|---|---|
+| KB-GC-STUBS | 删除 3 个 0 字节文件 | P0 | 待执行 |
+| KB-GC-ORPHANS-211 | 211 个孤立文件归类 | P1 | 待执行 |
+| KB-GC-DUP | 合并/删除 4 对重复文件 | P2 | 待执行 |
+| KB-GC-RAW-58 | 58 个 raw/sources 整理 | P1 | 待执行 |
+| KB-ORG-ROOT | 移动 9 个 vault 根目录文件 | P2 | 待执行 |
+| KB-AUDIT-FULL | 全面 LINT 巡检 | P1 | 待执行 |
+
+## 执行顺序
+
+KB-GC-STUBS → KB-AUDIT-FULL → KB-GC-ORPHANS-211 → KB-GC-RAW-58 → KB-GC-DUP → KB-ORG-ROOT
+
+## 延期任务
+
+（暂无）

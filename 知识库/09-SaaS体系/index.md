@@ -2,7 +2,16 @@
 
 > 抖店 SaaS 项目相关知识库入口
 
-## 目录
+## 知识库管理
+
+| 子目录 | 内容 |
+|---|---|
+| [[知识库Harness/]] | 知识库自身运维 Harness（入口、Audit、GC、Task Matrix） |
+| [[知识库Harness/index]] | 知识库Harness 索引（核心文件、Skills、State） | 2026-06-04 |
+
+---
+
+## 项目 Harness
 
 | 子目录 | 内容 |
 |---|---|
