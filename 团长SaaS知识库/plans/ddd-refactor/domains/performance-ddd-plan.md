@@ -8,11 +8,12 @@ freshness: "current"
 owner: "harness"
 project_root: "D:\\Projects\\SAAS"
 kb_root: "D:\\Docs\\Books\\my second brain\\团长SaaS知识库"
-last_verified_at: "2026-06-08 13:59:08"
+last_verified_at: "2026-06-08 15:00:00"
 related_files:
   - "D:\\Projects\\SAAS\\docs\\领域"
 related_reports:
   - "D:\\Projects\\SAAS\\harness\\reports\\ddd-refactor-master-plan-001-20260608-135908.md"
+  - "D:\\Projects\\SAAS\\harness\\reports\\ddd-audit-performance-001-20260608-150000.md"
 forbidden_misread:
   - "DDD 重构计划不是立即大规模改代码"
   - "包结构迁移不是第一阶段任务"
@@ -61,3 +62,13 @@ A 类审查执行 git diff --check + 只读扫描报告。B/C/D 类按任务卡�
 
 - ../../domains/07-performance-domain.md
 - [任务矩阵](../02-task-matrix.md)
+
+## 11. 业绩域只读审查结论 (2026-06-08 15:00:00)
+- 业绩域只读审查已完成，详见 [ddd-audit-performance-001.md](file:///D:/Docs/Books/my second brain/团长SaaS知识库/plans/ddd-refactor/audits/ddd-audit-performance-001.md)。
+- **核心风险**: `CommissionService` 存在对系统配置表 `system_config` 的直接 Mapper/SQL 越界读取；`PerformanceCalculationService` 承载了太多的流程和映射细节。
+- **推荐任务顺序**:
+  1. `DDD-TEST-PERFORMANCE-CALC-001` (建立双轨公式单测保护)
+  2. `DDD-FACADE-PERFORMANCE-001` (建立业绩 Facade 隔离层)
+  3. `DDD-POLICY-PERFORMANCE-CALC-001` (剥离提成与收益 Policy)
+  4. `DDD-QUERY-PERFORMANCE-SUMMARY-001` (封装汇总查询以解耦分析模块的耦合)
+

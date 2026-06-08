@@ -86,3 +86,10 @@ forbidden_misread:
 > [V1 必做] 业绩域负责最终归属、提成、冲正、双轨金额计算。
 
 订单域 / 商品域 / 达人域都不算钱。
+
+## 8. 审查发现 (DDD-AUDIT-PERFORMANCE-001)
+- **事件消费**: 业绩域通过 `PerformanceRecordSyncListener` 异步消费 `OrderSyncedEvent`。已确定发布时机改为 `afterCommit`，保证了异步查询订单时的数据一致性。
+- **公式规则**: 预估服务费收益、结算服务费收益与毛利的双轨公式由 `CommissionService` 严格计算，媒介/渠道提成与招募者提成已计算入账。
+- **配置跨域**: `CommissionService` 中使用 `jdbcTemplate` 直接对配置表 `system_config` 进行 Mapper/SQL 级直接越界查询，属于耦合架构问题，建议后续通过 `ConfigDomainFacade` 进行接口防腐收敛。
+- **数据范围**: 使用 `PerformanceAccessScope` 控制 `ALL/DEPT/PERSONAL` 数据权限，下沉至 SQL。
+
