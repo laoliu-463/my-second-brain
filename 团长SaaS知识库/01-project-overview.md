@@ -150,3 +150,9 @@ V1 范围由 `docs/01-V1交付范围与边界.md` 定义，V1 优先于旧 V2.2 
 - 验收：`docs/验收/`（登记）
 - Harness：`harness/`（强约束）
 - 归档：`docs/归档/`（V2.2 旧方案、旧领域设计、local-mock 旧口径、FastAPI/Celery 设想）
+
+## 10. DDD 渐进式重构规划阶段
+
+当前项目进入 DDD 渐进式重构规划阶段，长期入口为 [plans/ddd-refactor/00-index.md](plans/ddd-refactor/00-index.md)。该计划只约束后续重构顺序、任务粒度、风险门禁和验证方式，不改变 V1 业务口径：订单域只存事实，业绩域负责最终归属和双轨金额，分析模块只读汇总，寄样域通过订单已同步事件完成交作业判断。
+
+默认策略：先 Phase 0 只读审查，再 Phase 1 防护测试，之后才做 Facade / Application Service / Policy / Adapter / Event / Package migration。禁止先做全局包结构迁移。

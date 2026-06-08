@@ -58,3 +58,19 @@ forbidden_misread:
 ## 4. DDD 优化顺序
 
 user → config → order → performance → analysis → product → talent → sample → outbox → frontend → E2E → GC
+
+## 5. DDD 渐进式重构状态
+
+| 领域 | DDD 状态 | 第一批任务 | 禁止先做 |
+| --- | --- | --- | --- |
+| cross | 待 Phase 0 审查 | DDD-AUDIT-CROSS-DOMAIN-001 | 不先迁包 |
+| order | 待 Phase 0 审查 | DDD-AUDIT-ORDER-001 / DDD-TEST-ORDER-SYNC-001 / DDD-FACADE-ORDER-001 | 不重写订单同步 |
+| performance | 待 Phase 0 审查 | DDD-AUDIT-PERFORMANCE-001 / DDD-TEST-PERFORMANCE-CALC-001 | 不改公式口径 |
+| sample | 待 Phase 0 审查 | DDD-AUDIT-SAMPLE-001 / DDD-TEST-SAMPLE-LIFECYCLE-001 | 不绕过状态机 |
+| user | 等待 Facade 前先补审查/测试 | DDD-FACADE-USER-001 | 不复制权限规则 |
+| config | 等待 Facade 前先补审查/测试 | DDD-FACADE-CONFIG-001 | 不执行业务规则 |
+| product | 后续审查 | DDD-AUDIT-PRODUCT-001 | 不重写 ProductService |
+| talent | 后续审查 | DDD-AUDIT-TALENT-001 | 不伪造第三方数据 |
+| analysis | 后续审查 | DDD-AUDIT-ANALYSIS-001 | 不重算归属 |
+
+每个 DDD 子任务完成后，必须更新对应 task card、领域 plan 和本状态页。

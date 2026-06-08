@@ -88,7 +88,18 @@ forbidden_misread:
 | [governance/04-git-worktree-rules.md](governance/04-git-worktree-rules.md) | `harness/skills/git-change-control.md` | Intake / Exit / Batch Gate |
 | [governance/05-report-conventions.md](governance/05-report-conventions.md) | `harness/reports/` 命名 | 报告前缀与登记规范 |
 
-## 7. 速读路径
+## 7. DDD 重构计划
+
+| 入口 | 路径 | 说明 |
+| --- | --- | --- |
+| DDD 计划总入口 | [plans/ddd-refactor/00-index.md](plans/ddd-refactor/00-index.md) | 后续 Agent 优先读取 |
+| 总路线图 | [plans/ddd-refactor/01-master-roadmap.md](plans/ddd-refactor/01-master-roadmap.md) | Phase 0-7 渐进路线 |
+| 任务矩阵 | [plans/ddd-refactor/02-task-matrix.md](plans/ddd-refactor/02-task-matrix.md) | A-F 类任务拆分 |
+| 第一批任务卡 | [plans/ddd-refactor/tasks/00-task-index.md](plans/ddd-refactor/tasks/00-task-index.md) | 从跨域审查开始 |
+
+当前进入 DDD 渐进式重构规划阶段；V1 业务口径、接口契约和数据库结构默认不变。
+
+## 8. 速读路径
 
 新任务 / 新成员建议顺序：
 
@@ -100,7 +111,7 @@ forbidden_misread:
 6. [evidence/](evidence/) → 命中本任务的证据
 7. [governance/](governance/) → 失败模式 / 债务 / 提交门禁
 
-## 8. 关键事实快照（不替代 evidence）
+## 9. 关键事实快照（不替代 evidence）
 
 - V1 范围：3 主链（渠道 / 招商 / 管理）+ 8 域。
 - 8 域：用户 / 配置 / 商品 / 达人 / 寄样 / 订单 / 业绩 / 分析。
@@ -115,7 +126,7 @@ forbidden_misread:
 - 部门类型：department / recruiter_group / channel_group / ops_group。
 - 合法状态：DONE / DONE_WITH_REGISTERED_DIRTY / PARTIAL / BLOCKED_BY_SAMPLE / BLOCKED_BY_EXTERNAL / FAILED / RISK_ACCEPTED_BY_USER。
 
-## 9. 不变量（[V1 必做]）
+## 10. 不变量（[V1 必做]）
 
 - 订单域只存事实，不算提成，不应用独家覆盖。
 - 业绩域负责最终归属、提成、冲正、双轨金额计算。
