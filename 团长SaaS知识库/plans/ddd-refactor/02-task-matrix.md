@@ -517,6 +517,8 @@ A 只读审查；B 防护测试；C 命名与边界整理；D 逻辑搬迁；E �
 不能宣称完成的条件：缺测试、缺 evidence、缺样本、改了非目标范围、业务口径有争议但未进入 ADR。
 相关知识库文件：tasks/ddd-audit-sample-001.md
 相关 evidence：本任务启动后生成 harness/reports/evidence-*-<task-id>.md。
+状态：**DONE_AUDIT** (于 2026-06-08 15:15:00 完成)
+证据报告：[ddd-audit-sample-001-20260608-151500.md](file:///D:/Projects/SAAS/harness/reports/ddd-audit-sample-001-20260608-151500.md)
 
 ### DDD-AUDIT-SAMPLE-SEVEN-DAYS-001 - 审查 7 天限制
 
