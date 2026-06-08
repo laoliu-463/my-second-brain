@@ -8,11 +8,12 @@ freshness: "current"
 owner: "harness"
 project_root: "D:\\Projects\\SAAS"
 kb_root: "D:\\Docs\\Books\\my second brain\\团长SaaS知识库"
-last_verified_at: "2026-06-08 13:59:08"
+last_verified_at: "2026-06-08 14:40:00"
 related_files:
   - "D:\\Projects\\SAAS\\docs\\领域"
 related_reports:
   - "D:\\Projects\\SAAS\\harness\\reports\\ddd-refactor-master-plan-001-20260608-135908.md"
+  - "D:\\Projects\\SAAS\\harness\\reports\\ddd-audit-cross-domain-001-20260608-144000.md"
 forbidden_misread:
   - "DDD 重构计划不是立即大规模改代码"
   - "包结构迁移不是第一阶段任务"
@@ -61,3 +62,9 @@ A 类审查执行 git diff --check + 只读扫描报告。B/C/D 类按任务卡�
 
 - ../00-index.md
 - [任务矩阵](../02-task-matrix.md)
+
+## 11. 跨域审计结论 (2026-06-08 14:40:00)
+- 跨域依赖和边界只读审计已完成，详见 [ddd-audit-cross-domain-001.md](file:///D:/Docs/Books/my%20second%20brain/%E5%9B%A2%E9%95%BFSaaS%E7%9F%A5%E8%AF%86%E5%BA%93/plans/ddd-refactor/audits/ddd-audit-cross-domain-001.md)。
+- 确认系统中有 9 大核心逻辑领域，存在多处 Mapper 跨域注入穿透和大型上帝类（ProductService, SampleApplicationService 以及实为 Controller 的 DataApplicationService）。
+- 下阶段应首先通过 Facade 模式实现 User 域、Config 域和 Order 域的接口隔离，绝对禁止先移动物理包。
+

@@ -8,11 +8,12 @@ freshness: "current"
 owner: "harness"
 project_root: "D:\\Projects\\SAAS"
 kb_root: "D:\\Docs\\Books\\my second brain\\团长SaaS知识库"
-last_verified_at: "2026-06-08 13:59:08"
+last_verified_at: "2026-06-08 14:50:00"
 related_files:
   - "D:\\Projects\\SAAS\\harness\\TASK_ROUTING.md"
 related_reports:
   - "D:\\Projects\\SAAS\\harness\\reports\\ddd-refactor-master-plan-001-20260608-135908.md"
+  - "D:\\Projects\\SAAS\\harness\\reports\\ddd-audit-order-001-20260608-145000.md"
 forbidden_misread:
   - "DDD 重构计划不是立即大规模改代码"
   - "包结构迁移不是第一阶段任务"

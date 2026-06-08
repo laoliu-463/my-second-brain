@@ -8,11 +8,12 @@ freshness: "current"
 owner: "harness"
 project_root: "D:\\Projects\\SAAS"
 kb_root: "D:\\Docs\\Books\\my second brain\\团长SaaS知识库"
-last_verified_at: "2026-06-08 13:59:08"
+last_verified_at: "2026-06-08 14:50:00"
 related_files:
   - "D:\\Projects\\SAAS\\docs\\领域"
 related_reports:
   - "D:\\Projects\\SAAS\\harness\\reports\\ddd-refactor-master-plan-001-20260608-135908.md"
+  - "D:\\Projects\\SAAS\\harness\\reports\\ddd-audit-order-001-20260608-145000.md"
 forbidden_misread:
   - "DDD 重构计划不是立即大规模改代码"
   - "包结构迁移不是第一阶段任务"
@@ -61,3 +62,13 @@ A 类审查执行 git diff --check + 只读扫描报告。B/C/D 类按任务卡�
 
 - ../../domains/06-order-domain.md
 - [任务矩阵](../02-task-matrix.md)
+
+## 11. 订单域只读审查结论 (2026-06-08 14:50:00)
+- 订单域只读审查已完成，详见 [ddd-audit-order-001.md](file:///D:/Docs/Books/my%20second%20brain/%E5%9B%A2%E9%95%BFSaaS%E7%9F%A5%E8%AF%86%E5%BA%93/plans/ddd-refactor/audits/ddd-audit-order-001.md)。
+- **核心风险**: 上游 API 实体字段（如 colonel_order_info 等嵌套 Map）直接渗透进了 OrderSyncService 逻辑层，未真正建立防腐层 (ACL)；OrderSyncService (1147行) 是典型的上帝服务，承担了过多的网络、转换、编排逻辑。
+- **推荐任务顺序**:
+  1. `DDD-TEST-ORDER-SYNC-001` (建立订单同步的单测保护)
+  2. `DDD-FACADE-ORDER-001` (建立订单 Facade 隔离层)
+  3. `DDD-POLICY-ORDER-ATTRIBUTION-001` (剥离归因策略)
+  4. `DDD-INFRA-ORDER-GATEWAY-001` (网关防腐隔离)
+

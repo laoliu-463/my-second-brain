@@ -80,3 +80,9 @@ forbidden_misread:
 > [V1 必做] 订单域只存事实，不算提成，不应用独家覆盖。
 
 任何"在订单域计算金额"或"在订单域应用独家归因"的尝试都是 V1 禁做。
+
+## 8. 审查发现 (DDD-AUDIT-ORDER-001)
+- **双轨同步**: 6468 (Institute) 负责写入预估轨/事实金额，2704 (Settlement) 负责写入并补充结算轨字段。两源互不覆盖不属于各自轨道的字段。
+- **架构风险**: 网关 SDK 返回的 Json rawPayload Map 直接渗透进了 OrderSyncService，导致服务层高度耦合具体网络载荷字段，亟需通过 Gateway 防腐层 (ACL) 隔离。
+- **上帝服务**: `OrderSyncService` (1147 行) 混合了状态机、水位计算、同步流程编排和上游异常处理，应在后续拆分为 Application Service、Query Service 以及 Infrastructure Gateway。
+- **事件发布**: 订单同步完成事件已实现 Transaction afterCommit 异步发布，解决了时序及事务不一致问题。
