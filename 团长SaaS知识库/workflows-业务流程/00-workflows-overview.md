@@ -1,4 +1,4 @@
----
+﻿---
 kb_id: workflows/00-workflows-overview
 title: 流程与剧本总览
 domain: workflows
@@ -46,7 +46,7 @@ forbidden_misread:
 
 ## 3. 流程状态
 
-每个流程独立维护状态（见 state/02-domain-status.md）：
+每个流程独立维护状态（见 state-状态主源/02-domain-status-DOMAIN_STATUS 主源.md）：
 NOT_STARTED / IN_PROGRESS / PASS / PENDING / BLOCKED_BY_SAMPLE / BLOCKED_BY_EXTERNAL / FAILED / RISK_ACCEPTED
 
 ## 4. 流程验收

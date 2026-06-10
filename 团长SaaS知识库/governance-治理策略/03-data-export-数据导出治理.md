@@ -1,4 +1,4 @@
----
+﻿---
 kb_id: governance/03-data-export
 title: 数据导出治理
 domain: governance
@@ -10,7 +10,7 @@ freshness: fresh
 owner: harness-kb-001
 source_type: harness-derived
 related_files:
-  - workflows/08-data-export.md
+  - workflows-业务流程/08-data-export-数据导出流程.md
   - backend/src/main/java/com/colonel/saas/controller/AnalysisController.java
 related_reports: []
 forbidden_misread:

@@ -1,4 +1,4 @@
----
+﻿---
 kb_id: "KB-PLAN-DDD-DOMAIN-PERFORMANCE"
 title: "业绩域 DDD 计划"
 domain: "performance"
@@ -60,7 +60,7 @@ A 类审查执行 git diff --check + 只读扫描报告。B/C/D 类按任务卡�
 
 ## 10. 相关 KB 领域文档链接
 
-- ../../domains/07-performance-domain.md
+- ../../domains-业务领域/07-performance-domain-业绩域.md
 - [任务矩阵](../02-task-matrix.md)
 
 ## 11. 业绩域只读审查结论 (2026-06-08 15:00:00)

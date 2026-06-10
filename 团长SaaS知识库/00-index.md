@@ -1,4 +1,4 @@
----
+﻿---
 kb_id: 00-index
 title: 团长SaaS知识库总索引
 domain: project
@@ -33,10 +33,10 @@ forbidden_misread:
 
 | 子系统 | 目录 | 主线 | 主入口文件 |
 | --- | --- | --- | --- |
-| Instructions | `instructions/` | 给 Agent / 人的强约束、合同、门禁、债务 | [instructions/00-agent-contract.md](instructions/00-agent-contract.md) |
+| Instructions | `instructions/` | 给 Agent / 人的强约束、合同、门禁、债务 | [instructions-约束指令/00-agent-contract.md](instructions-约束指令/00-agent-contract.md) |
 | Tools | `tools/` | 可执行命令、SOP、安全自检脚本 | [tools/00-command-index.md](tools/00-command-index.md) |
 | Environment | `environment/` | 部署、端口、环境变量、Compose 映射 | [environment/00-cheatsheet.md](environment/00-cheatsheet.md) |
-| State | `state/` | 当前 V1 业务状态、领域状态、债务、决策索引 | [state/00-current-state.md](state/00-current-state.md) |
+| State | `state/` | 当前 V1 业务状态、领域状态、债务、决策索引 | [state-状态主源/00-current-state-当前状态与 DDD 计划状态.md](state-状态主源/00-current-state-当前状态与 DDD 计划状态.md) |
 | Feedback / Governance | `governance/` | 失败模式、虚假完成清单、债务治理 | [governance/00-failure-modes.md](governance/00-failure-modes.md) |
 
 ## 3. 领域（Domains）
@@ -104,8 +104,8 @@ forbidden_misread:
 新任务 / 新成员建议顺序：
 
 1. [01-project-overview.md](01-project-overview.md)
-2. [instructions/03-forbidden-scope.md](instructions/03-forbidden-scope.md)
-3. [state/00-current-state.md](state/00-current-state.md)
+2. [instructions-约束指令/03-forbidden-scope-禁做范围与失败模式.md](instructions-约束指令/03-forbidden-scope-禁做范围与失败模式.md)
+3. [state-状态主源/00-current-state-当前状态与 DDD 计划状态.md](state-状态主源/00-current-state-当前状态与 DDD 计划状态.md)
 4. [domains/](domains/) → 命中本任务的域
 5. [workflows/](workflows/) → 命中本任务的流程
 6. [evidence/](evidence/) → 命中本任务的证据

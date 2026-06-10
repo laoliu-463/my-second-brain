@@ -1,4 +1,4 @@
----
+﻿---
 kb_id: "KB-PLAN-DDD-DOMAIN-CONFIG"
 title: "配置域 DDD 计划"
 domain: "config"
@@ -59,5 +59,5 @@ A 类审查执行 git diff --check + 只读扫描报告。B/C/D 类按任务卡�
 
 ## 10. 相关 KB 领域文档链接
 
-- ../../domains/02-config-domain.md
+- ../../domains-业务领域/02-config-domain-配置域.md
 - [任务矩阵](../02-task-matrix.md)

@@ -1,4 +1,4 @@
----
+﻿---
 kb_id: governance/04-domain-status
 title: 域状态与阻塞升级
 domain: governance
@@ -10,8 +10,8 @@ freshness: fresh
 owner: harness-kb-001
 source_type: harness-derived
 related_files:
-  - domains/00-domains-overview.md
-  - evidence/04-block-classification.md
+  - domains-业务领域/00-domains-overview.md
+  - evidence-证据体系/04-block-classification-BLOCK 分类.md
 related_reports: []
 forbidden_misread:
   - BLOCKED_BY_SAMPLE 不得升级 PASS

@@ -1,4 +1,4 @@
----
+﻿---
 kb_id: "KB-PLAN-DDD-DOMAIN-ANALYSIS"
 title: "分析模块 DDD 计划"
 domain: "analysis"
@@ -59,5 +59,5 @@ A 类审查执行 git diff --check + 只读扫描报告。B/C/D 类按任务卡�
 
 ## 10. 相关 KB 领域文档链接
 
-- ../../domains/08-analysis-domain.md
+- ../../domains-业务领域/08-analysis-domain-分析域.md
 - [任务矩阵](../02-task-matrix.md)

@@ -1,4 +1,4 @@
----
+﻿---
 kb_id: "governance/01-knowledge-refresh-rule"
 title: "知识库刷新规则"
 domain: "harness"
@@ -32,8 +32,8 @@ forbidden_misread:
 1. 对应任务卡：plans/ddd-refactor/tasks/<task-id>.md。
 2. 对应领域页：plans/ddd-refactor/domains/<domain>-ddd-plan.md。
 3. 任务矩阵：plans/ddd-refactor/02-task-matrix.md 中对应任务状态或 evidence。
-4. 当前状态：state/00-current-state.md。
-5. 领域状态：state/02-domain-status.md。
+4. 当前状态：state-状态主源/00-current-state-当前状态与 DDD 计划状态.md。
+5. 领域状态：state-状态主源/02-domain-status-DOMAIN_STATUS 主源.md。
 
 ## 3. 禁止事项
 

@@ -1,4 +1,4 @@
----
+﻿---
 kb_id: tools/07-knowledge-base
 title: 知识库工具
 domain: tools
@@ -11,7 +11,7 @@ owner: harness-kb-001
 source_type: harness-derived
 related_files:
   - 00-index.md
-  - instructions/00-agent-contract.md
+  - instructions-约束指令/00-agent-contract.md
 related_reports:
   - harness/reports/harness-kb-001-*.md
 forbidden_misread:

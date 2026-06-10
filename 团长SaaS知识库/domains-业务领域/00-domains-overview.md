@@ -1,4 +1,4 @@
----
+﻿---
 kb_id: domains/00-domains-overview
 title: 八大领域总览与契约
 domain: domains
@@ -60,7 +60,7 @@ user ────────→ 所有域（数据范围）
 
 ## 4. 域状态机
 
-详见 [state/02-domain-status.md](../state/02-domain-status.md)。每个域独立维护：
+详见 [state-状态主源/02-domain-status-DOMAIN_STATUS 主源.md](../state-状态主源/02-domain-status-DOMAIN_STATUS 主源.md)。每个域独立维护：
 NOT_STARTED / IN_PROGRESS / PASS / PENDING / BLOCKED_BY_SAMPLE / BLOCKED_BY_EXTERNAL / FAILED / RISK_ACCEPTED。
 
 ## 5. 域验收口径

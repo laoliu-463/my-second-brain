@@ -1,4 +1,4 @@
----
+﻿---
 kb_id: "KB-PLAN-DDD-DOMAIN-TALENT"
 title: "达人域 DDD 计划"
 domain: "talent"
@@ -59,5 +59,5 @@ A 类审查执行 git diff --check + 只读扫描报告。B/C/D 类按任务卡�
 
 ## 10. 相关 KB 领域文档链接
 
-- ../../domains/04-talent-domain.md
+- ../../domains-业务领域/04-talent-domain-达人域.md
 - [任务矩阵](../02-task-matrix.md)

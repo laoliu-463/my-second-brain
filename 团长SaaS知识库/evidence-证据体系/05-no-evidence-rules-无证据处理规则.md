@@ -1,4 +1,4 @@
----
+﻿---
 kb_id: evidence/05-no-evidence-rules
 title: 无证据处理规则
 domain: evidence
@@ -10,7 +10,7 @@ freshness: fresh
 owner: harness-kb-001
 source_type: harness-derived
 related_files:
-  - governance/04-domain-status.md
+  - governance-治理策略/04-domain-status-域状态与阻塞升级.md
   - harness/reports/evidence-*.md
 related_reports: []
 forbidden_misread:
