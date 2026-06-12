@@ -78,7 +78,13 @@ def check_instance(instance: Path) -> tuple:
             broken.append(ref)
 
     # 3. 跨文件 wiki link 校验
+    # 容忍跨实例引用：只要目标在 vault 任何"第二大脑"实例下即可
     other_broken = []
+    root_dir = instance.parent
+    brain_instances = [
+        p for p in root_dir.iterdir()
+        if p.is_dir() and (p.name == INSTANCE_PREFIX or p.name.startswith(INSTANCE_PREFIX + "-"))
+    ]
     for p in instance.rglob("*.md"):
         rel = str(p.relative_to(instance)).replace("\\", "/")
         if rel == "索引.md":
@@ -91,14 +97,32 @@ def check_instance(instance: Path) -> tuple:
             ref = ref.split("|")[0].strip()
             if "://" in ref:
                 continue
+            # 解析路径
             if "/" in ref:
-                target = (p.parent / ref).resolve()
-                if not target.suffix:
-                    target = target.with_suffix(".md")
+                # 跨实例 ../ 引用
+                if ref.startswith("../"):
+                    tail = ref[3:]
+                    # 在任何 brain instance 下找
+                    found = False
+                    for other in brain_instances:
+                        if (other / f"{tail}.md").exists() or (other / tail).exists():
+                            found = True
+                            break
+                        if (other / tail).is_dir() and any((other / tail).rglob("*.md")):
+                            found = True
+                            break
+                    if not found:
+                        other_broken.append(f"{rel} -> [[{ref}]]")
+                else:
+                    target = (p.parent / ref).resolve()
+                    if not target.suffix:
+                        target = target.with_suffix(".md")
+                    if not target.exists():
+                        other_broken.append(f"{rel} -> [[{ref}]]")
             else:
                 target = instance / f"{ref}.md"
-            if not target.exists():
-                other_broken.append(f"{rel} -> [[{ref}]]")
+                if not target.exists():
+                    other_broken.append(f"{rel} -> [[{ref}]]")
 
     fail = bool(missing or broken or other_broken)
     msg = []
