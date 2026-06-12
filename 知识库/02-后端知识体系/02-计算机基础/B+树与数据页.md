@@ -1,9 +1,14 @@
 ---
 title: B+树与数据页
-tags: [MySQL, InnoDB, 索引, 数据库, B+树]
+tags:
+  - MySQL
+  - InnoDB
+  - 索引
+  - 数据库
 created: 2026-04-27
 updated: 2026-04-27
-sources: [小林coding - 从数据页的角度看B+树]
+sources:
+  - 小林coding - 从数据页的角度看B+树
 ---
 
 # B+树与数据页
