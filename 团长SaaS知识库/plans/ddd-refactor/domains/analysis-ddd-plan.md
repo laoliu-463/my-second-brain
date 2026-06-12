@@ -1,4 +1,4 @@
-﻿---
+---
 kb_id: "KB-PLAN-DDD-DOMAIN-ANALYSIS"
 title: "分析模块 DDD 计划"
 domain: "analysis"
