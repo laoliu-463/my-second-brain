@@ -2,7 +2,26 @@
 
 > 知识库当前状态快照（每次 LINT 巡检后更新）
 
-## 最新审计结果（2026-06-04）
+## 最新审计结果（2026-06-12）—— 本次对齐扫描
+
+| 指标 | 数值 | 说明 |
+|------|------|------|
+| 项目 harness 合规率 | 92% | 5 处违规待修（见对齐报告-20260612）|
+| vault 3 套并行 | 仍未收敛 | LLM Wiki/Harness/、09-SaaS体系/、团长SaaS知识库/ |
+| 旧 LLM Wiki 路径对齐 | **严重脱节** | 13 旧路径已不存在 |
+| 新 09-SaaS 主题对齐 | 大致对齐 | 8 Harness-* 子目录 1:1 对应 |
+| skill saas-harness-knowledge-ingest | 已归档 | 路径映射已 patch |
+
+详见：`09-SaaS体系/知识库Harness/reports/对齐报告-20260612.md`
+
+### 本次发现（2026-06-12）
+
+- 项目侧 5 处违规：reports/current/ 11 文件、templates/prompts/agents/ 15 文件、business-state-snapshot.md 350 行、DDD_DOMAIN_TASK_MATRIX.md 218 行、agent-contract.md 203 行
+- 业务事实主源健康（docs/01-V1交付范围与边界.md）
+- 决策主源健康（ADR-001 ~ ADR-008）
+- 已沉淀对齐报告到 `知识库Harness/reports/对齐报告-20260612.md`
+
+## 历史审计（2026-06-04）
 
 | 指标 | 数值 | 说明 |
 |------|------|------|
