@@ -102,15 +102,30 @@ def check_instance(instance: Path) -> tuple:
                 # 跨实例 ../ 引用
                 if ref.startswith("../"):
                     tail = ref[3:]
+                    # tail 可能是 "实例名/子路径" 或 直接 "子路径"
                     # 在任何 brain instance 下找
                     found = False
                     for other in brain_instances:
-                        if (other / f"{tail}.md").exists() or (other / tail).exists():
+                        # 1) tail 直接拼到 other 后
+                        cand1 = other / f"{tail}.md"
+                        cand2 = other / tail
+                        if cand1.exists() or (cand2.exists() and cand2.is_file()):
                             found = True
                             break
-                        if (other / tail).is_dir() and any((other / tail).rglob("*.md")):
+                        if cand2.is_dir() and any(cand2.rglob("*.md")):
                             found = True
                             break
+                        # 2) tail 是 "实例名/..."，去掉实例名再拼
+                        parts = tail.split("/", 1)
+                        if len(parts) == 2:
+                            cand3 = other / f"{parts[1]}.md"
+                            cand4 = other / parts[1]
+                            if cand3.exists() or (cand4.exists() and cand4.is_file()):
+                                found = True
+                                break
+                            if cand4.is_dir() and any(cand4.rglob("*.md")):
+                                found = True
+                                break
                     if not found:
                         other_broken.append(f"{rel} -> [[{ref}]]")
                 else:
