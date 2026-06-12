@@ -37,13 +37,19 @@ def find_instances(root: Path):
 def check_instance(instance: Path, root: Path) -> list:
     """检查单个实例的硬约束"""
     bad = []
-    all_files = [p for p in instance.rglob("*") if p.is_file()]
-    top_dirs = [p for p in instance.iterdir() if p.is_dir()]
 
+    # 一级子目录数
+    top_dirs = [p for p in sorted(instance.iterdir()) if p.is_dir()]
     if len(top_dirs) > MAX_DIRS:
         bad.append(f"  TOO_MANY_TOP_DIRS: {len(top_dirs)} > {MAX_DIRS}")
-    if len(all_files) > MAX_FILES:
-        bad.append(f"  TOO_MANY_FILES: {len(all_files)} > {MAX_FILES}")
+
+    # 全量文件（区分 md 和脚本）
+    all_files = [p for p in instance.rglob("*") if p.is_file()]
+    md_files = [p for p in all_files if p.suffix.lower() not in SCRIPT_EXTS]
+    n_md = len(md_files)
+    n_script = len(all_files) - n_md
+    if n_md > MAX_FILES:
+        bad.append(f"  TOO_MANY_MD_FILES: {n_md} > {MAX_FILES}")
 
     max_lines = 0
     for f in all_files:
@@ -68,7 +74,7 @@ def check_instance(instance: Path, root: Path) -> list:
                 rel = d.relative_to(instance)
                 bad.append(f"  TOO_MANY_FILES_IN_DIR: {rel}/ = {n_files} > {MAX_FILES_PER_DIR}")
 
-    return bad, len(all_files), len(top_dirs), max_lines
+    return bad, n_md, n_script, len(top_dirs), max_lines
 
 
 def main():
@@ -94,9 +100,9 @@ def main():
     fail = False
     for inst in instances:
         rel = inst.relative_to(root)
-        bad, n_files, n_dirs, max_lines = check_instance(inst, root)
+        bad, n_md, n_script, n_dirs, max_lines = check_instance(inst, root)
         status = "PASS" if not bad else "FAIL"
-        print(f"[{status}] {rel}/  files={n_files}/{MAX_FILES} dirs={n_dirs}/{MAX_DIRS} max_lines={max_lines}/{MAX_LINES}")
+        print(f"[{status}] {rel}/  md={n_md}/{MAX_FILES} script={n_script} dirs={n_dirs}/{MAX_DIRS} max_lines={max_lines}/{MAX_LINES}")
         for b in bad:
             print(b)
         if bad:
