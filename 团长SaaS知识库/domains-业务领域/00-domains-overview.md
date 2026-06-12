@@ -1,4 +1,4 @@
-﻿---
+---
 kb_id: domains/00-domains-overview
 title: 八大领域总览与契约
 domain: domains

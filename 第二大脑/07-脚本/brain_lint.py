@@ -54,6 +54,7 @@ def check_instance(instance: Path) -> tuple:
     # 2. 索引中引用必须对应实际文件
     wiki_refs = re.findall(r"\[\[([^\]]+)\]\]", index_text)
     broken = []
+    root = instance.parent  # vault 根
     for ref in wiki_refs:
         ref = ref.split("|")[0].strip()
         if "://" in ref or ref.startswith("http") or ref.startswith("/"):
@@ -64,10 +65,15 @@ def check_instance(instance: Path) -> tuple:
             instance / ref,
             instance / f"{ref}.md",
         ]
-        # 也允许跨实例跳转
-        root = instance.parent
-        if "/" in ref:
-            candidates.append(root / f"{ref}.md")
+        # 跨实例跳转：../xxx/yyy.md
+        if ref.startswith("../"):
+            tail = ref[3:]
+            # 优先在 vault 根下找
+            candidates.append(root / f"{tail}.md")
+            # 也可能在其他实例下
+            for other in root.iterdir():
+                if other.is_dir() and (other.name == INSTANCE_PREFIX or other.name.startswith(INSTANCE_PREFIX + "-")):
+                    candidates.append(other / f"{tail}.md")
         if not any(c.exists() for c in candidates):
             broken.append(ref)
 
