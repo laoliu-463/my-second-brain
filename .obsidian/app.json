@@ -1,1 +1,13 @@
-{}
+{
+  "alwaysUpdateLinks": true,
+  "newLinkFormat": "shortest",
+  "useMarkdownLinks": false,
+  "showInlineTitle": true,
+  "readableLineLength": true,
+  "strictLineBreaks": false,
+  "showFrontmatter": true,
+  "showBacklinks": true,
+  "showOutline": true,
+  "outlinePane": true,
+  "typeAheadTrigger": "/"
+}
