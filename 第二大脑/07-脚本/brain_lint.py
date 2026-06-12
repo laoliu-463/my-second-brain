@@ -1,16 +1,17 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-第二大脑/索引覆盖校验
+跨实例索引 LINT
 
+每个"第二大脑*/"实例独立校验 索引.md
 检查项：
-  - 所有 .md 都在 索引.md 中被引用
+  - 所有 .md 在该实例的 索引.md 中被引用
   - 索引.md 引用都对应实际文件
-  - 跨文件 [[wiki link]] 引用都有效
+  - 跨文件 wiki link 引用有效
 
 用法：
   python 第二大脑/07-脚本/brain_lint.py
-  python 第二大脑/07-脚本/brain_lint.py --root /path/to/第二大脑
+  python 第二大脑/07-脚本/brain_lint.py --root /path/to/vault
 """
 
 import argparse
@@ -18,69 +19,63 @@ import re
 import sys
 from pathlib import Path
 
-DEFAULT_ROOT = Path(__file__).resolve().parents[1]
-INDEX_FILE = "索引.md"
-SKIP_FILES = {INDEX_FILE, "日志.md", "README.md", "AGENTS.md"}
+DEFAULT_ROOT = Path(__file__).resolve().parents[2]
+INSTANCE_PREFIX = "第二大脑"
+SKIP_FILES = {"索引.md", "日志.md", "README.md", "AGENTS.md"}
 
 
-def main():
-    parser = argparse.ArgumentParser(description="第二大脑索引 LINT")
-    parser.add_argument("--root", type=Path, default=DEFAULT_ROOT, help="第二大脑根目录")
-    args = parser.parse_args()
+def find_instances(root: Path):
+    for p in sorted(root.iterdir()):
+        if p.is_dir() and (p.name == INSTANCE_PREFIX or p.name.startswith(INSTANCE_PREFIX + "-")):
+            yield p
 
-    root: Path = args.root
-    if not root.exists():
-        print(f"FAIL: 根目录不存在: {root}")
-        sys.exit(1)
 
-    index_path = root / INDEX_FILE
+def check_instance(instance: Path) -> tuple:
+    """检查单个实例的索引覆盖"""
+    index_path = instance / "索引.md"
     if not index_path.exists():
-        print(f"FAIL: {INDEX_FILE} 不存在")
-        sys.exit(1)
+        return False, ["  MISSING 索引.md"]
 
     index_text = index_path.read_text(encoding="utf-8", errors="ignore")
 
-    # 1. 所有 .md 必须在索引中被引用
+    # 1. 所有 .md 必须在索引中
     all_md = []
-    for p in sorted(root.rglob("*.md")):
-        rel = str(p.relative_to(root)).replace("\\", "/")
+    for p in sorted(instance.rglob("*.md")):
+        rel = str(p.relative_to(instance)).replace("\\", "/")
         all_md.append(rel)
 
     missing = []
     for rel in all_md:
         if rel in SKIP_FILES:
             continue
-        # 索引中可能不带 .md 后缀
         if rel not in index_text and rel.replace(".md", "") not in index_text:
             missing.append(rel)
 
     # 2. 索引中引用必须对应实际文件
-    # 提取 [[...]] 形式
     wiki_refs = re.findall(r"\[\[([^\]]+)\]\]", index_text)
-    # 也提取 [[xxx|xxx]] 的左半部分
     broken = []
     for ref in wiki_refs:
         ref = ref.split("|")[0].strip()
-        # 跳过 URL 和外部路径
-        if "://" in ref or "/" in ref and (ref.startswith("http") or ref.startswith("/")):
+        if "://" in ref or ref.startswith("http") or ref.startswith("/"):
             continue
-        # 跳过本文件
-        if ref.endswith("索引.md") or ref == "索引" or ref == "日志.md" or ref == "README.md" or ref == "AGENTS.md":
+        if ref.endswith("索引.md") or ref in ("索引", "日志.md", "README.md", "AGENTS.md"):
             continue
-        # 拼路径
         candidates = [
-            root / ref,
-            root / f"{ref}.md",
-            root / ref.replace("/", "/"),
+            instance / ref,
+            instance / f"{ref}.md",
         ]
+        # 也允许跨实例跳转
+        root = instance.parent
+        if "/" in ref:
+            candidates.append(root / f"{ref}.md")
         if not any(c.exists() for c in candidates):
             broken.append(ref)
 
     # 3. 跨文件 wiki link 校验
     other_broken = []
-    for p in root.rglob("*.md"):
-        rel = str(p.relative_to(root)).replace("\\", "/")
-        if rel == INDEX_FILE:
+    for p in instance.rglob("*.md"):
+        rel = str(p.relative_to(instance)).replace("\\", "/")
+        if rel == "索引.md":
             continue
         try:
             text = p.read_text(encoding="utf-8", errors="ignore")
@@ -90,41 +85,64 @@ def main():
             ref = ref.split("|")[0].strip()
             if "://" in ref:
                 continue
-            # 解析相对路径
             if "/" in ref:
                 target = (p.parent / ref).resolve()
                 if not target.suffix:
                     target = target.with_suffix(".md")
             else:
-                target = root / f"{ref}.md"
+                target = instance / f"{ref}.md"
             if not target.exists():
                 other_broken.append(f"{rel} -> [[{ref}]]")
 
-    fail = False
+    fail = bool(missing or broken or other_broken)
+    msg = []
     if missing:
-        print(f"FAIL: {len(missing)} 个 .md 不在 {INDEX_FILE} 中:")
-        for m in missing:
-            print(f"  - {m}")
-        fail = True
-
+        msg.append(f"  {len(missing)} 个 .md 不在 索引.md 中: {missing[:3]}")
     if broken:
-        print(f"FAIL: {len(broken)} 个 {INDEX_FILE} 引用不存在:")
-        for b in broken:
-            print(f"  - {b}")
-        fail = True
-
+        msg.append(f"  {len(broken)} 个 索引.md 引用不存在: {broken[:3]}")
     if other_broken:
-        print(f"FAIL: {len(other_broken)} 个跨文件 wiki link 失效:")
-        for b in other_broken:
-            print(f"  - {b}")
-        fail = True
+        msg.append(f"  {len(other_broken)} 个跨文件 wiki link 失效: {other_broken[:3]}")
 
+    return not fail, msg
+
+
+def main():
+    parser = argparse.ArgumentParser(description="跨实例索引 LINT")
+    parser.add_argument("--root", type=Path, default=DEFAULT_ROOT, help="vault 根目录")
+    args = parser.parse_args()
+
+    root: Path = args.root
+    if not root.exists():
+        print(f"FAIL: vault 根不存在: {root}")
+        sys.exit(1)
+
+    instances = list(find_instances(root))
+    if not instances:
+        print("FAIL: 没找到任何第二大脑实例")
+        sys.exit(1)
+
+    print(f"=== 跨实例索引 LINT ===")
+    print(f"vault 根: {root}")
+    print(f"实例数: {len(instances)}")
+    print()
+
+    fail = False
+    for inst in instances:
+        rel = inst.relative_to(root)
+        ok, msg = check_instance(inst)
+        status = "PASS" if ok else "FAIL"
+        print(f"[{status}] {rel}/")
+        for m in msg:
+            print(m)
+        if not ok:
+            fail = True
+
+    print()
     if fail:
+        print("OVERALL: FAIL")
         sys.exit(1)
     else:
-        print(f"PASS: {INDEX_FILE} covers {len(all_md)} markdown files")
-        print(f"  - {INDEX_FILE} 中 wiki refs: {len(wiki_refs)}")
-        print(f"  - 跨文件 wiki refs: ok")
+        print("OVERALL: PASS")
         sys.exit(0)
 
 
