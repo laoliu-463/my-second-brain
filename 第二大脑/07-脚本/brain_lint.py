@@ -97,6 +97,9 @@ def check_instance(instance: Path) -> tuple:
             ref = ref.split("|")[0].strip()
             if "://" in ref:
                 continue
+            # 忽略模板占位符（含 ... 或 示例字样）
+            if "..." in ref or "示例" in ref:
+                continue
             # 解析路径
             if "/" in ref:
                 # 跨实例 ../ 引用
