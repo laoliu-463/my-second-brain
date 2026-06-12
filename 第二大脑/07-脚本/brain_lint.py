@@ -135,9 +135,16 @@ def check_instance(instance: Path) -> tuple:
                     if not target.exists():
                         other_broken.append(f"{rel} -> [[{ref}]]")
             else:
-                target = instance / f"{ref}.md"
+                # 不含 / 的 ref：先在当前 md 同目录找，再在整个 instance rglob 找
+                target = p.parent / f"{ref}.md"
                 if not target.exists():
-                    other_broken.append(f"{rel} -> [[{ref}]]")
+                    found = False
+                    for f in instance.rglob(f"{ref}.md"):
+                        target = f
+                        found = True
+                        break
+                    if not found:
+                        other_broken.append(f"{rel} -> [[{ref}]]")
 
     fail = bool(missing or broken or other_broken)
     msg = []
