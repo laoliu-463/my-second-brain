@@ -9,5 +9,4 @@ assign("welcome",3) 将原字符串改为传入的字符串前三个字符
 C++列表初始化a(1),b(2),c(3)
 C++中值传递只改变副本，不改变真正变量值
 动态内存释放，数组使用delete[]p,对象使用delete p
-const * 表示不能改变指针指向  const double表示不能改变数值
-
+const * 表示指针常量不能修改值  int* const表示常量指针不能修改指针指向
