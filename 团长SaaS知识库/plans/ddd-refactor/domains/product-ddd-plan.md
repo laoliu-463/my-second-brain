@@ -1,4 +1,4 @@
-﻿---
+---
 kb_id: "KB-PLAN-DDD-DOMAIN-PRODUCT"
 title: "商品域 DDD 计划"
 domain: "product"
@@ -43,7 +43,7 @@ ProductService 是当前最大 God Service；转链、展示、同步、映射�
 
 ## 6. 第一批任务
 
-DDD-AUDIT-PRODUCT-001、DDD-TEST-PRODUCT-DISPLAY-001、DDD-POLICY-PRODUCT-DISPLAY-001
+DDD-AUDIT-PRODUCT-001 (DONE_AUDIT)、DDD-TEST-PRODUCT-DISPLAY-001、DDD-POLICY-PRODUCT-DISPLAY-001
 
 ## 7. 禁止先做的事
 

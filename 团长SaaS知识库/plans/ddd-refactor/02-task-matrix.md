@@ -299,8 +299,9 @@ A 只读审查；B 防护测试；C 命名与边界整理；D 逻辑搬迁；E �
 回滚方式：还原本任务允许修改文件；若是测试/代码任务按 Git 单文件回滚，不使用 git reset --hard。
 完成判定：有 evidence；验证命令结果明确；对应 KB 任务页、领域页和 state 页已更新。
 不能宣称完成的条件：缺测试、缺 evidence、缺样本、改了非目标范围、业务口径有争议但未进入 ADR。
-相关知识库文件：domains/product-ddd-plan.md
-相关 evidence：本任务启动后生成 harness/reports/evidence-*-<task-id>.md。
+相关知识库文件：[domains/product-ddd-plan.md](file:///d:/Docs/Books/my second brain/团长SaaS知识库/plans/ddd-refactor/domains/product-ddd-plan.md)
+相关 evidence：[ddd-audit-product-001-20260619-153000.md](file:///d:/Projects/SAAS/harness/reports/ddd-audit-product-001-20260619-153000.md)
+状态：**DONE_AUDIT** (于 2026-06-19 15:30:00 完成)
 
 ### DDD-TEST-PRODUCT-DISPLAY-001 - 补商品展示规则测试
 
@@ -752,7 +753,8 @@ A 只读审查；B 防护测试；C 命名与边界整理；D 逻辑搬迁；E �
 完成判定：有 evidence；验证命令结果明确；对应 KB 任务页、领域页和 state 页已更新。
 不能宣称完成的条件：缺测试、缺 evidence、缺样本、改了非目标范围、业务口径有争议但未进入 ADR。
 相关知识库文件：tasks/ddd-test-order-sync-001.md
-相关 evidence：本任务启动后生成 harness/reports/evidence-*-<task-id>.md。
+相关 evidence：[latest-evidence-20260619.md](file:///d:/Projects/SAAS/harness/reports/latest-evidence-20260619.md)
+状态：**DONE_TEST** (于 2026-06-19 15:45:00 完成)
 
 ### DDD-TEST-ORDER-ATTRIBUTION-001 - 补归因测试
 
@@ -914,7 +916,8 @@ A 只读审查；B 防护测试；C 命名与边界整理；D 逻辑搬迁；E �
 完成判定：有 evidence；验证命令结果明确；对应 KB 任务页、领域页和 state 页已更新。
 不能宣称完成的条件：缺测试、缺 evidence、缺样本、改了非目标范围、业务口径有争议但未进入 ADR。
 相关知识库文件：tasks/ddd-test-performance-calc-001.md
-相关 evidence：本任务启动后生成 harness/reports/evidence-*-<task-id>.md。
+相关 evidence：[latest-evidence-20260619.md](file:///d:/Projects/SAAS/harness/reports/latest-evidence-20260619.md)
+状态：**DONE_TEST** (于 2026-06-19 17:10:00 完成)
 
 ### DDD-TEST-PERFORMANCE-REVERSAL-001 - 补退款冲正测试
 

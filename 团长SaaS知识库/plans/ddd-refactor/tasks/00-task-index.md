@@ -25,9 +25,9 @@ forbidden_misread:
 - [DDD-AUDIT-ORDER-001](tasks/ddd-audit-order-001.md) — **DONE_AUDIT**
 - [DDD-AUDIT-PERFORMANCE-001](tasks/ddd-audit-performance-001.md) — **DONE_AUDIT**
 - [DDD-AUDIT-SAMPLE-001](tasks/ddd-audit-sample-001.md) — **DONE_AUDIT**
-- [DDD-AUDIT-PRODUCT-001](tasks/ddd-audit-product-001.md)
-- [DDD-TEST-ORDER-SYNC-001](tasks/ddd-test-order-sync-001.md)
-- [DDD-TEST-PERFORMANCE-CALC-001](tasks/ddd-test-performance-calc-001.md)
+- [DDD-AUDIT-PRODUCT-001](tasks/ddd-audit-product-001.md) — **DONE_AUDIT**
+- [DDD-TEST-ORDER-SYNC-001](tasks/ddd-test-order-sync-001.md) — **DONE_TEST**
+- [DDD-TEST-PERFORMANCE-CALC-001](tasks/ddd-test-performance-calc-001.md) — **DONE_TEST**
 - [DDD-TEST-SAMPLE-LIFECYCLE-001](tasks/ddd-test-sample-lifecycle-001.md)
 - [DDD-FACADE-USER-001](tasks/ddd-facade-user-001.md)
 - [DDD-FACADE-CONFIG-001](tasks/ddd-facade-config-001.md)
