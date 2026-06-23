@@ -15,11 +15,13 @@
 
 ## 原始资料
 
+
+- 全量文件索引：[[raw-原始文件索引|raw 原始文件索引]]
 - 本地原始目录：[打开 Akkkk 转写目录](<../../raw/sources/Akkkk缺失视频转写/>)
 - 示例原始文件：[打开首个转写 Markdown](<../../raw/sources/Akkkk缺失视频转写/2024-06-07_7377747575333604646.md>)
 - 原始网页：未记录
-- 来源编号：未建立独立 `source_id`，见 [[../第二大脑/06-报告证据/refactor/20260623-235035/source-link-repair-report|来源链接修复报告]]
-- 文件校验：多文件来源，见 [[../第二大脑/06-报告证据/refactor/20260623-235035/source-link-repair-report|来源链接修复报告]]
+- 来源编号：未建立独立 `source_id`，见 [[source-link-repair-report|来源链接修复报告]]
+- 文件校验：多文件来源，见 [[source-link-repair-report|来源链接修复报告]]
 
 ## 3. 关联
 

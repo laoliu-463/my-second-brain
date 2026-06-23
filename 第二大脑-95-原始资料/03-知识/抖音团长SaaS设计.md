@@ -14,11 +14,13 @@
 
 ## 原始资料
 
+
+- 全量文件索引：[[raw-原始文件索引|raw 原始文件索引]]
 - 本地原始目录：[打开 SaaS 设计目录](<../../raw/sources/抖音团长SaaS设计文档/>)
 - 示例原始文件：[打开 V1 交付范围表](<../../raw/sources/抖音团长SaaS设计文档/V1交付范围表.md>)
 - 原始网页：未记录
-- 来源编号：未建立独立 `source_id`，见 [[../第二大脑/06-报告证据/refactor/20260623-235035/source-link-repair-report|来源链接修复报告]]
-- 文件校验：多文件来源，见 [[../第二大脑/06-报告证据/refactor/20260623-235035/source-link-repair-report|来源链接修复报告]]
+- 来源编号：未建立独立 `source_id`，见 [[source-link-repair-report|来源链接修复报告]]
+- 文件校验：多文件来源，见 [[source-link-repair-report|来源链接修复报告]]
 
 ## 3. 关联
 
