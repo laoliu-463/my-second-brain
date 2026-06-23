@@ -30,3 +30,5 @@
 |op-021|A|索引.md|索引.md|回填 SID-B01 source_id 候选表入口，保持 brain_lint 索引覆盖|low|索引入口/brain_lint|删除本次新增索引行|是|0519C8ED0CA4C661645079492C632C2A59D94BC37BBFCFEB57A8D96393EB283D|
 |op-022|A|06-报告证据/refactor/20260623-235035/source-id-apply-sid-b01.md|06-报告证据/refactor/20260623-235035/source-id-apply-sid-b01.md|落盘 SID-B01-P1 写入证据表，记录 26 个文件 before/after SHA256|low|migration-plan/validation-report|删除本文件并按 op-020 回滚|是|00E56450E8832FDB10EB9E154D9F7B5CAFD0937A504B818A33F49AD93D8EB68E|
 |op-023|A|索引.md|索引.md|回填 SID-B01 source_id 写入证据入口，保持 brain_lint 索引覆盖|low|索引入口/brain_lint|删除本次新增索引行|是|6221157F726627C0ECF271186966E9677A69D6D7F884148CD6181569ABB7FFD2|
+|op-024|A|06-报告证据/refactor/20260623-235035/directory-result.md|06-报告证据/refactor/20260623-235035/directory-result.md|落盘当前主实例清晰目录结果，固化一级目录、主干页、边界和验收口径|low|索引/validation-report|删除本文件并回退索引入口|是|EDE1FC91995B3F905DA6F70D43F5F7315D910D9EE3CC28ECCD39FAD2821B12DB|
+|op-025|A|索引.md|索引.md|回填 directory-result.md 入口，保持 brain_lint 索引覆盖|low|索引入口/brain_lint|删除本次新增索引行|是|7E3B5224014541F030200FA316879A5CEB335B71242073029F493EAA5F86531C|

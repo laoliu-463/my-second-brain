@@ -43,3 +43,7 @@
 - 35. 计算 索引.md SHA256 并回填 op-023：6221157F726627C0ECF271186966E9677A69D6D7F884148CD6181569ABB7FFD2。
 - 36. 自检 26 个 SID-B01 写入文件：source_id 均存在且无重复。
 - 37. 复跑 lint：line_guard.py PASS；brain_lint.py PASS。op-020 实际写入后结构与索引校验闭合。
+- 38. 新增 directory-result.md：固化当前主实例目录结果、目录边界、主干页归属、已执行与未决项。
+- 39. 在 索引.md 的 20260623-235035 批次下追加 directory-result 入口，并在 migration-plan 追加 op-024/op-025。
+- 40. 计算 directory-result.md SHA256：EDE1FC91995B3F905DA6F70D43F5F7315D910D9EE3CC28ECCD39FAD2821B12DB；计算 索引.md SHA256：7E3B5224014541F030200FA316879A5CEB335B71242073029F493EAA5F86531C。
+- 41. 复跑 lint：line_guard.py PASS；brain_lint.py PASS。directory-result.md 已被索引覆盖，目录结果闭合。

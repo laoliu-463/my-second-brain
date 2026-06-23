@@ -1,4 +1,4 @@
-﻿---
+---
 kb_id: 00-index
 title: 团长SaaS知识库总索引
 domain: project

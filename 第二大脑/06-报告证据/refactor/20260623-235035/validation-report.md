@@ -57,3 +57,11 @@
 - 回滚方式：按 `source-id-apply-sid-b01.md` 将对应 `source_id` 行恢复为空，并复核 before hash。
 - source_id 自检：26 个写入文件均存在 `source_id`，且无重复。
 - 复跑结果：line_guard.py PASS；brain_lint.py PASS。
+
+## 目录结果
+- 已新增 `directory-result.md`。
+- 当前主实例为 9 个一级目录，满足 `<= 10` 约束。
+- 当前目录口径：根入口 4 文件、00-规范 3、01-状态 5、02-项目总览 6、03-领域知识 8、04-运行流程 4、05-任务管理 9、06-报告证据 7 个顶层 md + refactor 证据、07-脚本 3 个 Python 工具、08-模板 2。
+- 当前目录边界：不新增一级目录，不并入外部实例，不把 `D:\Projects\SAAS` 纳入本次目录。
+- 后续目录路线：不再调整一级目录，继续处理 SID-B02、根文件策略与跨实例链接。
+- 复跑结果：line_guard.py PASS；brain_lint.py PASS。
