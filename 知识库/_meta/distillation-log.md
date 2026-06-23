@@ -44,3 +44,10 @@ tags:
 - 安全边界：未删除文件，未覆盖 raw 原文，未批量移动历史知识页。
 - 分类分布：concept=401；entity=20；mixed=2；question=1；raw-source=67；source-note=241；synthesis=277；unknown=504
 - 验证补充：轻量断链检查扫描 1513 个 Markdown，发现 2050 个无法自动解析的链接候选，已写入复核清单；未做批量改链。
+
+## 2026-06-23 原文跳转链接硬约束
+
+- 更新 `kb-organize`、`AGENT_CONTRACT`、`COMPLETION_GATES`：正式知识内容必须同时具备来源页回链和原文跳转链接。
+- 更新 `tools/kb_full_distill.py`：后续生成来源页时写入可点击原文链接，并保留路径、大小和哈希。
+- 批量补齐 `知识库/sources/src-*.md` 的 `## 原文跳转` 小节，覆盖 229 个来源页。
+- 验证结果：229 个来源页均存在原文跳转小节；其中 2 个 CSV 来源仍指向根目录原始文件，因脚本依赖暂未迁入 raw。

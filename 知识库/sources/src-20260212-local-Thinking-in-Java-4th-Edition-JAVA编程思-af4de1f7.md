@@ -36,8 +36,11 @@ tags:
 
 - `raw/sources/Thinking+in+Java+4th+Edition（JAVA编程思想 第四版 英文版）.pdf` | size=7525929 | sha256=`BAB62186002AB382A6208CED54972FAB5F8BF5CC5ABBD711550E3A540E8A9EC4`
 
-## 一句话摘要
+## 原文跳转
 
+- [[raw/sources/Thinking+in+Java+4th+Edition（JAVA编程思想 第四版 英文版）.pdf|原文]]
+
+## 一句话摘要
 待人工阅读或抽取后补充；当前页面先作为证据层登记页，避免原文散落无来源页。
 
 ## 作者核心观点
@@ -60,3 +63,4 @@ tags:
 ## 影响的知识页
 
 - 按书籍主题页或领域索引引用
+

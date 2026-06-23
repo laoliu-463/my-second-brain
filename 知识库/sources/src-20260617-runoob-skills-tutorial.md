@@ -20,8 +20,11 @@ tags:
 
 # Agent Skills 入门来源
 
-## 一句话摘要
+## 原文跳转
 
+- [[raw/sources/src-20260617-runoob-skills-tutorial/original.md|原文]]
+
+## 一句话摘要
 这篇来源用入门语言说明 Skills 是为 Agent 封装专业知识和可重复工作流的技能包，强调模型负责理解与规划，Skills 负责可执行动作。
 
 ## 作者核心观点
@@ -51,4 +54,5 @@ tags:
 
 - [[知识库/concepts/Agent Skills|Agent Skills]]
 - [[第二大脑-90-收件箱/03-知识/Skills教程|Skills教程]]
+
 

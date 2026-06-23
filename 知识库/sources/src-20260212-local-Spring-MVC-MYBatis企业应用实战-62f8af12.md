@@ -36,8 +36,11 @@ tags:
 
 - `raw/sources/Spring MVC+MYBatis企业应用实战.pdf` | size=50472529 | sha256=`A0401A8246CBA97FBF836007FAA58915BCBB415AAD1DB6EE44216F36FC5FA46F`
 
-## 一句话摘要
+## 原文跳转
 
+- [[raw/sources/Spring MVC+MYBatis企业应用实战.pdf|原文]]
+
+## 一句话摘要
 待人工阅读或抽取后补充；当前页面先作为证据层登记页，避免原文散落无来源页。
 
 ## 作者核心观点
@@ -60,3 +63,4 @@ tags:
 ## 影响的知识页
 
 - 按书籍主题页或领域索引引用
+

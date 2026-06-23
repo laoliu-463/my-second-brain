@@ -20,8 +20,11 @@ tags:
 
 # Java 集合框架关系图来源
 
-## 一句话摘要
+## 原文跳转
 
+- [[raw/sources/src-20260512-pdai-collection-relations/original.md|原文]]
+
+## 一句话摘要
 该来源按 Collection 和 Map 两个入口梳理 Java 容器体系，适合支撑 Java 集合概念页中的结构速查和实现选择。
 
 ## 作者核心观点
@@ -51,4 +54,5 @@ tags:
 
 - [[Collection类关系图]]
 - [[知识库/90-来源与映射/Collection类关系图来源映射]]
+
 

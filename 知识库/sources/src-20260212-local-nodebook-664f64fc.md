@@ -36,8 +36,11 @@ tags:
 
 - `raw/sources/nodebook.pdf` | size=2763500 | sha256=`A46091FE4B27597F61D3FC2171E59CEE1FC9E2E0AB2C892C72AD02E3BE8D83C2`
 
-## 一句话摘要
+## 原文跳转
 
+- [[raw/sources/nodebook.pdf|原文]]
+
+## 一句话摘要
 待人工阅读或抽取后补充；当前页面先作为证据层登记页，避免原文散落无来源页。
 
 ## 作者核心观点
@@ -60,3 +63,4 @@ tags:
 ## 影响的知识页
 
 - 按书籍主题页或领域索引引用
+

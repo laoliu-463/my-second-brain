@@ -297,9 +297,10 @@ def raw_groups(files: list[Path]) -> list[SourceGroup]:
 
 def source_page(group: SourceGroup) -> str:
     original_paths = "\n".join(
-        f"- `{item.rel}` | size={item.size} | sha256=`{item.sha256}`" for item in group.files
+        f"- [[{item.rel}|原文]] (`{item.rel}`) | size={item.size} | sha256=`{item.sha256}`" for item in group.files
     )
     first_path = group.files[0].rel if group.files else "待确认"
+    first_link = f"[[{first_path}|原文]]" if first_path != "待确认" else "待确认"
     aliases = [group.title]
     aliases_text = "\n".join(f"  - {alias}" for alias in aliases)
     return f"""---
@@ -336,7 +337,7 @@ tags:
 | 原始链接 | {group.link} |
 | 来源类型 | {group.source_type} |
 
-## 原文路径
+## 原文路径与跳转
 
 {original_paths}
 
@@ -350,7 +351,7 @@ tags:
 
 ## 证据地图
 
-- 原文：`{first_path}`
+- 原文：{first_link}
 
 ## 个人批注
 
@@ -550,8 +551,8 @@ def write_migration_plan(rows: list[dict[str, str]], groups: list[SourceGroup], 
     ]
     action = {
         "raw-source": "保留 raw 原文不改写；确认来源页和哈希。",
-        "source-note": "归并到来源页；只把可复用知识回链到概念/综合页。",
-        "concept": "保留或合并到同义概念页；补来源回链。",
+        "source-note": "归并到来源页；只把可复用知识回链到概念/综合页，并补原文跳转链接。",
+        "concept": "保留或合并到同义概念页；补来源回链和原文跳转链接。",
         "entity": "保留为实体页；补 aliases、来源和关联概念。",
         "synthesis": "作为跨来源综合页维护；补证据地图。",
         "question": "放入 questions 或复核清单，等待证据闭环。",
@@ -671,7 +672,7 @@ def write_map(rows: list[dict[str, str]], groups: list[SourceGroup]) -> None:
             "",
             "## 合并规则",
             "",
-            "- 原文只在 raw 层保存，来源页只保存路径、哈希、摘要、证据地图和批注。",
+            "- 原文只在 raw 层保存，来源页只保存路径、哈希、原文跳转链接、摘要、证据地图和批注。",
             "- 多篇文章支持同一概念时，更新概念页而不是复制文章笔记。",
             "- 单篇文章的语境、修辞和案例保留在来源页。",
             "- 冲突观点保留双方来源、日期和证据，不自动消解。",

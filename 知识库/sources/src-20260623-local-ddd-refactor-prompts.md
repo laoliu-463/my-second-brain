@@ -21,8 +21,11 @@ tags:
 
 # SAAS DDD 渐进式重构提示词包
 
-## 一句话摘要
+## 原文跳转
 
+- [[raw/sources/src-20260623-local-ddd-refactor-prompts/original.md|原文]]
+
+## 一句话摘要
 该来源是一组面向编码 Agent 的 DDD 重构任务提示词，核心是先建立安全开关、基线测试、依赖扫描和目标包结构，再按领域逐步替换调用。
 
 ## 作者核心观点
@@ -52,4 +55,5 @@ tags:
 
 - [[知识库/syntheses/SAAS DDD渐进式重构任务链|SAAS DDD渐进式重构任务链]]
 - [[第二大脑-90-收件箱/03-知识/DDD提示词|DDD提示词]]
+
 

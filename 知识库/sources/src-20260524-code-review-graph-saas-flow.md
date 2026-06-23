@@ -21,8 +21,11 @@ tags:
 
 # SAAS code-review-graph 业务流程图来源
 
-## 一句话摘要
+## 原文跳转
 
+- [[raw/sources/src-20260524-code-review-graph-saas-flow/original.md|原文]]
+
+## 一句话摘要
 该来源是由 `code-review-graph` 生成的 SAAS 项目架构社区和执行流数据，适合作为代码图谱证据，不适合作为人工维护知识页全文。
 
 ## 作者核心观点
@@ -50,4 +53,5 @@ tags:
 
 - [[知识库/syntheses/SAAS代码图谱业务流程图|SAAS代码图谱业务流程图]]
 - [[知识库/06-内容创作与传播/Akkkk内容研究/SAAS全项目业务流程图|SAAS全项目业务流程图]]
+
 
