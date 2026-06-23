@@ -1,6 +1,9 @@
 ---
 title: "Skills 教程 | 菜鸟教程"
 source: "https://www.runoob.com/skills/skills-tutorial.html"
+status: 已整理
+outputs:
+  - 第二大脑-90-收件箱/03-知识/Skills教程.md
 author:
 published:
 created: 2026-06-17
