@@ -53,3 +53,11 @@ tags:
 - 验证结果：229 个来源页均存在原文跳转小节；其中 2 个 CSV 来源仍指向根目录原始文件，因脚本依赖暂未迁入 raw。
 - 追加补齐正式知识页原文跳转信号：`concepts`、`entities`、`syntheses`、`maps` 共 11 个 Markdown 均已包含来源页回链和原文跳转或导航页约束说明。
 - 验证结果：正式知识页检查 `knowledge_pages_checked=11`，`missing_original_jump_signal=0`；来源页检查 `source_pages_checked=229`，`missing_original_jump_section=0`。
+
+## 2026-06-23 全量文章内容整理
+
+- 扫描文件：1885；Markdown：1522；raw 来源组：227。
+- 新建来源页：0；已有来源页：227。
+- 刷新：`content-inventory.md`、`migration-plan.md`、`sources/index.md`、`content-distillation-map.md`、`unresolved-items.md`。
+- 安全边界：未删除文件，未覆盖 raw 原文，未批量移动历史知识页。
+- 分类分布：concept=409；entity=20；mixed=2；question=1；raw-source=67；source-note=241；synthesis=277；unknown=505

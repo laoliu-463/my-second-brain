@@ -13,8 +13,8 @@ tags:
 
 - 扫描根目录：`D:\Docs\Books\my second brain`
 - 扫描范围：除 `.git/`、`.obsidian/`、`.claude/`、`.cursor/` 外的全库文件
-- 扫描文件数：1875
-- Markdown 文件数：1513
+- 扫描文件数：1885
+- Markdown 文件数：1522
 - raw 来源组数：227
 - 执行模式：apply；未自动删除文件；未移动大体积 raw 原文
 
@@ -22,27 +22,27 @@ tags:
 
 | 类型 | 数量 |
 |---|---:|
-| concept | 401 |
+| concept | 409 |
 | entity | 20 |
 | mixed | 2 |
 | question | 1 |
 | raw-source | 67 |
 | source-note | 241 |
 | synthesis | 277 |
-| unknown | 504 |
+| unknown | 505 |
 
 ## 扩展名分布
 
 | 扩展名 | 数量 |
 |---|---:|
-| `.md` | 1513 |
+| `.md` | 1522 |
 | `.pdf` | 144 |
 | `.tmp` | 57 |
 | `.mp4` | 46 |
 | `.json` | 46 |
 | `.py` | 37 |
 | `.ppt` | 9 |
-| `.txt` | 6 |
+| `.txt` | 7 |
 | `.csv` | 5 |
 | `.docx` | 5 |
 | `.pptx` | 3 |
@@ -57,7 +57,7 @@ tags:
 | `知识库` | 775 |
 | `raw` | 319 |
 | `团长SaaS知识库` | 113 |
-| `tmp` | 58 |
+| `tmp` | 68 |
 | `第二大脑-20-后端` | 53 |
 | `第二大脑-40-认知` | 53 |
 | `第二大脑-10-SaaS` | 52 |
@@ -197,6 +197,15 @@ tags:
 | `raw/sources/抖音团长SaaS设计文档/领域设计/达人域.md` | 达人域 | raw-source | 是 | 否 | 未发现 | `src-20260518-local-达人域-8e971de7` | 团长SaaS知识库/domains-业务领域/04-talent-domain-达人域.md; 知识库/02-后端知识体系/03-Java体系/抖店团长SaaS-业务体系/04-七领域合同/达人域.md; 知识库/sources/src-20260518-local-达人域-8e971de7.md | raw/sources 或 知识库/sources/<source_id>.md | raw/sources 或 知识库/sources/<source_id>.md | raw 原始层 |
 | `raw/sources/抖音团长SaaS设计文档/领域设计/配置域.md` | 配置域 | raw-source | 是 | 否 | 未发现 | `src-20260517-local-配置域-b40d8995` | 团长SaaS知识库/domains-业务领域/02-config-domain-配置域.md; 知识库/02-后端知识体系/03-Java体系/抖店团长SaaS-业务体系/04-七领域合同/配置域.md; 知识库/sources/src-20260517-local-配置域-b40d8995.md | raw/sources 或 知识库/sources/<source_id>.md | raw/sources 或 知识库/sources/<source_id>.md | raw 原始层 |
 | `README.md` | My Second Brain | unknown | 否 | 是 | 未发现 | `` |  | README.md | README.md | 结构、索引、任务、日志或模板文件 |
+| `tmp/kb-content-distiller-skill-extract/kb-content-distiller-skill/checks/acceptance.md` | 验收清单 | concept | 否 | 是 | 未发现 | `` |  | 知识库/concepts/验收清单.md | 知识库/concepts/验收清单.md | 稳定概念、方法或知识页 |
+| `tmp/kb-content-distiller-skill-extract/kb-content-distiller-skill/prompts/execute.md` | 已入库内容整理与沉淀：直接执行提示词 | concept | 否 | 是 | 未发现 | `` |  | 知识库/concepts/已入库内容整理与沉淀：直接执行提示词.md | 知识库/concepts/已入库内容整理与沉淀：直接执行提示词.md | 稳定概念、方法或知识页 |
+| `tmp/kb-content-distiller-skill-extract/kb-content-distiller-skill/README.md` | kb-content-distiller | unknown | 否 | 是 | 未发现 | `` |  | tmp/kb-content-distiller-skill-extract/kb-content-distiller-skill/README.md | tmp/kb-content-distiller-skill-extract/kb-content-distiller-skill/README.md | 结构、索引、任务、日志或模板文件 |
+| `tmp/kb-content-distiller-skill-extract/kb-content-distiller-skill/references/classification-and-naming.md` | 分类、标题与目录决策表 | concept | 否 | 是 | 未发现 | `` |  | 知识库/concepts/分类、标题与目录决策表.md | 知识库/concepts/分类、标题与目录决策表.md | 稳定概念、方法或知识页 |
+| `tmp/kb-content-distiller-skill-extract/kb-content-distiller-skill/SKILL.md` | 已入库内容整理与沉淀 Skill | concept | 否 | 是 | 未发现 | `` |  | 知识库/concepts/已入库内容整理与沉淀 Skill.md | 知识库/concepts/已入库内容整理与沉淀 Skill.md | 稳定概念、方法或知识页 |
+| `tmp/kb-content-distiller-skill-extract/kb-content-distiller-skill/templates/concept-note.md` | {{title}} | concept | 否 | 否 | 未发现 | `` | tmp/kb-content-distiller-skill-extract/kb-content-distiller-skill/templates/synthesis-note.md | 知识库/concepts/{{title}}.md | 知识库/concepts/{{title}}.md | 稳定概念、方法或知识页 |
+| `tmp/kb-content-distiller-skill-extract/kb-content-distiller-skill/templates/map-note.md` | {{topic}} | concept | 否 | 否 | 未发现 | `` |  | 知识库/concepts/{{topic}}.md | 知识库/concepts/{{topic}}.md | 稳定概念、方法或知识页 |
+| `tmp/kb-content-distiller-skill-extract/kb-content-distiller-skill/templates/source-note.md` | {{display_title}} | concept | 否 | 是 | 未发现 | `` |  | 知识库/concepts/{{display_title}}.md | 知识库/concepts/{{display_title}}.md | 稳定概念、方法或知识页 |
+| `tmp/kb-content-distiller-skill-extract/kb-content-distiller-skill/templates/synthesis-note.md` | {{title}} | concept | 否 | 是 | 未发现 | `` | tmp/kb-content-distiller-skill-extract/kb-content-distiller-skill/templates/concept-note.md | 知识库/concepts/{{title}}.md | 知识库/concepts/{{title}}.md | 稳定概念、方法或知识页 |
 | `tmp/orig/C++.md` | C++ | concept | 否 | 否 | 未发现 | `` |  | 知识库/concepts/C++.md | 知识库/concepts/C++.md | 稳定概念、方法或知识页 |
 | `人智认知系列.md` | 人智认知系列 | concept | 否 | 否 | 未发现 | `` |  | 知识库/concepts/人智认知系列.md | 知识库/concepts/人智认知系列.md | 稳定概念、方法或知识页 |
 | `团长SaaS知识库/00-index.md` | 团长SaaS知识库总索引 | concept | 否 | 是 | 未发现 | `` |  | 知识库/concepts/团长SaaS知识库总索引.md | 知识库/concepts/团长SaaS知识库总索引.md | 稳定概念、方法或知识页 |
@@ -820,7 +829,7 @@ tags:
 | `知识库/09-SaaS体系/知识库Harness/SESSION_EXIT_GATE.md` | Knowledge Base Session Exit Gate | synthesis | 否 | 是 | 未发现 | `` |  | 知识库/syntheses/Knowledge Base Session Exit Gate.md | 知识库/syntheses/Knowledge Base Session Exit Gate.md | 跨页汇总、索引、路线或体系页 |
 | `知识库/09-SaaS体系/知识库Harness/skills/kb-audit.md` | Skill: kb-audit | synthesis | 否 | 否 | 未发现 | `` |  | 知识库/syntheses/Skill: kb-audit.md | 知识库/syntheses/Skill: kb-audit.md | 跨页汇总、索引、路线或体系页 |
 | `知识库/09-SaaS体系/知识库Harness/skills/kb-gc.md` | Skill: kb-gc | synthesis | 否 | 否 | 未发现 | `` |  | 知识库/syntheses/Skill: kb-gc.md | 知识库/syntheses/Skill: kb-gc.md | 跨页汇总、索引、路线或体系页 |
-| `知识库/09-SaaS体系/知识库Harness/skills/kb-organize.md` | Skill: kb-organize | synthesis | 否 | 否 | 未发现 | `` |  | 知识库/syntheses/Skill: kb-organize.md | 知识库/syntheses/Skill: kb-organize.md | 跨页汇总、索引、路线或体系页 |
+| `知识库/09-SaaS体系/知识库Harness/skills/kb-organize.md` | Skill: kb-organize | synthesis | 否 | 是 | 未发现 | `` |  | 知识库/syntheses/Skill: kb-organize.md | 知识库/syntheses/Skill: kb-organize.md | 跨页汇总、索引、路线或体系页 |
 | `知识库/09-SaaS体系/知识库Harness/skills/kb-session-exit.md` | Skill: kb-session-exit | synthesis | 否 | 是 | 未发现 | `` |  | 知识库/syntheses/Skill: kb-session-exit.md | 知识库/syntheses/Skill: kb-session-exit.md | 跨页汇总、索引、路线或体系页 |
 | `知识库/09-SaaS体系/知识库Harness/state/KB_STATUS.md` | KB Status | synthesis | 否 | 是 | 未发现 | `` |  | 知识库/syntheses/KB Status.md | 知识库/syntheses/KB Status.md | 跨页汇总、索引、路线或体系页 |
 | `知识库/09-SaaS体系/知识库Harness/state/KB_TASK_MATRIX.md` | Knowledge Base Task Matrix | synthesis | 否 | 否 | 未发现 | `` |  | 知识库/syntheses/Knowledge Base Task Matrix.md | 知识库/syntheses/Knowledge Base Task Matrix.md | 跨页汇总、索引、路线或体系页 |
@@ -840,8 +849,8 @@ tags:
 | `知识库/_meta/migration-plan.md` | 全量内容迁移计划 | unknown | 否 | 是 | 未发现 | `` |  | 知识库/_meta/migration-plan.md | 知识库/_meta/migration-plan.md | 结构、索引、任务、日志或模板文件 |
 | `知识库/_review/cpp-learning-fragment.md` | cpp-learning-fragment | unknown | 否 | 否 | 未发现 | `` |  | 知识库/_review/cpp-learning-fragment.md | 知识库/_review/cpp-learning-fragment.md | 结构、索引、任务、日志或模板文件 |
 | `知识库/_review/unresolved-items.md` | 待人工复核项 | unknown | 可能 | 是 | 未发现 | `` |  | 知识库/_review/unresolved-items.md | 知识库/_review/unresolved-items.md | 结构、索引、任务、日志或模板文件 |
-| `知识库/concepts/Agent Skills.md` | Agent Skills | concept | 否 | 是 | 未发现 | `` |  | 知识库/concepts/Agent Skills.md | 知识库/concepts/Agent Skills.md | 稳定概念、方法或知识页 |
-| `知识库/concepts/index.md` | 概念页索引 | unknown | 否 | 否 | 未发现 | `` |  | 知识库/concepts/index.md | 知识库/concepts/index.md | 结构、索引、任务、日志或模板文件 |
+| `知识库/concepts/Agent Skills.md` | Agent Skills | concept | 否 | 是 | https://github.com/mattpocock/skills | `` |  | 知识库/concepts/Agent Skills.md | 知识库/concepts/Agent Skills.md | 稳定概念、方法或知识页 |
+| `知识库/concepts/index.md` | 概念页索引 | unknown | 否 | 否 | https://raw.githubusercontent.com/mattpocock/skills/main/README.md | `` |  | 知识库/concepts/index.md | 知识库/concepts/index.md | 结构、索引、任务、日志或模板文件 |
 | `知识库/entities/code-review-graph.md` | code-review-graph | entity | 否 | 否 | 未发现 | `` |  | 知识库/entities/code-review-graph.md | 知识库/entities/code-review-graph.md | 实体页目录或实体语义 |
 | `知识库/entities/index.md` | 实体页索引 | unknown | 否 | 否 | 未发现 | `` |  | 知识库/entities/index.md | 知识库/entities/index.md | 结构、索引、任务、日志或模板文件 |
 | `知识库/entities/pdai.md` | pdai | entity | 否 | 否 | 未发现 | `` |  | 知识库/entities/pdai.md | 知识库/entities/pdai.md | 实体页目录或实体语义 |

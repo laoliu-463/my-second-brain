@@ -25,6 +25,7 @@ tags:
 | `LLM Wiki/Harness/doc/04-state/03-P0-P1问题台账.md` | P0/P1 问题台账 | question | 问题或待确认页面 |
 | `LLM Wiki/Harness/index.md` | Harness Engineering 知识索引 | unknown | 结构、索引、任务、日志或模板文件 |
 | `README.md` | My Second Brain | unknown | 结构、索引、任务、日志或模板文件 |
+| `tmp/kb-content-distiller-skill-extract/kb-content-distiller-skill/README.md` | kb-content-distiller | unknown | 结构、索引、任务、日志或模板文件 |
 | `知识库/02-后端知识体系/02-计算机基础/index.md` | 02-计算机基础 | unknown | 结构、索引、任务、日志或模板文件 |
 | `知识库/02-后端知识体系/03-Java体系/DDD实战-团长SaaS系统/index.md` | DDD实战-团长SaaS系统 | unknown | 结构、索引、任务、日志或模板文件 |
 | `知识库/02-后端知识体系/03-Java体系/index.md` | Java 体系 | unknown | 结构、索引、任务、日志或模板文件 |
@@ -318,7 +319,6 @@ tags:
 | `第二大脑-60-面试/06-报告/报告-003.md` | 报告-003.md | unknown | 结构、索引、任务、日志或模板文件 |
 | `第二大脑-60-面试/06-报告/报告-004.md` | 报告-004.md | unknown | 结构、索引、任务、日志或模板文件 |
 | `第二大脑-60-面试/06-报告/报告模板.md` | 报告模板.md | unknown | 结构、索引、任务、日志或模板文件 |
-| `第二大脑-60-面试/06-报告/报告索引.md` | 报告索引.md | unknown | 结构、索引、任务、日志或模板文件 |
 
 ## 重复候选
 
@@ -343,6 +343,8 @@ tags:
 | `raw/sources/抖音团长SaaS设计文档/领域设计/订单域.md` | 订单域 | 团长SaaS知识库/domains-业务领域/06-order-domain-订单域.md; 知识库/02-后端知识体系/03-Java体系/抖店团长SaaS-业务体系/04-七领域合同/订单域.md; 知识库/sources/src-20260517-local-订单域-364d9877.md |
 | `raw/sources/抖音团长SaaS设计文档/领域设计/达人域.md` | 达人域 | 团长SaaS知识库/domains-业务领域/04-talent-domain-达人域.md; 知识库/02-后端知识体系/03-Java体系/抖店团长SaaS-业务体系/04-七领域合同/达人域.md; 知识库/sources/src-20260518-local-达人域-8e971de7.md |
 | `raw/sources/抖音团长SaaS设计文档/领域设计/配置域.md` | 配置域 | 团长SaaS知识库/domains-业务领域/02-config-domain-配置域.md; 知识库/02-后端知识体系/03-Java体系/抖店团长SaaS-业务体系/04-七领域合同/配置域.md; 知识库/sources/src-20260517-local-配置域-b40d8995.md |
+| `tmp/kb-content-distiller-skill-extract/kb-content-distiller-skill/templates/concept-note.md` | {{title}} | tmp/kb-content-distiller-skill-extract/kb-content-distiller-skill/templates/synthesis-note.md |
+| `tmp/kb-content-distiller-skill-extract/kb-content-distiller-skill/templates/synthesis-note.md` | {{title}} | tmp/kb-content-distiller-skill-extract/kb-content-distiller-skill/templates/concept-note.md |
 | `团长SaaS知识库/domains-业务领域/01-user-domain-用户域.md` | 用户域 | raw/sources/抖音团长SaaS设计文档/领域设计/用户域.md; 知识库/02-后端知识体系/03-Java体系/抖店团长SaaS-业务体系/04-七领域合同/用户域.md; 知识库/sources/src-20260517-local-用户域-6464c4dc.md |
 | `团长SaaS知识库/domains-业务领域/02-config-domain-配置域.md` | 配置域 | raw/sources/抖音团长SaaS设计文档/领域设计/配置域.md; 知识库/02-后端知识体系/03-Java体系/抖店团长SaaS-业务体系/04-七领域合同/配置域.md; 知识库/sources/src-20260517-local-配置域-b40d8995.md |
 | `团长SaaS知识库/domains-业务领域/03-product-domain-商品域.md` | 商品域 | raw/sources/抖音团长SaaS设计文档/领域设计/商品域.md; 知识库/02-后端知识体系/03-Java体系/抖店团长SaaS-业务体系/04-七领域合同/商品域.md; 知识库/sources/src-20260517-local-商品域-3ad8689c.md |
@@ -622,13 +624,10 @@ tags:
 | `第二大脑-20-后端/01-状态/当前状态.md` | 当前状态.md | 第二大脑-10-SaaS/01-状态/当前状态.md; 第二大脑-30-地缘/01-状态/当前状态.md; 第二大脑-40-认知/01-状态/当前状态.md; 第二大脑-50-内容/01-状态/当前状态.md; 第二大脑-60-面试/01-状态/当前状态.md; 第二大脑-70-物理/01-状态/当前状态.md; 第二大脑-80-方法论/01-状态/当前状态 |
 | `第二大脑-20-后端/01-状态/待确认问题.md` | 待确认问题.md | 第二大脑-10-SaaS/01-状态/待确认问题.md; 第二大脑-30-地缘/01-状态/待确认问题.md; 第二大脑-40-认知/01-状态/待确认问题.md; 第二大脑-50-内容/01-状态/待确认问题.md; 第二大脑-60-面试/01-状态/待确认问题.md; 第二大脑-70-物理/01-状态/待确认问题.md; 第二大脑-80-方法论/01-状 |
 | `第二大脑-20-后端/01-状态/技术债台账.md` | 技术债台账.md | 第二大脑-10-SaaS/01-状态/技术债台账.md; 第二大脑-30-地缘/01-状态/技术债台账.md; 第二大脑-40-认知/01-状态/技术债台账.md; 第二大脑-50-内容/01-状态/技术债台账.md; 第二大脑-60-面试/01-状态/技术债台账.md; 第二大脑-70-物理/01-状态/技术债台账.md; 第二大脑-80-方法论/01-状 |
-| `第二大脑-20-后端/01-状态/资料来源.md` | 资料来源.md | 第二大脑-10-SaaS/01-状态/资料来源.md; 第二大脑-30-地缘/01-状态/资料来源.md; 第二大脑-40-认知/01-状态/资料来源.md; 第二大脑-50-内容/01-状态/资料来源.md; 第二大脑-60-面试/01-状态/资料来源.md; 第二大脑-70-物理/01-状态/资料来源.md; 第二大脑-80-方法论/01-状态/资料来源 |
-| `第二大脑-20-后端/02-总览/主要内容.md` | 主要内容.md | 第二大脑-10-SaaS/02-总览/主要内容.md; 第二大脑-30-地缘/02-总览/主要内容.md; 第二大脑-40-认知/02-总览/主要内容.md; 第二大脑-50-内容/02-总览/主要内容.md; 第二大脑-60-面试/02-总览/主要内容.md; 第二大脑-70-物理/02-总览/主要内容.md; 第二大脑-80-方法论/02-总览/主要内容 |
 
 ## 本轮未自动处理的系统性问题
 
 - `tmp/cpp-*` 与 `tmp/orig/C++.md` 是临时文件，已进入 Git 历史；因用户规范禁止自动删除，本轮仅记录，不删除。
 - 根目录 `人智认知系列.md` 曾是 0 字节文件，本轮改为兼容入口；是否保留根目录入口仍需人工确认。
-- 轻量断链检查发现 2050 个无法自动解析的链接候选，主要来自历史相对链接和 Obsidian 短链；需作为专项修复，不在本轮批量改链。
 - `第二大脑/AGENTS.md` 与根 `README.md` 对可写范围存在差异：前者偏向只写 `第二大脑/`，后者把 `知识库/` 作为正式 wiki。
 - 多个 PDF/视频来源缺少作者、发布日期、正式链接；来源页已登记 raw 路径和哈希，但摘要和核心观点需后续阅读补齐。
