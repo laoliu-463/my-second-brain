@@ -6,12 +6,19 @@
 
 | 目录 | 内容 | md 数 |
 |---|---|---:|
-| raw/sources/Akkkk缺失视频转写/ | 视频转写 | 46 |
-| raw/sources/抖音团长SaaS设计文档/ | SaaS 设计 | 12 |
-| raw/sources/中美博弈系列/ | PDF 扫描版 | 0（md 在 知识库/）|
-| raw/sources/大学物理复习/ | 大学物理 | 0 |
-| raw/sources/操作系统练习题/ | OS 练习 | 0 |
-| raw/sources/醒与悟系列/ | 醒与悟 | 0 |
+| [raw/sources/Akkkk缺失视频转写/](<../../raw/sources/Akkkk缺失视频转写/>) | 视频转写 | 46 |
+| [raw/sources/抖音团长SaaS设计文档/](<../../raw/sources/抖音团长SaaS设计文档/>) | SaaS 设计 | 12 |
+| [raw/sources/中美博弈系列/](<../../raw/sources/中美博弈系列/>) | PDF 扫描版 | 0（md 在 知识库/）|
+| [raw/sources/大学物理复习/](<../../raw/sources/大学物理复习/>) | 大学物理 | 0 |
+| [raw/sources/操作系统练习题/](<../../raw/sources/操作系统练习题/>) | OS 练习 | 0 |
+| [raw/sources/醒与悟系列/](<../../raw/sources/醒与悟系列/>) | 醒与悟 | 0 |
+
+## 原始资料
+
+- 本地原始目录：[打开 raw/sources](<../../raw/sources/>)
+- 原始网页：未记录
+- 来源编号：未建立统一 `source_id`，见 [[../第二大脑/06-报告证据/refactor/20260623-235035/source-link-repair-report|来源链接修复报告]]
+- 文件校验：目录级来源，见 [[../第二大脑/06-报告证据/refactor/20260623-235035/source-link-repair-report|来源链接修复报告]]
 
 ## 2. 处置规则
 
