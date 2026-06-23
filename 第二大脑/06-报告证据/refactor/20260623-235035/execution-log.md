@@ -24,3 +24,10 @@
 - 16. 补录 C 级复核动作：op-014（source_id 缺失清单）、op-015（报告-005 跨实例边界）、op-016（是否扩大扫描边界）并同步写入 migration-plan。
 - 17. 同步 validation-report 结论：再次确认本轮为 evidence-only，不执行移动/重命名，仅补齐审计收口。
 - 18. 重新计算 migration-plan 当前 SHA256，并回填 op-013 的哈希（63E50AF77169A6500D6EE91226C9BF8275F528A78192A7D4C5EAFF47BA38AA21）。
+- 19. 新增 c-level-preflight.md：将 op-014/op-015/op-016 拆成 source_id 批次、跨实例链接策略、禁止自动执行项与下一步候选 operation。
+- 20. 在 migration-plan 追加 op-017，登记本次 C 级前置清单落盘动作。
+- 21. 计算 c-level-preflight.md SHA256 并回填 op-017：61952F1A0EBC7E0F7FD83D400499D5E18AF32058FEA9942EFA6D9EBFBA6A8650。
+- 22. 运行 lint：line_guard.py PASS；brain_lint.py FAIL，原因是新增 c-level-preflight.md 未登记到 索引.md。
+- 23. 在 索引.md 的 20260623-235035 批次下追加 c-level-preflight 入口，并在 migration-plan 追加 op-018。
+- 24. 计算 索引.md SHA256 并回填 op-018：8D613BEB924370D70BD2F81ECE3141908FDC641215C257BF836130B69C70D10F。
+- 25. 复跑 lint：line_guard.py PASS；brain_lint.py PASS。索引回填问题已闭合。

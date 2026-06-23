@@ -23,3 +23,5 @@
 |op-014|C|KB_ROOT 全量文件（除报告目录）|KB_ROOT 全量文件（除报告目录）|补齐 source_id 映射到统一 `src-YYYYMMDD-author-short`（仅形成待执行清单）|high|frontmatter 字段、index 及 source 引用|清单核验后逐项回退|否|n/a|
 |op-015|C|报告-005.md 与其外链目标|报告-005.md 与目标 wiki 页|确认 `../` 目录外链与来源映射边界后再定稿（避免跨实例污染）|high|unresolved-items/validation-report/索引|跨实例边界确认后回滚到本条清单状态|否|n/a|
 |op-016|C|SCOPE=KB_ROOT 与外部路径边界|SCOPE=KB_ROOT 与外部路径边界|确认是否展开到 `../第二大脑-95-原始资料`、`D:\Projects\SAAS` 及相关引用的扫描边界|high|执行范围约束文档、validation|不改边界则不执行；如扩展则需新建 run_id 段|否|n/a|
+|op-017|A|06-报告证据/refactor/20260623-235035/c-level-preflight.md|06-报告证据/refactor/20260623-235035/c-level-preflight.md|落盘 C 级执行前置清单，拆分 source_id 批次与跨实例链接决策门|low|migration-plan/unresolved-items/validation-report|删除本文件并回退本条记录|是|61952F1A0EBC7E0F7FD83D400499D5E18AF32058FEA9942EFA6D9EBFBA6A8650|
+|op-018|A|索引.md|索引.md|回填本次新增 c-level-preflight.md 到主索引，修复 brain_lint 未索引项|low|索引入口/brain_lint|删除本次新增索引行|是|8D613BEB924370D70BD2F81ECE3141908FDC641215C257BF836130B69C70D10F|
