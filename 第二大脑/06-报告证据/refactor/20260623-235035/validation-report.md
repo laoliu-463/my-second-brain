@@ -40,3 +40,11 @@
 - brain_lint.py：首次 FAIL，原因是 `06-报告证据/refactor/20260623-235035/c-level-preflight.md` 新增后未进入 `索引.md`。
 - 已执行索引回填：在 `索引.md` 的 `重构执行批次 20260623-235035` 下新增 `C级执行前置清单` 入口。
 - 复跑结果：line_guard.py PASS；brain_lint.py PASS。
+
+## SID-B01 source_id 候选
+- 已新增 `source-id-candidates-sid-b01.md`。
+- 候选范围：根文件 4、00-规范 3、01-状态 5、02-项目总览 6、03-领域知识 8、04-运行流程 4，总计 30。
+- 建议转 B 级执行范围：26 个非根主干页。
+- 继续保持 C 级复核范围：`日志.md`、`索引.md`、`AGENTS.md`、`README.md`。
+- 本轮仍未写入任何目标知识页的 frontmatter。
+- 本轮复跑：line_guard.py PASS；brain_lint.py PASS。

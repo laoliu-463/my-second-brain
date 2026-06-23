@@ -25,3 +25,6 @@
 |op-016|C|SCOPE=KB_ROOT 与外部路径边界|SCOPE=KB_ROOT 与外部路径边界|确认是否展开到 `../第二大脑-95-原始资料`、`D:\Projects\SAAS` 及相关引用的扫描边界|high|执行范围约束文档、validation|不改边界则不执行；如扩展则需新建 run_id 段|否|n/a|
 |op-017|A|06-报告证据/refactor/20260623-235035/c-level-preflight.md|06-报告证据/refactor/20260623-235035/c-level-preflight.md|落盘 C 级执行前置清单，拆分 source_id 批次与跨实例链接决策门|low|migration-plan/unresolved-items/validation-report|删除本文件并回退本条记录|是|61952F1A0EBC7E0F7FD83D400499D5E18AF32058FEA9942EFA6D9EBFBA6A8650|
 |op-018|A|索引.md|索引.md|回填本次新增 c-level-preflight.md 到主索引，修复 brain_lint 未索引项|low|索引入口/brain_lint|删除本次新增索引行|是|8D613BEB924370D70BD2F81ECE3141908FDC641215C257BF836130B69C70D10F|
+|op-019|A|06-报告证据/refactor/20260623-235035/source-id-candidates-sid-b01.md|06-报告证据/refactor/20260623-235035/source-id-candidates-sid-b01.md|落盘 SID-B01 的 30 个 source_id 候选，供人工复核后转 B 级执行|low|c-level-preflight/inventory/索引|删除本文件并回退本条索引入口|是|C71750FAC1862C8FDAF20539CA156BB6FA0312417A9665B25787A573534DDFF0|
+|op-020|C|SID-B01 非根主干页|00-规范/01-状态/02-项目总览/03-领域知识/04-运行流程|确认后为 26 个非根主干页写入 source_id frontmatter|medium|frontmatter/source_id/validation|按执行前哈希逐文件回退|否|n/a|
+|op-021|A|索引.md|索引.md|回填 SID-B01 source_id 候选表入口，保持 brain_lint 索引覆盖|low|索引入口/brain_lint|删除本次新增索引行|是|0519C8ED0CA4C661645079492C632C2A59D94BC37BBFCFEB57A8D96393EB283D|

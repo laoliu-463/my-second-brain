@@ -31,3 +31,9 @@
 - 23. 在 索引.md 的 20260623-235035 批次下追加 c-level-preflight 入口，并在 migration-plan 追加 op-018。
 - 24. 计算 索引.md SHA256 并回填 op-018：8D613BEB924370D70BD2F81ECE3141908FDC641215C257BF836130B69C70D10F。
 - 25. 复跑 lint：line_guard.py PASS；brain_lint.py PASS。索引回填问题已闭合。
+- 26. 新增 source-id-candidates-sid-b01.md：落盘 30 个主干页 source_id 候选，只做候选表，不写入知识页正文。
+- 27. 在 索引.md 的 20260623-235035 批次下追加 SID-B01 source_id 候选表入口。
+- 28. 在 migration-plan 追加 op-019（候选表落盘）与 op-020（26 个非根页待确认写入）。
+- 29. 计算 source-id-candidates-sid-b01.md SHA256 并回填 op-019：C71750FAC1862C8FDAF20539CA156BB6FA0312417A9665B25787A573534DDFF0。
+- 30. 计算 索引.md SHA256 并追加 op-021：0519C8ED0CA4C661645079492C632C2A59D94BC37BBFCFEB57A8D96393EB283D。
+- 31. 复跑 lint：line_guard.py PASS；brain_lint.py PASS。SID-B01 候选表已被索引覆盖。
