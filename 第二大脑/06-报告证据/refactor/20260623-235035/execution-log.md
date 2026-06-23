@@ -37,3 +37,9 @@
 - 29. 计算 source-id-candidates-sid-b01.md SHA256 并回填 op-019：C71750FAC1862C8FDAF20539CA156BB6FA0312417A9665B25787A573534DDFF0。
 - 30. 计算 索引.md SHA256 并追加 op-021：0519C8ED0CA4C661645079492C632C2A59D94BC37BBFCFEB57A8D96393EB283D。
 - 31. 复跑 lint：line_guard.py PASS；brain_lint.py PASS。SID-B01 候选表已被索引覆盖。
+- 32. 执行 op-020：为 26 个 SID-B01 非根主干页写入 source_id frontmatter；根文件未处理。
+- 33. 新增 source-id-apply-sid-b01.md：记录 26 个文件 before/after SHA256 与回滚方式，哈希 00E56450E8832FDB10EB9E154D9F7B5CAFD0937A504B818A33F49AD93D8EB68E。
+- 34. 在 索引.md 的 20260623-235035 批次下追加 SID-B01 source_id 写入证据入口，并在 migration-plan 追加 op-022/op-023。
+- 35. 计算 索引.md SHA256 并回填 op-023：6221157F726627C0ECF271186966E9677A69D6D7F884148CD6181569ABB7FFD2。
+- 36. 自检 26 个 SID-B01 写入文件：source_id 均存在且无重复。
+- 37. 复跑 lint：line_guard.py PASS；brain_lint.py PASS。op-020 实际写入后结构与索引校验闭合。
