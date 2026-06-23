@@ -17,7 +17,7 @@
 | Skill | 触发条件 |
 |-------|---------|
 | [[skills/kb-audit]] | 每次任务完成后的 LINT 巡检 |
-| [[skills/kb-organize]] | 文件归档到对应分类 |
+| [[skills/kb-organize]] | 已入库内容整理、原文归档、来源页与知识页沉淀 |
 | [[skills/kb-gc]] | 定期 GC 政策执行 |
 | [[skills/kb-session-exit]] | Session 退出前检查 |
 
