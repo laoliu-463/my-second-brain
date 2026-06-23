@@ -27,3 +27,11 @@ tags:
 | `line_guard.py` | PASS | 11 个第二大脑实例结构约束通过 |
 | `brain_lint.py` | PASS | 11 个第二大脑实例索引 LINT 通过 |
 | `brain_search.py 来源页` | LIMITATION | 返回 NO_MATCH，疑似脚本不覆盖 `知识库/sources` 新目录 |
+
+## 2026-06-23 全量文章内容整理
+
+- 扫描文件：1652；Markdown：1290；raw 来源组：227。
+- 新建来源页：222；已有来源页：5。
+- 刷新：`content-inventory.md`、`migration-plan.md`、`sources/index.md`、`content-distillation-map.md`、`unresolved-items.md`。
+- 安全边界：未删除文件，未覆盖 raw 原文，未批量移动历史知识页。
+- 分类分布：concept=400；entity=20；mixed=2；question=1；raw-source=67；source-note=19；synthesis=277；unknown=504
