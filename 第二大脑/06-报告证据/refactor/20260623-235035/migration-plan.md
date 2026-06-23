@@ -19,4 +19,7 @@
 |op-010|C|KB_ROOT 全量目录|KB_ROOT 全量目录|补齐 source_id 与 id/source 规则映射|high|frontmatter/链接|人工确认映射后逐条回退|否|n/a|
 |op-011|C|所有高风险链接与重复项|KB_ROOT 全量目录|待验证的断链与语义重复聚类后再迁移|high|wiki link/标题/标签|清单复核|否|n/a|
 |op-012|B|06-报告证据/refactor/20260623-235035/unresolved-items.md|06-报告证据/refactor/20260623-235035/unresolved-items.md|补齐断链候选说明中的 placeholder 与实际链接状态|low|unresolved-items|恢复原链接文本并保留 C 级边界|是|169C827F239C46C4C3DA1C7963D763135BC414CBC0CE17ABB5A36C042420A89A|
-|op-013|B|06-报告证据/refactor/20260623-235035/migration-plan.md|06-报告证据/refactor/20260623-235035/migration-plan.md|补录本次 B/C 分界与执行前置条件（含无破坏回退说明）|low|无|回退本文件文本即可|是|BFAC7E2A4FB8618159C62FEADCDAF077D34713C75221FADB0319EA8F54194C70|
+|op-013|B|06-报告证据/refactor/20260623-235035/migration-plan.md|06-报告证据/refactor/20260623-235035/migration-plan.md|补录本次 B/C 分界与执行前置条件（含无破坏回退说明）|low|无|回退本文件文本即可|是|63E50AF77169A6500D6EE91226C9BF8275F528A78192A7D4C5EAFF47BA38AA21|
+|op-014|C|KB_ROOT 全量文件（除报告目录）|KB_ROOT 全量文件（除报告目录）|补齐 source_id 映射到统一 `src-YYYYMMDD-author-short`（仅形成待执行清单）|high|frontmatter 字段、index 及 source 引用|清单核验后逐项回退|否|n/a|
+|op-015|C|报告-005.md 与其外链目标|报告-005.md 与目标 wiki 页|确认 `../` 目录外链与来源映射边界后再定稿（避免跨实例污染）|high|unresolved-items/validation-report/索引|跨实例边界确认后回滚到本条清单状态|否|n/a|
+|op-016|C|SCOPE=KB_ROOT 与外部路径边界|SCOPE=KB_ROOT 与外部路径边界|确认是否展开到 `../第二大脑-95-原始资料`、`D:\Projects\SAAS` 及相关引用的扫描边界|high|执行范围约束文档、validation|不改边界则不执行；如扩展则需新建 run_id 段|否|n/a|

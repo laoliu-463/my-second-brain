@@ -21,3 +21,6 @@
 - 13. 重新扫描 wiki links，收敛 unresolved 断链候选（去除占位 ... 条目）。
 - 14. 增补本轮 B 级动作：op-012/op-013（仅对报告内文本/边界说明）。
 - 15. 修正 op-012/op-013：补齐哈希占位并修复 migration-plan 表格行，unresolved-items 去重并将 `...` 占位替换为明确的跨实例复核项（不改链接目标）。
+- 16. 补录 C 级复核动作：op-014（source_id 缺失清单）、op-015（报告-005 跨实例边界）、op-016（是否扩大扫描边界）并同步写入 migration-plan。
+- 17. 同步 validation-report 结论：再次确认本轮为 evidence-only，不执行移动/重命名，仅补齐审计收口。
+- 18. 重新计算 migration-plan 当前 SHA256，并回填 op-013 的哈希（63E50AF77169A6500D6EE91226C9BF8275F528A78192A7D4C5EAFF47BA38AA21）。
