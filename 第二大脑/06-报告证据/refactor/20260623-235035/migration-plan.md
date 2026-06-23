@@ -32,3 +32,5 @@
 |op-023|A|索引.md|索引.md|回填 SID-B01 source_id 写入证据入口，保持 brain_lint 索引覆盖|low|索引入口/brain_lint|删除本次新增索引行|是|6221157F726627C0ECF271186966E9677A69D6D7F884148CD6181569ABB7FFD2|
 |op-024|A|06-报告证据/refactor/20260623-235035/directory-result.md|06-报告证据/refactor/20260623-235035/directory-result.md|落盘当前主实例清晰目录结果，固化一级目录、主干页、边界和验收口径|low|索引/validation-report|删除本文件并回退索引入口|是|EDE1FC91995B3F905DA6F70D43F5F7315D910D9EE3CC28ECCD39FAD2821B12DB|
 |op-025|A|索引.md|索引.md|回填 directory-result.md 入口，保持 brain_lint 索引覆盖|low|索引入口/brain_lint|删除本次新增索引行|是|7E3B5224014541F030200FA316879A5CEB335B71242073029F493EAA5F86531C|
+|op-026|A|06-报告证据/refactor/20260623-235035/directory-result.md|06-报告证据/refactor/20260623-235035/directory-result.md|补强目录结果的原文约束映射、内部跳转、run 产物跳转与跨实例入口|low|directory-result/validation-report|回退本次新增跳转段落|是|2246B9756806DD0493DAA9FB823ACF044E98FA702D602EE447029A3517081934|
+|op-027|A|06-报告证据/refactor/20260623-235035/directory-result.md|06-报告证据/refactor/20260623-235035/directory-result.md|修正深层目录结果页的同实例 wiki link 写法，改为无斜杠目标加 alias 以通过 brain_lint|low|directory-result/brain_lint|回退本次链接格式调整|是|620DBF9C1672189D9569B4118343909B2F4B487F158CA6FEE4FFE10E3F670ED7|

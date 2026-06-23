@@ -65,3 +65,11 @@
 - 当前目录边界：不新增一级目录，不并入外部实例，不把 `D:\Projects\SAAS` 纳入本次目录。
 - 后续目录路线：不再调整一级目录，继续处理 SID-B02、根文件策略与跨实例链接。
 - 复跑结果：line_guard.py PASS；brain_lint.py PASS。
+
+## 目录结果链接补强
+- 已按原始提示词的链接与入口约束补强 `directory-result.md`。
+- 新增内容：快速跳转、目录导航、run 产物跳转、跨实例跳转边界、原文约束映射。
+- 修复性质：表达层补强，不新增一级目录，不移动文件，不改写知识页正文。
+- 第一次复跑：line_guard.py PASS；brain_lint.py FAIL，原因是深层文件中的带斜杠同实例 wiki link 被按当前目录相对解析。
+- 已修正：同实例链接改为无斜杠目标加 alias；同 run 产物改为同目录短链接。
+- 最终复跑：line_guard.py PASS；brain_lint.py PASS。

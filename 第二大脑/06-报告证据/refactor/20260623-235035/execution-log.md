@@ -47,3 +47,8 @@
 - 39. 在 索引.md 的 20260623-235035 批次下追加 directory-result 入口，并在 migration-plan 追加 op-024/op-025。
 - 40. 计算 directory-result.md SHA256：EDE1FC91995B3F905DA6F70D43F5F7315D910D9EE3CC28ECCD39FAD2821B12DB；计算 索引.md SHA256：7E3B5224014541F030200FA316879A5CEB335B71242073029F493EAA5F86531C。
 - 41. 复跑 lint：line_guard.py PASS；brain_lint.py PASS。directory-result.md 已被索引覆盖，目录结果闭合。
+- 42. 根据原始提示词中“内部链接、索引和主题入口修复”的要求，补强 directory-result.md：新增快速跳转、目录导航、run 产物跳转、跨实例入口和原文约束映射。
+- 43. 在 migration-plan 追加 op-026，并记录补强后 directory-result.md SHA256：2246B9756806DD0493DAA9FB823ACF044E98FA702D602EE447029A3517081934。
+- 44. 复跑 lint：line_guard.py PASS；brain_lint.py FAIL，原因是 directory-result.md 位于深层 refactor 目录，`[[00-规范/结构规范]]` 类链接被按当前目录相对路径解析。
+- 45. 修正 directory-result.md 内同实例链接：改为无斜杠 wiki link 加 alias，例如 `[[结构规范|00-规范/结构规范]]`；同 run 产物使用同目录短链接。
+- 46. 复跑 lint：line_guard.py PASS；brain_lint.py PASS。最终 directory-result.md SHA256：620DBF9C1672189D9569B4118343909B2F4B487F158CA6FEE4FFE10E3F670ED7。
