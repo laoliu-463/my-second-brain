@@ -7,8 +7,10 @@ published: 2020-10-22
 created: 2026-05-12
 status: 已整理
 outputs:
+  - 知识库/90-来源与映射/Java即时编译器原理解析及实践来源映射.md
   - 知识库/02-后端知识体系/02-计算机基础/JIT编译器详解.md
   - 第二大脑-90-收件箱/03-知识/Java即时编译器.md
+updated: 2026-06-23
 tags:
   - "clippings"
 ---

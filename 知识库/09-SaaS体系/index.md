@@ -24,3 +24,10 @@
 | [[Harness-State/]] | 9 个状态文件（决策/部署/风险/P0-P1等） |
 | [[Harness-Feedback/]] | 4 个反馈模板（证据报告/GC/复盘等） |
 | [[Harness-Prompts/]] | 5 个可复用提示词 |
+
+## 综合页
+
+| 页面 | 内容 |
+|---|---|
+| [[知识库/syntheses/SAAS DDD渐进式重构任务链]] | DDD 提示词包沉淀出的渐进式重构任务结构 |
+| [[知识库/syntheses/SAAS代码图谱业务流程图]] | code-review-graph 生成图谱的可维护综合入口 |

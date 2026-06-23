@@ -5,7 +5,7 @@ Java 核心知识点整理。
 ## 核心概念
 
 - [[Collection类关系图]] - Java 集合类关系图
-- [[Java即时编译器原理解析及实践]] - Java JIT 编译原理
+- [[Java即时编译器原理解析及实践]] - Java JIT 旧来源入口（主来源页见 [[知识库/sources/src-20201022-meituan-jit-practice]]，知识结论见 [[JIT编译器详解]]）
 - [[Java基本数据类型]] - 基本类型与包装类型
 - [[Java成员变量与局部变量]] - 成员变量 vs 局部变量
 - [[Java方法重载与重写]] - 重载与重写的区别

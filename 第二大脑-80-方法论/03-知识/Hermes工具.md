@@ -28,7 +28,7 @@ hermes curator
 
 ## 4. 第二大脑脚本
 
-- line_guard.py：行数 / 文件数校验
+- line_guard.py：目录结构校验
 - brain_lint.py：索引覆盖
 - brain_search.py：跨实例搜索
 
