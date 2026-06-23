@@ -10,7 +10,7 @@
 | KB-GC-DUP | 合并/删除 4 对重复文件 | P2 | 待执行 |
 | KB-GC-RAW-58 | 58 个 raw/sources 整理 | P1 | 待执行 |
 | KB-ORG-ROOT | 移动 9 个 vault 根目录文件 | P2 | 待执行 |
-| KB-AUDIT-FULL | 全面 LINT 巡检 | P1 | 待执行 |
+| KB-AUDIT-FULL | 全面 LINT 巡检 | P1 | 已执行 |
 
 ## 执行顺序
 
