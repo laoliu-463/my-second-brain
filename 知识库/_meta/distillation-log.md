@@ -51,3 +51,5 @@ tags:
 - 更新 `tools/kb_full_distill.py`：后续生成来源页时写入可点击原文链接，并保留路径、大小和哈希。
 - 批量补齐 `知识库/sources/src-*.md` 的 `## 原文跳转` 小节，覆盖 229 个来源页。
 - 验证结果：229 个来源页均存在原文跳转小节；其中 2 个 CSV 来源仍指向根目录原始文件，因脚本依赖暂未迁入 raw。
+- 追加补齐正式知识页原文跳转信号：`concepts`、`entities`、`syntheses`、`maps` 共 11 个 Markdown 均已包含来源页回链和原文跳转或导航页约束说明。
+- 验证结果：正式知识页检查 `knowledge_pages_checked=11`，`missing_original_jump_signal=0`；来源页检查 `source_pages_checked=229`，`missing_original_jump_section=0`。
