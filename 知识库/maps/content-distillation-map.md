@@ -21,12 +21,12 @@ tags:
 
 | 类型 | 数量 |
 |---|---:|
-| concept | 400 |
+| concept | 401 |
 | entity | 20 |
 | mixed | 2 |
 | question | 1 |
 | raw-source | 67 |
-| source-note | 19 |
+| source-note | 241 |
 | synthesis | 277 |
 | unknown | 504 |
 

@@ -35,3 +35,12 @@ tags:
 - 刷新：`content-inventory.md`、`migration-plan.md`、`sources/index.md`、`content-distillation-map.md`、`unresolved-items.md`。
 - 安全边界：未删除文件，未覆盖 raw 原文，未批量移动历史知识页。
 - 分类分布：concept=400；entity=20；mixed=2；question=1；raw-source=67；source-note=19；synthesis=277；unknown=504
+
+## 2026-06-23 全量文章内容整理
+
+- 扫描文件：1875；Markdown：1513；raw 来源组：227。
+- 新建来源页：0；已有来源页：227。
+- 刷新：`content-inventory.md`、`migration-plan.md`、`sources/index.md`、`content-distillation-map.md`、`unresolved-items.md`。
+- 安全边界：未删除文件，未覆盖 raw 原文，未批量移动历史知识页。
+- 分类分布：concept=401；entity=20；mixed=2；question=1；raw-source=67；source-note=241；synthesis=277；unknown=504
+- 验证补充：轻量断链检查扫描 1513 个 Markdown，发现 2050 个无法自动解析的链接候选，已写入复核清单；未做批量改链。
