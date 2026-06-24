@@ -1,405 +1,206 @@
 # 来源链接修复报告
 
 ## 扫描结果
-- 知识库根目录: D:\Docs\Books\my second brain\第二大脑
-- 来源页数量: 63
+- 来源页数量: 26
 - 原始文件数量: 0
-- 关键文件数量: 98
-- canonical_url 已有: 0
+- 知识页数量: 18
+- canonical_url 数量: 0
 
 ## 修复结果
 - 新增本地原文链接数: 0
-- 修复错误路径数: 63
+- 修复错误路径数: 0
 - 新增知识页到来源页链接数: 0
-- 新增来源页到知识页链接数: 0
+- 新增来源页到知识页链接数: 26
 - 补充原始网页链接数: 0
 
 ## 异常
-- 找不到原始文件的来源页: 63
-- 找不到来源页的知识引用: 0
+- 找不到原始文件的来源页: 26
+- 找不到来源页的知识引用: 4
 - 重复 source_id: 0
 - 多个来源页对应同一来源: 0
-- 无法确认来源的知识陈述: 0
+- 无法确认来源的知识陈述: 4
 - 位于知识库根目录之外的原始文件: 0
-- 无法自动修复的链接: 0
+- 无法自动修复的链接: 30
 
 ## 无法复核明细
-- 共 63 条
-- 页面路径: 日志.md
-  - source_id: 
+- 共 30 条
+- 页面路径: wiki\sources\src-20260623-kb-domain-creator.md
+  - source_id: src-20260623-kb-domain-creator
   - 当前 raw_path: 
-  - 预测目标: 人工核验并补齐来源元数据（source_id、canonical_url、raw_path）
-  - 无法修复原因: 缺少 source_id
-  - 推荐处理方式: 补充对应来源页的 frontmatter 或在资料来源登记中建立映射
-- 页面路径: 索引.md
-  - source_id: 
+  - 预测目标: 本地原始文件映射
+  - 无法修复原因: raw_path empty
+  - 推荐处理方式: 补齐 raw_path 并指向仓库内可读文件
+- 页面路径: wiki\sources\src-20260623-kb-domain-dashboard-analytics.md
+  - source_id: src-20260623-kb-domain-dashboard-analytics
   - 当前 raw_path: 
-  - 预测目标: 人工核验并补齐来源元数据（source_id、canonical_url、raw_path）
-  - 无法修复原因: 缺少 source_id
-  - 推荐处理方式: 补充对应来源页的 frontmatter 或在资料来源登记中建立映射
-- 页面路径: AGENTS.md
-  - source_id: 
+  - 预测目标: 本地原始文件映射
+  - 无法修复原因: raw_path empty
+  - 推荐处理方式: 补齐 raw_path 并指向仓库内可读文件
+- 页面路径: wiki\sources\src-20260623-kb-domain-douyin-upstream-api.md
+  - source_id: src-20260623-kb-domain-douyin-upstream-api
   - 当前 raw_path: 
-  - 预测目标: 人工核验并补齐来源元数据（source_id、canonical_url、raw_path）
-  - 无法修复原因: 缺少 source_id
-  - 推荐处理方式: 补充对应来源页的 frontmatter 或在资料来源登记中建立映射
-- 页面路径: README.md
-  - source_id: 
+  - 预测目标: 本地原始文件映射
+  - 无法修复原因: raw_path empty
+  - 推荐处理方式: 补齐 raw_path 并指向仓库内可读文件
+- 页面路径: wiki\sources\src-20260623-kb-domain-order.md
+  - source_id: src-20260623-kb-domain-order
   - 当前 raw_path: 
-  - 预测目标: 人工核验并补齐来源元数据（source_id、canonical_url、raw_path）
-  - 无法修复原因: 缺少 source_id
-  - 推荐处理方式: 补充对应来源页的 frontmatter 或在资料来源登记中建立映射
-- 页面路径: 01-状态\待确认问题.md
-  - source_id: src-20260623-kb-status-pending-questions
+  - 预测目标: 本地原始文件映射
+  - 无法修复原因: raw_path empty
+  - 推荐处理方式: 补齐 raw_path 并指向仓库内可读文件
+- 页面路径: wiki\sources\src-20260623-kb-domain-performance.md
+  - source_id: src-20260623-kb-domain-performance
   - 当前 raw_path: 
-  - 预测目标: 人工核验并补齐来源元数据（source_id、canonical_url、raw_path）
-  - 无法修复原因: 缺少 canonical_url
-  - 推荐处理方式: 补充对应来源页的 frontmatter 或在资料来源登记中建立映射
-- 页面路径: 01-状态\当前状态.md
-  - source_id: src-20260623-kb-status-current
+  - 预测目标: 本地原始文件映射
+  - 无法修复原因: raw_path empty
+  - 推荐处理方式: 补齐 raw_path 并指向仓库内可读文件
+- 页面路径: wiki\sources\src-20260623-kb-domain-product.md
+  - source_id: src-20260623-kb-domain-product
   - 当前 raw_path: 
-  - 预测目标: 人工核验并补齐来源元数据（source_id、canonical_url、raw_path）
-  - 无法修复原因: 缺少 canonical_url
-  - 推荐处理方式: 补充对应来源页的 frontmatter 或在资料来源登记中建立映射
-- 页面路径: 01-状态\技术债台账.md
-  - source_id: src-20260623-kb-status-tech-debt
+  - 预测目标: 本地原始文件映射
+  - 无法修复原因: raw_path empty
+  - 推荐处理方式: 补齐 raw_path 并指向仓库内可读文件
+- 页面路径: wiki\sources\src-20260623-kb-domain-sample.md
+  - source_id: src-20260623-kb-domain-sample
   - 当前 raw_path: 
-  - 预测目标: 人工核验并补齐来源元数据（source_id、canonical_url、raw_path）
-  - 无法修复原因: 缺少 canonical_url
-  - 推荐处理方式: 补充对应来源页的 frontmatter 或在资料来源登记中建立映射
-- 页面路径: 01-状态\已确认决策.md
+  - 预测目标: 本地原始文件映射
+  - 无法修复原因: raw_path empty
+  - 推荐处理方式: 补齐 raw_path 并指向仓库内可读文件
+- 页面路径: wiki\sources\src-20260623-kb-domain-user-config.md
+  - source_id: src-20260623-kb-domain-user-config
+  - 当前 raw_path: 
+  - 预测目标: 本地原始文件映射
+  - 无法修复原因: raw_path empty
+  - 推荐处理方式: 补齐 raw_path 并指向仓库内可读文件
+- 页面路径: wiki\sources\src-20260623-kb-flow-health-check.md
+  - source_id: src-20260623-kb-flow-health-check
+  - 当前 raw_path: 
+  - 预测目标: 本地原始文件映射
+  - 无法修复原因: raw_path empty
+  - 推荐处理方式: 补齐 raw_path 并指向仓库内可读文件
+- 页面路径: wiki\sources\src-20260623-kb-flow-ingestion.md
+  - source_id: src-20260623-kb-flow-ingestion
+  - 当前 raw_path: 
+  - 预测目标: 本地原始文件映射
+  - 无法修复原因: raw_path empty
+  - 推荐处理方式: 补齐 raw_path 并指向仓库内可读文件
+- 页面路径: wiki\sources\src-20260623-kb-flow-query-answer.md
+  - source_id: src-20260623-kb-flow-query-answer
+  - 当前 raw_path: 
+  - 预测目标: 本地原始文件映射
+  - 无法修复原因: raw_path empty
+  - 推荐处理方式: 补齐 raw_path 并指向仓库内可读文件
+- 页面路径: wiki\sources\src-20260623-kb-flow-task-lifecycle.md
+  - source_id: src-20260623-kb-flow-task-lifecycle
+  - 当前 raw_path: 
+  - 预测目标: 本地原始文件映射
+  - 无法修复原因: raw_path empty
+  - 推荐处理方式: 补齐 raw_path 并指向仓库内可读文件
+- 页面路径: wiki\sources\src-20260623-kb-overview-acceptance-gate.md
+  - source_id: src-20260623-kb-overview-acceptance-gate
+  - 当前 raw_path: 
+  - 预测目标: 本地原始文件映射
+  - 无法修复原因: raw_path empty
+  - 推荐处理方式: 补齐 raw_path 并指向仓库内可读文件
+- 页面路径: wiki\sources\src-20260623-kb-overview-business-loop.md
+  - source_id: src-20260623-kb-overview-business-loop
+  - 当前 raw_path: 
+  - 预测目标: 本地原始文件映射
+  - 无法修复原因: raw_path empty
+  - 推荐处理方式: 补齐 raw_path 并指向仓库内可读文件
+- 页面路径: wiki\sources\src-20260623-kb-overview-environment.md
+  - source_id: src-20260623-kb-overview-environment
+  - 当前 raw_path: 
+  - 预测目标: 本地原始文件映射
+  - 无法修复原因: raw_path empty
+  - 推荐处理方式: 补齐 raw_path 并指向仓库内可读文件
+- 页面路径: wiki\sources\src-20260623-kb-overview-glossary.md
+  - source_id: src-20260623-kb-overview-glossary
+  - 当前 raw_path: 
+  - 预测目标: 本地原始文件映射
+  - 无法修复原因: raw_path empty
+  - 推荐处理方式: 补齐 raw_path 并指向仓库内可读文件
+- 页面路径: wiki\sources\src-20260623-kb-overview-project.md
+  - source_id: src-20260623-kb-overview-project
+  - 当前 raw_path: 
+  - 预测目标: 本地原始文件映射
+  - 无法修复原因: raw_path empty
+  - 推荐处理方式: 补齐 raw_path 并指向仓库内可读文件
+- 页面路径: wiki\sources\src-20260623-kb-overview-system-map.md
+  - source_id: src-20260623-kb-overview-system-map
+  - 当前 raw_path: 
+  - 预测目标: 本地原始文件映射
+  - 无法修复原因: raw_path empty
+  - 推荐处理方式: 补齐 raw_path 并指向仓库内可读文件
+- 页面路径: wiki\sources\src-20260623-kb-spec-page.md
+  - source_id: src-20260623-kb-spec-page
+  - 当前 raw_path: 
+  - 预测目标: 本地原始文件映射
+  - 无法修复原因: raw_path empty
+  - 推荐处理方式: 补齐 raw_path 并指向仓库内可读文件
+- 页面路径: wiki\sources\src-20260623-kb-spec-safety-boundary.md
+  - source_id: src-20260623-kb-spec-safety-boundary
+  - 当前 raw_path: 
+  - 预测目标: 本地原始文件映射
+  - 无法修复原因: raw_path empty
+  - 推荐处理方式: 补齐 raw_path 并指向仓库内可读文件
+- 页面路径: wiki\sources\src-20260623-kb-spec-structure.md
+  - source_id: src-20260623-kb-spec-structure
+  - 当前 raw_path: 
+  - 预测目标: 本地原始文件映射
+  - 无法修复原因: raw_path empty
+  - 推荐处理方式: 补齐 raw_path 并指向仓库内可读文件
+- 页面路径: wiki\sources\src-20260623-kb-status-confirmed-decisions.md
   - source_id: src-20260623-kb-status-confirmed-decisions
   - 当前 raw_path: 
-  - 预测目标: 人工核验并补齐来源元数据（source_id、canonical_url、raw_path）
-  - 无法修复原因: 缺少 canonical_url
-  - 推荐处理方式: 补充对应来源页的 frontmatter 或在资料来源登记中建立映射
-- 页面路径: 01-状态\资料来源.md
+  - 预测目标: 本地原始文件映射
+  - 无法修复原因: raw_path empty
+  - 推荐处理方式: 补齐 raw_path 并指向仓库内可读文件
+- 页面路径: wiki\sources\src-20260623-kb-status-current.md
+  - source_id: src-20260623-kb-status-current
+  - 当前 raw_path: 
+  - 预测目标: 本地原始文件映射
+  - 无法修复原因: raw_path empty
+  - 推荐处理方式: 补齐 raw_path 并指向仓库内可读文件
+- 页面路径: wiki\sources\src-20260623-kb-status-pending-questions.md
+  - source_id: src-20260623-kb-status-pending-questions
+  - 当前 raw_path: 
+  - 预测目标: 本地原始文件映射
+  - 无法修复原因: raw_path empty
+  - 推荐处理方式: 补齐 raw_path 并指向仓库内可读文件
+- 页面路径: wiki\sources\src-20260623-kb-status-source-register.md
   - source_id: src-20260623-kb-status-source-register
   - 当前 raw_path: 
-  - 预测目标: 人工核验并补齐来源元数据（source_id、canonical_url、raw_path）
-  - 无法修复原因: 缺少 canonical_url
-  - 推荐处理方式: 补充对应来源页的 frontmatter 或在资料来源登记中建立映射
-- 页面路径: 05-任务管理\任务-005.md
-  - source_id: 
+  - 预测目标: 本地原始文件映射
+  - 无法修复原因: raw_path empty
+  - 推荐处理方式: 补齐 raw_path 并指向仓库内可读文件
+- 页面路径: wiki\sources\src-20260623-kb-status-tech-debt.md
+  - source_id: src-20260623-kb-status-tech-debt
   - 当前 raw_path: 
-  - 预测目标: 人工核验并补齐来源元数据（source_id、canonical_url、raw_path）
-  - 无法修复原因: 缺少 source_id
-  - 推荐处理方式: 补充对应来源页的 frontmatter 或在资料来源登记中建立映射
-- 页面路径: 05-任务管理\任务-006.md
-  - source_id: 
+  - 预测目标: 本地原始文件映射
+  - 无法修复原因: raw_path empty
+  - 推荐处理方式: 补齐 raw_path 并指向仓库内可读文件
+- 页面路径: 05-任务管理\任务-001.md
+  - source_id: missing source_id
   - 当前 raw_path: 
-  - 预测目标: 人工核验并补齐来源元数据（source_id、canonical_url、raw_path）
-  - 无法修复原因: 缺少 source_id
-  - 推荐处理方式: 补充对应来源页的 frontmatter 或在资料来源登记中建立映射
-- 页面路径: 05-任务管理\任务队列.md
-  - source_id: 
+  - 预测目标: 补齐知识页来源
+  - 无法修复原因: frontmatter source_id 缺失
+  - 推荐处理方式: 补齐 source_id
+- 页面路径: 05-任务管理\任务-002.md
+  - source_id: missing source_id
   - 当前 raw_path: 
-  - 预测目标: 人工核验并补齐来源元数据（source_id、canonical_url、raw_path）
-  - 无法修复原因: 缺少 source_id
-  - 推荐处理方式: 补充对应来源页的 frontmatter 或在资料来源登记中建立映射
-- 页面路径: 05-任务管理\任务模板.md
-  - source_id: 
+  - 预测目标: 补齐知识页来源
+  - 无法修复原因: frontmatter source_id 缺失
+  - 推荐处理方式: 补齐 source_id
+- 页面路径: 05-任务管理\任务-003.md
+  - source_id: missing source_id
   - 当前 raw_path: 
-  - 预测目标: 人工核验并补齐来源元数据（source_id、canonical_url、raw_path）
-  - 无法修复原因: 缺少 source_id
-  - 推荐处理方式: 补充对应来源页的 frontmatter 或在资料来源登记中建立映射
-- 页面路径: 05-任务管理\任务总表.md
-  - source_id: 
+  - 预测目标: 补齐知识页来源
+  - 无法修复原因: frontmatter source_id 缺失
+  - 推荐处理方式: 补齐 source_id
+- 页面路径: 05-任务管理\任务-004.md
+  - source_id: missing source_id
   - 当前 raw_path: 
-  - 预测目标: 人工核验并补齐来源元数据（source_id、canonical_url、raw_path）
-  - 无法修复原因: 缺少 source_id
-  - 推荐处理方式: 补充对应来源页的 frontmatter 或在资料来源登记中建立映射
-- 页面路径: 06-报告证据\报告-001.md
-  - source_id: 
-  - 当前 raw_path: 
-  - 预测目标: 人工核验并补齐来源元数据（source_id、canonical_url、raw_path）
-  - 无法修复原因: 缺少 source_id
-  - 推荐处理方式: 补充对应来源页的 frontmatter 或在资料来源登记中建立映射
-- 页面路径: 06-报告证据\报告-002.md
-  - source_id: 
-  - 当前 raw_path: 
-  - 预测目标: 人工核验并补齐来源元数据（source_id、canonical_url、raw_path）
-  - 无法修复原因: 缺少 source_id
-  - 推荐处理方式: 补充对应来源页的 frontmatter 或在资料来源登记中建立映射
-- 页面路径: 06-报告证据\报告-003.md
-  - source_id: 
-  - 当前 raw_path: 
-  - 预测目标: 人工核验并补齐来源元数据（source_id、canonical_url、raw_path）
-  - 无法修复原因: 缺少 source_id
-  - 推荐处理方式: 补充对应来源页的 frontmatter 或在资料来源登记中建立映射
-- 页面路径: 06-报告证据\报告-004.md
-  - source_id: 
-  - 当前 raw_path: 
-  - 预测目标: 人工核验并补齐来源元数据（source_id、canonical_url、raw_path）
-  - 无法修复原因: 缺少 source_id
-  - 推荐处理方式: 补充对应来源页的 frontmatter 或在资料来源登记中建立映射
-- 页面路径: 06-报告证据\报告-005.md
-  - source_id: 
-  - 当前 raw_path: 
-  - 预测目标: 人工核验并补齐来源元数据（source_id、canonical_url、raw_path）
-  - 无法修复原因: 缺少 source_id
-  - 推荐处理方式: 补充对应来源页的 frontmatter 或在资料来源登记中建立映射
-- 页面路径: 06-报告证据\报告模板.md
-  - source_id: 
-  - 当前 raw_path: 
-  - 预测目标: 人工核验并补齐来源元数据（source_id、canonical_url、raw_path）
-  - 无法修复原因: 缺少 source_id
-  - 推荐处理方式: 补充对应来源页的 frontmatter 或在资料来源登记中建立映射
-- 页面路径: 06-报告证据\报告索引.md
-  - source_id: 
-  - 当前 raw_path: 
-  - 预测目标: 人工核验并补齐来源元数据（source_id、canonical_url、raw_path）
-  - 无法修复原因: 缺少 source_id
-  - 推荐处理方式: 补充对应来源页的 frontmatter 或在资料来源登记中建立映射
-- 页面路径: 06-报告证据\refactor\20260623-234914\duplicate-clusters.md
-  - source_id: 
-  - 当前 raw_path: 
-  - 预测目标: 人工核验并补齐来源元数据（source_id、canonical_url、raw_path）
-  - 无法修复原因: 缺少 source_id
-  - 推荐处理方式: 补充对应来源页的 frontmatter 或在资料来源登记中建立映射
-- 页面路径: 06-报告证据\refactor\20260623-234914\execution-log.md
-  - source_id: 
-  - 当前 raw_path: 
-  - 预测目标: 人工核验并补齐来源元数据（source_id、canonical_url、raw_path）
-  - 无法修复原因: 缺少 source_id
-  - 推荐处理方式: 补充对应来源页的 frontmatter 或在资料来源登记中建立映射
-- 页面路径: 06-报告证据\refactor\20260623-234914\inventory.md
-  - source_id: 
-  - 当前 raw_path: 
-  - 预测目标: 人工核验并补齐来源元数据（source_id、canonical_url、raw_path）
-  - 无法修复原因: 缺少 source_id
-  - 推荐处理方式: 补充对应来源页的 frontmatter 或在资料来源登记中建立映射
-- 页面路径: 06-报告证据\refactor\20260623-234914\migration-plan.md
-  - source_id: 
-  - 当前 raw_path: 
-  - 预测目标: 人工核验并补齐来源元数据（source_id、canonical_url、raw_path）
-  - 无法修复原因: 缺少 source_id
-  - 推荐处理方式: 补充对应来源页的 frontmatter 或在资料来源登记中建立映射
-- 页面路径: 06-报告证据\refactor\20260623-234914\path-map.md
-  - source_id: 
-  - 当前 raw_path: 
-  - 预测目标: 人工核验并补齐来源元数据（source_id、canonical_url、raw_path）
-  - 无法修复原因: 缺少 source_id
-  - 推荐处理方式: 补充对应来源页的 frontmatter 或在资料来源登记中建立映射
-- 页面路径: 06-报告证据\refactor\20260623-234914\unresolved-items.md
-  - source_id: 
-  - 当前 raw_path: 
-  - 预测目标: 人工核验并补齐来源元数据（source_id、canonical_url、raw_path）
-  - 无法修复原因: 缺少 source_id
-  - 推荐处理方式: 补充对应来源页的 frontmatter 或在资料来源登记中建立映射
-- 页面路径: 06-报告证据\refactor\20260623-234914\validation-report.md
-  - source_id: 
-  - 当前 raw_path: 
-  - 预测目标: 人工核验并补齐来源元数据（source_id、canonical_url、raw_path）
-  - 无法修复原因: 缺少 source_id
-  - 推荐处理方式: 补充对应来源页的 frontmatter 或在资料来源登记中建立映射
-- 页面路径: 06-报告证据\refactor\20260623-234959\duplicate-clusters.md
-  - source_id: 
-  - 当前 raw_path: 
-  - 预测目标: 人工核验并补齐来源元数据（source_id、canonical_url、raw_path）
-  - 无法修复原因: 缺少 source_id
-  - 推荐处理方式: 补充对应来源页的 frontmatter 或在资料来源登记中建立映射
-- 页面路径: 06-报告证据\refactor\20260623-234959\execution-log.md
-  - source_id: 
-  - 当前 raw_path: 
-  - 预测目标: 人工核验并补齐来源元数据（source_id、canonical_url、raw_path）
-  - 无法修复原因: 缺少 source_id
-  - 推荐处理方式: 补充对应来源页的 frontmatter 或在资料来源登记中建立映射
-- 页面路径: 06-报告证据\refactor\20260623-234959\inventory.md
-  - source_id: 
-  - 当前 raw_path: 
-  - 预测目标: 人工核验并补齐来源元数据（source_id、canonical_url、raw_path）
-  - 无法修复原因: 缺少 source_id
-  - 推荐处理方式: 补充对应来源页的 frontmatter 或在资料来源登记中建立映射
-- 页面路径: 06-报告证据\refactor\20260623-234959\migration-plan.md
-  - source_id: 
-  - 当前 raw_path: 
-  - 预测目标: 人工核验并补齐来源元数据（source_id、canonical_url、raw_path）
-  - 无法修复原因: 缺少 source_id
-  - 推荐处理方式: 补充对应来源页的 frontmatter 或在资料来源登记中建立映射
-- 页面路径: 06-报告证据\refactor\20260623-234959\path-map.md
-  - source_id: 
-  - 当前 raw_path: 
-  - 预测目标: 人工核验并补齐来源元数据（source_id、canonical_url、raw_path）
-  - 无法修复原因: 缺少 source_id
-  - 推荐处理方式: 补充对应来源页的 frontmatter 或在资料来源登记中建立映射
-- 页面路径: 06-报告证据\refactor\20260623-234959\unresolved-items.md
-  - source_id: 
-  - 当前 raw_path: 
-  - 预测目标: 人工核验并补齐来源元数据（source_id、canonical_url、raw_path）
-  - 无法修复原因: 缺少 source_id
-  - 推荐处理方式: 补充对应来源页的 frontmatter 或在资料来源登记中建立映射
-- 页面路径: 06-报告证据\refactor\20260623-234959\validation-report.md
-  - source_id: 
-  - 当前 raw_path: 
-  - 预测目标: 人工核验并补齐来源元数据（source_id、canonical_url、raw_path）
-  - 无法修复原因: 缺少 source_id
-  - 推荐处理方式: 补充对应来源页的 frontmatter 或在资料来源登记中建立映射
-- 页面路径: 06-报告证据\refactor\20260623-235035\c-level-preflight.md
-  - source_id: 
-  - 当前 raw_path: 
-  - 预测目标: 人工核验并补齐来源元数据（source_id、canonical_url、raw_path）
-  - 无法修复原因: 缺少 source_id
-  - 推荐处理方式: 补充对应来源页的 frontmatter 或在资料来源登记中建立映射
-- 页面路径: 06-报告证据\refactor\20260623-235035\directory-result.md
-  - source_id: 
-  - 当前 raw_path: 
-  - 预测目标: 人工核验并补齐来源元数据（source_id、canonical_url、raw_path）
-  - 无法修复原因: 缺少 source_id
-  - 推荐处理方式: 补充对应来源页的 frontmatter 或在资料来源登记中建立映射
-- 页面路径: 06-报告证据\refactor\20260623-235035\duplicate-clusters.md
-  - source_id: 
-  - 当前 raw_path: 
-  - 预测目标: 人工核验并补齐来源元数据（source_id、canonical_url、raw_path）
-  - 无法修复原因: 缺少 source_id
-  - 推荐处理方式: 补充对应来源页的 frontmatter 或在资料来源登记中建立映射
-- 页面路径: 06-报告证据\refactor\20260623-235035\execution-log.md
-  - source_id: 
-  - 当前 raw_path: 
-  - 预测目标: 人工核验并补齐来源元数据（source_id、canonical_url、raw_path）
-  - 无法修复原因: 缺少 source_id
-  - 推荐处理方式: 补充对应来源页的 frontmatter 或在资料来源登记中建立映射
-- 页面路径: 06-报告证据\refactor\20260623-235035\inventory.md
-  - source_id: 
-  - 当前 raw_path: 
-  - 预测目标: 人工核验并补齐来源元数据（source_id、canonical_url、raw_path）
-  - 无法修复原因: 缺少 source_id
-  - 推荐处理方式: 补充对应来源页的 frontmatter 或在资料来源登记中建立映射
-- 页面路径: 06-报告证据\refactor\20260623-235035\migration-plan.md
-  - source_id: 
-  - 当前 raw_path: 
-  - 预测目标: 人工核验并补齐来源元数据（source_id、canonical_url、raw_path）
-  - 无法修复原因: 缺少 source_id
-  - 推荐处理方式: 补充对应来源页的 frontmatter 或在资料来源登记中建立映射
-- 页面路径: 06-报告证据\refactor\20260623-235035\path-map.md
-  - source_id: 
-  - 当前 raw_path: 
-  - 预测目标: 人工核验并补齐来源元数据（source_id、canonical_url、raw_path）
-  - 无法修复原因: 缺少 source_id
-  - 推荐处理方式: 补充对应来源页的 frontmatter 或在资料来源登记中建立映射
-- 页面路径: 06-报告证据\refactor\20260623-235035\source-id-apply-sid-b01.md
-  - source_id: 
-  - 当前 raw_path: 
-  - 预测目标: 人工核验并补齐来源元数据（source_id、canonical_url、raw_path）
-  - 无法修复原因: 缺少 source_id
-  - 推荐处理方式: 补充对应来源页的 frontmatter 或在资料来源登记中建立映射
-- 页面路径: 06-报告证据\refactor\20260623-235035\source-id-candidates-sid-b01.md
-  - source_id: 
-  - 当前 raw_path: 
-  - 预测目标: 人工核验并补齐来源元数据（source_id、canonical_url、raw_path）
-  - 无法修复原因: 缺少 source_id
-  - 推荐处理方式: 补充对应来源页的 frontmatter 或在资料来源登记中建立映射
-- 页面路径: 06-报告证据\refactor\20260623-235035\unresolved-items.md
-  - source_id: 
-  - 当前 raw_path: 
-  - 预测目标: 人工核验并补齐来源元数据（source_id、canonical_url、raw_path）
-  - 无法修复原因: 缺少 source_id
-  - 推荐处理方式: 补充对应来源页的 frontmatter 或在资料来源登记中建立映射
-- 页面路径: 06-报告证据\refactor\20260623-235035\validation-report.md
-  - source_id: 
-  - 当前 raw_path: 
-  - 预测目标: 人工核验并补齐来源元数据（source_id、canonical_url、raw_path）
-  - 无法修复原因: 缺少 source_id
-  - 推荐处理方式: 补充对应来源页的 frontmatter 或在资料来源登记中建立映射
-- 页面路径: 06-报告证据\refactor\20260624-094111\current-tree.md
-  - source_id: 
-  - 当前 raw_path: 
-  - 预测目标: 人工核验并补齐来源元数据（source_id、canonical_url、raw_path）
-  - 无法修复原因: 缺少 source_id
-  - 推荐处理方式: 补充对应来源页的 frontmatter 或在资料来源登记中建立映射
-- 页面路径: 06-报告证据\refactor\20260624-094111\inventory.md
-  - source_id: 
-  - 当前 raw_path: 
-  - 预测目标: 人工核验并补齐来源元数据（source_id、canonical_url、raw_path）
-  - 无法修复原因: 缺少 source_id
-  - 推荐处理方式: 补充对应来源页的 frontmatter 或在资料来源登记中建立映射
-- 页面路径: 06-报告证据\refactor\20260624-094118\content-classification.md
-  - source_id: 
-  - 当前 raw_path: 
-  - 预测目标: 人工核验并补齐来源元数据（source_id、canonical_url、raw_path）
-  - 无法修复原因: 缺少 source_id
-  - 推荐处理方式: 补充对应来源页的 frontmatter 或在资料来源登记中建立映射
-- 页面路径: 06-报告证据\refactor\20260624-094118\current-tree.md
-  - source_id: 
-  - 当前 raw_path: 
-  - 预测目标: 人工核验并补齐来源元数据（source_id、canonical_url、raw_path）
-  - 无法修复原因: 缺少 source_id
-  - 推荐处理方式: 补充对应来源页的 frontmatter 或在资料来源登记中建立映射
-- 页面路径: 06-报告证据\refactor\20260624-094118\duplicate-clusters.md
-  - source_id: 
-  - 当前 raw_path: 
-  - 预测目标: 人工核验并补齐来源元数据（source_id、canonical_url、raw_path）
-  - 无法修复原因: 缺少 source_id
-  - 推荐处理方式: 补充对应来源页的 frontmatter 或在资料来源登记中建立映射
-- 页面路径: 06-报告证据\refactor\20260624-094118\execution-log.md
-  - source_id: 
-  - 当前 raw_path: 
-  - 预测目标: 人工核验并补齐来源元数据（source_id、canonical_url、raw_path）
-  - 无法修复原因: 缺少 source_id
-  - 推荐处理方式: 补充对应来源页的 frontmatter 或在资料来源登记中建立映射
-- 页面路径: 06-报告证据\refactor\20260624-094118\final-report.md
-  - source_id: 
-  - 当前 raw_path: 
-  - 预测目标: 人工核验并补齐来源元数据（source_id、canonical_url、raw_path）
-  - 无法修复原因: 缺少 source_id
-  - 推荐处理方式: 补充对应来源页的 frontmatter 或在资料来源登记中建立映射
-- 页面路径: 06-报告证据\refactor\20260624-094118\integrity-validation.md
-  - source_id: 
-  - 当前 raw_path: 
-  - 预测目标: 人工核验并补齐来源元数据（source_id、canonical_url、raw_path）
-  - 无法修复原因: 缺少 source_id
-  - 推荐处理方式: 补充对应来源页的 frontmatter 或在资料来源登记中建立映射
-- 页面路径: 06-报告证据\refactor\20260624-094118\inventory.md
-  - source_id: 
-  - 当前 raw_path: 
-  - 预测目标: 人工核验并补齐来源元数据（source_id、canonical_url、raw_path）
-  - 无法修复原因: 缺少 source_id
-  - 推荐处理方式: 补充对应来源页的 frontmatter 或在资料来源登记中建立映射
-- 页面路径: 06-报告证据\refactor\20260624-094118\link-validation.md
-  - source_id: 
-  - 当前 raw_path: 
-  - 预测目标: 人工核验并补齐来源元数据（source_id、canonical_url、raw_path）
-  - 无法修复原因: 缺少 source_id
-  - 推荐处理方式: 补充对应来源页的 frontmatter 或在资料来源登记中建立映射
-- 页面路径: 06-报告证据\refactor\20260624-094118\migration-plan.md
-  - source_id: 
-  - 当前 raw_path: 
-  - 预测目标: 人工核验并补齐来源元数据（source_id、canonical_url、raw_path）
-  - 无法修复原因: 缺少 source_id
-  - 推荐处理方式: 补充对应来源页的 frontmatter 或在资料来源登记中建立映射
-- 页面路径: 06-报告证据\refactor\20260624-094118\selected-structure.md
-  - source_id: 
-  - 当前 raw_path: 
-  - 预测目标: 人工核验并补齐来源元数据（source_id、canonical_url、raw_path）
-  - 无法修复原因: 缺少 source_id
-  - 推荐处理方式: 补充对应来源页的 frontmatter 或在资料来源登记中建立映射
-- 页面路径: 06-报告证据\refactor\20260624-094118\structure-analysis.md
-  - source_id: 
-  - 当前 raw_path: 
-  - 预测目标: 人工核验并补齐来源元数据（source_id、canonical_url、raw_path）
-  - 无法修复原因: 缺少 source_id
-  - 推荐处理方式: 补充对应来源页的 frontmatter 或在资料来源登记中建立映射
-- 页面路径: 06-报告证据\refactor\20260624-094118\structure-candidates.md
-  - source_id: 
-  - 当前 raw_path: 
-  - 预测目标: 人工核验并补齐来源元数据（source_id、canonical_url、raw_path）
-  - 无法修复原因: 缺少 source_id
-  - 推荐处理方式: 补充对应来源页的 frontmatter 或在资料来源登记中建立映射
-- 页面路径: 06-报告证据\refactor\20260624-094118\unresolved-items.md
-  - source_id: 
-  - 当前 raw_path: 
-  - 预测目标: 人工核验并补齐来源元数据（source_id、canonical_url、raw_path）
-  - 无法修复原因: 缺少 source_id
-  - 推荐处理方式: 补充对应来源页的 frontmatter 或在资料来源登记中建立映射
-- 页面路径: 08-模板\页面模板.md
-  - source_id: 
-  - 当前 raw_path: 
-  - 预测目标: 人工核验并补齐来源元数据（source_id、canonical_url、raw_path）
-  - 无法修复原因: 缺少 source_id
-  - 推荐处理方式: 补充对应来源页的 frontmatter 或在资料来源登记中建立映射
-- 页面路径: 08-模板\资料来源模板.md
-  - source_id: 
-  - 当前 raw_path: 
-  - 预测目标: 人工核验并补齐来源元数据（source_id、canonical_url、raw_path）
-  - 无法修复原因: 缺少 source_id
-  - 推荐处理方式: 补充对应来源页的 frontmatter 或在资料来源登记中建立映射
+  - 预测目标: 补齐知识页来源
+  - 无法修复原因: frontmatter source_id 缺失
+  - 推荐处理方式: 补齐 source_id
