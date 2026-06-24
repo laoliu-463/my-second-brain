@@ -21,6 +21,8 @@ MAX_TOP_DIRS = 10
 # 哪些顶层路径算"第二大脑实例"——只要以"第二大脑"开头
 INSTANCE_PREFIX = "第二大脑"
 TOP_DIR_PATTERN = re.compile(r"^\d{2}-.+")
+# 例外：raw/wiki 是 Wiki 化重构的架构层目录,不计入硬约束
+TOP_DIR_EXCEPTIONS = {"raw", "wiki", "_archive", "_meta"}
 
 
 def find_instances(root: Path):
@@ -36,8 +38,8 @@ def check_instance(instance: Path) -> list:
     """检查单个实例的结构约束"""
     bad = []
 
-    # 一级子目录数
-    top_dirs = [p for p in sorted(instance.iterdir()) if p.is_dir()]
+    # 一级子目录数（排除例外）
+    top_dirs = [p for p in sorted(instance.iterdir()) if p.is_dir() and p.name not in TOP_DIR_EXCEPTIONS]
     if len(top_dirs) > MAX_TOP_DIRS:
         bad.append(f"  TOO_MANY_TOP_DIRS: {len(top_dirs)} > {MAX_TOP_DIRS}")
 
