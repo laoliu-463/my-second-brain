@@ -1,1 +1,0 @@
-﻿# Selected: minimal edit only
