@@ -1,187 +1,53 @@
 # 来源链接修复报告
 
 ## 扫描结果
-- 来源页数量: 26
-- 原始文件数量: 14
-- 知识页数量: 0
-- canonical_url 数量: 0
+
+- 来源页数量：26
+- 原始文件数量：14
+- 知识页数量：0
+- canonical_url 数量：0
 
 ## 修复结果
-- 新增本地原文链接数: 0
-- 修复错误路径数: 0
-- 新增知识页到来源页引用数: 0
-- 新增来源页到知识页链接数: 0
-- 补充原始网页链接数: 0
+
+- 新增本地原文链接数：14
+- 修复错误路径数：0
+- 新增知识页到来源页链接数：0
+- 新增来源页到知识页链接数：0
+- 补充原始网页链接数：0
 
 ## 异常
-- 找不到原始文件的来源页: 12
-- 找不到来源页的知识引用: 0
-- 重复 source_id: 0
-- 多个来源页对应同一来源: 0
-- 无法确认来源的知识陈述: 0
-- 位于知识库根目录之外的原始文件: 14
-- 无法自动修复的链接: 26
 
-## 找不到原始文件的来源页
-- 页面路径: wiki\sources\src-20260623-kb-flow-health-check.md
-  - source_id: src-20260623-kb-flow-health-check
-  - 当前 raw_path: 
-  - 推测目标: 未提供
-  - 无法修复原因: raw_path 指向文件不存在或未提供
-  - 推荐处理方式: 补齐 raw_path 并确认文件存在
-- 页面路径: wiki\sources\src-20260623-kb-flow-ingestion.md
-  - source_id: src-20260623-kb-flow-ingestion
-  - 当前 raw_path: 
-  - 推测目标: 未提供
-  - 无法修复原因: raw_path 指向文件不存在或未提供
-  - 推荐处理方式: 补齐 raw_path 并确认文件存在
-- 页面路径: wiki\sources\src-20260623-kb-flow-query-answer.md
-  - source_id: src-20260623-kb-flow-query-answer
-  - 当前 raw_path: 
-  - 推测目标: 未提供
-  - 无法修复原因: raw_path 指向文件不存在或未提供
-  - 推荐处理方式: 补齐 raw_path 并确认文件存在
-- 页面路径: wiki\sources\src-20260623-kb-flow-task-lifecycle.md
-  - source_id: src-20260623-kb-flow-task-lifecycle
-  - 当前 raw_path: 
-  - 推测目标: 未提供
-  - 无法修复原因: raw_path 指向文件不存在或未提供
-  - 推荐处理方式: 补齐 raw_path 并确认文件存在
-- 页面路径: wiki\sources\src-20260623-kb-overview-glossary.md
-  - source_id: src-20260623-kb-overview-glossary
-  - 当前 raw_path: 
-  - 推测目标: 未提供
-  - 无法修复原因: raw_path 指向文件不存在或未提供
-  - 推荐处理方式: 补齐 raw_path 并确认文件存在
-- 页面路径: wiki\sources\src-20260623-kb-spec-page.md
-  - source_id: src-20260623-kb-spec-page
-  - 当前 raw_path: 
-  - 推测目标: 未提供
-  - 无法修复原因: raw_path 指向文件不存在或未提供
-  - 推荐处理方式: 补齐 raw_path 并确认文件存在
-- 页面路径: wiki\sources\src-20260623-kb-spec-structure.md
-  - source_id: src-20260623-kb-spec-structure
-  - 当前 raw_path: 
-  - 推测目标: 未提供
-  - 无法修复原因: raw_path 指向文件不存在或未提供
-  - 推荐处理方式: 补齐 raw_path 并确认文件存在
-- 页面路径: wiki\sources\src-20260623-kb-status-confirmed-decisions.md
-  - source_id: src-20260623-kb-status-confirmed-decisions
-  - 当前 raw_path: 
-  - 推测目标: 未提供
-  - 无法修复原因: raw_path 指向文件不存在或未提供
-  - 推荐处理方式: 补齐 raw_path 并确认文件存在
-- 页面路径: wiki\sources\src-20260623-kb-status-current.md
-  - source_id: src-20260623-kb-status-current
-  - 当前 raw_path: 
-  - 推测目标: 未提供
-  - 无法修复原因: raw_path 指向文件不存在或未提供
-  - 推荐处理方式: 补齐 raw_path 并确认文件存在
-- 页面路径: wiki\sources\src-20260623-kb-status-pending-questions.md
-  - source_id: src-20260623-kb-status-pending-questions
-  - 当前 raw_path: 
-  - 推测目标: 未提供
-  - 无法修复原因: raw_path 指向文件不存在或未提供
-  - 推荐处理方式: 补齐 raw_path 并确认文件存在
-- 页面路径: wiki\sources\src-20260623-kb-status-source-register.md
-  - source_id: src-20260623-kb-status-source-register
-  - 当前 raw_path: 
-  - 推测目标: 未提供
-  - 无法修复原因: raw_path 指向文件不存在或未提供
-  - 推荐处理方式: 补齐 raw_path 并确认文件存在
-- 页面路径: wiki\sources\src-20260623-kb-status-tech-debt.md
-  - source_id: src-20260623-kb-status-tech-debt
-  - 当前 raw_path: 
-  - 推测目标: 未提供
-  - 无法修复原因: raw_path 指向文件不存在或未提供
-  - 推荐处理方式: 补齐 raw_path 并确认文件存在
+### 找不到原始文件的来源页
+- 数量：0
+- 无
 
-## 位于知识库根目录之外的原始文件
-- 页面路径: wiki\sources\src-20260623-kb-domain-creator.md
-  - source_id: src-20260623-kb-domain-creator
-  - 当前 raw_path: D:\Projects\SAAS\docs\领域\达人域.md
-  - 当前知识库根目录: D:\Docs\Books\my second brain\第二大脑
-  - 无法修复原因: 外部路径
-  - 推荐处理方式: 将文件纳入知识库 raw 目录并更新 raw_path 为可移植相对链接
-- 页面路径: wiki\sources\src-20260623-kb-domain-dashboard-analytics.md
-  - source_id: src-20260623-kb-domain-dashboard-analytics
-  - 当前 raw_path: D:\Projects\SAAS\docs\领域\分析模块.md
-  - 当前知识库根目录: D:\Docs\Books\my second brain\第二大脑
-  - 无法修复原因: 外部路径
-  - 推荐处理方式: 将文件纳入知识库 raw 目录并更新 raw_path 为可移植相对链接
-- 页面路径: wiki\sources\src-20260623-kb-domain-douyin-upstream-api.md
-  - source_id: src-20260623-kb-domain-douyin-upstream-api
-  - 当前 raw_path: D:\Projects\SAAS\docs\08-第三方对接总览.md
-  - 当前知识库根目录: D:\Docs\Books\my second brain\第二大脑
-  - 无法修复原因: 外部路径
-  - 推荐处理方式: 将文件纳入知识库 raw 目录并更新 raw_path 为可移植相对链接
-- 页面路径: wiki\sources\src-20260623-kb-domain-order.md
-  - source_id: src-20260623-kb-domain-order
-  - 当前 raw_path: D:\Projects\SAAS\docs\领域\订单域.md
-  - 当前知识库根目录: D:\Docs\Books\my second brain\第二大脑
-  - 无法修复原因: 外部路径
-  - 推荐处理方式: 将文件纳入知识库 raw 目录并更新 raw_path 为可移植相对链接
-- 页面路径: wiki\sources\src-20260623-kb-domain-performance.md
-  - source_id: src-20260623-kb-domain-performance
-  - 当前 raw_path: D:\Projects\SAAS\docs\领域\业绩域.md
-  - 当前知识库根目录: D:\Docs\Books\my second brain\第二大脑
-  - 无法修复原因: 外部路径
-  - 推荐处理方式: 将文件纳入知识库 raw 目录并更新 raw_path 为可移植相对链接
-- 页面路径: wiki\sources\src-20260623-kb-domain-product.md
-  - source_id: src-20260623-kb-domain-product
-  - 当前 raw_path: D:\Projects\SAAS\docs\领域\商品域.md
-  - 当前知识库根目录: D:\Docs\Books\my second brain\第二大脑
-  - 无法修复原因: 外部路径
-  - 推荐处理方式: 将文件纳入知识库 raw 目录并更新 raw_path 为可移植相对链接
-- 页面路径: wiki\sources\src-20260623-kb-domain-sample.md
-  - source_id: src-20260623-kb-domain-sample
-  - 当前 raw_path: D:\Projects\SAAS\docs\领域\寄样域.md
-  - 当前知识库根目录: D:\Docs\Books\my second brain\第二大脑
-  - 无法修复原因: 外部路径
-  - 推荐处理方式: 将文件纳入知识库 raw 目录并更新 raw_path 为可移植相对链接
-- 页面路径: wiki\sources\src-20260623-kb-domain-user-config.md
-  - source_id: src-20260623-kb-domain-user-config
-  - 当前 raw_path: D:\Projects\SAAS\docs\领域\用户域.md
-  - 当前知识库根目录: D:\Docs\Books\my second brain\第二大脑
-  - 无法修复原因: 外部路径
-  - 推荐处理方式: 将文件纳入知识库 raw 目录并更新 raw_path 为可移植相对链接
-- 页面路径: wiki\sources\src-20260623-kb-overview-acceptance-gate.md
-  - source_id: src-20260623-kb-overview-acceptance-gate
-  - 当前 raw_path: D:\Projects\SAAS\harness\rules\governance\COMPLETION_GATES.md
-  - 当前知识库根目录: D:\Docs\Books\my second brain\第二大脑
-  - 无法修复原因: 外部路径
-  - 推荐处理方式: 将文件纳入知识库 raw 目录并更新 raw_path 为可移植相对链接
-- 页面路径: wiki\sources\src-20260623-kb-overview-business-loop.md
-  - source_id: src-20260623-kb-overview-business-loop
-  - 当前 raw_path: D:\Projects\SAAS\docs\02-业务闭环总览.md
-  - 当前知识库根目录: D:\Docs\Books\my second brain\第二大脑
-  - 无法修复原因: 外部路径
-  - 推荐处理方式: 将文件纳入知识库 raw 目录并更新 raw_path 为可移植相对链接
-- 页面路径: wiki\sources\src-20260623-kb-overview-environment.md
-  - source_id: src-20260623-kb-overview-environment
-  - 当前 raw_path: D:\Projects\SAAS\docs\10-部署运行总览.md
-  - 当前知识库根目录: D:\Docs\Books\my second brain\第二大脑
-  - 无法修复原因: 外部路径
-  - 推荐处理方式: 将文件纳入知识库 raw 目录并更新 raw_path 为可移植相对链接
-- 页面路径: wiki\sources\src-20260623-kb-overview-project.md
-  - source_id: src-20260623-kb-overview-project
-  - 当前 raw_path: D:\Projects\SAAS\docs\00-项目总览.md
-  - 当前知识库根目录: D:\Docs\Books\my second brain\第二大脑
-  - 无法修复原因: 外部路径
-  - 推荐处理方式: 将文件纳入知识库 raw 目录并更新 raw_path 为可移植相对链接
-- 页面路径: wiki\sources\src-20260623-kb-overview-system-map.md
-  - source_id: src-20260623-kb-overview-system-map
-  - 当前 raw_path: D:\Projects\SAAS\docs\03-领域架构总览.md
-  - 当前知识库根目录: D:\Docs\Books\my second brain\第二大脑
-  - 无法修复原因: 外部路径
-  - 推荐处理方式: 将文件纳入知识库 raw 目录并更新 raw_path 为可移植相对链接
-- 页面路径: wiki\sources\src-20260623-kb-spec-safety-boundary.md
-  - source_id: src-20260623-kb-spec-safety-boundary
-  - 当前 raw_path: D:\Projects\SAAS\harness\rules\instructions\governance\03-禁止范围与安全边界.md
-  - 当前知识库根目录: D:\Docs\Books\my second brain\第二大脑
-  - 无法修复原因: 外部路径
-  - 推荐处理方式: 将文件纳入知识库 raw 目录并更新 raw_path 为可移植相对链接
+### 找不到来源页的知识引用
+- 数量：0
+- 无
 
-## 找不到来源页的知识引用
+### 重复 source_id
+- 数量：0
+- 无
 
-## 无法确认来源的知识陈述
+### 多个来源页对应同一来源
+- 数量：0
+- 无
+
+### 无法确认来源的知识陈述
+- 数量：0
+- 无
+
+### 位于知识库根目录之外的原始文件
+- 数量：0
+- 无
+
+### 无法自动修复的链接
+- 数量：0
+- 无
+
+### 重复 source_id
+- 数量：0
+
+### 多个来源页对应同一来源
+- 数量：0
+
