@@ -1,0 +1,50 @@
+# 无法复核项
+
+- 日志.md [缺少 source_id] 
+- 索引.md [缺少 source_id] 
+- AGENTS.md [缺少 source_id] 
+- README.md [缺少 source_id] 
+- 00-规范\安全边界.md [缺少 canonical_url] src-20260623-kb-spec-safety-boundary
+- 00-规范\结构规范.md [缺少 canonical_url] src-20260623-kb-spec-structure
+- 00-规范\页面规范.md [缺少 canonical_url] src-20260623-kb-spec-page
+- 01-状态\待确认问题.md [缺少 canonical_url] src-20260623-kb-status-pending-questions
+- 01-状态\当前状态.md [缺少 canonical_url] src-20260623-kb-status-current
+- 01-状态\技术债台账.md [缺少 canonical_url] src-20260623-kb-status-tech-debt
+- 01-状态\已确认决策.md [缺少 canonical_url] src-20260623-kb-status-confirmed-decisions
+- 01-状态\资料来源.md [缺少 canonical_url] src-20260623-kb-status-source-register
+- 02-项目总览\环境说明.md [缺少 canonical_url] src-20260623-kb-overview-environment
+- 02-项目总览\术语表.md [缺少 canonical_url] src-20260623-kb-overview-glossary
+- 02-项目总览\系统地图.md [缺少 canonical_url] src-20260623-kb-overview-system-map
+- 02-项目总览\项目概览.md [缺少 canonical_url] src-20260623-kb-overview-project
+- 02-项目总览\验收门禁.md [缺少 canonical_url] src-20260623-kb-overview-acceptance-gate
+- 02-项目总览\业务闭环.md [缺少 canonical_url] src-20260623-kb-overview-business-loop
+- 03-领域知识\达人域.md [缺少 canonical_url] src-20260623-kb-domain-creator
+- 03-领域知识\订单域.md [缺少 canonical_url] src-20260623-kb-domain-order
+- 03-领域知识\抖音上游接口.md [缺少 canonical_url] src-20260623-kb-domain-douyin-upstream-api
+- 03-领域知识\寄样域.md [缺少 canonical_url] src-20260623-kb-domain-sample
+- 03-领域知识\看板分析域.md [缺少 canonical_url] src-20260623-kb-domain-dashboard-analytics
+- 03-领域知识\商品域.md [缺少 canonical_url] src-20260623-kb-domain-product
+- 03-领域知识\业绩域.md [缺少 canonical_url] src-20260623-kb-domain-performance
+- 03-领域知识\用户配置域.md [缺少 canonical_url] src-20260623-kb-domain-user-config
+- 04-运行流程\查询回答流程.md [缺少 canonical_url] src-20260623-kb-flow-query-answer
+- 04-运行流程\健康检查流程.md [缺少 canonical_url] src-20260623-kb-flow-health-check
+- 04-运行流程\任务生命周期.md [缺少 canonical_url] src-20260623-kb-flow-task-lifecycle
+- 04-运行流程\资料吸收流程.md [缺少 canonical_url] src-20260623-kb-flow-ingestion
+- 05-任务管理\任务-001.md [缺少 source_id] 
+- 05-任务管理\任务-002.md [缺少 source_id] 
+- 05-任务管理\任务-003.md [缺少 source_id] 
+- 05-任务管理\任务-004.md [缺少 source_id] 
+- 05-任务管理\任务-005.md [缺少 source_id] 
+- 05-任务管理\任务-006.md [缺少 source_id] 
+- 05-任务管理\任务队列.md [缺少 source_id] 
+- 05-任务管理\任务模板.md [缺少 source_id] 
+- 05-任务管理\任务总表.md [缺少 source_id] 
+- 06-报告证据\报告-001.md [缺少 source_id] 
+- 06-报告证据\报告-002.md [缺少 source_id] 
+- 06-报告证据\报告-003.md [缺少 source_id] 
+- 06-报告证据\报告-004.md [缺少 source_id] 
+- 06-报告证据\报告-005.md [缺少 source_id] 
+- 06-报告证据\报告模板.md [缺少 source_id] 
+- 06-报告证据\报告索引.md [缺少 source_id] 
+- 08-模板\页面模板.md [缺少 source_id] 
+- 08-模板\资料来源模板.md [缺少 source_id] 
