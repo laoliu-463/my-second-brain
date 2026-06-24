@@ -1,0 +1,142 @@
+[
+  {
+    "file": "src-20260623-kb-domain-creator.md",
+    "source_id": "src-20260623-kb-domain-creator",
+    "reason": "external_copy_failed",
+    "raw_path": "D:\\Projects\\SAAS\\docs\\领域\\达人域.md",
+    "action": "manual_fix_needed"
+  },
+  {
+    "file": "src-20260623-kb-domain-dashboard-analytics.md",
+    "source_id": "src-20260623-kb-domain-dashboard-analytics",
+    "reason": "external_copy_failed",
+    "raw_path": "D:\\Projects\\SAAS\\docs\\领域\\分析模块.md",
+    "action": "manual_fix_needed"
+  },
+  {
+    "file": "src-20260623-kb-domain-douyin-upstream-api.md",
+    "source_id": "src-20260623-kb-domain-douyin-upstream-api",
+    "reason": "external_copy_failed",
+    "raw_path": "D:\\Projects\\SAAS\\docs\\08-第三方对接总览.md",
+    "action": "manual_fix_needed"
+  },
+  {
+    "file": "src-20260623-kb-domain-order.md",
+    "source_id": "src-20260623-kb-domain-order",
+    "reason": "external_copy_failed",
+    "raw_path": "D:\\Projects\\SAAS\\docs\\领域\\订单域.md",
+    "action": "manual_fix_needed"
+  },
+  {
+    "file": "src-20260623-kb-domain-performance.md",
+    "source_id": "src-20260623-kb-domain-performance",
+    "reason": "external_copy_failed",
+    "raw_path": "D:\\Projects\\SAAS\\docs\\领域\\业绩域.md",
+    "action": "manual_fix_needed"
+  },
+  {
+    "file": "src-20260623-kb-domain-product.md",
+    "source_id": "src-20260623-kb-domain-product",
+    "reason": "external_copy_failed",
+    "raw_path": "D:\\Projects\\SAAS\\docs\\领域\\商品域.md",
+    "action": "manual_fix_needed"
+  },
+  {
+    "file": "src-20260623-kb-domain-sample.md",
+    "source_id": "src-20260623-kb-domain-sample",
+    "reason": "external_copy_failed",
+    "raw_path": "D:\\Projects\\SAAS\\docs\\领域\\寄样域.md",
+    "action": "manual_fix_needed"
+  },
+  {
+    "file": "src-20260623-kb-domain-user-config.md",
+    "source_id": "src-20260623-kb-domain-user-config",
+    "reason": "external_copy_failed",
+    "raw_path": "D:\\Projects\\SAAS\\docs\\领域\\用户域.md",
+    "action": "manual_fix_needed"
+  },
+  {
+    "file": "src-20260623-kb-overview-acceptance-gate.md",
+    "source_id": "src-20260623-kb-overview-acceptance-gate",
+    "reason": "external_copy_failed",
+    "raw_path": "D:\\Projects\\SAAS\\harness\\rules\\governance\\COMPLETION_GATES.md",
+    "action": "manual_fix_needed"
+  },
+  {
+    "file": "src-20260623-kb-overview-business-loop.md",
+    "source_id": "src-20260623-kb-overview-business-loop",
+    "reason": "external_copy_failed",
+    "raw_path": "D:\\Projects\\SAAS\\docs\\02-业务闭环总览.md",
+    "action": "manual_fix_needed"
+  },
+  {
+    "file": "src-20260623-kb-overview-environment.md",
+    "source_id": "src-20260623-kb-overview-environment",
+    "reason": "external_copy_failed",
+    "raw_path": "D:\\Projects\\SAAS\\docs\\10-部署运行总览.md",
+    "action": "manual_fix_needed"
+  },
+  {
+    "file": "src-20260623-kb-overview-glossary.md",
+    "source_id": "src-20260623-kb-overview-glossary",
+    "reason": "missing_raw_path",
+    "raw_path": "",
+    "action": "manual_fix_needed"
+  },
+  {
+    "file": "src-20260623-kb-overview-project.md",
+    "source_id": "src-20260623-kb-overview-project",
+    "reason": "external_copy_failed",
+    "raw_path": "D:\\Projects\\SAAS\\docs\\00-项目总览.md",
+    "action": "manual_fix_needed"
+  },
+  {
+    "file": "src-20260623-kb-overview-system-map.md",
+    "source_id": "src-20260623-kb-overview-system-map",
+    "reason": "external_copy_failed",
+    "raw_path": "D:\\Projects\\SAAS\\docs\\03-领域架构总览.md",
+    "action": "manual_fix_needed"
+  },
+  {
+    "file": "src-20260623-kb-spec-safety-boundary.md",
+    "source_id": "src-20260623-kb-spec-safety-boundary",
+    "reason": "external_copy_failed",
+    "raw_path": "D:\\Projects\\SAAS\\harness\\rules\\instructions\\governance\\03-禁止范围与安全边界.md",
+    "action": "manual_fix_needed"
+  },
+  {
+    "file": "src-20260623-kb-status-confirmed-decisions.md",
+    "source_id": "src-20260623-kb-status-confirmed-decisions",
+    "reason": "missing_raw_path",
+    "raw_path": "",
+    "action": "manual_fix_needed"
+  },
+  {
+    "file": "src-20260623-kb-status-current.md",
+    "source_id": "src-20260623-kb-status-current",
+    "reason": "missing_raw_path",
+    "raw_path": "",
+    "action": "manual_fix_needed"
+  },
+  {
+    "file": "src-20260623-kb-status-pending-questions.md",
+    "source_id": "src-20260623-kb-status-pending-questions",
+    "reason": "missing_raw_path",
+    "raw_path": "",
+    "action": "manual_fix_needed"
+  },
+  {
+    "file": "src-20260623-kb-status-source-register.md",
+    "source_id": "src-20260623-kb-status-source-register",
+    "reason": "missing_raw_path",
+    "raw_path": "",
+    "action": "manual_fix_needed"
+  },
+  {
+    "file": "src-20260623-kb-status-tech-debt.md",
+    "source_id": "src-20260623-kb-status-tech-debt",
+    "reason": "missing_raw_path",
+    "raw_path": "",
+    "action": "manual_fix_needed"
+  }
+]
