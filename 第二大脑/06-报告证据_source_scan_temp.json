@@ -1,0 +1,1064 @@
+{
+  "stats": {
+    "total_markdown": 96,
+    "source_id_count": 26,
+    "source_page_count": 5,
+    "concept_count": 14,
+    "entity_count": 0,
+    "synthesis_count": 0,
+    "question_count": 4,
+    "raw_dir_count": 0,
+    "duplicates": 0
+  },
+  "rows": [
+    {
+      "path": "D:\\Docs\\Books\\my second brain\\第二大脑\\日志.md",
+      "source_id": "",
+      "type": "",
+      "title": "",
+      "raw_path": "",
+      "source": "",
+      "canonical_url": "",
+      "raw_sha256": ""
+    },
+    {
+      "path": "D:\\Docs\\Books\\my second brain\\第二大脑\\索引.md",
+      "source_id": "",
+      "type": "",
+      "title": "",
+      "raw_path": "",
+      "source": "",
+      "canonical_url": "",
+      "raw_sha256": ""
+    },
+    {
+      "path": "D:\\Docs\\Books\\my second brain\\第二大脑\\AGENTS.md",
+      "source_id": "",
+      "type": "",
+      "title": "",
+      "raw_path": "",
+      "source": "",
+      "canonical_url": "",
+      "raw_sha256": ""
+    },
+    {
+      "path": "D:\\Docs\\Books\\my second brain\\第二大脑\\README.md",
+      "source_id": "",
+      "type": "",
+      "title": "",
+      "raw_path": "",
+      "source": "",
+      "canonical_url": "",
+      "raw_sha256": ""
+    },
+    {
+      "path": "D:\\Docs\\Books\\my second brain\\第二大脑\\00-规范\\安全边界.md",
+      "source_id": "src-20260623-kb-spec-safety-boundary",
+      "type": "map",
+      "title": "安全边界.md",
+      "raw_path": "",
+      "source": "",
+      "canonical_url": "",
+      "raw_sha256": ""
+    },
+    {
+      "path": "D:\\Docs\\Books\\my second brain\\第二大脑\\00-规范\\结构规范.md",
+      "source_id": "src-20260623-kb-spec-structure",
+      "type": "map",
+      "title": "结构规范.md",
+      "raw_path": "",
+      "source": "",
+      "canonical_url": "",
+      "raw_sha256": ""
+    },
+    {
+      "path": "D:\\Docs\\Books\\my second brain\\第二大脑\\00-规范\\页面规范.md",
+      "source_id": "src-20260623-kb-spec-page",
+      "type": "map",
+      "title": "页面规范.md",
+      "raw_path": "",
+      "source": "",
+      "canonical_url": "",
+      "raw_sha256": ""
+    },
+    {
+      "path": "D:\\Docs\\Books\\my second brain\\第二大脑\\01-状态\\待确认问题.md",
+      "source_id": "src-20260623-kb-status-pending-questions",
+      "type": "source-note",
+      "title": "待确认问题.md",
+      "raw_path": "",
+      "source": "",
+      "canonical_url": "",
+      "raw_sha256": ""
+    },
+    {
+      "path": "D:\\Docs\\Books\\my second brain\\第二大脑\\01-状态\\当前状态.md",
+      "source_id": "src-20260623-kb-status-current",
+      "type": "source-note",
+      "title": "当前状态.md",
+      "raw_path": "",
+      "source": "",
+      "canonical_url": "",
+      "raw_sha256": ""
+    },
+    {
+      "path": "D:\\Docs\\Books\\my second brain\\第二大脑\\01-状态\\技术债台账.md",
+      "source_id": "src-20260623-kb-status-tech-debt",
+      "type": "source-note",
+      "title": "技术债台账.md",
+      "raw_path": "",
+      "source": "",
+      "canonical_url": "",
+      "raw_sha256": ""
+    },
+    {
+      "path": "D:\\Docs\\Books\\my second brain\\第二大脑\\01-状态\\已确认决策.md",
+      "source_id": "src-20260623-kb-status-confirmed-decisions",
+      "type": "source-note",
+      "title": "已确认决策.md",
+      "raw_path": "",
+      "source": "",
+      "canonical_url": "",
+      "raw_sha256": ""
+    },
+    {
+      "path": "D:\\Docs\\Books\\my second brain\\第二大脑\\01-状态\\资料来源.md",
+      "source_id": "src-20260623-kb-status-source-register",
+      "type": "source-note",
+      "title": "资料来源.md",
+      "raw_path": "",
+      "source": "",
+      "canonical_url": "",
+      "raw_sha256": ""
+    },
+    {
+      "path": "D:\\Docs\\Books\\my second brain\\第二大脑\\02-项目总览\\环境说明.md",
+      "source_id": "src-20260623-kb-overview-environment",
+      "type": "concept",
+      "title": "环境说明.md",
+      "raw_path": "",
+      "source": "",
+      "canonical_url": "",
+      "raw_sha256": ""
+    },
+    {
+      "path": "D:\\Docs\\Books\\my second brain\\第二大脑\\02-项目总览\\术语表.md",
+      "source_id": "src-20260623-kb-overview-glossary",
+      "type": "concept",
+      "title": "术语表.md",
+      "raw_path": "",
+      "source": "",
+      "canonical_url": "",
+      "raw_sha256": ""
+    },
+    {
+      "path": "D:\\Docs\\Books\\my second brain\\第二大脑\\02-项目总览\\系统地图.md",
+      "source_id": "src-20260623-kb-overview-system-map",
+      "type": "concept",
+      "title": "系统地图.md",
+      "raw_path": "",
+      "source": "",
+      "canonical_url": "",
+      "raw_sha256": ""
+    },
+    {
+      "path": "D:\\Docs\\Books\\my second brain\\第二大脑\\02-项目总览\\项目概览.md",
+      "source_id": "src-20260623-kb-overview-project",
+      "type": "concept",
+      "title": "项目概览.md",
+      "raw_path": "",
+      "source": "",
+      "canonical_url": "",
+      "raw_sha256": ""
+    },
+    {
+      "path": "D:\\Docs\\Books\\my second brain\\第二大脑\\02-项目总览\\验收门禁.md",
+      "source_id": "src-20260623-kb-overview-acceptance-gate",
+      "type": "concept",
+      "title": "验收门禁.md",
+      "raw_path": "",
+      "source": "",
+      "canonical_url": "",
+      "raw_sha256": ""
+    },
+    {
+      "path": "D:\\Docs\\Books\\my second brain\\第二大脑\\02-项目总览\\业务闭环.md",
+      "source_id": "src-20260623-kb-overview-business-loop",
+      "type": "concept",
+      "title": "业务闭环.md",
+      "raw_path": "",
+      "source": "",
+      "canonical_url": "",
+      "raw_sha256": ""
+    },
+    {
+      "path": "D:\\Docs\\Books\\my second brain\\第二大脑\\03-领域知识\\达人域.md",
+      "source_id": "src-20260623-kb-domain-creator",
+      "type": "concept",
+      "title": "达人域.md",
+      "raw_path": "",
+      "source": "",
+      "canonical_url": "",
+      "raw_sha256": ""
+    },
+    {
+      "path": "D:\\Docs\\Books\\my second brain\\第二大脑\\03-领域知识\\订单域.md",
+      "source_id": "src-20260623-kb-domain-order",
+      "type": "concept",
+      "title": "订单域.md",
+      "raw_path": "",
+      "source": "",
+      "canonical_url": "",
+      "raw_sha256": ""
+    },
+    {
+      "path": "D:\\Docs\\Books\\my second brain\\第二大脑\\03-领域知识\\抖音上游接口.md",
+      "source_id": "src-20260623-kb-domain-douyin-upstream-api",
+      "type": "concept",
+      "title": "抖音上游接口.md",
+      "raw_path": "",
+      "source": "",
+      "canonical_url": "",
+      "raw_sha256": ""
+    },
+    {
+      "path": "D:\\Docs\\Books\\my second brain\\第二大脑\\03-领域知识\\寄样域.md",
+      "source_id": "src-20260623-kb-domain-sample",
+      "type": "concept",
+      "title": "寄样域.md",
+      "raw_path": "",
+      "source": "",
+      "canonical_url": "",
+      "raw_sha256": ""
+    },
+    {
+      "path": "D:\\Docs\\Books\\my second brain\\第二大脑\\03-领域知识\\看板分析域.md",
+      "source_id": "src-20260623-kb-domain-dashboard-analytics",
+      "type": "concept",
+      "title": "看板分析域.md",
+      "raw_path": "",
+      "source": "",
+      "canonical_url": "",
+      "raw_sha256": ""
+    },
+    {
+      "path": "D:\\Docs\\Books\\my second brain\\第二大脑\\03-领域知识\\商品域.md",
+      "source_id": "src-20260623-kb-domain-product",
+      "type": "concept",
+      "title": "商品域.md",
+      "raw_path": "",
+      "source": "",
+      "canonical_url": "",
+      "raw_sha256": ""
+    },
+    {
+      "path": "D:\\Docs\\Books\\my second brain\\第二大脑\\03-领域知识\\业绩域.md",
+      "source_id": "src-20260623-kb-domain-performance",
+      "type": "concept",
+      "title": "业绩域.md",
+      "raw_path": "",
+      "source": "",
+      "canonical_url": "",
+      "raw_sha256": ""
+    },
+    {
+      "path": "D:\\Docs\\Books\\my second brain\\第二大脑\\03-领域知识\\用户配置域.md",
+      "source_id": "src-20260623-kb-domain-user-config",
+      "type": "concept",
+      "title": "用户配置域.md",
+      "raw_path": "",
+      "source": "",
+      "canonical_url": "",
+      "raw_sha256": ""
+    },
+    {
+      "path": "D:\\Docs\\Books\\my second brain\\第二大脑\\04-运行流程\\查询回答流程.md",
+      "source_id": "src-20260623-kb-flow-query-answer",
+      "type": "map",
+      "title": "查询回答流程.md",
+      "raw_path": "",
+      "source": "",
+      "canonical_url": "",
+      "raw_sha256": ""
+    },
+    {
+      "path": "D:\\Docs\\Books\\my second brain\\第二大脑\\04-运行流程\\健康检查流程.md",
+      "source_id": "src-20260623-kb-flow-health-check",
+      "type": "map",
+      "title": "健康检查流程.md",
+      "raw_path": "",
+      "source": "",
+      "canonical_url": "",
+      "raw_sha256": ""
+    },
+    {
+      "path": "D:\\Docs\\Books\\my second brain\\第二大脑\\04-运行流程\\任务生命周期.md",
+      "source_id": "src-20260623-kb-flow-task-lifecycle",
+      "type": "map",
+      "title": "任务生命周期.md",
+      "raw_path": "",
+      "source": "",
+      "canonical_url": "",
+      "raw_sha256": ""
+    },
+    {
+      "path": "D:\\Docs\\Books\\my second brain\\第二大脑\\04-运行流程\\资料吸收流程.md",
+      "source_id": "src-20260623-kb-flow-ingestion",
+      "type": "map",
+      "title": "资料吸收流程.md",
+      "raw_path": "",
+      "source": "",
+      "canonical_url": "",
+      "raw_sha256": ""
+    },
+    {
+      "path": "D:\\Docs\\Books\\my second brain\\第二大脑\\05-任务管理\\任务-001.md",
+      "source_id": "",
+      "type": "question",
+      "title": "任务-001：第二大脑 50 文件骨架创建",
+      "raw_path": "",
+      "source": "",
+      "canonical_url": "",
+      "raw_sha256": ""
+    },
+    {
+      "path": "D:\\Docs\\Books\\my second brain\\第二大脑\\05-任务管理\\任务-002.md",
+      "source_id": "",
+      "type": "question",
+      "title": "任务-002：项目侧 harness 合规扫描 + 对齐报告",
+      "raw_path": "",
+      "source": "",
+      "canonical_url": "",
+      "raw_sha256": ""
+    },
+    {
+      "path": "D:\\Docs\\Books\\my second brain\\第二大脑\\05-任务管理\\任务-003.md",
+      "source_id": "",
+      "type": "question",
+      "title": "任务-003：HARNESS-DOC-GC-OPTIMIZE-003 启动建议",
+      "raw_path": "",
+      "source": "",
+      "canonical_url": "",
+      "raw_sha256": ""
+    },
+    {
+      "path": "D:\\Docs\\Books\\my second brain\\第二大脑\\05-任务管理\\任务-004.md",
+      "source_id": "",
+      "type": "question",
+      "title": "任务-004：DDD Phase 0 只读审查启动",
+      "raw_path": "",
+      "source": "",
+      "canonical_url": "",
+      "raw_sha256": ""
+    },
+    {
+      "path": "D:\\Docs\\Books\\my second brain\\第二大脑\\05-任务管理\\任务-005.md",
+      "source_id": "",
+      "type": "",
+      "title": "",
+      "raw_path": "",
+      "source": "",
+      "canonical_url": "",
+      "raw_sha256": ""
+    },
+    {
+      "path": "D:\\Docs\\Books\\my second brain\\第二大脑\\05-任务管理\\任务-006.md",
+      "source_id": "",
+      "type": "",
+      "title": "",
+      "raw_path": "",
+      "source": "",
+      "canonical_url": "",
+      "raw_sha256": ""
+    },
+    {
+      "path": "D:\\Docs\\Books\\my second brain\\第二大脑\\05-任务管理\\任务队列.md",
+      "source_id": "",
+      "type": "",
+      "title": "",
+      "raw_path": "",
+      "source": "",
+      "canonical_url": "",
+      "raw_sha256": ""
+    },
+    {
+      "path": "D:\\Docs\\Books\\my second brain\\第二大脑\\05-任务管理\\任务模板.md",
+      "source_id": "",
+      "type": "",
+      "title": "",
+      "raw_path": "",
+      "source": "",
+      "canonical_url": "",
+      "raw_sha256": ""
+    },
+    {
+      "path": "D:\\Docs\\Books\\my second brain\\第二大脑\\05-任务管理\\任务总表.md",
+      "source_id": "",
+      "type": "",
+      "title": "",
+      "raw_path": "",
+      "source": "",
+      "canonical_url": "",
+      "raw_sha256": ""
+    },
+    {
+      "path": "D:\\Docs\\Books\\my second brain\\第二大脑\\06-报告证据\\报告-001.md",
+      "source_id": "",
+      "type": "",
+      "title": "",
+      "raw_path": "",
+      "source": "",
+      "canonical_url": "",
+      "raw_sha256": ""
+    },
+    {
+      "path": "D:\\Docs\\Books\\my second brain\\第二大脑\\06-报告证据\\报告-002.md",
+      "source_id": "",
+      "type": "",
+      "title": "",
+      "raw_path": "",
+      "source": "",
+      "canonical_url": "",
+      "raw_sha256": ""
+    },
+    {
+      "path": "D:\\Docs\\Books\\my second brain\\第二大脑\\06-报告证据\\报告-003.md",
+      "source_id": "",
+      "type": "",
+      "title": "",
+      "raw_path": "",
+      "source": "",
+      "canonical_url": "",
+      "raw_sha256": ""
+    },
+    {
+      "path": "D:\\Docs\\Books\\my second brain\\第二大脑\\06-报告证据\\报告-004.md",
+      "source_id": "",
+      "type": "",
+      "title": "",
+      "raw_path": "",
+      "source": "",
+      "canonical_url": "",
+      "raw_sha256": ""
+    },
+    {
+      "path": "D:\\Docs\\Books\\my second brain\\第二大脑\\06-报告证据\\报告-005.md",
+      "source_id": "",
+      "type": "",
+      "title": "",
+      "raw_path": "",
+      "source": "",
+      "canonical_url": "",
+      "raw_sha256": ""
+    },
+    {
+      "path": "D:\\Docs\\Books\\my second brain\\第二大脑\\06-报告证据\\报告模板.md",
+      "source_id": "",
+      "type": "",
+      "title": "",
+      "raw_path": "",
+      "source": "",
+      "canonical_url": "",
+      "raw_sha256": ""
+    },
+    {
+      "path": "D:\\Docs\\Books\\my second brain\\第二大脑\\06-报告证据\\报告索引.md",
+      "source_id": "",
+      "type": "",
+      "title": "",
+      "raw_path": "",
+      "source": "",
+      "canonical_url": "",
+      "raw_sha256": ""
+    },
+    {
+      "path": "D:\\Docs\\Books\\my second brain\\第二大脑\\06-报告证据\\refactor\\20260623-234914\\duplicate-clusters.md",
+      "source_id": "",
+      "type": "",
+      "title": "",
+      "raw_path": "",
+      "source": "",
+      "canonical_url": "",
+      "raw_sha256": ""
+    },
+    {
+      "path": "D:\\Docs\\Books\\my second brain\\第二大脑\\06-报告证据\\refactor\\20260623-234914\\execution-log.md",
+      "source_id": "",
+      "type": "",
+      "title": "",
+      "raw_path": "",
+      "source": "",
+      "canonical_url": "",
+      "raw_sha256": ""
+    },
+    {
+      "path": "D:\\Docs\\Books\\my second brain\\第二大脑\\06-报告证据\\refactor\\20260623-234914\\inventory.md",
+      "source_id": "",
+      "type": "",
+      "title": "",
+      "raw_path": "",
+      "source": "",
+      "canonical_url": "",
+      "raw_sha256": ""
+    },
+    {
+      "path": "D:\\Docs\\Books\\my second brain\\第二大脑\\06-报告证据\\refactor\\20260623-234914\\migration-plan.md",
+      "source_id": "",
+      "type": "",
+      "title": "",
+      "raw_path": "",
+      "source": "",
+      "canonical_url": "",
+      "raw_sha256": ""
+    },
+    {
+      "path": "D:\\Docs\\Books\\my second brain\\第二大脑\\06-报告证据\\refactor\\20260623-234914\\path-map.md",
+      "source_id": "",
+      "type": "",
+      "title": "",
+      "raw_path": "",
+      "source": "",
+      "canonical_url": "",
+      "raw_sha256": ""
+    },
+    {
+      "path": "D:\\Docs\\Books\\my second brain\\第二大脑\\06-报告证据\\refactor\\20260623-234914\\unresolved-items.md",
+      "source_id": "",
+      "type": "",
+      "title": "",
+      "raw_path": "",
+      "source": "",
+      "canonical_url": "",
+      "raw_sha256": ""
+    },
+    {
+      "path": "D:\\Docs\\Books\\my second brain\\第二大脑\\06-报告证据\\refactor\\20260623-234914\\validation-report.md",
+      "source_id": "",
+      "type": "",
+      "title": "",
+      "raw_path": "",
+      "source": "",
+      "canonical_url": "",
+      "raw_sha256": ""
+    },
+    {
+      "path": "D:\\Docs\\Books\\my second brain\\第二大脑\\06-报告证据\\refactor\\20260623-234959\\duplicate-clusters.md",
+      "source_id": "",
+      "type": "",
+      "title": "",
+      "raw_path": "",
+      "source": "",
+      "canonical_url": "",
+      "raw_sha256": ""
+    },
+    {
+      "path": "D:\\Docs\\Books\\my second brain\\第二大脑\\06-报告证据\\refactor\\20260623-234959\\execution-log.md",
+      "source_id": "",
+      "type": "",
+      "title": "",
+      "raw_path": "",
+      "source": "",
+      "canonical_url": "",
+      "raw_sha256": ""
+    },
+    {
+      "path": "D:\\Docs\\Books\\my second brain\\第二大脑\\06-报告证据\\refactor\\20260623-234959\\inventory.md",
+      "source_id": "",
+      "type": "",
+      "title": "",
+      "raw_path": "",
+      "source": "",
+      "canonical_url": "",
+      "raw_sha256": ""
+    },
+    {
+      "path": "D:\\Docs\\Books\\my second brain\\第二大脑\\06-报告证据\\refactor\\20260623-234959\\migration-plan.md",
+      "source_id": "",
+      "type": "",
+      "title": "",
+      "raw_path": "",
+      "source": "",
+      "canonical_url": "",
+      "raw_sha256": ""
+    },
+    {
+      "path": "D:\\Docs\\Books\\my second brain\\第二大脑\\06-报告证据\\refactor\\20260623-234959\\path-map.md",
+      "source_id": "",
+      "type": "",
+      "title": "",
+      "raw_path": "",
+      "source": "",
+      "canonical_url": "",
+      "raw_sha256": ""
+    },
+    {
+      "path": "D:\\Docs\\Books\\my second brain\\第二大脑\\06-报告证据\\refactor\\20260623-234959\\unresolved-items.md",
+      "source_id": "",
+      "type": "",
+      "title": "",
+      "raw_path": "",
+      "source": "",
+      "canonical_url": "",
+      "raw_sha256": ""
+    },
+    {
+      "path": "D:\\Docs\\Books\\my second brain\\第二大脑\\06-报告证据\\refactor\\20260623-234959\\validation-report.md",
+      "source_id": "",
+      "type": "",
+      "title": "",
+      "raw_path": "",
+      "source": "",
+      "canonical_url": "",
+      "raw_sha256": ""
+    },
+    {
+      "path": "D:\\Docs\\Books\\my second brain\\第二大脑\\06-报告证据\\refactor\\20260623-235035\\c-level-preflight.md",
+      "source_id": "",
+      "type": "",
+      "title": "",
+      "raw_path": "",
+      "source": "",
+      "canonical_url": "",
+      "raw_sha256": ""
+    },
+    {
+      "path": "D:\\Docs\\Books\\my second brain\\第二大脑\\06-报告证据\\refactor\\20260623-235035\\directory-result.md",
+      "source_id": "",
+      "type": "",
+      "title": "",
+      "raw_path": "",
+      "source": "",
+      "canonical_url": "",
+      "raw_sha256": ""
+    },
+    {
+      "path": "D:\\Docs\\Books\\my second brain\\第二大脑\\06-报告证据\\refactor\\20260623-235035\\duplicate-clusters.md",
+      "source_id": "",
+      "type": "",
+      "title": "",
+      "raw_path": "",
+      "source": "",
+      "canonical_url": "",
+      "raw_sha256": ""
+    },
+    {
+      "path": "D:\\Docs\\Books\\my second brain\\第二大脑\\06-报告证据\\refactor\\20260623-235035\\execution-log.md",
+      "source_id": "",
+      "type": "",
+      "title": "",
+      "raw_path": "",
+      "source": "",
+      "canonical_url": "",
+      "raw_sha256": ""
+    },
+    {
+      "path": "D:\\Docs\\Books\\my second brain\\第二大脑\\06-报告证据\\refactor\\20260623-235035\\inventory.md",
+      "source_id": "",
+      "type": "",
+      "title": "",
+      "raw_path": "",
+      "source": "",
+      "canonical_url": "",
+      "raw_sha256": ""
+    },
+    {
+      "path": "D:\\Docs\\Books\\my second brain\\第二大脑\\06-报告证据\\refactor\\20260623-235035\\migration-plan.md",
+      "source_id": "",
+      "type": "",
+      "title": "",
+      "raw_path": "",
+      "source": "",
+      "canonical_url": "",
+      "raw_sha256": ""
+    },
+    {
+      "path": "D:\\Docs\\Books\\my second brain\\第二大脑\\06-报告证据\\refactor\\20260623-235035\\path-map.md",
+      "source_id": "",
+      "type": "",
+      "title": "",
+      "raw_path": "",
+      "source": "",
+      "canonical_url": "",
+      "raw_sha256": ""
+    },
+    {
+      "path": "D:\\Docs\\Books\\my second brain\\第二大脑\\06-报告证据\\refactor\\20260623-235035\\source-id-apply-sid-b01.md",
+      "source_id": "",
+      "type": "",
+      "title": "",
+      "raw_path": "",
+      "source": "",
+      "canonical_url": "",
+      "raw_sha256": ""
+    },
+    {
+      "path": "D:\\Docs\\Books\\my second brain\\第二大脑\\06-报告证据\\refactor\\20260623-235035\\source-id-candidates-sid-b01.md",
+      "source_id": "",
+      "type": "",
+      "title": "",
+      "raw_path": "",
+      "source": "",
+      "canonical_url": "",
+      "raw_sha256": ""
+    },
+    {
+      "path": "D:\\Docs\\Books\\my second brain\\第二大脑\\06-报告证据\\refactor\\20260623-235035\\unresolved-items.md",
+      "source_id": "",
+      "type": "",
+      "title": "",
+      "raw_path": "",
+      "source": "",
+      "canonical_url": "",
+      "raw_sha256": ""
+    },
+    {
+      "path": "D:\\Docs\\Books\\my second brain\\第二大脑\\06-报告证据\\refactor\\20260623-235035\\validation-report.md",
+      "source_id": "",
+      "type": "",
+      "title": "",
+      "raw_path": "",
+      "source": "",
+      "canonical_url": "",
+      "raw_sha256": ""
+    },
+    {
+      "path": "D:\\Docs\\Books\\my second brain\\第二大脑\\06-报告证据\\refactor\\20260624-094111\\current-tree.md",
+      "source_id": "",
+      "type": "",
+      "title": "",
+      "raw_path": "",
+      "source": "",
+      "canonical_url": "",
+      "raw_sha256": ""
+    },
+    {
+      "path": "D:\\Docs\\Books\\my second brain\\第二大脑\\06-报告证据\\refactor\\20260624-094111\\inventory.md",
+      "source_id": "",
+      "type": "",
+      "title": "",
+      "raw_path": "",
+      "source": "",
+      "canonical_url": "",
+      "raw_sha256": ""
+    },
+    {
+      "path": "D:\\Docs\\Books\\my second brain\\第二大脑\\06-报告证据\\refactor\\20260624-094118\\content-classification.md",
+      "source_id": "",
+      "type": "",
+      "title": "",
+      "raw_path": "",
+      "source": "",
+      "canonical_url": "",
+      "raw_sha256": ""
+    },
+    {
+      "path": "D:\\Docs\\Books\\my second brain\\第二大脑\\06-报告证据\\refactor\\20260624-094118\\current-tree.md",
+      "source_id": "",
+      "type": "",
+      "title": "",
+      "raw_path": "",
+      "source": "",
+      "canonical_url": "",
+      "raw_sha256": ""
+    },
+    {
+      "path": "D:\\Docs\\Books\\my second brain\\第二大脑\\06-报告证据\\refactor\\20260624-094118\\duplicate-clusters.md",
+      "source_id": "",
+      "type": "",
+      "title": "",
+      "raw_path": "",
+      "source": "",
+      "canonical_url": "",
+      "raw_sha256": ""
+    },
+    {
+      "path": "D:\\Docs\\Books\\my second brain\\第二大脑\\06-报告证据\\refactor\\20260624-094118\\execution-log.md",
+      "source_id": "",
+      "type": "",
+      "title": "",
+      "raw_path": "",
+      "source": "",
+      "canonical_url": "",
+      "raw_sha256": ""
+    },
+    {
+      "path": "D:\\Docs\\Books\\my second brain\\第二大脑\\06-报告证据\\refactor\\20260624-094118\\final-report.md",
+      "source_id": "",
+      "type": "",
+      "title": "",
+      "raw_path": "",
+      "source": "",
+      "canonical_url": "",
+      "raw_sha256": ""
+    },
+    {
+      "path": "D:\\Docs\\Books\\my second brain\\第二大脑\\06-报告证据\\refactor\\20260624-094118\\integrity-validation.md",
+      "source_id": "",
+      "type": "",
+      "title": "",
+      "raw_path": "",
+      "source": "",
+      "canonical_url": "",
+      "raw_sha256": ""
+    },
+    {
+      "path": "D:\\Docs\\Books\\my second brain\\第二大脑\\06-报告证据\\refactor\\20260624-094118\\inventory.md",
+      "source_id": "",
+      "type": "",
+      "title": "",
+      "raw_path": "",
+      "source": "",
+      "canonical_url": "",
+      "raw_sha256": ""
+    },
+    {
+      "path": "D:\\Docs\\Books\\my second brain\\第二大脑\\06-报告证据\\refactor\\20260624-094118\\link-validation.md",
+      "source_id": "",
+      "type": "",
+      "title": "",
+      "raw_path": "",
+      "source": "",
+      "canonical_url": "",
+      "raw_sha256": ""
+    },
+    {
+      "path": "D:\\Docs\\Books\\my second brain\\第二大脑\\06-报告证据\\refactor\\20260624-094118\\migration-plan.md",
+      "source_id": "",
+      "type": "",
+      "title": "",
+      "raw_path": "",
+      "source": "",
+      "canonical_url": "",
+      "raw_sha256": ""
+    },
+    {
+      "path": "D:\\Docs\\Books\\my second brain\\第二大脑\\06-报告证据\\refactor\\20260624-094118\\selected-structure.md",
+      "source_id": "",
+      "type": "",
+      "title": "",
+      "raw_path": "",
+      "source": "",
+      "canonical_url": "",
+      "raw_sha256": ""
+    },
+    {
+      "path": "D:\\Docs\\Books\\my second brain\\第二大脑\\06-报告证据\\refactor\\20260624-094118\\structure-analysis.md",
+      "source_id": "",
+      "type": "",
+      "title": "",
+      "raw_path": "",
+      "source": "",
+      "canonical_url": "",
+      "raw_sha256": ""
+    },
+    {
+      "path": "D:\\Docs\\Books\\my second brain\\第二大脑\\06-报告证据\\refactor\\20260624-094118\\structure-candidates.md",
+      "source_id": "",
+      "type": "",
+      "title": "",
+      "raw_path": "",
+      "source": "",
+      "canonical_url": "",
+      "raw_sha256": ""
+    },
+    {
+      "path": "D:\\Docs\\Books\\my second brain\\第二大脑\\06-报告证据\\refactor\\20260624-094118\\unresolved-items.md",
+      "source_id": "",
+      "type": "",
+      "title": "",
+      "raw_path": "",
+      "source": "",
+      "canonical_url": "",
+      "raw_sha256": ""
+    },
+    {
+      "path": "D:\\Docs\\Books\\my second brain\\第二大脑\\06-报告证据\\refactor\\20260624-094212\\content-classification.md",
+      "source_id": "",
+      "type": "",
+      "title": "",
+      "raw_path": "",
+      "source": "",
+      "canonical_url": "",
+      "raw_sha256": ""
+    },
+    {
+      "path": "D:\\Docs\\Books\\my second brain\\第二大脑\\06-报告证据\\refactor\\20260624-094212\\current-tree.md",
+      "source_id": "",
+      "type": "",
+      "title": "",
+      "raw_path": "",
+      "source": "",
+      "canonical_url": "",
+      "raw_sha256": ""
+    },
+    {
+      "path": "D:\\Docs\\Books\\my second brain\\第二大脑\\06-报告证据\\refactor\\20260624-094212\\duplicate-clusters.md",
+      "source_id": "",
+      "type": "",
+      "title": "",
+      "raw_path": "",
+      "source": "",
+      "canonical_url": "",
+      "raw_sha256": ""
+    },
+    {
+      "path": "D:\\Docs\\Books\\my second brain\\第二大脑\\06-报告证据\\refactor\\20260624-094212\\final-report.md",
+      "source_id": "",
+      "type": "",
+      "title": "",
+      "raw_path": "",
+      "source": "",
+      "canonical_url": "",
+      "raw_sha256": ""
+    },
+    {
+      "path": "D:\\Docs\\Books\\my second brain\\第二大脑\\06-报告证据\\refactor\\20260624-094212\\inventory.md",
+      "source_id": "",
+      "type": "",
+      "title": "",
+      "raw_path": "",
+      "source": "",
+      "canonical_url": "",
+      "raw_sha256": ""
+    },
+    {
+      "path": "D:\\Docs\\Books\\my second brain\\第二大脑\\06-报告证据\\refactor\\20260624-094212\\link-validation.md",
+      "source_id": "",
+      "type": "",
+      "title": "",
+      "raw_path": "",
+      "source": "",
+      "canonical_url": "",
+      "raw_sha256": ""
+    },
+    {
+      "path": "D:\\Docs\\Books\\my second brain\\第二大脑\\06-报告证据\\refactor\\20260624-094212\\unresolved-items.md",
+      "source_id": "",
+      "type": "",
+      "title": "",
+      "raw_path": "",
+      "source": "",
+      "canonical_url": "",
+      "raw_sha256": ""
+    },
+    {
+      "path": "D:\\Docs\\Books\\my second brain\\第二大脑\\08-模板\\页面模板.md",
+      "source_id": "",
+      "type": "",
+      "title": "",
+      "raw_path": "",
+      "source": "",
+      "canonical_url": "",
+      "raw_sha256": ""
+    },
+    {
+      "path": "D:\\Docs\\Books\\my second brain\\第二大脑\\08-模板\\资料来源模板.md",
+      "source_id": "",
+      "type": "",
+      "title": "",
+      "raw_path": "",
+      "source": "",
+      "canonical_url": "",
+      "raw_sha256": ""
+    },
+    {
+      "path": "D:\\Docs\\Books\\my second brain\\第二大脑\\wiki\\_meta\\source-link-repair-report.md",
+      "source_id": "",
+      "type": "",
+      "title": "",
+      "raw_path": "",
+      "source": "",
+      "canonical_url": "",
+      "raw_sha256": ""
+    }
+  ],
+  "source_pages": [
+    "D:\\Docs\\Books\\my second brain\\第二大脑\\01-状态\\待确认问题.md",
+    "D:\\Docs\\Books\\my second brain\\第二大脑\\01-状态\\当前状态.md",
+    "D:\\Docs\\Books\\my second brain\\第二大脑\\01-状态\\技术债台账.md",
+    "D:\\Docs\\Books\\my second brain\\第二大脑\\01-状态\\已确认决策.md",
+    "D:\\Docs\\Books\\my second brain\\第二大脑\\01-状态\\资料来源.md"
+  ],
+  "sourceIdMap": {
+    "src-20260623-kb-status-source-register": [
+      "D:\\Docs\\Books\\my second brain\\第二大脑\\01-状态\\资料来源.md"
+    ],
+    "src-20260623-kb-status-tech-debt": [
+      "D:\\Docs\\Books\\my second brain\\第二大脑\\01-状态\\技术债台账.md"
+    ],
+    "src-20260623-kb-domain-performance": [
+      "D:\\Docs\\Books\\my second brain\\第二大脑\\03-领域知识\\业绩域.md"
+    ],
+    "src-20260623-kb-spec-structure": [
+      "D:\\Docs\\Books\\my second brain\\第二大脑\\00-规范\\结构规范.md"
+    ],
+    "src-20260623-kb-overview-business-loop": [
+      "D:\\Docs\\Books\\my second brain\\第二大脑\\02-项目总览\\业务闭环.md"
+    ],
+    "src-20260623-kb-flow-task-lifecycle": [
+      "D:\\Docs\\Books\\my second brain\\第二大脑\\04-运行流程\\任务生命周期.md"
+    ],
+    "src-20260623-kb-overview-environment": [
+      "D:\\Docs\\Books\\my second brain\\第二大脑\\02-项目总览\\环境说明.md"
+    ],
+    "src-20260623-kb-domain-creator": [
+      "D:\\Docs\\Books\\my second brain\\第二大脑\\03-领域知识\\达人域.md"
+    ],
+    "src-20260623-kb-flow-ingestion": [
+      "D:\\Docs\\Books\\my second brain\\第二大脑\\04-运行流程\\资料吸收流程.md"
+    ],
+    "src-20260623-kb-status-current": [
+      "D:\\Docs\\Books\\my second brain\\第二大脑\\01-状态\\当前状态.md"
+    ],
+    "src-20260623-kb-domain-product": [
+      "D:\\Docs\\Books\\my second brain\\第二大脑\\03-领域知识\\商品域.md"
+    ],
+    "src-20260623-kb-domain-sample": [
+      "D:\\Docs\\Books\\my second brain\\第二大脑\\03-领域知识\\寄样域.md"
+    ],
+    "src-20260623-kb-overview-project": [
+      "D:\\Docs\\Books\\my second brain\\第二大脑\\02-项目总览\\项目概览.md"
+    ],
+    "src-20260623-kb-domain-user-config": [
+      "D:\\Docs\\Books\\my second brain\\第二大脑\\03-领域知识\\用户配置域.md"
+    ],
+    "src-20260623-kb-spec-page": [
+      "D:\\Docs\\Books\\my second brain\\第二大脑\\00-规范\\页面规范.md"
+    ],
+    "src-20260623-kb-status-confirmed-decisions": [
+      "D:\\Docs\\Books\\my second brain\\第二大脑\\01-状态\\已确认决策.md"
+    ],
+    "src-20260623-kb-overview-glossary": [
+      "D:\\Docs\\Books\\my second brain\\第二大脑\\02-项目总览\\术语表.md"
+    ],
+    "src-20260623-kb-domain-douyin-upstream-api": [
+      "D:\\Docs\\Books\\my second brain\\第二大脑\\03-领域知识\\抖音上游接口.md"
+    ],
+    "src-20260623-kb-domain-order": [
+      "D:\\Docs\\Books\\my second brain\\第二大脑\\03-领域知识\\订单域.md"
+    ],
+    "src-20260623-kb-overview-system-map": [
+      "D:\\Docs\\Books\\my second brain\\第二大脑\\02-项目总览\\系统地图.md"
+    ],
+    "src-20260623-kb-flow-health-check": [
+      "D:\\Docs\\Books\\my second brain\\第二大脑\\04-运行流程\\健康检查流程.md"
+    ],
+    "src-20260623-kb-status-pending-questions": [
+      "D:\\Docs\\Books\\my second brain\\第二大脑\\01-状态\\待确认问题.md"
+    ],
+    "src-20260623-kb-flow-query-answer": [
+      "D:\\Docs\\Books\\my second brain\\第二大脑\\04-运行流程\\查询回答流程.md"
+    ],
+    "src-20260623-kb-domain-dashboard-analytics": [
+      "D:\\Docs\\Books\\my second brain\\第二大脑\\03-领域知识\\看板分析域.md"
+    ],
+    "src-20260623-kb-overview-acceptance-gate": [
+      "D:\\Docs\\Books\\my second brain\\第二大脑\\02-项目总览\\验收门禁.md"
+    ],
+    "src-20260623-kb-spec-safety-boundary": [
+      "D:\\Docs\\Books\\my second brain\\第二大脑\\00-规范\\安全边界.md"
+    ]
+  },
+  "rawMap": {},
+  "duplicates": []
+}
