@@ -53,7 +53,7 @@ tags:
 
 ## 影响的知识页
 
-- [[知识库/syntheses/SAAS DDD渐进式重构任务链|SAAS DDD渐进式重构任务链]]
-- [[第二大脑-90-收件箱/03-知识/DDD提示词|DDD提示词]]
+- [[知识库/syntheses/SAAS DDD渐进式重构任务链\|SAAS DDD渐进式重构任务链]]
+- [[00-收集箱/DDD提示词\|DDD提示词（收集箱原稿）]]
 
 

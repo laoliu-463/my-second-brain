@@ -2,7 +2,10 @@
 title: "DDD提示词（原始）"
 status: 已整理
 outputs:
-  - 第二大脑-90-收件箱/03-知识/DDD提示词.md
+  - raw/sources/src-20260623-local-ddd-refactor-prompts/original.md
+  - 知识库/sources/src-20260623-local-ddd-refactor-prompts.md
+  - 知识库/90-来源与映射/DDD提示词来源映射.md
+  - 知识库/syntheses/SAAS DDD渐进式重构任务链.md
 ---
 
 下面是**可直接复制给编码 Agent / Harness 执行的完整 DDD 重构提示词包**。每个编号都是**一次独立任务**，不要合并执行。整体原则是：**先审查和补测试，再加门面，再抽策略，再替换调用，最后清理旧依赖**。

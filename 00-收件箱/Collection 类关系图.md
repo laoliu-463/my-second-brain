@@ -5,10 +5,11 @@ author:
   - "[[pdai]]"
 published:
 created: 2026-05-12
-updated: 2026-06-23
+updated: 2026-06-24
 status: 已整理
 outputs:
-  - 第二大脑-90-收件箱/03-知识/Collection类关系图.md
+  - raw/sources/src-20260512-pdai-collection-relations/original.md
+  - 知识库/sources/src-20260512-pdai-collection-relations.md
   - 知识库/90-来源与映射/Collection类关系图来源映射.md
   - 知识库/02-后端知识体系/03-Java体系/Collection类关系图.md
 description: "包含: Java 基础, Java 部分源码, JVM, Spring, Spring Boot, Spring Cloud, 数据库原理, MySQL, ElasticSearch, MongoDB, Docker, k8s, CI&CD, Linux, DevOps, 分布式, 中间件, 开发工具, Git, IDE, 源码阅读，读书笔记, 开源项目..."

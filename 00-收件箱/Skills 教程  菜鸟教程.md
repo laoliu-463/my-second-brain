@@ -3,7 +3,10 @@ title: "Skills 教程 | 菜鸟教程"
 source: "https://www.runoob.com/skills/skills-tutorial.html"
 status: 已整理
 outputs:
-  - 第二大脑-90-收件箱/03-知识/Skills教程.md
+  - raw/sources/src-20260617-runoob-skills-tutorial/original.md
+  - 知识库/sources/src-20260617-runoob-skills-tutorial.md
+  - 知识库/90-来源与映射/Skills教程来源映射.md
+  - 知识库/concepts/Agent Skills.md
 author:
 published:
 created: 2026-06-17
