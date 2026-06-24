@@ -1,0 +1,7730 @@
+path: raw/sources/深入理解 TypeScript.pdf
+source_id: src-raw-f27e9aee9cc36ce1
+sha256: 5d87770600430fd8a5903025b50a91e5469b16bda6818bf84efd0af18ae95f7a
+parser: fitz
+status: text_extracted
+
+--- page 2 ---
+目    录
+致谢
+写在前面 - 深入理解 TypeScript
+TypeScript 项目
+编译上下文
+声明空间
+模块
+命名空间
+动态导入表达式
+TypeScript 类型系统
+概览
+从 JavaScript 迁移
+@types
+环境声明
+接口
+枚举
+lib.d.ts
+函数
+可调用的
+类型断言
+Freshness
+类型保护
+字面量类型
+readonly
+泛型
+类型推断
+类型兼容性
+Never
+辨析联合类型
+索引签名
+流动的类型
+异常处理
+混合
+ThisType
+JSX
+支持 JSX
+React JSX
+- 2 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 3 ---
+非 React JSX
+TypeScript 错误提示
+解读 Errors
+常见的 Error
+TIPs
+基于字符串的枚举
+名义化类型
+状态函数
+Bind 是有害的
+柯里化
+泛型的实例化类型
+对象字面量的惰性初始化
+类是有用的
+export default 被认为是有害的
+减少 setter 属性的使用
+创建数组
+谨慎使用 —outFile
+TypeScript 中的静态构造函数
+单例模式
+函数参数
+Truthy
+构建切换
+类型安全的 Event Emitter
+Reflect Metadata
+协变与逆变
+TypeScript 编译原理
+概览
+程序
+抽象语法树
+扫描器
+解析器
+绑定器
+检查器
+发射器
+- 3 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 4 ---
+致谢
+当前文档 《深入理解 TypeScript》 由 进击的皇虫 使用 书栈(BookStack.CN) 进行构
+建，生成于 2019-01-22。
+书栈(BookStack.CN) 仅提供文档编写、整理、归类等功能，以及对文档内容的生成和导出工
+具。
+文档内容由网友们编写和整理，书栈(BookStack.CN) 难以确认文档内容知识点是否错漏。如果
+您在阅读文档获取知识的时候，发现文档内容有不恰当的地方，请向我们反馈，让我们共同携手，将知
+识准确、高效且有效地传递给每一个人。
+同时，如果您在日常工作、生活和学习中遇到有价值有营养的知识文档，欢迎分享到 书栈
+(BookStack.CN) ，为知识的传承献上您的一份力量！
+如果当前文档生成时间太久，请到 书栈(BookStack.CN) 获取最新的文档，以跟上知识更新换
+代的步伐。
+文档地址：http://www.bookstack.cn/books/TypeScriptDeepDiveZH
+书栈官网：http://www.bookstack.cn
+书栈开源：https://github.com/TruthHun
+分享，让知识传承更久远！ 感谢知识的创造者，感谢知识的分享者，也感谢每一位阅读到此处的
+读者，因为我们都将成为知识的传承者。
+致谢
+- 4 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 5 ---
+此书是 《TypeScript Deep Dive》
+ 的中文翻译版，感谢作者 Basarat
+ 的付出。
+数据来源：npm 包下载量
+如你所见，TypeScript 发展至今，已经成为大型项目的标配，其提供的静态类型系统，大大增强了
+代码的可读性以及可维护性；同时，它提供最新和不断发展的 JavaScript 特性，能让我们建立更健
+壮的组件。
+《TypeScript Deep Dive》
+ 是一本很好的开源书，从基础到深入，很全面的阐述了
+TypeScript 的各种魔法，不管你是新手，还是老鸟，它都将适应你。此外，它不同于 TypeScript
+官方给出的文档（当然 TypeScript 给出的文档是很好的），在此书中，结合实际应用下的场景用
+例，你将能更深入的理解 TypeScript。
+如今社区已经存在部分翻译，但都似乎已经停止更新。
+于是在某天的某个冲动之下，这个 RP 就诞生了。
+《TypeScript Deep Dive》 书中包含一部分 JavaScript Future 和一些其他的内容，在这
+里，我们并不打算翻译它，如果你有兴趣，可以查看原书中 JavaScript Future
+ 的有关章节。
+由于 TypeScript 更新频繁，在此书中，我也将加入一些原书中并没有涉及到的知识点，希望和大家
+相互学习，一起进步。
+深入理解 TypeScript
+Why
+翻译内容
+写在前面 - 深入理解 TypeScript
+- 5 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 6 ---
+此外，在不违背原作者本意前提下，为了更直观的表达，部分内容将采用意译，而非直译。
+你可以：
+通过 PR 修改错别字，或者错误的格式；
+发 issue 讨论文章中出现的一些不合理地方；
+翻译 TODO 文件夹下的文章，并顺手 Email 我。
+希望你在翻译或者 PR 之前，阅读中文文章排版指北
+。
+如果你和我一样对 TypeScript 充满兴趣，可以订阅（star）本项目，及时收到有关于此项目的更
+新。
+如果你对文章有任何疑问，欢迎提交 issues
+ 和我交流。
+如果你认为有些地方翻译不够准确，或者你想补充一些文中没提到但是非常有意思的知识点，欢迎 PR
+。
+原文: https://jkchao.github.io/typescript-book-chinese/
+How to contribute
+最后
+写在前面 - 深入理解 TypeScript
+- 6 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 7 ---
+编译上下文
+声明空间
+模块
+命名空间
+动态导入表达式
+TypeScript 项目
+- 7 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 8 ---
+编译上下文算是一个比较花哨的术语，它用来给文件分组，告诉 TypeScript 哪些文件是有效的，哪
+些是无效的。除了有效文件所携带信息外，编译上下文也包含了有哪些编译选项正在使用。定义这种逻
+辑分组，一个比较好的方式是使用  tsconfig.json  文件。
+开始使用  tsconfig.json  是一件比较容易的事，你仅仅需要写下：
+1. {}
+例如在你项目的根目录下创建一个空 json 文件。通过此种方式，TypeScript 将会把此目录下（和
+子目录）的所有  .ts  文件做为编译上下文的一部分，它还会包含一部分默认的编译选项。
+你可以通过  compilerOptions  来定制你的编译选项：
+1. {
+2.   "compilerOptions": {
+3. 
+4.     /* 基本选项 */
+5.     "target": "es5",                       // 指定 ECMAScript 目标版本: 'ES3' 
+(default), 'ES5', 'ES2015', 'ES2016', 'ES2017', or 'ESNEXT'
+6.     "module": "commonjs",                  // 指定使用模块: 'commonjs', 'amd', 
+'system', 'umd' or 'es2015'
+7.     "lib": [],                             // 指定要包含在编译中的库文件
+8.     "allowJs": true,                       // 允许编译 javascript 文件
+9.     "checkJs": true,                       // 报告 javascript 文件中的错误
+10.     "jsx": "preserve",                     // 指定 jsx 代码的生成: 'preserve', 
+'react-native', or 'react'
+11.     "declaration": true,                   // 生成相应的 '.d.ts' 文件
+12.     "sourceMap": true,                     // 生成相应的 '.map' 文件
+13.     "outFile": "./",                       // 将输出文件合并为一个文件
+14.     "outDir": "./",                        // 指定输出目录
+15.     "rootDir": "./",                       // 用来控制输出目录结构 --outDir.
+16.     "removeComments": true,                // 删除编译后的所有的注释
+编译上下文
+tsconfig.json
+基础
+编译选项
+编译上下文
+- 8 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 9 ---
+17.     "noEmit": true,                        // 不生成输出文件
+18.     "importHelpers": true,                 // 从 tslib 导入辅助工具函数
+19.     "isolatedModules": true,               // 将每个文件做为单独的模块 （与 
+'ts.transpileModule' 类似）.
+20. 
+21.     /* 严格的类型检查选项 */
+22.     "strict": true,                        // 启用所有严格类型检查选项
+23.     "noImplicitAny": true,                 // 在表达式和声明上有隐含的 any类型时报错
+24.     "strictNullChecks": true,              // 启用严格的 null 检查
+25.     "noImplicitThis": true,                // 当 this 表达式值为 any 类型的时候，生
+成一个错误
+26.     "alwaysStrict": true,                  // 以严格模式检查每个模块，并在每个文件里
+加入 'use strict'
+27. 
+28.     /* 额外的检查 */
+29.     "noUnusedLocals": true,                // 有未使用的变量时，抛出错误
+30.     "noUnusedParameters": true,            // 有未使用的参数时，抛出错误
+31.     "noImplicitReturns": true,             // 并不是所有函数里的代码都有返回值时，抛
+出错误
+32.     "noFallthroughCasesInSwitch": true,    // 报告 switch 语句的 fallthrough 错
+误。（即，不允许 switch 的 case 语句贯穿）
+33. 
+34.     /* 模块解析选项 */
+35.     "moduleResolution": "node",            // 选择模块解析策略： 'node' (Node.js) 
+or 'classic' (TypeScript pre-1.6)
+36.     "baseUrl": "./",                       // 用于解析非相对模块名称的基目录
+37.     "paths": {},                           // 模块名到基于 baseUrl 的路径映射的列表
+38.     "rootDirs": [],                        // 根文件夹列表，其组合内容表示项目运行时
+的结构内容
+39.     "typeRoots": [],                       // 包含类型声明的文件列表
+40.     "types": [],                           // 需要包含的类型声明文件名列表
+41.     "allowSyntheticDefaultImports": true,  // 允许从没有设置默认导出的模块中默认导
+入。
+42. 
+43.     /* Source Map Options */
+44.     "sourceRoot": "./",                    // 指定调试器应该找到 TypeScript 文件而
+不是源文件的位置
+45.     "mapRoot": "./",                       // 指定调试器应该找到映射文件而不是生成文
+件的位置
+46.     "inlineSourceMap": true,               // 生成单个 soucemaps 文件，而不是将 
+sourcemaps 生成不同的文件
+47.     "inlineSources": true,                 // 将代码与 sourcemaps 生成到一个文件
+编译上下文
+- 9 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 10 ---
+中，要求同时设置了 --inlineSourceMap 或 --sourceMap 属性
+48. 
+49.     /* 其他选项 */
+50.     "experimentalDecorators": true,        // 启用装饰器
+51.     "emitDecoratorMetadata": true          // 为装饰器提供元数据的支持
+52.   }
+53. }
+这些（或者更多）编译选项，将会在稍后讨论。
+好的 IDE 支持对 TypeScript 的即时编译。但是，如果你想在使用  tsconfig.json  时从命令
+行手动运行 TypeScript 编译器，你可以通过以下方式：
+运行 tsc，它会在当前目录或者是父级目录寻找  tsconfig.json  文件。
+运行  tsc -p ./path-to-project-directory  。当然，这个路径可以是绝对路径，也可以是
+相对于当前目录的相对路径。
+你甚至可以使用  tsc -w  来启用 TypeScript 编译器的观测模式，在检测到文件改动之后，
+它将重新编译。
+你也可以显式指定需要编译的文件：
+1. {
+2.   "files": [
+3.     "./some/file.ts"
+4.   ]
+5. }
+或者，你可以使用  include  和  exclude  选项来指定需要包含的文件，和排除的文件：
+1. {
+2.   "include": [
+3.     "./folder"
+4.   ],
+5.   "exclude": [
+6.     "./folder/**/*.spec.ts",
+7.     "./folder/someSubFolder"
+8.   ]
+TypeScript 编译
+哪个文件？
+编译上下文
+- 10 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 11 ---
+9. }
+注意
+使用  globs ： /*  （一个示例用法： some/folder/ 
+ /* ）意味着匹配所有的文件夹和所有
+文件（扩展名为  .ts/.tsx ，当开启了  allowJs: true  选项时，扩展名可以是
+ .js/.jsx ）。
+原文: https://jkchao.github.io/typescript-book-
+chinese/project/compilationContext.html
+编译上下文
+- 11 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 12 ---
+在 TypeScript 里存在两种声明空间：类型声明空间与变量声明空间。我将会在下文中和大家讨论这
+两个概念。
+类型声明空间包含用来当做类型注解的内容，例如以下的一些类型声明：
+1. class Foo {}
+2. interface Bar {}
+3. type Bas = {};
+你可以将  Foo ,  Bar ,  Bas  做为类型注解使用，例如：
+1. let foo: Foo;
+2. let bar: Bar;
+3. let bas: Bas;
+注意，尽管你定义了  interface Bar ，你并不能够将它做为一个变量使用，因为它没有定义在变量
+声明空间中：
+1. interface Bar {}
+2. const bar = Bar; // Error: "cannot find name 'Bar'"
+提示  cannot find name 'Bar'  的原因是名称  Bar  并未定义在变量声明空间。这将带领我们
+进入下一个主题 "变量声明空间"。
+变量声明空间包含可用作变量的内容，在上文中  Class Foo  提供了一个类型  Foo  到类型声明
+空间，此外它同样提供了一个变量  Foo  到变量声明空间，如下所示：
+1. class Foo {}
+2. const someVar = Foo;
+3. const someOtherVar = 123;
+这很棒，尤其是当你想把一个类来当做变量传递时。
+声明空间
+类型声明空间
+变量声明空间
+声明空间
+- 12 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 13 ---
+WARNING
+我们并不能使用一些像  interface  定义的内容，来当做变量使用。
+与此相似，一些像你用  var  声明的变量，也仅能在变量声明空间使用，不能用作类型注解。
+1. const foo = 123;
+2. let bar: foo; // ERROR: "cannot find name 'foo'"
+提示  cannot find name  的原因是，名称  foo  没有定义在类型声明空间里。
+原文: https://jkchao.github.io/typescript-book-
+chinese/project/declarationspaces.html
+声明空间
+- 13 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 14 ---
+默认情况下，当你开始在一个新的 TypeScript 文件中写下代码时，它处于全局命名空间中。如在
+ foo.ts  里的以下代码：
+1. const foo = 123;
+如果你在相同的项目里创建了一个新的文件  bar.ts ，TypeScript 类型系统将会允许你使用变量
+ foo ，就好像它在全局可用一样：
+1. const bar = foo; // allowed
+毋庸置疑，使用全局变量空间是危险的，因为它会与文件内的代码命名冲突。我们推荐使用下文中将要
+提到的文件模块。
+它也被称为外部模块。如果在你的 TypeScript 文件的根级别位置含有  import  或者
+ export ，它会在这个文件中创建一个本地的作用域。因此，我们需要把上文  foo.ts  改成如下
+方式（注意  export  用法）：
+1. export const foo = 123;
+在全局命名空间里，我们不再有  foo ，这可以通过创建一个新文件  bar.ts  来证明：
+1. const bar = foo; // ERROR: "cannot find name 'foo'"
+如果你想在  bar.ts  里使用来自  foo.ts  的内容，你必须显式导入它，更新  bar.ts  如下
+所示：
+1. import { foo } from './foo';
+2. const bar = foo; // allow
+在  bar.ts  文件里使用  import ，不但允许你使用从其他文件导入的内容，而且它会将此文件
+ bar.ts  标记为一个模块，文件内定义的声明也不会污染全局命名空间。
+模块
+全局模块
+文件模块
+模块
+- 14 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 15 ---
+文件模块拥有强大的能力和可用性。在这里，我们来讨论它的能力以及一些用法。
+首先，我们需要澄清这些模块系统的不一致性。我将会提供给你我当前的建议，以及消除一些顾虑。
+你可以根据不同的  module  选项来把 TypeScript 编译成不同的 JavaScript 模块类型，这
+有一些你可以忽略的：
+AMD：不要使用它，它仅能在浏览器工作；
+SystemJS：这是一个好的实验，已经被 ES 模块替代；
+ES 模块：它并没有准备好。
+使用  module: commonjs  选项来替代这些模式，这会是一个好的主意。
+怎么书写 TypeScript 模块，这也是一件让人困惑的事。在今天我们应该这么做：
+ import foo = require('foo')  例如：  import/require  使用 ES 模块语法。
+这很酷，接下来，让我们看看 ES 模块语法。
+TIP
+使用  module: commonjs  选项以及使用 ES 模块语法导入导出其他模块。
+使用  export  关键字导出一个变量（或者类型）：
+1. // foo.ts
+2. export const someVar = 123;
+3. export type someType = {
+4.   foo: string;
+5. };
+ export  的写法除了上面这样，还有另外一种：
+1. // foo.ts
+2. const someVar = 123;
+3. type someType = {
+4.   type: string;
+5. };
+6. 
+文件模块详情
+澄清：commonjs, amd, es modules, others
+ES 模块语法
+模块
+- 15 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 16 ---
+7. export { someVar, someType };
+你也可以重命名变量导出：
+1. // foo.ts
+2. const someVar = 123;
+3. export { someVar as aDifferentName };
+使用  import  关键字导入一个变量或者是一个类型：
+1. // bar.ts
+2. import { someVar, someType } from './foo';
+重命名导入变量或者类型：
+1. // bar.ts
+2. import { someVar as aDifferentName } from './foo';
+除了指定加载某个输出值，还可以使用整体加载，即用星号（*）指定一个对象，所有输出值都加
+载在这个对象上面：
+1. // bar.ts
+2. import * as foo from './foo';
+3. // 你可以使用 `foo.someVar` 和 `foo.someType` 以及其他任何从 `foo` 导出的变量或者类型
+仅导入模块：
+1. import 'core-js'; // 一个普通的 polyfill 库
+从其他模块导入后整体导出：
+1. export * from './foo';
+从其他模块导入后，部分导出：
+1. export { someVar } from './foo';
+通过重命名，部分导出从另一个模块导入的项目：
+1. export { someVar as aDifferentName } from './foo';
+模块
+- 16 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 17 ---
+我并不喜欢用默认导出，虽然有默认导出的语法：
+使用  export default 
+在一个变量之前（不需要使用  let/const/var ）；
+在一个函数之前；
+在一个类之前。
+1. // some var
+2. export default (someVar = 123);
+3. 
+4. // some function
+5. export default function someFunction() {}
+6. 
+7. // some class
+8. export default class someClass {}
+导入使用  import someName from 'someModule'  语法（你可以根据需要为导入命名）：
+1. import someLocalNameForThisFile from './foo';
+TIP
+假设你使用  moduleResolution: node  选项。这个选项应该在你 TypeScript 配置文件里。如
+果你使用了  module: commonjs  选项，  moduleResolution: node  将会默认开启。
+这里存在两种不同截然不同的模块，它们是由导入语句中的不同的路径写法所引起的（例如： import
+foo from 'THIS IS THE PATH SECTION' ）。
+相对模块路径（路径以  .  开头，例如： ./someFile  或者  ../../someFolder/someFile 
+等）；
+其他动态查找模块（如： core-js ， typestyle ， react  或者甚至是  react/core 
+等）。
+它们的主要区别来自于系统如何解析模块。
+TIP
+我将会使用一个概念性术语， place  — 将在提及查找模式后解释它。
+默认导入／导出
+模块路径
+相对模块路径
+模块
+- 17 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 18 ---
+这很简单，仅仅是按照相对路径：
+如果文件  bar.ts  中含有  import * as foo from './foo' ， foo  文件所存在的地方必
+须是相同文件夹下；
+如果文件  bar.ts  中含有  import * as foo from '../foo' ， foo  文件所存在的地方必
+须是上一级目录；
+如果文件  bar.ts  中含有  import * as foo from '../someFolder/foo' ， foo  文件所
+在的文件夹  someFolder  必须与  bar.ts  所在文件夹在相同的目录下。
+或者，你还可以想想其他相对路径导入的情景。?
+当导入路径不是相对路径时，模块解析将会模仿 Node 模块解析策略
+，以下我将给出一个简单例
+子：
+当你使用  import * as foo from 'foo' ，将会按如下顺序查找模块：
+ ./node_modules/foo 
+ ../node_modules/foo 
+ ../../node_modules/foo 
+直到系统的根目录
+当你使用  import * as foo from 'something/foo' ，将会按照如下顺序查找内容
+ ./node_modules/something/foo 
+ ../node_modules/something/foo 
+ ../../node_modules/something/foo 
+直到系统的根目录
+当我提及被检查的  place  时，我想表达的是在这个  place ，TypeScript 将会检查以下内容
+（例如一个  foo  的位置）：
+如果这个  place  表示一个文件，如： foo.ts ，欢呼！
+否则，如果这个  place  是一个文件夹，并且存在一个文件  foo/index.ts ，欢呼！
+否则，如果这个  place  是一个文件夹，并且存在一个  foo/package.json  文件，在该文件
+中指定  types  的文件存在，那么就欢呼！
+否则，如果这个  place  是一个文件夹，并且存在一个  package.json  文件，在该文件中指
+定  main  的文件存在，那么就欢呼！
+从文件类型上来说，我实际上是指  .ts ，  .d.ts  或者  .js 
+就是这样，现在你已经是一个模块查找专家（这并不是一个小小的成功）。
+动态查找
+什么是 place
+重写类型的动态查找
+模块
+- 18 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 19 ---
+在你的项目里，你可以通过  declare module 'somePath'  来声明一个全局模块的方式，用来解决
+查找模块路径的问题：
+1. // globals.d.ts
+2. declare module 'foo' {
+3.   // some variable declarations
+4.   export var bar: number;
+5. }
+接着：
+1. // anyOtherTsFileInYourProject.ts
+2. import * as foo from 'foo';
+3. // TypeScript 将假设（在没有做其他查找的情况下）
+4. // foo 是 { bar: number }
+以下导入语法：
+1. import foo = require('foo');
+它实际上只做了两件事：
+导入 foo 模块的所有类型信息；
+确定 foo 模块运行时的依赖关系。
+你可以选择仅加载类型信息，而没有运行时的依赖关系。在继续之前，你可能需要重新阅读本书
+的 声明空间部分 部分。
+如果你没有把导入的名称当做变量声明空间来用，在编译成 JavaScript 时，导入的模块将会被完全
+移除。这有一些较好的例子，当你了解了它们之后，我们将会给出一些使用例子。
+1. import foo = require('foo');
+将会编译成 JavaScript：
+1. 
+这是正确的，一个没有被使用的空文件。
+import/require 仅仅是导入类型
+例子 1
+模块
+- 19 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 20 ---
+1. import foo = require('foo');
+2. var bar: foo;
+将会被编译成：
+1. let bar;
+这是因为 foo （或者其他任何属性如： foo.bas ）没有被当做一个变量使用。
+1. import foo = require('foo');
+2. const bar = foo;
+将会被编译成（假设是 commonjs）：
+1. const foo = require('foo');
+2. const bar = foo;
+这是因为  foo  被当做变量使用了。
+类型推断需要提前完成，这意味着，如果你想在  bar  文件里，使用从其他文件  foo  导出的类
+型，你将不得不这么做：
+1. import foo = require('foo');
+2. let bar: foo.SomeType;
+然而，在某些情景下，你只想在需要时加载模块  foo ，此时你需要仅在类型注解中使用导入的模块
+名称，而不是在变量中使用。在编译成 JavaScript 式，这些将会被移除。接着，你可以手动导入你
+需要的模块。
+做为一个例子，考虑以下基于  commonjs  的代码，我们仅在一个函数内导入  foo  模块：
+1. import foo = require('foo');
+2. 
+3. export function loadFoo() {
+4.   // 这是懒加载 foo，原始的加载仅仅用来做类型注解
+例子 2
+例子 3
+使用例子：懒加载
+模块
+- 20 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 21 ---
+5.   const _foo: typeof foo = require('foo');
+6.   // 现在，你可以使用 `_foo` 替代 `foo` 来做为一个变量使用
+7. }
+一个同样简单的  amd  模块（使用 requirejs）：
+1. import foo = require('foo');
+2. 
+3. export function loadFoo() {
+4.   // 这是懒加载 foo，原始的加载仅仅用来做类型注解
+5.   require(['foo'], (_foo: typeof foo) => {
+6.     // 现在，你可以使用 `_foo` 替代 `foo` 来做为一个变量使用
+7.   });
+8. }
+这些通常在以下情景使用：
+在 web app 里， 当你在特定路由上加载 JavaScript 时；
+在 node 应用里，当你只想加载特定模块，用来加快启动速度时。
+类似于懒加载的使用用例，某些模块加载器（commonjs/node 和 amd/requirejs）不能很好的处
+理循环依赖。在这种情况下，一方面我们使用延迟加载代码，并在另一方面预先加载模块时很实用的。
+当你加载一个模块，只是想引入其附加的作用（如：模块可能会注册一些像 CodeMirror addons
+）时，然而，如果你仅仅是  import/require  （导入）一些并没有与你的模块或者模块加载器有任
+何依赖的 JavaScript 代码，（如：webpack），经过 TypeScript 编译后，这些将会被完全忽
+视。在这种情况下，你可以使用一个  ensureImport  变量，来确保编译的 JavaScript 依赖与
+模块。如：
+1. import foo = require('./foo');
+2. import bar = require('./bar');
+3. import bas = require('./bas');
+4. 
+5. const ensureImport: any = foo || bar || bas;
+使用例子：打破循环依赖
+使用例子：确保导入
+globals.d.ts
+模块
+- 21 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 22 ---
+在上文中，当我们讨论文件模块时，比较了全局变量与文件模块，并且我们推荐使用基于文件的模块，
+而不是选择污染全局命名空间。
+然而，如果你的团队里有 TypeScript 初学者，你可以提供他们一个  globals.d.ts  文件，用
+来将一些接口或者类型放入全局命名空间里，这些定义的接口和类型能在你的所有 TypeScript 代码
+里使用。
+TIP
+对于任何需要编译成 JavaScript 代码，我们强烈建议你放入文件模块里。
+ globals.d.ts  是一种扩充  lib.d.ts  很好的方式，如果你需要。
+当你从  TS  迁移到  JS  时，定义  declare module "some-library-you-dont-care-to-
+get-defs-for"  能让你快速开始。
+原文: https://jkchao.github.io/typescript-book-chinese/project/modules.html
+模块
+- 22 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 23 ---
+在 JavaScript 使用命名空间时， 这有一个常用方便的语法：
+1. (function(something) {
+2.   something.foo = 123;
+3. })(something || (something = {}));
+ something || (something = {})  允许匿名函数  function (something) {}  添加属性至已
+经存在的对象上，或者会创建一个新对象，然后添加属性至新对象上，这意味着你可以拥有由某些边界
+拆成的不同的块：
+1. (function(something) {
+2.   something.foo = 123;
+3. })(something || (something = {}));
+4. 
+5. console.log(something);
+6. // { foo: 123 }
+7. 
+8. (function(something) {
+9.   something.bar = 456;
+10. })(something || (something = {}));
+11. 
+12. console.log(something); // { foo: 123, bar: 456 }
+在确保创建的变量不会泄漏至全局变量中时，这种方式在 JavaScript 中很常见。当使用基于文件模
+块时，你无须担心这点，但是此种方式，仍然适用于合理的函数逻辑分组中。因此 TypeScript 提供
+了  namespace  关键字用来描述这种分组，如下所示：
+1. namespace Utility {
+2.   export function log(msg) {
+3.     console.log(msg);
+4.   }
+5.   export function error(msg) {
+6.     console.log(msg);
+7.   }
+8. }
+9. 
+10. // usage
+11. Utility.log('Call me');
+命名空间
+命名空间
+- 23 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 24 ---
+12. Utility.error('maybe');
+ namespace  关键字通过 TypeScript 编译后，与我们看到的 JavaScript 代码一样：
+1. (function (Utility) {
+2.   // 添加属性至 Utility
+3. })(Utility || Utility = {});
+有一点值得注意的是，命名空间是支持嵌套的。因此，你可以做一些类似于在  Utility  命名空间
+下嵌套一个命名空间  Messaging  的事情。
+对大多数项目来说，我们推荐使用一个使用  namespace  的外部的模块，用来快速的演示和移植旧
+的 JavaScript 代码。
+原文: https://jkchao.github.io/typescript-book-chinese/project/namespaces.html
+命名空间
+- 24 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 25 ---
+动态导入表达式是 ECMASript 的一个新功能，它允许你在你程序的任意地方异步加载一个模块，
+TC39 JavaScript 委员会有这样一个处于 stage 3 的一个提案，它被称为 import()
+proposal for JavaScript
+。
+此外，webpack bundler 有一个  Code Splitting 
+ 的功能，它能允许你将代码拆分为许多
+块，这些块在将来可被异步下载。因此，你可以在程序中首先提供一个最小的程序启动包，并在将来异
+步加载其他模块。
+这很自然的想到（如果我们工作在 webpack dev 的工作流程）TypeScript 2.4 dynamic
+import expressions
+ 将会把你最终生成的 JavaScript 代码自动分割成很多块。但是这似乎
+并不容易实现，因为它依赖于我们正在使用的  tsconfig.json  配置文件。
+webpack 实现代码分割的方式有两种：使用  import()  （首选，ECMAScript 的提案）和
+ require.ensure()  （最后考虑，webpack 具体实现）。因此，我们期望 TypeScript 的输出
+是保留  import()  语句，而不是将其转化为其他任何代码。
+让我们来看一个例子，在这个例子中，我们演示了如何配置 webpack 和 TypeScript 2.4 +。
+如下例子，我希望懒加载  moment  库，同时我也希望使用代码分割的功能，这意味  moment  会
+被分割到一个单独的 JavaScript 文件，当它被使用时，会被异步加载。
+1. import(/* webpackChunkName: "momentjs" */ 'moment')
+2.   .then(moment => {
+3.     // 懒加载的模块拥有所有的类型，并且能够按期工作
+4.     // 类型检查会工作，代码引用也会工作  :100:
+5.     const time = moment().format();
+6.     console.log('TypeScript >= 2.4.0 Dynamic Import Expression:');
+7.     console.log(time);
+8.   })
+9.   .catch(err => {
+10.     console.log('Failed to load moment', err);
+11.   });
+这是  tsconfig.json  的配置文件：
+1. {
+2.   "compilerOptions": {
+3.     "target": "es5",
+4.     "module": "esnext",
+动态导入表达式
+动态导入表达式
+- 25 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 26 ---
+5.     "lib": [
+6.       "dom",
+7.       "es5",
+8.       "scripthost",
+9.       "es2015.promise"
+10.     ],
+11.     "jsx": "react",
+12.     "declaration": false,
+13.     "sourceMap": true,
+14.     "outDir": "./dist/js",
+15.     "strict": true,
+16.     "moduleResolution": "node",
+17.     "typeRoots": [
+18.       "./node_modules/@types"
+19.     ],
+20.     "types": [
+21.       "node",
+22.       "react",
+23.       "react-dom"
+24.     ]
+25.   }
+26. }
+重要的提示
+使用 "module": "esnext" 选项：TypeScript 为 Webpack Code Splitting 生成
+ import()  语句。
+进一步了解有关信息，推荐阅读这篇文章：Dynamic Import Expressions and webpack
+2 Code Splitting integration with TypeScript 2.4.
+原文: https://jkchao.github.io/typescript-book-
+chinese/project/dynamicImportExpressions.html
+动态导入表达式
+- 26 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 27 ---
+概览
+从 JavaScript 迁移
+@types
+环境声明
+接口
+枚举
+lib.d.ts
+函数
+可调用的
+类型断言
+Freshness
+类型保护
+字面量类型
+readonly
+泛型
+类型推断
+类型兼容性
+Never
+辨析联合类型
+索引签名
+流动的类型
+异常处理
+混合
+ThisType
+TypeScript 类型系统
+- 27 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 28 ---
+在讨论为什么使用 TypeScript
+ 时，我们涵盖了 TypeScript 类型系统的主要功能。以下是讨论
+的一些关键点：
+TypeScript 类型系统设计是可选的，因此，你的 JavaScript 即是 TypeScript;
+TypeScript 不会阻止 JavaScript 的运行，即使存在类型错误也不例外，这能让你的
+JavaScript 逐步迁移至 TypeScript。
+现在让我们开始学习 TypeScript 类型系统的语法，在这一章节中，你将能给你的代码加上类
+型注解，并且能看到它的益处。这将为我们进一步了解类型系统做铺垫。
+如前文所提及，类型注解使用  :TypeAnnotation  语法。类型声明空间中可用的任何内容都可以用
+作类型注解。
+在下面这个例子中，使用了变量、函数参数以及函数返回值的类型注解：
+1. const num: number = 123;
+2. function identity(num: number): number {
+3.   return num;
+4. }
+JavaScript 原始类型也同样适应于 TypeScript 的类型系统，因此
+ string 、 number 、 boolean  也可以被用作类型注解：
+1. let num: number;
+2. let str: string;
+3. let bool: boolean;
+4. 
+5. num = 123;
+6. num = 123.456;
+7. num = '123'; // Error
+8. 
+概览
+TypeScript 类型系统
+基本注解
+原始类型
+概览
+- 28 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 29 ---
+9. str = '123';
+10. str = 123; // Error
+11. 
+12. bool = true;
+13. bool = false;
+14. bool = 'false'; // Error
+TypeScript 为数组提供了专用的类型语法，因此你可以很轻易的注解数组。它使用后缀  [] ，
+接着你可以根据需要补充任何有效的类型注解（如： :boolean[] ）。它能让你安全的使用任何有关
+数组的操作，而且它也能防止一些类似于赋值错误类型给成员的行为。如下所示：
+1. const boolArray: boolean[];
+2. 
+3. boolArray = [true, false];
+4. console.log(boolArray[0]); // true
+5. console.log(boolArray.length); // 2
+6. 
+7. boolArray[1] = true;
+8. boolArray = [false, false];
+9. 
+10. boolArray[0] = 'false'; // Error
+11. boolArray = 'false'; // Error
+12. boolArray = [true, 'false']; // Error
+接口是 TypeScript 的一个核心知识，它能合并众多类型声明至一个类型声明：
+1. interface Name {
+2.   first: string;
+3.   second: string;
+4. }
+5. 
+6. let name: Name;
+7. name = {
+8.   first: 'John',
+9.   second: 'Doe'
+10. };
+数组
+接口
+概览
+- 29 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 30 ---
+11. 
+12. name = {
+13.   // Error: 'Second is missing'
+14.   first: 'John'
+15. };
+16. 
+17. name = {
+18.   // Error: 'Second is the wrong type'
+19.   first: 'John',
+20.   second: 1337
+21. };
+在这里，我们把类型注解： first: string  +  second: string  合并到了一个新的类型注解里
+ Name ，这样能强制对每个成员进行类型检查。接口在 TypeScript 拥有强大的力量，在稍后，我
+们将会用整个章节来阐述如何更好的使用它。
+与创建一个接口不同，你可以使用内联注解语法注解任何内容： :{ /Structure/ } ：
+1. let name: {
+2.   first: string;
+3.   second: string;
+4. };
+5. 
+6. name = {
+7.   first: 'John',
+8.   second: 'Doe'
+9. };
+10. 
+11. name = {
+12.   // Error: 'Second is missing'
+13.   first: 'John'
+14. };
+15. 
+16. name = {
+17.   // Error: 'Second is the wrong type'
+18.   first: 'John',
+19.   second: 1337
+20. };
+内联类型注解
+概览
+- 30 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 31 ---
+内联类型能为你快速的提供一个类型注解。它可以帮助你省去为类型起名的麻烦（你可能会使用一个很
+糟糕的名称）。然而，如果你发现需要多次使用相同的内联注解时，考虑把它重构为一个接口（或者是
+ type alias ，它会在接下来的部分提到）是一个不错的注意。
+除了被提到的一些原始类型，在 TypeScript 中，还存在一些特殊的类型，它们是  any 、
+ null 、  undefined  以及  void 。
+ any  类型在 TypeScript 类型系统中占有特殊的地位。它提供给你一个类型系统的「后
+门」,TypeScript 将会把类型检查关闭。在类型系统里  any  能够兼容所有的类型（包括它自
+己）。因此，所有类型都能被赋值给它，它也能被赋值给其他任何类型。以下有一个证明例子：
+1. let power: any;
+2. 
+3. // 赋值任意类型
+4. power = '123';
+5. power = 123;
+6. 
+7. // 它也兼容任何类型
+8. let num: number;
+9. power = num;
+10. num = power;
+当你从 JavaScript 迁移至 TypeScript 时，你将会经常性使用  any 。但你必须减少对它的依
+赖，因为你需要确保类型安全。当使用  any  时，你基本上是在告诉 TypeScript 编辑器不要进
+行任何的类型检查。
+在类型系统中，JavaScript 中的 null 和 undefined 字面量和其他被标注了  any  类型的变
+量一样，都能被赋值给任意类型的变量，如下例子所示：
+1. let num: number;
+2. let str: string;
+3. 
+4. // 这些类型能被赋予
+5. num = null;
+6. str = undefined;
+特殊类型
+any
+null 和 undefined
+概览
+- 31 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 32 ---
+使用  :void  来表示一个函数没有一个返回值
+1. function log(message: string): void {
+2.   console.log(message);
+3. }
+在计算机科学中，许多算法和数据结构并不会依赖于对象的实际类型。然而，你仍然会想在每个变量里
+强制提供约束。例如：在一个函数中，它接受一个列表，并且返回这个列表的反向排序，这里的约束是
+指传入至函数的参数与函数的返回值：
+1. function reverse<T>(items: T[]): T[] {
+2.   const toreturn = [];
+3.   for (let i = items.length - 1; i >= 0; i--) {
+4.     toreturn.push(items[i]);
+5.   }
+6.   return toreturn;
+7. }
+8. 
+9. const sample = [1, 2, 3];
+10. const reversed = reverse(sample);
+11. 
+12. console.log(reversed); // 3, 2, 1
+13. 
+14. // Safety
+15. reversed[0] = '1'; // Error
+16. reversed = ['1', '2']; // Error
+17. 
+18. reversed[0] = 1; // ok
+19. reversed = [1, 2]; // ok
+在上个例子中，函数  reverse  接受一个类型为  T （注意在  reverse<T>  中的类型参数）
+的数组（ items: T[] ），返回值为类型 T 的一个数组（注意：T[]），函数  reverse  的返回
+值类型与它接受的参数的类型一样。当你传入  var sample = [1, 2, 3]  时，TypeScript 能推
+断出  reverse  为  number[]  类型，从而能给你类型安全。于此相似，当你传入一个类型为
+ string[]  类型的数组时，TypeScrip 能推断  reverse  为  string [] 类型，如下例子
+所示：
+void
+泛型
+概览
+- 32 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 33 ---
+1. const strArr = ['1', '2'];
+2. let reversedStrs = reverse(strArr);
+3. 
+4. reversedStrs = [1, 2]; // Error
+事实上，JavaScript 数组已经拥有了  reverse  的方法，TypeScript 也确实使用了泛型来定
+义其结构：
+1. interface Array<T> {
+2.   reverse(): T[];
+3. }
+这意味着，当你在数组上调用  .reverse  方法时，得会获得类型安全：
+1. let numArr = [1, 2];
+2. let reversedNums = numArr.reverse();
+3. 
+4. reversedNums = ['1', '2']; // Error
+当在章节 环境声明 中提及了  lib.d.ts  时，我们会讨论更多关于  Array<T>  的信息。
+在 JavaScript 中，你希望属性为多种类型之一，如字符串或者数组。这就是联合类型所能派上用场
+的地方（它使用  |  作为标记，如  string | number ）。在函数参数里。一个常见的用例是一
+个可以接受单个对象或对象数组的函数：
+1. function formatCommandline(command: string[] | string) {
+2.   let line = '';
+3.   if (typeof command === 'string') {
+4.     line = command.trim();
+5.   } else {
+6.     line = command.join(' ').trim();
+7.   }
+8. 
+9.   // Do stuff with line: string
+10. }
+联合类型
+交叉类型
+概览
+- 33 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 34 ---
+在 JavaScript 中，  extend  是一种非常常见的模式，在这种模式中，你可以从两个对象中创建
+一个新对象，新对象会拥有着两个对象所有的功能。交叉类型可以让你安全的使用此种模式：
+1. function extend<T, U>(first: T, second: U): T & U {
+2.   const result = <T & U>{};
+3.   for (let id in first) {
+4.     (<T>result)[id] = first[id];
+5.   }
+6.   for (let id in second) {
+7.     if (!result.hasOwnProperty(id)) {
+8.       (<U>result)[id] = second[id];
+9.     }
+10.   }
+11. 
+12.   return result;
+13. }
+14. 
+15. const x = extend({ a: 'hello' }, { b: 42 });
+16. 
+17. // 现在 x 拥有了 a 属性与 b 属性
+18. const a = x.a;
+19. const b = x.b;
+JavaScript 并没有支持类似于元组的支持。开发者通常只能使用数组来表示元组，但是
+TypeScript 类型系统支持它。使用  :[typeofmember1, typeofmember2]  能够为元组添加类型
+注解，元组可以包含任意数量的成员，以下例子演示了元组：
+1. let nameNumber: [string, number];
+2. 
+3. // Ok
+4. nameNumber = ['Jenny', 221345];
+5. 
+6. // Error
+7. nameNumber = ['Jenny', '221345'];
+将其与 TypeScript 中的解构一起使用：
+1. let nameNumber: [string, number];
+2. nameNumber = ['Jenny', 322134];
+元组类型
+概览
+- 34 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 35 ---
+3. 
+4. const [name, num] = nameNumber;
+TypeScript 提供使用类型注解的便捷语法，你可以使用  type SomeName =
+someValidTypeAnnotation  的语法来创建别名：
+1. type StrOrNum = string | number;
+2. 
+3. // 使用
+4. let sample: StrOrNum;
+5. sample = 123;
+6. sample = '123';
+7. 
+8. // 会检查类型
+9. sample = true; // Error
+不同于  interface  你可以提供一个类型别名至任意的类型注解上（在联合类型和交叉类型中比较
+实用），这有一些能让你熟悉语法的实例：
+1. type Text = string | { text: string };
+2. type Coordinates = [number, number];
+3. type Callback = (data: string) => void;
+TIP
+如果你需要使用类型注解的层次结构，请使用接口。它能使用  implements  和  extends 
+为一个简单的对象类型（像例子中的  Coordinates ）使用类型别名，仅仅有一个语义化的作
+用。与此相似，当你想给一个联合类型和交叉类型使用一个语意化的名称时，一个类型别名将会
+是一个好的选择。
+现在你已经能够为你的大部分 JavaScript 代码添加类型注解，接着，让我们深入了解
+TypeScript 的类型系统吧。
+原文: https://jkchao.github.io/typescript-book-chinese/typings/overview.html
+类型别名
+最后
+概览
+- 35 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 36 ---
+假设：
+你知道 JavaScript；
+你知道在项目中使用常用的方式和构建工具（如：webpack）。
+有了以上假设，从 JavaScript 迁移，总的来说包括一下步骤：
+添加一个  tsconfig.json  文件；
+把文件扩展名从  .js  改成  .ts ，开始使用  any  来减少错误；
+开始在 TypeScript 中写代码，尽可能的减少  any  的使用；
+回到旧代码，开始添加类型注解，并修复已识别的错误；
+为你的第三方 JavaScript 代码定义环境声明。
+让我们进一步讨论其中的某几点。
+记住所有的 JavaScript 都是有效的 TypeScript。这意味着，如果让 TypeScript 编译器编译
+TypeScript 里的 JavaScript 代码，编译后的结果将会与原始的 JavaScript 代码一摸一样。
+也就是说，把文件扩展名从  .js  改成  .ts  将不会造成任何负面的影响。
+TypeScript 将会立即对你的代码进行类型检查，你的 JavaScript 代码可能并不像你想象中那样
+整齐了，因此你会收到一些报错信息。你可以使用  any  类型来解决它们中的大部分报错：
+1. let foo = 123;
+2. let bar = 'hey';
+3. 
+4. bar = foo; // Error: 不能把 number 类型赋值给 string 类型
+虽然这些错误是有效的（并且在大多数情景下，推断信息的错误提示将比代码库的不同部分的原始作者
+想象的更好），但是你的重点可能是逐步迁移至 TypeScript，在这里，你可以使用类型断言来减少
+此错误：
+1. let foo = 123;
+2. let bar = 'hey';
+3. 
+4. bar = foo as any; // ok
+从 JavaScript 迁移
+减少错误
+从 JavaScript 迁移
+- 36 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 37 ---
+在另一方面来说，你可能想用  any  用作类型注解：
+1. function foo() {
+2.   return 1;
+3. }
+4. 
+5. let bar = 'hey';
+6. bar = foo(); // Error: 不能把一个 number 类型赋值给 string 类型
+抑制这种错误：
+1. function foo(): any {
+2.   // 添加 'any'
+3.   return 1;
+4. }
+5. 
+6. let bar = 'hey';
+7. bar = foo();
+NOTICE
+使用此种方式来减少错误是危险的，但是它允许你将注意力转移到你的新 TypeScript 代码错误上。
+当你离开一段代码时，你可能会留下  // TODO  的注释。
+你可以将你的 JavaScript 的代码改成 TypeScript 代码，但是你不能让这个世界都使用
+TypeScript。这正是 TypeScript 环境声明支持的地方。我们建议你创建一个  vendor.d.ts 
+文件作为开始（ .d.ts  文件扩展名指定这个文件是一个声明文件），然后我们可以向文件里添加东
+西。或者，你也可以创建一个针对于特定库的声明文件，如为 jquery 创建  jquery.d.ts  文
+件。
+NOTICE
+几乎排名前 90% 的 JavaScript 库的声明文件存在于 DefinitelyTyped
+ 这样一个仓库里，在
+创建自己定义的声明文件之前，我们建议你先去仓库中寻找。虽然创建一个声明文件这种快速但是不好
+的方式是减小使用 TypeScript 初始阻力的重要步骤。
+考虑使用  jquery  的用例，你可以非常简单快速的为它创建一个定义：
+1. declare var $: any;
+第三方代码
+从 JavaScript 迁移
+- 37 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 38 ---
+有时候，你可能想给某些变量一些明确的定义（如： jquery），并且你会在类型声明空间中使用它。
+你可以通过  type  关键字快速的实现它：
+1. declare type JQuery = any;
+2. declare var $: JQuery;
+这提供给你一个更清晰的使用模式。
+再一次说明，一个高质量的  jquery.d.ts  已经在 DefinitelyTyped
+ 中存在。现在你已经知
+道当你使用 JavaScript 第三方模块时， 如何克服从 JavaScript 至 TypeScript 的阻力。在
+接下去的章节，我们将会讨论环境声明。
+与全局变量声明相似，你可以快速的定义一个全局模块，如：对于  jquery ，如果你想把它作为一
+个模块来使用（NPM
+），你可以自己通过以下方式实现：
+1. declare module 'jquery';
+然后你就可以在必要时导入它：
+1. import * as $ from 'jquery';
+TIP
+再一次说明，一个高质量的  jquery.d.ts  已经在 DefinitelyTyped
+ 中存在，但是可能在你
+的包里没有，所以，你现在有一个简单快速的方式来继续迁移。
+在 TypeScript 中，甚至可以允许你导入任何文件，例如  .css  文件（如果你使用的是
+webpack 样式加载器或 css 模块），你只要添加如下代码（放在  globals.d.ts ）：
+1. declare module '*.css';
+现在你可以使用  import * as foo from './some/file.css' 。
+与此相似，如果你想使用 html 模版（例如：angular），你可以：
+1. declare module '*.html';
+第三方的 NPM 模块
+额外的非 JavaScript 资源
+从 JavaScript 迁移
+- 38 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 39 ---
+原文: https://jkchao.github.io/typescript-book-chinese/typings/migrating.html
+从 JavaScript 迁移
+- 39 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 40 ---
+毫无疑问，DefinitelyTyped
+ 是 TypeScript 最大的优势之一，社区已经记录了 90% 的顶级
+JavaScript 库。
+这意味着，你可以非常高效的使用这些库，而无需在单独的窗口打开相应文档（以确保输入的正确
+性）。
+你可以通过  npm  来安装使用  @types ，如下例所示，你可以为  jquery  添加声明文件：
+1. npm install @types/jquery --save-dev
+ @types  支持全局和模块类型定义。
+默认情况下，TypeScript 会自动包含支持全局使用的任何定义。例如，对于 jquery，你应该能够
+在项目中开始全局使用  $ 。
+安装完之后，不需要特别的配置，你就可以像使用模块一样使用它：
+1. import * as $ from 'jquery';
+2. 
+3. // 现在你可以此模块中任意使用$了 :)
+可以看出，对于某些团队而言，拥有允许全局泄漏的定义可能是一个问题。因此，你可以通过配置
+ tsconfig.json  的  compilerOptions.types  选项，引入有意义的类型：
+1. {
+2.   "compilerOptions": {
+3.     "types" : [
+4.       "jquery"
+5.     ]
+@types
+使用 @types
+全局 @types
+模块 @types
+控制全局
+@types
+- 40 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 41 ---
+6.   }
+7. }
+如上例所示，通过配置  compilerOptions.types: [ "jquery" ]  后，只允许使用  jquery  的
+ @types  包，即使这个人安装了另一个声明文件，比如  npm install @types/node ，它的全局
+变量（例如  process ）也不会泄漏到你的代码中，直到你将它们添加到 tsconfig.json 类型选
+项。
+原文: https://jkchao.github.io/typescript-book-chinese/typings/types.html
+@types
+- 41 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 42 ---
+正如我们在为什么使用 TypeScript
+ 所说：
+TypeScript 的设计目标之一是让你从现有的 JavaScript 库中安全、轻松的使用 TypeScript，你可以
+通过 TypeScript 声明文件来做到这一点。
+环境声明允许你安全的使用现有的 JavaScript 库，并且能让你的 JavaScript，CoffeeScript
+或者其他需要编译成 JavaScript 的语言逐步迁移至 TypeScript。
+学习为第三方 JavaScript 库编写环境声明，是一种为 TypeScript 写注解比较好的实践方式。
+你可以通过  declare  关键字，来告诉 TypeScript，你正在试图表述一个其他地方已经存在的代
+码（如：写在 JavaScript、CoffeeScript 或者是像浏览器和 Node.js 运行环境里的代码）：
+1. foo = 123; // Error: 'foo' is not defined
+和：
+1. declare var foo: any;
+2. foo = 123; // allow
+你可以选择把这些声明放入  .ts  或者  .d.ts  里。在你实际的项目里，我们强烈建议你应该把
+声明放入  .d.ts  里（可以从一个命名为  globals.d.ts  或者  vendor.d.ts  文件开
+始）。
+如果一个文件有扩展名  .d.ts ，这意味着每个顶级的声明都必须以  declare  关键字作为前
+缀。这有利于向作者说明，在这里 TypeScript 将不会把它编译成任何代码，同时他需要确保这些在
+编译时存在。
+TIP
+环境声明就好像你与编译器之间的一个约定，如果这些没有在编译时存在，但是你却使用了它
+们，则事情将会在没有警告的情况下中断。
+环境声明就好像是一个文档。如果源文件更新了，你应该同步更进。所以，当你使用源文件在运
+行时的新行为时，如果没有人更新环境声明，编译器将会报错。
+环境声明
+声明文件
+变量
+环境声明
+- 42 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 43 ---
+举个例子，当你想告诉 TypeScript 编辑器关于  process  变量时，你可以这么做：
+1. declare let process: any;
+TIP
+你并不需要为  process  做这些，因为这已经存在于社区维护的  node.d.ts 
+这允许你使用  process ，并能成功通过 TypeScript 的编译：
+1. process.exit();
+我们推荐尽可能的使用接口，例如：
+1. interface Process {
+2.   exit(code?: number): void;
+3. }
+4. 
+5. declare let process: Process;
+因为这允许其他人扩充这些全局变量，并且会告诉 TypeScript 有关于这些的修改。例如：考虑到以
+下情况，我们添加一个  exitWithLogging  函数至  process ：
+1. interface Process {
+2.   exitWithLogging(code?: number): void;
+3. }
+4. 
+5. process.exitWithLogging = function() {
+6.   console.log('exiting');
+7.   process.exit.apply(process, arguments);
+8. };
+接下来，让我们更详细的了解接口。
+原文: https://jkchao.github.io/typescript-book-chinese/typings/ambient.html
+环境声明
+- 43 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 44 ---
+接口运行时的影响为 0。TypeScript 接口中有很多方式来声明变量的结构。
+以下两个是等效声明, 第一个使用内联注解，第二个使用接口：
+1. // Sample A
+2. declare const myPoint: { x: number; y: number };
+3. 
+4. // Sample B
+5. interface Point {
+6.   x: number;
+7.   y: number;
+8. }
+9. declare const myPoint: Point;
+示例 B 的好处在于，如果有人创建了一个基于  myPoint  的库来添加新成员, 他们可以轻松将此
+成员添加到  myPoint  的现有声明中:
+1. // Lib a.d.ts
+2. interface Point {
+3.   x: number,
+4.   y: number
+5. }
+6. declare const myPoint: Point
+7. 
+8. // Lib b.d.ts
+9. interface Point {
+10.   z: number
+11. }
+12. 
+13. // Your code
+14. let myPoint.z // Allowed!
+因为 TypeScript 接口是开放式的，这是 TypeScript 的一个重要原则，它允许你使用接口模仿
+JavaScript 的可扩展性。
+如果你希望在类中使用必须遵循的接口（类）或是别人定义的对象结构，可以使用  implements  关
+接口
+类可以实现接口
+接口
+- 44 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 45 ---
+键字来确保兼容性：
+1. interface Point {
+2.   x: number;
+3.   y: number;
+4. }
+5. 
+6. class MyPoint implements Point {
+7.   x: number;
+8.   y: number; // Same as Point
+9. }
+基本上在  implements（实现）  的存在下，该外部  Point  接口的任何更改都将导致代码库中的
+编译错误，因此可以轻松地使其保持同步：
+1. interface Point {
+2.   x: number;
+3.   y: number;
+4.   z: number; // New member
+5. }
+6. 
+7. class MyPoint implements Point {
+8.   // ERROR : missing member `z`
+9.   x: number;
+10.   y: number;
+11. }
+注意， implements  限制了类实例的结构，即:
+1. let foo: Point = new MyPoint();
+像  foo: Point = MyPoint  这样并不是一回事。
+接口旨在声明 JavaScript 中可能存在的任意结构。
+思考以下例子，其中可以使用  new  调用某些内容：
+注意
+并非每个接口都是很容易实现的
+接口
+- 45 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 46 ---
+1. interface Crazy {
+2.   new (): {
+3.     hello: number;
+4.   };
+5. }
+你可能会有这样的代码：
+1. class CrazyClass implements Crazy {
+2.   constructor() {
+3.     return { hello: 123 };
+4.   }
+5. }
+6. 
+7. // Because
+8. const crazy = new CrazyClass(); // crazy would be { hello:123 }
+你可以使用接口声明所有的 JavaScript，甚至可以安全地从 TypeScript 中使用它们。但并不意
+味着你可以使用 TypeScript 类来实现它们。
+原文: https://jkchao.github.io/typescript-book-chinese/typings/interfaces.html
+接口
+- 46 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 47 ---
+枚举是组织收集有关联变量的一种方式，许多程序语言（如：c/c#/Java）都有枚举数据类型。下面是
+定义一个 TypeScript 枚举类型的方式：
+1. enum CardSuit {
+2.   Clubs,
+3.   Diamonds,
+4.   Hearts,
+5.   Spades
+6. }
+7. 
+8. // 简单的使用枚举类型
+9. let Card = CardSuit.Clubs;
+10. 
+11. // 类型安全
+12. Card = 'not a member of card suit'; // Error: string 不能赋值给 `CardSuit` 类型
+这些枚举类型的值都是数字类型，因此它们被称为数字类型枚举。
+数字类型枚举，允许我们将数字类型或者其他任何与数字类型兼容的类型赋值给枚举类型的实例。
+1. enum Color {
+2.   Red,
+3.   Green,
+4.   Blue
+5. }
+6. 
+7. let col = Color.Red;
+8. col = 0; // 有效的，这也是 Color.Red
+在我们继续深入枚举类型之前，先让我们看看它编译的 JavaScript，以下是一个简单的
+TypeScript 枚举类型：
+1. enum Tristate {
+枚举
+数字类型枚举与数字类型
+数字类型枚举与字符串类型
+枚举
+- 47 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 48 ---
+2.   False,
+3.   True,
+4.   Unknow
+5. }
+编译成 JavaScript：
+1. var Tristate;
+2. (function(Tristate) {
+3.   Tristate[(Tristate['False'] = 0)] = 'False';
+4.   Tristate[(Tristate['True'] = 1)] = 'True';
+5.   Tristate[(Tristate['Unknown'] = 2)] = 'Unknown';
+6. })(Tristate || (Tristate = {}));
+先让我们聚焦于代码高亮的一行，其中  Tristate['False'] = 0  用于自我解释，例如将
+ Tristate  对象里的  False  成员值设置为  0 。注意，JavaScript 赋值运算符返回的值
+是被赋予的值（在此例子中是  0 ），因此下一次 JavaScript 运行时执行的代码是
+ Tristate[0] = 'False' 。意味着你可以使用  Tristate  变量来把字符串枚举类型改造成一个
+数字或者是数字类型的枚举类型，如下所示：
+1. enum Tristate {
+2.   False,
+3.   True,
+4.   Unkown
+5. }
+6. 
+7. console.log(Tristate[0]); // 'False'
+8. console.log(Tristate['False']); // 0
+9. console.log(Tristate[Tristate.False]); // 'False' because `Tristate.False == 0`
+默认情况下，第一个枚举值是  0 ，然后每个后续值依次递增 1：
+1. enum Color {
+2.   Red, // 0
+3.   Green, // 1
+4.   Blue // 2
+5. }
+改变与数字枚举关联的数字
+枚举
+- 48 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 49 ---
+但是，你可以通过特定的赋值来改变给任何枚举成员关联的数字，如下例子，我们从 3 开始依次递
+增：
+1. enum Color {
+2.   DarkRed = 3, // 3
+3.   DarkGreen, // 4
+4.   DarkBlue // 5
+5. }
+TIP
+我通常用  = 1  初始化，因为在枚举类型值里，它能让你做一个安全可靠的检查。
+枚举的一个很好用途是使用枚举作为标志。这些标志允许你检查一组条件中的某个条件是否为真。考虑
+如下代码例子，我们有一组关于 animals 的属性：
+1. enum AnimalFlags {
+2.   None        = 0,
+3.   HasClaws    = 1 << 0,
+4.   CanFly      = 1 << 1,
+5.   EatsFish    = 1 << 2,
+6.   Endangered  = 1 << 3
+7. }
+在这里，我们使用了左移的位运算符，将数字  1  的二进制向左移动位置得到数字
+ 0001 、 0010 、 0100  和  1000 （换成十进制结果是：1, 2, 4, 8）。当你在使用这边
+标记的时候，这些位运算符  |  (或)、 &  （和）、 ~  （非）将会是你最好的朋友：
+1. enum AnimalFlags {
+2.   None        = 0,
+3.   HasClaws    = 1 << 0,
+4.   CanFly      = 1 << 1
+5. }
+6. 
+7. interface Animal {
+8.   flags: AnimalFlags;
+9.   [key: string]: any;
+10. }
+11. 
+使用数字类型作为标志
+枚举
+- 49 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 50 ---
+12. function printAnimalAbilities(animal: Animal) {
+13.   var animalFlags = animal.flags;
+14.   if (animalFlags & AnimalFlags.HasClaws) {
+15.     console.log('animal has claws');
+16.   }
+17.   if (animalFlags & AnimalFlags.CanFly) {
+18.     console.log('animal can fly');
+19.   }
+20.   if (animalFlags == AnimalFlags.None) {
+21.     console.log('nothing');
+22.   }
+23. }
+24. 
+25. var animal = { flags: AnimalFlags.None };
+26. printAnimalAbilities(animal); // nothing
+27. animal.flags |= AnimalFlags.HasClaws;
+28. printAnimalAbilities(animal); // animal has claws
+29. animal.flags &= ~AnimalFlags.HasClaws;
+30. printAnimalAbilities(animal); // nothing
+31. animal.flags |= AnimalFlags.HasClaws | AnimalFlags.CanFly;
+32. printAnimalAbilities(animal); // animal has claws, animal can fly
+在这里：
+我们使用  |=  来添加一个标志；
+组合使用  &=  和  ~  来清理一个标志；
+ |  来合并标志。
+TIP
+你可以组合标志，用来在枚举类型中定义方便快捷的方式，如下
+ EndangeredFlyingClawedFishEating ：
+1. enum AnimalFlags {
+2.   None        = 0,
+3.   HasClaws    = 1 << 0,
+4.   CanFly      = 1 << 1,
+5. 
+6.   EndangeredFlyingClawedFishEating = HasClaws | CanFly | EatsFish | Endangered
+7. }
+字符串枚举
+枚举
+- 50 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 51 ---
+在上文中，我们只看到了数字类型的枚举，实际上，枚举类型的值，也可以是字符串类型。
+1. export enum EvidenceTypeEnum {
+2.   UNKNOWN = '',
+3.   PASSPORT_VISA = 'passport_visa',
+4.   PASSPORT = 'passport',
+5.   SIGHTED_STUDENT_CARD = 'sighted_tertiary_edu_id',
+6.   SIGHTED_KEYPASS_CARD = 'sighted_keypass_card',
+7.   SIGHTED_PROOF_OF_AGE_CARD = 'sighted_proof_of_age_card'
+8. }
+这些可以更容易被处理和调试，因为它们提供有意义/可调试的字符串。
+你可以使用它们用于简单的字符串比较：
+1. // Where `someStringFromBackend` will be '' | 'passport_visa' | 'passport' ... 
+etc.
+2. const value = someStringFromBackend as EvidenceTypeEnum;
+3. 
+4. // Sample use in code
+5. if (value === EvidenceTypeEnum.PASSPORT) {
+6.   console.log('You provided a passport');
+7.   console.log(value); // `passport`
+8. }
+1. enum Tristate {
+2.   False,
+3.   True,
+4.   Unknown
+5. }
+6. 
+7. const lie = Tristate.False;
+ const lie = Tristate.False  编译成 JavaScript  let lie = Tristate.False  (是的，
+编译后与编译前，几乎相同)。这意味着在运行执行时，它将会查找变量  Tristate  和
+ Tristate.False 。在此处获得性能提升的一个小技巧是使用常量枚举：
+1. const enum Tristate {
+常量枚举
+枚举
+- 51 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 52 ---
+2.   False,
+3.   True,
+4.   Unknown
+5. }
+6. 
+7. const lie = Tristate.False;
+将会被编译成：
+1. let lie = 0;
+编译器将会：
+内联枚举的任何用法（ 0  而不是  Tristate.False ）；
+不会为枚举类型编译成任何 JavaScript（在这个例子中，运行时没有  Tristate  变量），
+因为它使用内联语法。
+使用内联语法对性能有明显的提升作用。运行时没有  Tristate  变量的事实，是因为编译器帮助你
+把一些在运行时没有用到的不编译成 JavaScript。然而，你可能想让编译器仍然把枚举类型编译成
+JavaScript，用于如上例子中从字符串到数字，或者是从数字到字符串的查找。在这种情景下，你可
+以使用编译选项  —preserveConstEnums ，它会编译出  var Tristate  的定义，因此你在运行
+时，手动使用  Tristate['False']  和  Tristate[0] 。并且这不会以任何方式影响内联。
+你可以使用  enum  +  namespace  的声明的方式向枚举类型添加静态方法。如下例所示，我们将
+静态成员  isBusinessDay  添加到枚举上：
+1. enum Weekday {
+2.   Monday,
+3.   Tuseday,
+4.   Wednesday,
+5.   Thursday,
+6.   Friday,
+7.   Saturday,
+8.   Sunday
+9. }
+10. 
+11. namespace Weekday {
+常量枚举 preserveConstEnums 选项
+有静态方法的枚举
+枚举
+- 52 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 53 ---
+12.   export function isBusinessDay(day: Weekday) {
+13.     switch (day) {
+14.       case Weekday.Saturday:
+15.       case Weekday.Sunday:
+16.         return false;
+17.       default:
+18.         return true;
+19.     }
+20.   }
+21. }
+22. 
+23. const mon = Weekday.Monday;
+24. const sun = Weekday.Sunday;
+25. 
+26. console.log(Weekday.isBusinessDay(mon)); // true
+27. console.log(Weekday.isBusinessDay(sun));
+TIP
+你只有在不使用模块时，开放式的枚举才有意义，你应该使用模块，因此这部分在文章最后。
+让我们再一次看看编译成 JavaScript 的枚举是什么样子：
+1. var Tristate;
+2. (function(Tristate) {
+3.   Tristate[(Tristate['False'] = 0)] = 'False';
+4.   Tristate[(Tristate['True'] = 1)] = 'True';
+5.   Tristate[(Tristate['Unknown'] = 2)] = 'Unknown';
+6. })(Tristate || (Tristate = {}));
+我们已经解释了  Tristate[Tristate['False'] = 0] = 'False'  部分，现在我们来看看包裹函
+数  (function (Tristate) { / code here /})(Tristate || (Tristate = {})) ，特别是
+ (Tristate || (Tristate = {}))  部分。这捕获了一个局部变量  TriState ，它将指向已经定
+义的  TriState  或者是使用一个新的控对象初始化它。
+这意味着你可以跨多个文件拆分（和扩展）枚举定义，如下所示，你可以把  Color  的定义拆分至
+两个块中：
+1. enum Color {
+2.   Red,
+开放式枚举
+枚举
+- 53 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 54 ---
+3.   Green,
+4.   Blue
+5. }
+6. 
+7. enum Color {
+8.   DarkRed = 3,
+9.   DarkGreen,
+10.   DarkBlue
+11. }
+TIP
+你应该在枚举的延续块中，初始化第一个成员，以便生成的代码不是先前定义的枚举类型值。
+TypeScript 将会发出警告，如果你定义初始值（错误信息： In an enum with multiple
+declarations, only one declaration can omit an initializer for its first enum
+element. ）。
+原文: https://jkchao.github.io/typescript-book-chinese/typings/enums.html
+枚举
+- 54 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 55 ---
+当你安装  TypeScript  时，会顺带安装  lib.d.ts  等声明文件。此文件包含了 JavaScript
+运行时以及 DOM 中存在各种常见的环境声明。
+它自动包含在 TypeScript 项目的编译上下文中；
+它能让你快速开始书写经过类型检查的 JavaScript 代码。
+你可以通过指定  —noLib  的编译器命令行标志（或者在  tsconfig.json  中指定选项
+ noLib : true）从上下文中排除此文件。
+看如下例子：
+1. const foo = 123;
+2. const bar = foo.toString();
+这段代码的类型检查正常，因为  lib.d.ts  为所有 JavaScript 对象定义了  toString  方
+法。
+如果你在  noLib  选项下，使用相同的代码，这将会出现类型检查错误：
+1. const foo = 123;
+2. const bar = foo.toString(); // Error: 属性 toString 不存在类型 number 上
+现在你已经理解了  lib.d.ts  的重要性，至于它的内容是怎么样的，我们接下来解释。
+ lib.d.ts  的内容主要是一些变量声明（如： window 、 document 、 math ）和一些类似的
+接口声明（如： Window 、 Document 、 Math ）。
+最简单的方式寻找代码的类型（如： Math.floor ）是使用 IDE 的  F12 （跳转到定义）。
+让我们来看一个示例变量的声明，如  window  被定义为：
+1. declare var window: Window;
+这只是一个简单的  declare var ，后面跟一个变量名称（ window ）和一个用来类型注解的接口
+（ Window  接口），这些变量通常指向一些全局的接口，例如，以下是  Window  接口的一小部
+lib.d.ts
+使用例子
+观察 lib.d.ts 的内部
+lib.d.ts
+- 55 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 56 ---
+分：
+1. interface Window extends EventTarget, WindowTimers, WindowSessionStorage, 
+WindowLocalStorage, WindowConsole, GlobalEventHandlers, IDBEnvironment, 
+WindowBase64 {
+2.   animationStartTime: number;
+3.   applicationCache: ApplicationCache;
+4.   clientInformation: Navigator;
+5.   closed: boolean;
+6.   crypto: Crypto;
+7.   // so on and so forth...
+8. }
+你可以在这些接口里看到大量的类型信息，当你不使用 TypeScript 时，你需要将它们保存在你的大
+脑里。现在你可以使用  intellisense  之类东西，从而可以减少对知识的记忆。
+使用这些全局变量是有利的。在不更改  lib.d.ts  的情景下，它可以让你添加额外的属性。接下
+来，我们将介绍这些概念。
+在 TypeScript 中，接口是开放式的，这意味着当你想使用不存在的成员时，你仅仅是需要添加它们
+至  lib.d.ts  中的接口声明中，TypeScript 将会自动接收它。注意，你需要在全局模块中做这
+些修改，以使这些接口与  lib.d.ts  相关联。我们推荐你创建一个称为  globals.d.ts  的特殊
+文件。
+这里有我们需要添加至  Window ， Math ， Date  的一些例子：
+仅仅是添加至  Window  接口：
+1. interface Window {
+2.   helloWorld(): void;
+3. }
+这将允许你以一种类型安全的形式使用它：
+1. // Add it at runtime
+2. window.helloWorld = () => console.log('hello world');
+3. 
+修改原始类型
+Window
+lib.d.ts
+- 56 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 57 ---
+4. // Call it
+5. window.helloWorld();
+6. 
+7. // 滥用会导致错误
+8. window.helloWorld('gracius'); // Error: 提供的参数与目标不匹配
+全局变量  Math  在  lib.d.ts  中被定义为：
+1. /** An intrinsic object that provides basic mathematics functionality and 
+constants. */
+2. declare var Math: Math;
+即变量  Math  是  Math  的一个实例， Math  接口被定义为
+1. interface Math {
+2.   E: number;
+3.   LN10: number;
+4.   // others ...
+5. }
+当你想在  Math  全局变量上添加你需要的属性时，你仅需要把它添加至  Math  的全局接口上即
+可，例如：在 seedrandom Project 
+项目里，它添加了  seedrandom  函数至全局的  Math 
+对象上，这可以很容易的被声明：
+1. interface Math {
+2.   seedrandom(seed?: string): void;
+3. }
+你可以像下面一样使用它：
+1. Math.seedrandom();
+2. 
+3. Math.seedrandom('Any string you want');
+如果你在  lib.d.ts  中寻找  Date  定义的声明，你将会找到：
+1. declare var Date: DateConstructor;
+Math
+Date
+lib.d.ts
+- 57 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 58 ---
+接口  DateConstructor  与你在上文中看到的  Math  和  Window  接口一样，因为它涵盖了
+可以使用的  Date  全局变量的成员（如： Date.now() ）。除此之外，它还包含了可以让你创建
+ Date  实例的构造函数签名（如： new Date() ）。 DateConstructor  接口的一部分代码如
+下所示：
+1. interface DateConstructor {
+2.   new (): Date;
+3.   // 一些其他的构造函数签名
+4. 
+5.   now(): number;
+6. 
+7.   // 其他成员函数
+8. }
+在 dayjs
+ 里，它在  Date  的全局变量以及  Date  实例上同时添加了成员，因此这个库的
+TypeScript 定义看起来像如下所示（社区已经定义
+好了）：
+1. // DateJS 公开的静态方法
+2. interface DateConstructor {
+3.   /** Gets a date that is set to the current date. The time is set to the start 
+of the day (00:00 or 12:00 AM) */
+4.   today(): Date;
+5.   // ... so on and so forth
+6. }
+7. 
+8. // DateJS 公开的实例方法
+9. interface Date {
+10.   /** Adds the specified number of milliseconds to this instance. */
+11.   addMilliseconds(milliseconds: number): Date;
+12.   // ... so on and so forth
+13. }
+这允许你在类型安全的情况下做：
+1. const today = Date.today();
+2. const todayAfter1second = today.addMilliseconds(1000);
+如果你在  lib.d.ts  里寻找  string ，你将会找到与  Date  相类似的内容（全局变量
+string
+lib.d.ts
+- 58 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 59 ---
+ String ， StringConstructor  接口， String  接口）。但是值得注意的是， String  接
+口也会影响字符串字面量，如下所示：
+1. interface String {
+2.   endsWith(suffix: string): boolean;
+3. }
+4. 
+5. String.prototype.endsWith = function(suffix: string): boolean {
+6.   const str: string = this;
+7.   return str && str.indexOf(suffix, str.length - suffix.length) !== -1;
+8. };
+9. 
+10. console.log('foo bar'.endsWith('bas')); // false
+11. console.log('foo bas'.endsWith('bas')); // true
+基于可维护性，我们推荐创建一个  global.d.ts  文件。然而，如果你愿意，你可以通过使用
+ declare global { / global namespace / } ，从文件模块中进入全局命名空间：
+1. // 确保是模块
+2. export {};
+3. 
+4. declare global {
+5.   interface String {
+6.     endsWith(suffix: string): boolean;
+7.   }
+8. }
+9. 
+10. String.prototype.endsWith = function(suffix: string): boolean {
+11.   const str: string = this;
+12.   return str && str.indexOf(suffix, str.length - suffix.length) !== -1;
+13. };
+14. 
+15. console.log('foo bar'.endsWith('bas')); // false
+16. console.log('foo bas'.endsWith('bas')); // true
+如上文说提及，使用  —noLib  编译选项会导致 TypeScript 排除自动包含的  lib.d.ts  文
+终极 string
+使用你自己定义的 lib.d.ts
+lib.d.ts
+- 59 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 60 ---
+件。为什么这个功能是有效的，我例举了一些常见原因：
+运行的 JavaScript 环境与基于标准浏览器运行时环境有很大不同；
+您希望在代码里严格的控制全局变量，例如： lib.d.ts  定义了  item  作为全局变量，你并
+不希望它泄漏到你的代码里。
+一旦你排除了默认的  lib.d.ts  文件，你可以在编译上下文中包含一个类似命名的文件，
+TypeScript 将选择它进行类型检查。
+TIP
+小心使用  —noLib  选项，一旦你使用使用了它，当你把你的项目分享给其他人时，它们也将被迫使
+用  —noLib  选项，更糟糕的是，如果将这些代码放入你的项目中，你可能需要将它放入你的基于
+ lib  代码中。
+设置编译目标为  es6  时，能导致  lib.d.ts  包含更多的像 Promise 的现代（es6）内容的
+环境声明。编译器目标的这种神奇作用，改变了代码的环境，这对某些人来说是理想的，但是这对另外
+一些人来说造成了困扰，因为它将编译出的代码与环境混为一谈。
+当你想对环境进行更细粒的控制时，你应该使用我们接下来将要讨论的  —lib  选项。
+一些时候，你想要解耦编译目标（生成的 JavaScript 版本）和环境库支持之间的关系。例如对于
+Promise，你的编译目标是  —target es5 ，但是你仍然想使用它，这个时候，你可以使用  lib 
+对它进行控制。
+TIP
+使用  —lib  选项可以将任何  lib  与  —target  解偶。
+你可以通过命令行或者在  tsconfig.json  中提供此选项（推荐）：
+1. tsc --target es5 --lib dom,es6
+1. "compilerOptions": {
+编译目标对 lib.d.ts 的影响
+—lib 选项
+命令行
+config.json
+lib.d.ts
+- 60 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 61 ---
+2.     "lib": ["dom", "es6"]
+3. }
+ lib  分类如下：
+JavaScript 功能
+es5
+es6
+es2015
+es7
+es2016
+es2017
+esnext
+运行环境
+dom
+dom.iterable
+webworker
+scripthost
+ESNext 功能选项
+es2015.core
+es2015.collection
+es2015.generator
+es2015.iterable
+es2015.promise
+es2015.proxy
+es2015.reflect
+es2015.symbol
+es2015.symbol.wellknown
+es2016.array.include
+es2017.object
+es2017.sharedmemory
+esnext.asynciterable
+NOTE
+ —lib  选项提供非常精细的控制，因此你最有可能从运行环境与 JavaScript 功能类别中分别选
+择一项，如果你没有指定  —lib ，则会导入默认库：
+ —target  选项为 es5 时，会导入 es5, dom, scripthost。
+ —target  选项为 es6 时，会导入 es6, dom, dom.iterable, scripthost。
+lib.d.ts
+- 61 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 62 ---
+我个人的推荐：
+1. "compilerOptions": {
+2.   "target": "es5",
+3.   "lib": ["es6", "dom"]
+4. }
+包括使用 Symbol 的 ES5 使用例子：
+1. "compilerOptions": {
+2.   "target": "es5",
+3.   "lib": ["es5", "dom", "scripthost", "es2015.symbol"]
+4. }
+关于此主题的一个视频
+要使用一些新功能如  Map 、 Set 、 Promise （随着时间推移会变化），你可以使用现代的
+ lib  选项，并且需要安装  core-js ：
+1. npm install core-js --save-dev
+接着，在你的项目里导入它：
+1. import 'core-js';
+原文: https://jkchao.github.io/typescript-book-chinese/typings/lib.html
+在旧的 JavaScript 引擎时使用 Polyfill
+lib.d.ts
+- 62 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 63 ---
+函数类型在 TypeScript 类型系统中扮演着非常重要的角色，它们是可组合系统的核心构建块。
+你可以注解函数参数，就像你可以注解其他变量一样:
+1. // variable annotation
+2. let sampleVariable: { bar: number };
+3. 
+4. // function parameter annotation
+5. function foo(sampleParameter: { bar: number }) {}
+这里我们使用了内联类型注解，除此之外，你还可以使用接口等其他方式。
+你可以在函数参数列表之后使用与变量相同的样式来注解返回类型，如例子中  ：Foo ：
+1. interface Foo {
+2.   foo: string;
+3. }
+4. 
+5. // Return type annotated as `: Foo`
+6. function foo(sample: Foo): Foo {
+7.   return sample;
+8. }
+我们在这里使用了一个  interface ，但你可以自由地使用其他注解方式，例如内联注解。
+通常，你不需要注解函数的返回类型，因为它可以由编译器推断：
+1. interface Foo {
+2.   foo: string;
+3. }
+4. 
+5. function foo(sample: Foo) {
+6.   return sample; // inferred return type 'Foo'
+7. }
+函数
+参数注解
+返回类型注解
+函数
+- 63 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 64 ---
+但是，添加这些注解以帮助解决错误提示通常是一个好主意，例如：
+1. function foo() {
+2.   return { fou: 'John Doe' }; // You might not find this misspelling of `foo` 
+till it's too late
+3. }
+4. 
+5. sendAsJSON(foo());
+如果你不打算从函数返回任何内容，则可以将其标注为： void  。你通常可以删除  void ，
+TypeScript 能推导出来：
+你可以将参数标记为可选:
+1. function foo(bar: number, bas?: string): void {
+2.   // ..
+3. }
+4. 
+5. foo(123);
+6. foo(123, 'hello');
+或者，当调用者没有提供该参数时，你可以提供一个默认值（在参数声明后使用  = someValue 
+）：
+1. function foo(bar: number, bas: string = 'hello') {
+2.   console.log(bar, bas);
+3. }
+4. 
+5. foo(123); // 123, hello
+6. foo(123, 'world'); // 123, world
+TypeScript 允许你声明函数重载。这对于文档 + 类型安全来说很实用。请思考以下代码：
+1. function padding(a: number, b?: number, c?: number, d?: any) {
+2.   if (b === undefined && c === undefined && d === undefined) {
+3.     b = c = d = a;
+4.   } else if (c === undefined && d === undefined) {
+可选参数
+重载
+函数
+- 64 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 65 ---
+5.     c = a;
+6.     d = b;
+7.   }
+8.   return {
+9.     top: a,
+10.     right: b,
+11.     bottom: c,
+12.     left: d
+13.   };
+14. }
+如果仔细查看代码，就会发现 a，b，c，d 的值会根据传入的参数数量而变化。此函数也只需要 1
+个，2 个或 4 个参数。可以使用函数重载来强制和记录这些约束。你只需多次声明函数头。最后一个
+函数头是在函数体内实际处于活动状态但不可用于外部。
+如下所示:
+1. // 重载
+2. function padding(all: number);
+3. function padding(topAndBottom: number, leftAndRight: number);
+4. function padding(top: number, right: number, bottom: number, left: number);
+5. // Actual implementation that is a true representation of all the cases the 
+function body needs to handle
+6. function padding(a: number, b?: number, c?: number, d?: number) {
+7.   if (b === undefined && c === undefined && d === undefined) {
+8.     b = c = d = a;
+9.   } else if (c === undefined && d === undefined) {
+10.     c = a;
+11.     d = b;
+12.   }
+13.   return {
+14.     top: a,
+15.     right: b,
+16.     bottom: c,
+17.     left: d
+18.   };
+19. }
+这里前三个函数头可有效调用  padding :
+1. padding(1); // Okay: all
+2. padding(1, 1); // Okay: topAndBottom, leftAndRight
+函数
+- 65 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 66 ---
+3. padding(1, 1, 1, 1); // Okay: top, right, bottom, left
+4. 
+5. padding(1, 1, 1); // Error: Not a part of the available overloads
+当然，最终声明（从函数内部看到的真正声明）与所有重载兼容是很重要的。这是因为这是函数体需要
+考虑的函数调用的真实性质。
+TIP
+TypeScript 中的函数重载没有任何运行时开销。它只允许你记录希望调用函数的方式，并且编译器
+会检查其余代码。
+原文: https://jkchao.github.io/typescript-book-chinese/typings/functions.html
+函数
+- 66 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 67 ---
+你可以使用类型别名或者接口来表示一个可被调用的类型注解：
+1. interface ReturnString {
+2.   (): string;
+3. }
+它可以表示一个返回值为  string  的函数：
+1. declare const foo: ReturnString;
+2. 
+3. const bar = foo(); // bar 被推断为一个字符串。
+当然，像这样一个可被调用的类型注解，你也可以根据实际来传递任何参数、可选参数以及 rest 参
+数，这有一个稍微复杂的例子：
+1. interface Complex {
+2.   (foo: string, bar?: number, ...others: boolean[]): number;
+3. }
+一个接口可提供多种调用签名，用以特殊的函数重载：
+1. interface Overloaded {
+2.   (foo: string): string;
+3.   (foo: number): number;
+4. }
+5. 
+6. // 实现接口的一个例子：
+7. function stringOrNumber(foo: number): number;
+8. function stringOrNumber(foo: string): string;
+9. function stringOrNumber(foo: any): any {
+10.   if (typeof foo === 'number') {
+11.     return foo * foo;
+12.   } else if (typeof foo === 'string') {
+13.     return `hello ${foo}`;
+14.   }
+可调用的
+一个实际的例子
+可调用的
+- 67 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 68 ---
+15. }
+16. 
+17. const overloaded: Overloaded = stringOrNumber;
+18. 
+19. // 使用
+20. const str = overloaded(''); // str 被推断为 'string'
+21. const num = overloaded(123); // num 被推断为 'number'
+这也可以用于内联注解中：
+1. let overloaded: {
+2.   (foo: string): string;
+3.   (foo: number): number;
+4. };
+为了使指定可调用的类型签名更容易，TypeScript 也允许你使用简单的箭头函数类型注解。例如，
+在一个以 number 类型为参数，以 string 类型为返回值的函数中，你可以这么写：
+1. const simple: (foo: number) => string = foo => foo.toString();
+TIP
+它仅仅只能做为简单的箭头函数，你无法使用重载。如果想使用它，你必须使用完整的  {
+(someArgs): someReturn }  的语法
+可实例化仅仅是可调用的一种特殊情况，它使用  new  做为前缀。它意味着你需用使用  new  关
+键字去调用它：
+1. interface CallMeWithNewToGetString {
+2.   new (): string;
+3. }
+4. 
+5. // 使用
+6. declare const Foo: CallMeWithNewToGetString;
+7. const bar = new Foo(); // bar 被推断为 string 类型
+箭头函数
+可实例化
+可调用的
+- 68 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 69 ---
+原文: https://jkchao.github.io/typescript-book-chinese/typings/callable.html
+可调用的
+- 69 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 70 ---
+TypeScript 允许你覆盖它的推断，并且能以你任何你想要的方式分析它，这种机制被称为「类型断
+言」。TypeScript 类型断言用来告诉编译器你比它更了解这个类型，并且它不应该再发出错误。
+类型断言的一个常见用例是当你从 JavaScript 迁移到 TypeScript 时：
+1. const foo = {};
+2. foo.bar = 123; // Error: 'bar' 属性不存在于 ‘{}’
+3. foo.bas = 'hello'; // Error: 'bas' 属性不存在于 '{}'
+这里的代码发出了错误警告，因为  foo  的类型推断为  {} ，即是具有零属性的对象。因此，你
+不能在它的属性上添加  bar  或  bas ，你可以通过类型断言来避免此问题：
+1. interface Foo {
+2.   bar: number;
+3.   bas: string;
+4. }
+5. 
+6. const foo = {} as Foo;
+7. foo.bar = 123;
+8. foo.bas = 'hello';
+最初的断言语法如下所示：
+1. let foo: any;
+2. let bar = <string>foo; // 现在 bar 的类型是 'string'
+然而，当你在 JSX 中使用  <foo>  的断言语法时，这会与 JSX 的语法存在歧义：
+1. let foo = <string>bar;</string>;
+因此，为了一致性，我们建议你使用  as foo  的语法来为类型断言。
+它之所以不被称为「类型转换」，是因为转换通常意味着某种运行时的支持。但是，类型断言纯粹是一
+类型断言
+as foo 与 <foo>
+类型断言与类型转换
+类型断言
+- 70 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 71 ---
+个编译时语法，同时，它也是一种为编译器提供关于如何分析代码的方法。
+在很多情景下，断言能让你更容易的从遗留项目中迁移（甚至将其他代码粘贴复制到你的项目中），然
+而，你应该小心谨慎的使用断言。让我们用最初的代码做为示例，如果你没有按约定添加属性，
+TypeScript 编译器并不会对此发出错误警告：
+1. interface Foo {
+2.   bar: number;
+3.   bas: string;
+4. }
+5. 
+6. const foo = {} as Foo;
+7. 
+8. // ahhh, 忘记了什么？
+另外一个常见的想法是使用类型断言来提供代码的提示：
+1. interface Foo {
+2.   bar: number;
+3.   bas: string;
+4. }
+5. 
+6. const foo = <Foo>{
+7.   // 编译器将会提供关于 Foo 属性的代码提示
+8.   // 但是开发人员也很容易忘记添加所有的属性
+9.   // 同样，如果 Foo 被重构，这段代码也可能被破坏（例如，一个新的属性被添加）。
+10. };
+这也会存在一个同样的问题，如果你忘记了某个属性，编译器同样也不会发出错误警告。使用一种更好
+的方式：
+1. interface Foo {
+2.   bar: number;
+3.   bas: string;
+4. }
+5. 
+6. const foo: Foo = {
+7.   // 编译器将会提供 Foo 属性的代码提示
+8. };
+类型断言被认为是有害的
+类型断言
+- 71 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 72 ---
+在某些情景下，你可能需要创建一个临时的变量，但至少，你将不会使用一个承若（可能是假的），而
+是依靠类型推断来检查你的代码。
+类型断言，尽管我们已经证明了它并不是那么安全，但是它也不是完全不安全的。如下一个非常实用的
+例子所示，当使用者了解传入参数更具体的类型时，类型断言能按预期工作：
+1. function handler(event: Event) {
+2.   const mouseEvent = event as MouseEvent;
+3. }
+然而，如下例子中的代码将会报错，尽管使用者已经使用了类型断言：
+1. function handler(event: Event) {
+2.   const element = event as HTMLElement; // Error: 'Event' 和 'HTMLElement' 中的
+任何一个都不能赋值给另外一个
+3. }
+如果你仍然想使用那个类型，你可以使用双重断言。首先断言成兼容所有类型的  any ，编译器将不
+会报错：
+1. function handler(event: Event) {
+2.   const element = (event as any) as HTMLElement; // ok
+3. }
+当  S  类型是  T  类型的子集，或者  T  类型是  S  类型的子集时， S  能被成功断言
+成  S 。这是为了在进行类型断言时提供额外的安全性，完全毫无根据的断言时危险的，如果你想这
+么做，你可以使用  any 。
+原文: https://jkchao.github.io/typescript-book-chinese/typings/typeAssertion.html
+双重断言
+TypeScript 是怎么确定单个断言是否足够
+类型断言
+- 72 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 73 ---
+为了能让检查对象字面量类型更容易，TypeScript 提供 「Freshness
+」 的概念（它也被称为更
+严格的对象字面量检查）用来确保对象字面量在结构上类型兼容。
+结构类型非常方便。考虑如下例子代码，它可以让你非常便利的从 JavaScript 迁移至
+TypeScript，并且会提供类型安全：
+1. function logName(something: { name: string }) {
+2.   console.log(something.name);
+3. }
+4. 
+5. const person = { name: 'matt', job: 'being awesome' };
+6. const animal = { name: 'cow', diet: 'vegan, but has milk of own specie' };
+7. const randow = { note: `I don't have a name property` };
+8. 
+9. logName(person); // ok
+10. logName(animal); // ok
+11. logName(randow); // Error: 没有 `name` 属性
+但是，结构类型有一个缺点，它能误导你认为某些东西接收的数据比它实际的多。如下例，
+TypeScript 发出错误警告：
+1. function logName(something: { name: string }) {
+2.   console.log(something.name);
+3. }
+4. 
+5. logName({ name: 'matt' }); // ok
+6. logName({ name: 'matt', job: 'being awesome' }); // Error: 对象字面量只能指定已知属
+性，`job` 属性在这里并不存在。
+WARNING
+请注意，这种错误提示，只会发生在对象字面量上。
+如果没有这种错误提示，我们可能会去寻找函数的调用  logName({ name: 'matt', job: 'being
+awesome' }) ，继而会认为  logName  可能会使用  job  属性做一些事情，然而实际上
+ logName  并没有使用它。
+另外一个使用比较多的场景是与具有可选成员的接口一起使用，如果没有这样的对象字面量检查，当你
+输入错误单词的时候，并不会发出错误警告：
+Freshness
+Freshness
+- 73 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 74 ---
+1. function logIfHasName(something: { name?: string }) {
+2.   if (something.name) {
+3.     console.log(something.name);
+4.   }
+5. }
+6. 
+7. const person = { name: 'matt', job: 'being awesome' };
+8. const animal = { name: 'cow', diet: 'vegan, but has milk of own species' };
+9. 
+10. logIfHasName(person); // okay
+11. logIfHasName(animal); // okay
+12. 
+13. logIfHasName({ neme: 'I just misspelled name to neme' }); // Error: 对象字面量只
+能指定已知属性，`neme` 属性不存在。
+之所以只对对象字面量进行类型检查，因为在这种情况下，那些实际上并没有被使用到的属性有可能会
+拼写错误或者会被误用。
+一个类型能够包含索引签名，以明确表明可以使用额外的属性：
+1. let x: { foo: number, [x: string]: any };
+2. 
+3. x = { foo: 1, baz: 2 }; // ok, 'baz' 属性匹配于索引签名
+Facebook ReactJS 为对象的 Freshness 提供了一个很好的用例，通常在组件中，你只使用少量
+属性，而不是传入所有，来调用  setState ：
+1. // 假设
+2. interface State {
+3.   foo: string;
+4.   bar: string;
+5. }
+6. 
+7. // 你可能想做：
+8. this.setState({ foo: 'Hello' }); // Error: 没有属性 'bar'
+9. 
+允许额外的属性
+用例：React State
+Freshness
+- 74 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 75 ---
+10. // 因为 state 包含 'foo' 与 'bar'，TypeScript 会强制你这么做：
+11. this.setState({ foo: 'Hello', bar: this.state.bar });
+如果你想使用 Freshness，你可能需要将所有成员标记为可选，这仍然会捕捉到拼写错误：
+1. // 假设
+2. interface State {
+3.   foo?: string;
+4.   bar?: string;
+5. }
+6. 
+7. // 你可能想做
+8. this.setState({ foo: 'Hello' }); // Yay works fine!
+9. 
+10. // 由于 Freshness，你也可以防止错别字
+11. this.setState({ foos: 'Hello' }}; // Error: 对象只能指定已知属性
+12. 
+13. // 仍然会有类型检查
+14. this.setState({ foo: 123 }}; // Error: 无法将 number 类型赋值给 string 类型
+原文: https://jkchao.github.io/typescript-book-chinese/typings/freshness.html
+Freshness
+- 75 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 76 ---
+类型保护允许你使用更小范围下的对象类型。
+TypeScript 熟知 JavaScript 中  instanceof  和  typeof  运算符的用法。如果你在一个
+条件块中使用这些，TypeScript 将会推导出在条件块中的的变量类型。如下例所示，TypeScript
+将会辨别  string  上是否存在特定的函数，以及是否发生了拼写错误：
+1. function doSome(x: number | string) {
+2.   if (typeof x === 'string') {
+3.     // 在这个块中，TypeScript 知道 `x` 的类型必须是 `string`
+4.     console.log(x.subtr(1)); // Error: 'subtr' 方法并没有存在于 `string` 上
+5.     console.log(x.substr(1)); // ok
+6.   }
+7. 
+8.   x.substr(1); // Error: 无法保证 `x` 是 `string` 类型
+9. }
+这有一个关于  class  和  instanceof  的例子：
+1. class Foo {
+2.   foo = 123;
+3.   common = '123';
+4. }
+5. 
+6. class Bar {
+7.   bar = 123;
+8.   common = '123';
+9. }
+10. 
+11. function doStuff(arg: Foo | Bar) {
+12.   if (arg instanceof Foo) {
+13.     console.log(arg.foo); // ok
+14.     console.log(arg.bar); // Error
+15.   }
+类型保护
+typeof
+instanceof
+类型保护
+- 76 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 77 ---
+16.   if (arg instanceof Bar) {
+17.     console.log(arg.foo); // Error
+18.     console.log(arg.bar); // ok
+19.   }
+20. }
+21. 
+22. doStuff(new Foo());
+23. doStuff(new Bar());
+TypeScript 甚至能够理解  else 。当你使用  if  来缩小类型时，TypeScript 知道在其他
+块中的类型并不是  if  中的类型：
+1. class Foo {
+2.   foo = 123;
+3. }
+4. 
+5. class Bar {
+6.   bar = 123;
+7. }
+8. 
+9. function doStuff(arg: Foo | Bar) {
+10.   if (arg instanceof Foo) {
+11.     console.log(arg.foo); // ok
+12.     console.log(arg.bar); // Error
+13.   } else {
+14.     // 这个块中，一定是 'Bar'
+15.     console.log(arg.foo); // Error
+16.     console.log(arg.bar); // ok
+17.   }
+18. }
+19. 
+20. doStuff(new Foo());
+21. doStuff(new Bar());
+ in  操作符可以安全的检查一个对象上是否存在一个属性，它通常也被做为类型保护使用：
+1. interface A {
+2.   x: number;
+3. }
+in
+类型保护
+- 77 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 78 ---
+4. 
+5. interface B {
+6.   y: string;
+7. }
+8. 
+9. function doStuff(q: A | B) {
+10.   if ('x' in q) {
+11.     // q: A
+12.   } else {
+13.     // q: B
+14.   }
+15. }
+当你在联合类型使里使用字面量类型时，你可以检查它们是否有区别：
+1. type Foo = {
+2.   kind: 'foo'; // 字面量类型
+3.   foo: number;
+4. };
+5. 
+6. type Bar = {
+7.   kind: 'bar'; // 字面量类型
+8.   bar: number;
+9. };
+10. 
+11. function doStuff(arg: Foo | Bar) {
+12.   if (arg.kind === 'foo') {
+13.     console.log(arg.foo); // ok
+14.     console.log(arg.bar); // Error
+15.   } else {
+16.     // 一定是 Bar
+17.     console.log(arg.foo); // Error
+18.     console.log(arg.bar); // ok
+19.   }
+20. }
+字面量类型保护
+使用定义的类型保护
+类型保护
+- 78 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 79 ---
+JavaScript 并没有内置非常丰富的、运行时的自我检查机制。当你在使用普通的 JavaScript 对
+象时（使用结构类型，更有益处），你甚至无法访问  instacneof  和  typeof 。在这种情景
+下，你可以创建用户自定义的类型保护函数，这仅仅是一个返回值为类似于 someArgumentName is
+SomeType  的函数，如下：
+1. // 仅仅是一个 interface
+2. interface Foo {
+3.   foo: number;
+4.   common: string;
+5. }
+6. 
+7. interface Bar {
+8.   bar: number;
+9.   common: string;
+10. }
+11. 
+12. // 用户自己定义的类型保护！
+13. function isFoo(arg: Foo | Bar): arg is Foo {
+14.   return (arg as Foo).foo !== undefined;
+15. }
+16. 
+17. // 用户自己定义的类型保护使用用例：
+18. function doStuff(arg: Foo | Bar) {
+19.   if (isFoo(arg)) {
+20.     console.log(arg.foo); // ok
+21.     console.log(arg.bar); // Error
+22.   } else {
+23.     console.log(arg.foo); // Error
+24.     console.log(arg.bar); // ok
+25.   }
+26. }
+27. 
+28. doStuff({ foo: 123, common: '123' });
+29. doStuff({ bar: 123, common: '123' });
+原文: https://jkchao.github.io/typescript-book-chinese/typings/typeGuard.html
+类型保护
+- 79 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 80 ---
+字面量是 JavaScript 本身提供的一个准确变量。
+你可以使用一个字符串字面量做为一个类型：
+1. let foo: 'Hello';
+在这里，我们创建了一个被称为  foo  变量，它仅接收一个字面量值为  Hello  的变量：
+1. let foo: 'Hello';
+2. foo = 'Bar'; // Error: 'bar' 不能赋值给类型 'Hello'
+它们本身并不是很实用，但是可以在一个联合类型中组合创建一个强大的（实用的）抽象：
+1. type CardinalDirection = 'North' | 'East' | 'South' | 'West';
+2. 
+3. function move(distance: number, direction: CardinalDirection) {
+4.   // ...
+5. }
+6. 
+7. move(1, 'North'); // ok
+8. move(1, 'Nurth'); // Error
+TypeScript 同样也提供  boolean  和  number  的字面量类型：
+1. type OneToFive = 1 | 2 | 3 | 4 | 5;
+2. type Bools = true | false;
+通常，你会得到一个类似于  Type string is not assignable to type 'foo'  的错误，如下：
+1. function iTakeFoo(foo: 'foo') {}
+字面量类型
+字符串字面量
+其他字面量类型
+推断
+字面量类型
+- 80 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 81 ---
+2. const test = {
+3.   someProp: 'foo'
+4. };
+5. 
+6. iTakeFoo(test.someProp); // Error: Argument of type string is not assignable to 
+parameter of type 'foo'
+这是由于  test  被推断为  { someProp: string } ，我们可以采用一个简单的类型断言来告诉
+TypeScript 你想推断的字面量：
+1. function iTakeFoo(foo: 'foo') {}
+2. 
+3. const test = {
+4.   someProp: 'foo' as 'foo'
+5. };
+6. 
+7. iTakeFoo(test.someProp); // ok
+或者使用类型注解的方式，来帮助 TypeScript 推断正确的类型：
+1. function iTakeFoo(foo: 'foo') {}
+2. 
+3. type Test = {
+4.   someProp: 'foo';
+5. };
+6. 
+7. const test: Test = {
+8.   // 推断 `someProp` 永远是 'foo'
+9.   someProp: 'foo'
+10. };
+11. 
+12. iTakeFoo(test.someProp); // ok
+TypeScript 枚举类型是基于数字的，你可以使用带字符串字面量的联合类型，来模拟一个基于字符
+串的枚举类型，就好像上文中提出的  CardinalDirection 。你甚至可以使用下面的函数来生成
+ key: value  的结构：
+1. // 用于创建字符串列表映射至 `K: V` 的函数
+2. function strEnum<T extends string>(o: Array<T>): { [K in T]: K } {
+使用用例
+字面量类型
+- 81 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 82 ---
+3.   return o.reduce((res, key) => {
+4.     res[key] = key;
+5.     return res;
+6.   }, Object.create(null));
+7. }
+然后，你就可以使用  keyof 、 typeof  来生成字符串的联合类型。下面是一个完全的例子：
+1. // 用于创建字符串列表映射至 `K: V` 的函数
+2. function strEnum<T extends string>(o: Array<T>): { [K in T]: K } {
+3.   return o.reduce((res, key) => {
+4.     res[key] = key;
+5.     return res;
+6.   }, Object.create(null));
+7. }
+8. 
+9. // 创建 K: V
+10. const Direction = strEnum(['North', 'South', 'East', 'West']);
+11. 
+12. // 创建一个类型
+13. type Direction = keyof typeof Direction;
+14. 
+15. // 简单的使用
+16. let sample: Direction;
+17. 
+18. sample = Direction.North; // Okay
+19. sample = 'North'; // Okay
+20. sample = 'AnythingElse'; // ERROR!
+我们将会在此书的稍后章节讲解它。
+原文: https://jkchao.github.io/typescript-book-chinese/typings/literals.html
+辨析联合类型
+字面量类型
+- 82 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 83 ---
+TypeScript 类型系统允许你在一个接口里使用  readonly  来标记属性。它能让你以一种更安全
+的方式工作（不可预期的改变是很糟糕的）：
+1. function foo(config: { readonly bar: number, readonly bas: number }) {
+2.   // ..
+3. }
+4. 
+5. const config = { bar: 123, bas: 123 };
+6. foo(config);
+7. 
+8. // 现在你能够确保 'config' 不能够被改变了
+当然，你也可以在  interface  和  type  里使用  readonly ：
+1. type Foo = {
+2.   readonly bar: number;
+3.   readonly bas: number;
+4. };
+5. 
+6. // 初始化
+7. const foo: Foo = { bar: 123, bas: 456 };
+8. 
+9. // 不能被改变
+10. foo.bar = 456; // Error: foo.bar 为仅读属性
+你也能指定一个类的属性为只读，然后在声明时或者构造函数中初始化它们，如下所示：
+1. class Foo {
+2.   readonly bar = 1; // OK
+3.   readonly baz: string;
+4.   constructor() {
+5.     this.baz = 'hello'; // OK
+6.   }
+7. }
+readonly
+Readonly
+readonly
+- 83 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 84 ---
+这有一个  Readonly  的映射类型，它接收一个泛型  T ，用来把它的所有属性标记为只读类型：
+1. type Foo = {
+2.   bar: number;
+3.   bas: number;
+4. };
+5. 
+6. type FooReadonly = Readonly<Foo>;
+7. 
+8. const foo: Foo = { bar: 123, bas: 456 };
+9. const fooReadonly: FooReadonly = { bar: 123, bas: 456 };
+10. 
+11. foo.bar = 456; // ok
+12. fooReadonly.bar = 456; // Error: bar 属性只读
+ ReactJS  是一个喜欢用不变数据的库，你可以标记你的  Props  和  State  为不可变数据：
+1. interface Props {
+2.   readonly foo: number;
+3. }
+4. 
+5. interface State {
+6.   readonly bar: number;
+7. }
+8. 
+9. export class Something extends React.Component<Props, State> {
+10.   someMethod() {
+11.     // 你可以放心，没有人会像下面这么做
+12.     this.props.foo = 123; // Error: props 是不可变的
+13.     this.state.baz = 456; // Error: 你应该使用 this.setState()
+14.   }
+15. }
+然而，你并没有必要这么做， React  的声明文件已经标记这些为  readonly （通过传入泛型参
+数至一个内部包装，来把每个属性标记为  readonly ，如上例子所示），
+1. export class Something extends React.Component<{ foo: number }, { baz: number 
+其他的使用用例
+ReactJS
+readonly
+- 84 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 85 ---
+}> {
+2.   someMethod() {
+3.     this.props.foo = 123; // Error: props 是不可变的
+4.     this.state.baz = 456; // Error: 你应该使用 this.setState()
+5.   }
+6. }
+你甚至可以把索引签名标记为只读：
+1. interface Foo {
+2.   readonly [x: number]: number;
+3. }
+4. 
+5. // 使用
+6. 
+7. const foo: Foo = { 0: 123, 2: 345 };
+8. console.log(foo[0]); // ok（读取）
+9. foo[0] = 456; // Error: 属性只读
+如果你想以不变的方式使用原生 JavaScript 数组，可以使用 TypeScript 提供的
+ ReadonlyArray<T>  接口：
+1. let foo: ReadonlyArray<number> = [1, 2, 3];
+2. console.log(foo[0]); // ok
+3. foo.push(4); // Error: ReadonlyArray 上不存在 `push`，因为他会改变数组
+4. foo = foo.concat(4); // ok, 创建了一个复制
+在一些情况下，编译器能把一些特定的属性推断为  readonly ，例如在一个  class  中，如果你
+有一个只含有  getter  但是没有  setter  的属性，他能被推断为只读：
+1. class Person {
+2.   firstName: string = 'John';
+3.   lastName: string = 'Doe';
+4. 
+5.   get fullName() {
+6.     return this.firstName + this.lastName;
+7.   }
+绝对的不可变
+自动推断
+readonly
+- 85 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 86 ---
+8. }
+9. 
+10. const person = new Person();
+11. 
+12. console.log(person.fullName); // John Doe
+13. person.fullName = 'Dear Reader'; // Error, fullName 只读
+ const 
+用于变量；
+变量不能重新赋值给其他任何事物。
+ readonly 
+用于属性；
+用于别名，可以修改属性；
+简单的例子 1：
+1. const foo = 123; // 变量
+2. let bar: {
+3.   readonly bar: number; // 属性
+4. };
+简单的例子 2：
+1. const foo: {
+2.   readonly bar: number;
+3. } = {
+4.   bar: 123
+5. };
+6. 
+7. function iMutateFoo(foo: { bar: number }) {
+8.   foo.bar = 456;
+9. }
+10. 
+11. iMutateFoo(foo);
+12. console.log(foo.bar); // 456
+ readonly  能确保“我”不能修改属性，但是当你把这个属性交给其他并没有这种保证的使用者（允
+与 const 的不同
+readonly
+- 86 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 87 ---
+许出于类型兼容性的原因），他们能改变它。当然，如果  iMutateFoo  明确的表示，他们的参数不
+可修改，那么编译器会发出错误警告：
+1. interface Foo {
+2.   readonly bar: number;
+3. }
+4. 
+5. let foo: Foo = {
+6.   bar: 123
+7. };
+8. 
+9. function iTakeFoo(foo: Foo) {
+10.   foo.bar = 456; // Error: bar 属性只读
+11. }
+12. 
+13. iTakeFoo(foo);
+原文: https://jkchao.github.io/typescript-book-chinese/typings/readonly.html
+readonly
+- 87 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 88 ---
+设计泛型的关键目的是在成员之间提供有意义的约束，这些成员可以是：
+类的实例成员
+类的方法
+函数参数
+函数返回值
+考虑如下简单的  Queue  （先进先出）数据结构实现，一个在  TypeScript  和  JavaScript 
+中的简单实现：
+1. class Queue {
+2.   private data = [];
+3.   push = item => this.data.push(item);
+4.   pop = () => this.data.shift;
+5. }
+在上述代码中存在一个问题，它允许你推入任何类型至队列中，推出的时候也是任意类型，如下所示，
+但一个人推入一个  string  类型至队列中，但是使用者可能会认为队列里只有  number  类型：
+1. class Queue {
+2.   private data = [];
+3.   push = item => this.data.push(item);
+4.   pop = () => this.data.shift;
+5. }
+6. 
+7. const queue = new Queue();
+8. 
+9. queue.push(0);
+10. queue.push('1'); // Oops，一个错误
+11. 
+12. // 一个使用者，走入了误区
+13. console.log(queue.pop().toPrecision(1));
+14. console.log(queue.pop().toPrecision(1)); // RUNTIME ERROR
+一个解决的办法（事实上，这也是不支持泛型类型的唯一解决办法）是为这些约束创建特殊类，如快速
+创建数字类型的队列：
+泛型
+动机和示例
+泛型
+- 88 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 89 ---
+1. class QueueNumber {
+2.   private data = [];
+3.   push = (item: number) => this.data.push(item);
+4.   pop = (): number => this.data.shift;
+5. }
+6. 
+7. const queue = new QueueNumber();
+8. 
+9. queue.push(0);
+10. queue.push('1'); // Error: 不能推入一个 `string` 类型，只能是 `number` 类型
+11. 
+12. // 如果该错误得到修复，其他将不会出现问题
+当然，快速意为着痛苦的。例如但你想创建一个字符串的队列时，你将不得不再次修改相当大的代码。
+我们真正想要的一种方式是无论什么类型被推入队列，被推出的类型都与推入类型一样。当你使用泛型
+时，这会很容易：
+1. // 创建一个泛型类
+2. class Queue<T> {
+3.   private data = [];
+4.   push = (item: T) => this.data.push(item);
+5.   pop = (): T => this.data.shift();
+6. }
+7. 
+8. // 简单的使用
+9. const queue = new Queue<number>();
+10. queue.push(0);
+11. queue.push('1'); // Error：不能推入一个 `string`，只有 number 类型被允许
+另外一个我们见过的例子：一个  reverse  函数，现在在这个函数里提供了函数参数与函数返回值
+的约束：
+1. function reverse<T>(items: T[]): T[] {
+2.   const toreturn = [];
+3.   for (let i = items.length - 1; i >= 0; i--) {
+4.     toreturn.push(items[i]);
+5.   }
+6.   return toreturn;
+7. }
+8. 
+9. const sample = [1, 2, 3];
+泛型
+- 89 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 90 ---
+10. const reversed = reverse(sample);
+11. 
+12. reversed[0] = '1'; // Error
+13. reversed = ['1', '2']; // Error
+14. 
+15. reversed[0] = 1; // ok
+16. reversed = [1, 2]; // ok
+在此章节中，你已经了解在类和函数上使用泛型的例子。一个值得补充一点的是，你可以为创建的成员
+函数添加泛型：
+1. class Utility {
+2.   reverse<T>(items: T[]): T[] {
+3.     const toreturn = [];
+4.     for (let i = items.length; i >= 0; i--) {
+5.       toreturn.push(items[i]);
+6.     }
+7.     return toreturn;
+8.   }
+9. }
+TIP
+你可以随意调用泛型参数，当你使用简单的泛型时，泛型常用  T 、 U 、 V  表示。如果在你的
+参数里，不止拥有一个泛型，你应该使用一个更语义化名称，如  TKey  和  TValue  （通常情况
+下，以  T  做为泛型前缀也在如 C++ 的其他语言里做为模版。）
+我见过开发者使用泛型仅仅是为了它的 hack。当你使用它时，你应该问问自己：你想用它来提供什么
+样的约束。如果你不能很好的回答它，你可能会误用泛型，如：
+1. declare function foo<T>(arg: T): void;
+在这里，泛型完全没有必要使用，因为它仅用于单个参数的位置，使用如下方式可能更好：
+1. declare function foo(arg: any): void;
+误用的泛型
+设计模式：方便通用
+泛型
+- 90 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 91 ---
+考虑如下函数：
+1. declare function parse<T>(name: string): T;
+在这种情况下，泛型  T  只在一个地方被使用了，它并没有在成员之间提供约束  T 。这相当于一
+个如下的类型断言：
+1. declare function parse(name: string): any;
+2. 
+3. const something = parse('something') as TypeOfSomething;
+仅使用一次的泛型并不比一个类型断言来的安全。它们都给你使用 API 提供了便利。
+另一个明显的例子是，一个用于加载 json 返回值函数，它返回你任何传入类型的  Promise ：
+1. const getJSON = <T>(config: { url: string; headers?: { [key: string]: string } 
+}): Promise<T> => {
+2.   const fetchConfig = {
+3.     method: 'GET',
+4.     Accept: 'application/json',
+5.     'Content-Type': 'application/json',
+6.     ...(config.headers || {})
+7.   };
+8.   return fetch(config.url, fetchConfig).then<T>(response => response.json());
+9. };
+请注意，你仍然需要明显的注解任何你需要的类型，但是  getJSON<T>  的签名  config =>
+Promise<T>  能够减少你一些关键的步骤（你不需要注解  loadUsers  的返回类型，因为它能够被
+推出来）：
+1. type LoadUserResponse = {
+2.   user: {
+3.     name: string;
+4.     email: string;
+5.   }[];
+6. };
+7. 
+8. function loaderUser() {
+9.   return getJSON<LoadUserResponse>({ url: 'https://example.com/users' });
+10. }
+泛型
+- 91 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 92 ---
+与此类似：使用  Promise<T>  做为一个函数的返回值比一些如： Promise<any>  的备选方案要
+好很多。
+通常情况下，我们会把后端返回数据格式单独放入一个 interface 里：
+1. // 请求接口数据
+2. export interface ResponseData<T = any> {
+3.   /**
+4.    * 状态码
+5.    * @type { number }
+6.    */
+7.   code: number;
+8. 
+9.   /**
+10.    * 数据
+11.    * @type { T }
+12.    */
+13.   result: T;
+14. 
+15.   /**
+16.    * 消息
+17.    * @type { string }
+18.    */
+19.   message: string;
+20. }
+当我们把 API 单独抽离成单个模块时：
+1. // 在 axios.ts 文件中对 axios 进行了处理，例如添加通用配置、拦截器等
+2. import Ax from './axios';
+3. 
+4. import { ResponseData } from './interface.ts';
+5. 
+6. export function getUser<T>() {
+7.   return Ax.get<ResponseData<T>>('/somepath')
+8.     .then(res => res.data)
+9.     .catch(err => console.error(err));
+10. }
+接着我们写入返回的数据类型  User ，这可以让 TypeScript 顺利推断出我们想要的类型：
+配合 axios 使用
+泛型
+- 92 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 93 ---
+1. interface User {
+2.   name: string;
+3.   age: number;
+4. }
+5. 
+6. async function test() {
+7.   // user 被推断出为
+8.   // {
+9.   //  code: number,
+10.   //  result: { name: string, age: number },
+11.   //  message: string
+12.   // }
+13.   const user = await getUser<User>();
+14. }
+原文: https://jkchao.github.io/typescript-book-chinese/typings/generices.html
+泛型
+- 93 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 94 ---
+TypeScript 能根据一些简单的规则推断（检查）变量的类型，你可以通过实践，很快的了解它们。
+变量的类型，由定义推断：
+1. let foo = 123; // foo 是 'number'
+2. let bar = 'hello'; // bar 是 'string'
+3. 
+4. foo = bar; // Error: 不能将 'string' 赋值给 `number`
+这是一个从右向左流动类型的示例。
+返回类型能被  return  语句推断，如下所示，推断函数返回为一个数字：
+1. function add(a: number, b: number) {
+2.   return a + b;
+3. }
+这是一个从底部流出类型的例子。
+函数参数类型/返回值也能通过赋值来推断。如下所示， foo  的类型是  Adder ，他能让
+ foo  的参数  a 、 b  是  number  类型。
+1. type Adder = (a: number, b: number) => number;
+2. let foo: Adder = (a, b) => a + b;
+这个事实可以用下面的代码来证明，TypeScript 会发出正如你期望发出的错误警告：
+1. type Adder = (a: number, b: number) => number;
+2. let foo: Adder = (a, b) => {
+3.   a = 'hello'; // Error：不能把 'string' 类型赋值给 'number' 类型
+类型推断
+定义变量
+函数返回类型
+赋值
+类型推断
+- 94 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 95 ---
+4.   return a + b;
+5. };
+这是一个从左向右流动类型的示例。
+如果你创建一个函数，并且函数参数为一个回调函数，相同的赋值规则也适用于它。从  argument 
+至  parameter  只是变量赋值的另一种形式。
+1. type Adder = (a: number, b: number) => number;
+2. function iTakeAnAdder(adder: Adder) {
+3.   return adder(1, 2);
+4. }
+5. 
+6. iTakeAnAdder((a, b) => {
+7.   a = 'hello'; // Error: 不能把 'string' 类型赋值给 'number' 类型
+8.   return a + b;
+9. });
+这些简单的规则也适用于结构化的存在（对象字面量），例如在下面这种情况下  foo  的类型被推
+断为  { a: number, b: number } ：
+1. const foo = {
+2.   a: 123,
+3.   b: 456
+4. };
+5. 
+6. foo.a = 'hello'; // Error：不能把 'string' 类型赋值给 'number' 类型
+数组也一样：
+1. const bar = [1, 2, 3];
+2. bar[0] = 'hello'; // Error：不能把 'string' 类型赋值给 'number' 类型
+这些也适用于解构中：
+1. const foo = {
+结构化
+解构
+类型推断
+- 95 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 96 ---
+2.   a: 123,
+3.   b: 456
+4. };
+5. let { a } = foo;
+6. 
+7. a = 'hello'; // Error：不能把 'string' 类型赋值给 'number' 类型
+数组中：
+1. const bar = [1, 2];
+2. let [a, b] = bar;
+3. 
+4. a = 'hello'; // Error：不能把 'string' 类型赋值给 'number' 类型
+如果函数参数能够被推断出来，那么解构亦是如此。在如下例子中，函数参数能够被解构为  a/b 
+成员：
+1. type Adder = (number: { a: number; b: number }) => number;
+2. function iTakeAnAdder(adder: Adder) {
+3.   return adder({ a: 1, b: 2 });
+4. }
+5. 
+6. iTakeAnAdder(({ a, b }) => {
+7.   // a, b 的类型能被推断出来
+8.   a = 'hello'; // Error：不能把 'string' 类型赋值给 'number' 类型
+9.   return a + b;
+10. });
+在前面章节类型保护中，我们已经知道它如何帮助我们改变和缩小类型范围（特别实在联合类型下）。
+类型保护只是一个块中变量另一种推断形式。
+如果类型不能被赋值推断出来，类型也将不会流入函数参数中。例如如下的一个例子，编译器并不知道
+ foo  的类型，所它也就不能推断出  a  或者  b  的类型。
+类型保护
+警告
+小心使用参数
+类型推断
+- 96 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 97 ---
+1. const foo = (a, b) => {
+2.   /* do something */
+3. };
+然而，如果  foo  添加了类型注解，函数参数也就能被推断（ a ， b  都能被推断为
+ number  类型）：
+1. type TwoNumberFunction = (a: number, b: number) => void;
+2. const foo: TwoNumberFunction = (a, b) => {
+3.   /* do something */
+4. };
+尽管 TypeScript 一般情况下能推断函数的返回值，但是它可能并不是你想要的。例如如下的
+ foo  函数，它的返回值为  any ：
+1. function foo(a: number, b: number) {
+2.   return a + addOne(b);
+3. }
+4. 
+5. // 一些使用 JavaScript 库的特殊函数
+6. function addOne(a) {
+7.   return a + 1;
+8. }
+这是因为返回值的类型被一个缺少类型定义的  addOne  函数所影响（ a  是  any ，所以
+ addOne  返回值为  any ， foo  的返回值是也是  any ）。
+TIP
+我发现最简单的方式是明确的写上函数返回值，毕竟这些注解是一个定理，而函数是注解的一个证据。
+这里还有一些其他可以想象的情景，但是有一个好消息是有编译器选项  noImplicitAny  可以捕获
+这些 bug。
+选项  noImplicitAny  用来告诉编译器，当无法推断一个变量时发出一个错误（或者只能推断为一
+个隐式的  any  类型），你可以：
+通过显式添加  :any  的类型注解，来让它成为一个  any  类型；
+小心使用返回值
+noImplicitAny
+类型推断
+- 97 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 98 ---
+通过一些更正确的类型注解来帮助 TypeScript 推断类型。
+原文: https://jkchao.github.io/typescript-book-chinese/typings/typeInference.html
+类型推断
+- 98 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 99 ---
+类型兼容性用于确定一个类型是否能赋值给其他类型。
+如  string  类型与  number  类型不兼容：
+1. let str: string = 'Hello';
+2. let num: number = 123;
+3. 
+4. str = num; // Error: 'number' 不能赋值给 'string'
+5. num = str; // Error: 'string' 不能赋值给 'number'
+TypeScript 类型系统设计比较方便，它允许你有一些不正确的行为。例如：任何类型都能被赋值给
+ any ，这意味着告诉编译器你可以做任何你想做的事情：
+1. const foo: any = 123;
+2. foo = 'hello';
+3. 
+4. foo.toPrecision(3);
+TypeScript 对象是一种结构类型，这意味着只要结构匹配，名称也就无关紧要了：
+1. interface Point {
+2.   x: number;
+3.   y: number;
+4. }
+5. 
+6. class Point2D {
+7.   constructor(public x: number, public y: number) {}
+8. }
+9. 
+10. let p: Point;
+11. 
+12. // ok, 因为是结构化的类型
+13. p = new Point2D(1, 2);
+类型兼容性
+安全性
+结构化
+类型兼容性
+- 99 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 100 ---
+这允许你动态创建对象（就好像你在  vanilla JS  中使用一样），并且它如果能被推断，该对象仍
+然具有安全性。
+1. interface Point2D {
+2.   x: number;
+3.   y: number;
+4. }
+5. 
+6. interface Point3D {
+7.   x: number;
+8.   y: number;
+9.   z: number;
+10. }
+11. 
+12. const point2D: Point2D = {
+13.   x: 0,
+14.   y: 0
+15. };
+16. 
+17. const point2D: Point2D = { x: 0, y: 10 };
+18. const point3D: Point3D = { x: 0, y: 10, z: 20 };
+19. function iTakePoint2D(point: Point2D) {
+20.   /* do something */
+21. }
+22. 
+23. iTakePoint2D(point2D); // ok, 完全匹配
+24. iTakePoint2D(point3D); // 额外的信息，没关系
+25. iTakePoint2D({ x: 0 }); // Error: 没有 'y'
+对类型兼容性来说，变体是一个利于理解和重要的概念。
+对一个简单类型  Base  和  Child  来说，如果  Child  是  Base  的子类， Child  的
+实例能被赋值给  Base  类型的变量。
+TIP
+这是多态性。
+在由  Base  和  Child  组合的复杂类型的类型兼容性中，它取决于相同场景下的  Base  与
+变体
+类型兼容性
+- 100 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 101 ---
+ Child  的变体：
+协变（Covariant）：只在同一个方向；
+逆变（Contravariant）：只在相反的方向；
+双向协变（Bivariant）：包括同一个方向和不同方向；
+不变（Invariant）：如果类型不完全相同，则它们是不兼容的。
+TIP
+对于存在完全可变数据的健全的类型系统（如 JavaScript）， Invariant  是一个唯一的有效可
+选属性，但是如我们说讨论的，便利性迫使我们作出一些不是很安全的选择。
+关于协变和逆变的更多内容，请参考：协变与逆变。
+当你在比较两个函数时，这有一些你需要考虑到的事情。
+协变（Covariant）：返回类型必须包含足够的数据。
+1. interface Point2D {
+2.   x: number;
+3.   y: number;
+4. }
+5. interface Point3D {
+6.   x: number;
+7.   y: number;
+8.   z: number;
+9. }
+10. 
+11. let iMakePoint2D = (): Point2D => ({ x: 0, y: 0 });
+12. let iMakePoint3D = (): Point3D => ({ x: 0, y: 0, z: 0 });
+13. 
+14. iMakePoint2D = iMakePoint3D;
+15. iMakePoint3D = iMakePoint2D; // ERROR: Point2D 不能赋值给 Point3D
+更少的参数数量是好的（如：函数能够选择性的忽略一些多余的参数），但是你得保证有足够的参数被
+使用了：
+函数
+返回类型
+参数数量
+类型兼容性
+- 101 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 102 ---
+1. const iTakeSomethingAndPassItAnErr = (x: (err: Error, data: any) => void) => {
+2.   /* 做一些其他的 */
+3. };
+4. 
+5. iTakeSomethingAndPassItAnErr(() => null); // ok
+6. iTakeSomethingAndPassItAnErr(err => null); // ok
+7. iTakeSomethingAndPassItAnErr((err, data) => null); // ok
+8. 
+9. // Error: 参数类型 `(err: any, data: any, more: any) => null` 不能赋值给参数类型 
+`(err: Error, data: any) => void`
+10. iTakeSomethingAndPassItAnErr((err, data, more) => null);
+可选的（预先确定的）和 Rest 参数（任何数量的参数）都是兼容的：
+1. let foo = (x: number, y: number) => {};
+2. let bar = (x?: number, y?: number) => {};
+3. let bas = (...args: number[]) => {};
+4. 
+5. foo = bar = bas;
+6. bas = bar = foo;
+Note
+可选的（上例子中的  bar ）与不可选的（上例子中的  foo ）仅在选项为
+ strictNullChecks  为  false  时兼容。
+双向协变（Bivariant）：旨在支持常见的事件处理方案。
+1. // 事件等级
+2. interface Event {
+3.   timestamp: number;
+4. }
+5. interface MouseEvent extends Event {
+6.   x: number;
+7.   y: number;
+8. }
+9. interface KeyEvent extends Event {
+可选的和 rest 参数
+函数参数类型
+类型兼容性
+- 102 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 103 ---
+10.   keyCode: number;
+11. }
+12. 
+13. // 简单的事件监听
+14. enum EventType {
+15.   Mouse,
+16.   Keyboard
+17. }
+18. function addEventListener(eventType: EventType, handler: (n: Event) => void) {
+19.   // ...
+20. }
+21. 
+22. // 不安全，但是有用，常见。函数参数的比较是双向协变。
+23. addEventListener(EventType.Mouse, (e: MouseEvent) => console.log(e.x + ',' + 
+e.y));
+24. 
+25. // 在安全情景下的一种不好方案
+26. addEventListener(EventType.Mouse, (e: Event) => console.log((<MouseEvent>e).x + 
+',' + (<MouseEvent>e).y));
+27. addEventListener(EventType.Mouse, <(e: Event) => void>((e: MouseEvent) => 
+console.log(e.x + ',' + e.y)));
+28. 
+29. // 仍然不允许明确的错误，对完全不兼容的类型会强制检查
+30. addEventListener(EventType.Mouse, (e: number) => console.log(e));
+同样的，你也可以把  Array<Child>  赋值给  Array<Base>  （协变），因为函数是兼容的。数
+组的协变需要所有的函数  Array<Child>  都能赋值给  Array<Base> ，例如  push(t:
+Child)  能被赋值给  push(t: Base) ，这都可以通过函数参数双向协变实现。
+这对于来自其他语言的人来说，可能会感到很困惑，但他们希望以下错误不会出现在 TypeScript
+中：
+1. interface Poin2D {
+2.   x: number;
+3.   y: number;
+4. }
+5. 
+6. let iTakePoint2D = (point: Point2D) => {};
+7. let iTakePoint3D = (point: Point3D) => {};
+8. 
+9. iTakePoint3D = iTakePoint2D; // ok, 这是合理的
+10. iTakePoint2D = iTakePoint3D; // ok，为什么？
+类型兼容性
+- 103 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 104 ---
+枚举与数字类型相互兼容
+1. enum Status {
+2.   Ready,
+3.   Waiting
+4. }
+5. 
+6. let status = Status.Ready;
+7. let num = 0;
+8. 
+9. status = num;
+10. num = status;
+来自于不同枚举的枚举变量，被认为是不兼容的：
+1. enum Status {
+2.   Ready,
+3.   Waiting
+4. }
+5. enum Color {
+6.   Red,
+7.   Blue,
+8.   Green
+9. }
+10. 
+11. let status = Status.Ready;
+12. let color = Color.Red;
+13. 
+14. status = color; // Error
+仅仅只有实例成员和方法会相比较，构造函数和静态成员不会被检查。
+1. class Animal {
+2.   feet: number;
+3.   constructor(name: string, numFeet: number) {}
+4. }
+5. 
+枚举
+类
+类型兼容性
+- 104 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 105 ---
+6. class Size {
+7.   feet: number;
+8.   constructor(meters: number) {}
+9. }
+10. 
+11. let a: Animal;
+12. let s: Size;
+13. 
+14. a = s; // OK
+15. s = a; // OK
+私有的和受保护的成员必须来自于相同的类。
+1. class Animal {
+2.   protected feet: number;
+3. }
+4. class Cat extends Animal {}
+5. 
+6. let animal: Animal;
+7. let cat: Cat;
+8. 
+9. animal = cat; // ok
+10. cat = animal; // ok
+11. 
+12. class Size {
+13.   protected feet: number;
+14. }
+15. 
+16. let size: Size;
+17. 
+18. animal = size; // ERROR
+19. size = animal; // ERROR
+TypeScript 类型系统基于变量的结构，仅当类型参数在被一个成员使用时，才会影响兼容性。如下
+例子中， T  对兼容性没有影响：
+1. interface Empty<T> {}
+2. 
+3. let x: Empty<number>;
+泛型
+类型兼容性
+- 105 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 106 ---
+4. let y: Empty<string>;
+5. 
+6. x = y; // ok
+当  T  被成员使用时，它将在实例化泛型后影响兼容性：
+1. interface Empty<T> {
+2.   data: T;
+3. }
+4. 
+5. let x: Empty<number>;
+6. let y: Empty<string>;
+7. 
+8. x = y; // Error
+如果尚未实例化泛型参数，则在检查兼容性之前将其替换为  any ：
+1. let identity = function<T>(x: T): T {
+2.   // ...
+3. };
+4. 
+5. let reverse = function<U>(y: U): U {
+6.   // ...
+7. };
+8. 
+9. identity = reverse; // ok, 因为 `(x: any) => any` 匹配 `(y: any) => any`
+类中的泛型兼容性与前文所提及一致：
+1. class List<T> {
+2.   add(val: T) {}
+3. }
+4. 
+5. class Animal {
+6.   name: string;
+7. }
+8. class Cat extends Animal {
+9.   meow() {
+10.     // ..
+11.   }
+12. }
+13. 
+类型兼容性
+- 106 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 107 ---
+14. const animals = new List<Animal>();
+15. animals.add(new Animal()); // ok
+16. animals.add(new Cat()); // ok
+17. 
+18. const cats = new List<Cat>();
+19. cats.add(new Animal()); // Error
+20. cats.add(new Cat()); // ok
+我们说过，不变性可能是唯一一个听起来合理的选项，这里有一个关于  contra  和  co  的变
+体，被认为对数组是不安全的。
+1. class Animal {
+2.   constructor(public name: string) {}
+3. }
+4. class Cat extends Animal {
+5.   meow() {
+6.     console.log('cat');
+7.   }
+8. }
+9. 
+10. let animal = new Animal('animal');
+11. let cat = new Cat('cat');
+12. 
+13. // 多态
+14. // Animal <= Cat
+15. 
+16. animal = cat; // ok
+17. cat = animal; // ERROR: cat 继承于 animal
+18. 
+19. // 演示每个数组形式
+20. let animalArr: Animal[] = [animal];
+21. let catArr: Cat[] = [cat];
+22. 
+23. // 明显的坏处，逆变
+24. // Animal <= Cat
+25. // Animal[] >= Cat[]
+26. catArr = animalArr; // ok, 如有有逆变
+27. catArr[0].meow(); // 允许，但是会在运行时报错
+28. 
+脚注：不变性（Invariance）
+类型兼容性
+- 107 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 108 ---
+29. // 另外一个坏处，协变
+30. // Animal <= Cat
+31. // Animal[] <= Cat[]
+32. animalArr = catArr; // ok，协变
+33. 
+34. animalArr.push(new Animal('another animal')); // 仅仅是 push 一个 animal 至 
+carArr 里
+35. catArr.forEach(c => c.meow()); // 允许，但是会在运行时报错。
+原文: https://jkchao.github.io/typescript-book-
+chinese/typings/typeCompatibility.html
+类型兼容性
+- 108 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 109 ---
+TIP
+一个关于 never 的介绍视频
+程序语言的设计确实应该存在一个底部类型的概念，当你在分析代码流的时候，这会是一个理所当然存
+在的类型。TypeScript 就是这样一种分析代码流的语言（?），因此它需要一个可靠的，代表永远不
+会发生的类型。
+ never  类型是 TypeScript 中的底层类型。它自然被分配的一些例子：
+一个从来不会有返回值的函数（如：如果函数内含有  while(true) {} ）；
+一个总是会抛出错误的函数（如： function foo() { throw new Error('Not Implemented')
+} ， foo  的返回类型是  never ）；
+你也可以将它用做类型注解：
+1. let foo: never; // ok
+但是， never  类型仅能被赋值给另外一个  never ：
+1. let foo: never = 123; // Error: number 类型不能赋值给 never 类型
+2. 
+3. // ok, 做为函数返回类型的 never
+4. let bar: never = (() => {
+5.   throw new Error('Throw my hands in the air like I just dont care');
+6. })();
+很棒，现在让我们看看它的关键用例。
+1. function foo(x: string | number): boolean {
+2.   if (typeof x === 'string') {
+3.     return true;
+4.   } else if (typeof x === 'number') {
+5.     return false;
+6.   }
+7. 
+8.   // 如果不是一个 never 类型，这会报错：
+Never
+用例：详细的检查
+Never
+- 109 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 110 ---
+9.   // - 不是所有条件都有返回值 （严格模式下）
+10.   // - 或者检查到无法访问的代码
+11.   // 但是由于 TypeScript 理解 `fail` 函数返回为 `never` 类型
+12.   // 它可以让你调用它，因为你可能会在运行时用它来做安全或者详细的检查。
+13.   return fail('Unexhaustive');
+14. }
+15. 
+16. function fail(message: string): never {
+17.   throw new Error(message);
+18. }
+ never  仅能被赋值给另外一个  never  类型，因此你可以用它来进行编译时的全面的检查，我
+们将会在辨析联合类型中讲解它。
+一旦有人告诉你， never  表示一个从来不会优雅的返回的函数时，你可能马上就会想到与此类似的
+ void ，然而实际上， void  表示没有任何类型， never  表示永远不存在的值的类型。
+当一个函数没有返回值时，它返回了一个  void  类型，但是，当一个函数根本就没有返回值时（或
+者总是抛出错误），它返回了一个  never ， void  指可以被赋值的类型（在
+ strictNullChecking  为 false 时），但是  never  不能赋值给其他任何类型，除了
+ never 。
+原文: https://jkchao.github.io/typescript-book-chinese/typings/neverType.html
+与 void 的差异
+Never
+- 110 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 111 ---
+当类中含有字面量成员时，我们可以用该类的属性来辨析联合类型。
+做为一个例子，考虑  Square  和  Rectangle  的联合类型  Shape 。 Square  和
+ Rectangle 有共同成员  kind ，因此  kind  存在于  Shape  中。
+1. interface Square {
+2.   kind: 'square';
+3.   size: number;
+4. }
+5. 
+6. interface Rectangle {
+7.   kind: 'rectangle';
+8.   width: number;
+9.   height: number;
+10. }
+11. 
+12. type Shape = Square | Rectangle;
+如果你使用类型保护风格的检查（ == 、 === 、 != 、 !== ）或者使用具有判断性的属性（在
+这里是  kind ），TypeScript 将会认为你会使用的对象类型一定是拥有特殊字面量的，并且它会
+为你自动把类型范围变小：
+1. function area(s: Shape) {
+2.   if (s.kind === 'square') {
+3.     // 现在 TypeScript 知道 s 的类型是 Square
+4.     // 所以你现在能安全使用它
+5.     return s.size * s.size;
+6.   } else {
+7.     // 不是一个 square ？因此 TypeScript 将会推算出 s 一定是 Rectangle
+8.     return s.width * s.height;
+9.   }
+10. }
+通常，联合类型的成员有一些自己的行为（代码）：
+辨析联合类型
+详细的检查
+辨析联合类型
+- 111 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 112 ---
+1. interface Square {
+2.   kind: 'square';
+3.   size: number;
+4. }
+5. 
+6. interface Rectangle {
+7.   kind: 'rectangle';
+8.   width: number;
+9.   height: number;
+10. }
+11. 
+12. // 有人仅仅是添加了 `Circle` 类型
+13. // 我们可能希望 TypeScript 能在任何被需要的地方抛出错误
+14. interface Circle {
+15.   kind: 'circle';
+16.   radius: number;
+17. }
+18. 
+19. type Shape = Square | Rectangle | Circle;
+一个可能会让你的代码变差的例子：
+1. function area(s: Shape) {
+2.   if (s.kind === 'square') {
+3.     return s.size * s.size;
+4.   } else if (s.kind === 'rectangle') {
+5.     return s.width * s.height;
+6.   }
+7. 
+8.   // 如果你能让 TypeScript 给你一个错误，这是不是很棒？
+9. }
+你可以通过一个简单的向下思想，来确保块中的类型被推断为与  never  类型兼容的类型。例如，
+你可以添加一个更详细的检查来捕获错误：
+1. function area(s: Shape) {
+2.   if (s.kind === 'square') {
+3.     return s.size * s.size;
+4.   } else if (s.kind === 'rectangle') {
+5.     return s.width * s.height;
+6.   } else {
+辨析联合类型
+- 112 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 113 ---
+7.     // Error: 'Circle' 不能被赋值给 'never'
+8.     const _exhaustiveCheck: never = s;
+9.   }
+10. }
+它将强制你添加一种新的条件：
+1. function area(s: Shape) {
+2.   if (s.kind === 'square') {
+3.     return s.size * s.size;
+4.   } else if (s.kind === 'rectangle') {
+5.     return s.width * s.height;
+6.   } else if (s.kind === 'circle') {
+7.     return Math.PI * s.radius ** 2;
+8.   } else {
+9.     // ok
+10.     const _exhaustiveCheck: never = s;
+11.   }
+12. }
+TIP
+你可以通过  switch  来实现以上例子。
+1. function area(s: Shape) {
+2.   switch (s.kind) {
+3.     case 'square':
+4.       return s.size * s.size;
+5.     case 'rectangle':
+6.       return s.width * s.height;
+7.     case 'circle':
+8.       return Math.PI * s.radius ** 2;
+9.     default:
+10.       const _exhaustiveCheck: never = s;
+11.   }
+12. }
+Switch
+strictNullChecks
+辨析联合类型
+- 113 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 114 ---
+如果你使用  strictNullChecks  选项来做详细的检查，你应该返回  _exhaustiveCheck  变量
+（类型是  never ），否则 TypeScript 可能会推断返回值为  undefined ：
+1. function area(s: Shape) {
+2.   switch (s.kind) {
+3.     case 'square':
+4.       return s.size * s.size;
+5.     case 'rectangle':
+6.       return s.width * s.height;
+7.     case 'circle':
+8.       return Math.PI * s.radius ** 2;
+9.     default:
+10.       const _exhaustiveCheck: never = s;
+11.       return _exhaustiveCheck;
+12.   }
+13. }
+Redux 库正是使用的上述例子。
+以下是添加了 TypeScript 类型注解的redux 要点
+。
+1. import { createStore } from 'redux';
+2. 
+3. type Action =
+4.   | {
+5.       type: 'INCREMENT';
+6.     }
+7.   | {
+8.       type: 'DECREMENT';
+9.     };
+10. 
+11. /**
+12.  * This is a reducer, a pure function with (state, action) => state signature.
+13.  * It describes how an action transforms the state into the next state.
+14.  *
+15.  * The shape of the state is up to you: it can be a primitive, an array, an 
+object,
+16.  * or even an Immutable.js data structure. The only important part is that you 
+should
+Redux
+辨析联合类型
+- 114 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 115 ---
+17.  * not mutate the state object, but return a new object if the state changes.
+18.  *
+19.  * In this example, we use a `switch` statement and strings, but you can use a 
+helper that
+20.  * follows a different convention (such as function maps) if it makes sense for 
+your
+21.  * project.
+22.  */
+23. function counter(state = 0, action: Action) {
+24.   switch (action.type) {
+25.     case 'INCREMENT':
+26.       return state + 1;
+27.     case 'DECREMENT':
+28.       return state - 1;
+29.     default:
+30.       return state;
+31.   }
+32. }
+33. 
+34. // Create a Redux store holding the state of your app.
+35. // Its API is { subscribe, dispatch, getState }.
+36. let store = createStore(counter);
+37. 
+38. // You can use subscribe() to update the UI in response to state changes.
+39. // Normally you'd use a view binding library (e.g. React Redux) rather than 
+subscribe() directly.
+40. // However it can also be handy to persist the current state in the 
+localStorage.
+41. 
+42. store.subscribe(() => console.log(store.getState()));
+43. 
+44. // The only way to mutate the internal state is to dispatch an action.
+45. // The actions can be serialized, logged or stored and later replayed.
+46. store.dispatch({ type: 'INCREMENT' });
+47. // 1
+48. store.dispatch({ type: 'INCREMENT' });
+49. // 2
+50. store.dispatch({ type: 'DECREMENT' });
+51. // 1
+与 TypeScript 一起使用可以有效的防止拼写错误，并且能提高重构和书写文档化代码的能力。
+原文: https://jkchao.github.io/typescript-book-
+辨析联合类型
+- 115 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 116 ---
+chinese/typings/discrominatedUnion.html
+辨析联合类型
+- 116 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 117 ---
+可以用字符串访问 JavaScript 中的对象（TypeScript 中也一样），用来保存对其他对象的引
+用。
+例如：
+1. let foo: any = {};
+2. foo['Hello'] = 'World';
+3. console.log(foo['Hello']); // World
+我们在键  Hello  下保存了一个字符串  World ，除字符串外，它也可以保存任意的
+JavaScript 对象，例如一个类的实例。
+1. class Foo {
+2.   constructor(public message: string) {}
+3.   log() {
+4.     console.log(this.message);
+5.   }
+6. }
+7. 
+8. let foo: any = {};
+9. foo['Hello'] = new Foo('World');
+10. foo['Hello'].log(); // World
+当你传入一个其他对象至索引签名时，JavaScript 会在得到结果之前会先调用  .toString  方
+法：
+1. let obj = {
+2.   toString() {
+3.     console.log('toString called');
+4.     return 'Hello';
+5.   }
+6. };
+7. 
+8. let foo: any = {};
+9. foo[obj] = 'World'; // toString called
+10. console.log(foo[obj]); // toString called, World
+11. console.log(foo['Hello']); // World
+索引签名
+索引签名
+- 117 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 118 ---
+TIP
+只要索引位置使用了  obj ， toString  方法都将会被调用。
+数组有点稍微不同，对于一个  number  类型的索引签名，JavaScript 引擎将会尝试去优化（这
+取决于它是否是一个真的数组、存储的项目结构是否匹配等）。因此， number  应该被考虑作为一
+个有效的对象访问器（这与  string  不同），如下例子：
+1. let foo = ['World'];
+2. console.log(foo[0]); // World
+因此，这就是 JavaScript。现在让我们看看 TypeScript 对这些概念更优雅的处理。
+JavaScript 在一个对象类型的索引签名上会隐式调用  toString  方法，而在 TypeScript
+中，为防止初学者砸伤自己的脚（我总是看到 stackoverflow 上有很多 JavaScript 使用者都会
+这样。），它将会抛出一个错误。
+1. const obj = {
+2.   toString() {
+3.     return 'Hello';
+4.   }
+5. };
+6. 
+7. const foo: any = {};
+8. 
+9. // ERROR: 索引签名必须为 string, number....
+10. foo[obj] = 'World';
+11. 
+12. // FIX: TypeScript 强制你必须明确这么做：
+13. foo[obj.toString()] = 'World';
+强制用户必须明确的写出  toString()  的原因是：在对象上默认执行的  toString  方法是有害
+的。例如 v8 引擎上总是会返回  [object Object] 
+1. const obj = { message: 'Hello' };
+2. let foo: any = {};
+3. 
+4. // ERROR: 索引签名必须为 string, number....
+5. foo[obj] = 'World';
+TypeScript 索引签名
+索引签名
+- 118 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 119 ---
+6. 
+7. // 这里实际上就是你存储的地方
+8. console.log(foo['[object Object]']); // World
+当然，数字类型是被允许的，这是因为：
+需要数组／元组的支持；
+即使你在数组里使用一个  obj ，这个默认被调用的  toString  方法，被实现的很好（不是
+ [object Object] ）。
+如下所示：
+1. console.log((1).toString()); // 1
+2. console.log((2).toString()); // 2
+因此，我们有以下结论：
+TIP
+TypeScript 的索引签名必须是  string  或者  number 。
+ symbols  也是有效的，TypeScript 支持它。在接下来我们将会讲解它。
+在上文中，我们通过使用  any  来让 TypeScript 允许我们可以做任意我们想做的事情。实际
+上，我们可以明确的指定索引签名。例如：假设你想确认存储在对象中任何内容都符合  { message:
+string }  的结构，你可以通过  [index: string]: { message: string }  来实现。
+1. const foo: {
+2.   [index: string]: { message: string };
+3. } = {};
+4. 
+5. // 储存的东西必须符合结构
+6. // ok
+7. foo['a'] = { message: 'some message' };
+8. 
+9. // Error, 必须包含 `message`
+10. foo['a'] = { messages: 'some message' };
+11. 
+12. // 读取时，也会有类型检查
+13. // ok
+14. foo['a'].message;
+声明一个索引签名
+索引签名
+- 119 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 120 ---
+15. 
+16. // Error: messages 不存在
+17. foo['a'].messages;
+TIP
+索引签名的名称（如： { [index: string]: { message: string } }  里的  index  ）除了可
+读性外，并没有任何意义。例如：如果有一个用户名，你可以使用  { username: string}: {
+message: string } ，这有利于下一个开发者理解你的代码。
+ number  类型的索引也支持： { [count: number]: 'SomeOtherTypeYouWantToStoreEgRebate'
+} 。
+当你声明一个索引签名时，所有明确的成员都必须符合索引签名：
+1. // ok
+2. interface Foo {
+3.   [key: string]: number;
+4.   x: number;
+5.   y: number;
+6. }
+7. 
+8. // Error
+9. interface Bar {
+10.   [key: string]: number;
+11.   x: number;
+12.   y: string; // Error: y 属性必须为 number 类型
+13. }
+这可以给你提供安全性，任何以字符串的访问都能得到相同结果。
+1. interface Foo {
+2.   [key: string]: number;
+3.   x: number;
+4. }
+5. 
+6. let foo: Foo = {
+7.   x: 1,
+8.   y: 2
+9. };
+所有成员都必须符合字符串的索引签名
+索引签名
+- 120 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 121 ---
+10. 
+11. // 直接
+12. foo['x']; // number
+13. 
+14. // 间接
+15. const x = 'x';
+16. foo[x]; // number
+一个索引签名可以通过映射类型来使索引字符串为联合类型中的一员，如下所示：
+1. type Index = 'a' | 'b' | 'c';
+2. type FromIndex = { [k in Index]?: number };
+3. 
+4. const good: FromIndex = { b: 1, c: 2 };
+5. 
+6. // Error:
+7. // `{ b: 1, c: 2, d: 3 }` 不能分配给 'FromIndex'
+8. // 对象字面量只能指定已知类型，'d' 不存在 'FromIndex' 类型上
+9. const bad: FromIndex = { b: 1, c: 2, d: 3 };
+这通常与  keyof/typeof  一起使用，来获取变量的类型，在下一章节中，我们将解释它。
+变量的规则一般可以延迟被推断：
+1. type FromSomeIndex<K extends string> = { [key in K]: number };
+这并不是一个常见的用例，但是 TypeScript 支持它。
+ string  类型的索引签名比  number  类型的索引签名更严格。这是故意设计，它允许你有如下
+类型：
+1. interface ArrStr {
+2.   [key: string]: string | number; // 必须包括所用成员类型
+3.   [index: number]: string; // 字符串索引类型的子级
+4. 
+5.   // example
+使用一组有限的字符串字面量
+同时拥有 string 和 number 类型的索引签名
+索引签名
+- 121 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 122 ---
+6.   length: number;
+7. }
+TIP
+添加索引签名时，需要考虑的 API。
+在 JavaScript 社区你将会见到很多滥用索引签名的 API。如 JavaScript 库中使用 CSS 的常
+见模式：
+1. interface NestedCSS {
+2.   color?: string; // strictNullChecks=false 时索引签名可为 undefined
+3.   [selector: string]: string | NestedCSS;
+4. }
+5. 
+6. const example: NestedCSS = {
+7.   color: 'red',
+8.   '.subclass': {
+9.     color: 'blue'
+10.   }
+11. };
+尽量不要使用这种把字符串索引签名与有效变量混合使用。如果属性名称中有拼写错误，这个错误不会
+被捕获到：
+1. const failsSilently: NestedCSS = {
+2.   colour: 'red' // 'colour' 不会被捕捉到错误
+3. };
+取而代之，我们把索引签名分离到自己的属性里，如命名为  nest （或者
+ children 、 subnodes  等）：
+1. interface NestedCSS {
+2.   color?: string;
+3.   nest?: {
+4.     [selector: string]: NestedCSS;
+5.   };
+6. }
+7. 
+设计模式：索引签名的嵌套
+索引签名
+- 122 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 123 ---
+8. const example: NestedCSS = {
+9.   color: 'red',
+10.   nest: {
+11.     '.subclass': {
+12.       color: 'blue'
+13.     }
+14.   }
+15. }
+16. 
+17. const failsSliently: NestedCSS {
+18.   colour: 'red'  // TS Error: 未知属性 'colour'
+19. }
+有时，你需要把属性合并至索引签名（虽然我们并不建议这么做，你应该使用上文中提到的嵌套索引签
+名的形式），如下例子：
+1. type FieldState = {
+2.   value: string;
+3. };
+4. 
+5. type FromState = {
+6.   isValid: boolean; // Error: 不符合索引签名
+7.   [filedName: string]: FieldState;
+8. };
+TypeScript 会报错，因为添加的索引签名，并不兼容它原有的类型，使用交叉类型可以解决上述问
+题：
+1. type FieldState = {
+2.   value: string;
+3. };
+4. 
+5. type FormState = { isValid: boolean } & { [fieldName: string]: FieldState };
+请注意尽管你可以声明它至一个已存在的 TypeScript 类型上，但是你不能创建如下的对象：
+1. type FieldState = {
+2.   value: string;
+3. };
+索引签名中排除某些属性
+索引签名
+- 123 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 124 ---
+4. 
+5. type FormState = { isValid: boolean } & { [fieldName: string]: FieldState };
+6. 
+7. // 将它用于从某些地方获取的 JavaScript 对象
+8. declare const foo: FormState;
+9. 
+10. const isValidBool = foo.isValid;
+11. const somethingFieldState = foo['something'];
+12. 
+13. // 使用它来创建一个对象时，将不会工作
+14. const bar: FormState = {
+15.   // 'isValid' 不能赋值给 'FieldState'
+16.   isValid: false
+17. };
+原文: https://jkchao.github.io/typescript-book-
+chinese/typings/indexSignatures.html
+索引签名
+- 124 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 125 ---
+TypeScript 类型系统非常强大，它支持其他任何单一语言无法实现的类型流动和类型片段。
+这是因为 TypeScript 的设计目的之一是让你无缝与像 JavaScript 这类高动态的语言一起工作。
+在这里，我们介绍一些在 TypeScript 中使用移动类型的技巧。
+关键的动机：当你改变了其中一个时，其他相关的会自动更新，并且当有事情变糟糕时，你会得到一个
+有好的提示，就好像一个被精心设计过的约束系统。
+如果你想移动一个类，你可能会想要做以下事情：
+1. class Foo {}
+2. 
+3. const Bar = Foo;
+4. 
+5. let bar: Bar; // Error: 不能找到名称 'Bar'
+这会得到一个错误，因为  const  仅仅是复制了  Foo  到一个变量声明空间，因此你无法把
+ Bar  当作一个类型声明使用。正确的方式是使用  import  关键字，请注意，如果你在使用
+ namespace  或者  modules ，使用  import  是你唯一能用的方式：
+1. namespace importing {
+2.   export class Foo {}
+3. }
+4. 
+5. import Bar = importing.Foo;
+6. let bar: Bar; // ok
+这个  import  技巧，仅适合于类型和变量。
+你可以通过  typeof  操作符在类型注解中使用变量。这允许你告诉编译器，一个变量的类型与其他
+类型相同，如下所示：
+1. let foo = 123;
+流动的类型
+复制类型和值
+捕获变量的类型
+流动的类型
+- 125 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 126 ---
+2. let bar: typeof foo; // 'bar' 类型与 'foo' 类型相同（在这里是： 'number'）
+3. 
+4. bar = 456; // ok
+5. bar = '789'; // Error: 'string' 不能分配给 'number' 类型
+与捕获变量的类型相似，你仅仅是需要声明一个变量用来捕获到的类型：
+1. class Foo {
+2.   foo: number; // 我们想要捕获的类型
+3. }
+4. 
+5. declare let _foo: Foo;
+6. 
+7. // 与之前做法相同
+8. let bar: typeof _foo.foo;
+许多 JavaScript 库和框架都使用原始的 JavaScript 字符串，你可以使用  const  定义一个
+变量捕获它的类型：
+1. // 捕获字符串的类型与值
+2. const foo = 'Hello World';
+3. 
+4. // 使用一个捕获的类型
+5. let bar: typeof foo;
+6. 
+7. // bar 仅能被赋值 'Hello World'
+8. bar = 'Hello World'; // ok
+9. bar = 'anything else'; // Error
+在这个例子里， bar  有字面量类型  Hello World ，我们在字面量类型章节已经深入讨论。
+ keyof  操作符能让你捕获一个类型的键。例如，你可以使用它来捕获变量的键名称，在通过使用
+ typeof  来获取类型之后：
+捕获类成员的类型
+捕获字符串类型
+捕获键的名称
+流动的类型
+- 126 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 127 ---
+1. const colors = {
+2.   red: 'red',
+3.   blue: 'blue'
+4. };
+5. 
+6. type Colors = keyof typeof colors;
+7. 
+8. let color: Colors; // color 的类型是 'red' | 'blue'
+9. color = 'red'; // ok
+10. color = 'blue'; // ok
+11. color = 'anythingElse'; // Error
+这允许你很容易地拥有像字符串枚举+常量这样的类型，如上例所示。
+原文: https://jkchao.github.io/typescript-book-chinese/typings/movingTypes.html
+流动的类型
+- 127 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 128 ---
+JavaScript 有一个  Error  类，用于处理异常。你可以通过  throw  关键字来抛出一个错
+误。然后通过  try/catch  块来捕获此错误：
+1. try {
+2.   throw new Error('Something bad happened');
+3. } catch (e) {
+4.   console.log(e);
+5. }
+除内置的  Error  类外，还有一些额外的内置错误，它们继承自  Error  类：
+当数字类型变量或者参数超出其有效范围时，出现  RangeError  的错误提示：
+1. // 使用过多参数调用 console
+2. console.log.apply(console, new Array(1000000000)); // RangeError: 数组长度无效
+当引用无效时，会出现  ReferenceError  的错误提示：
+1. 'use strict';
+2. console.log(notValidVar); // ReferenceError: notValidVar 未定义
+当解析无效 JavaScript 代码时，会出现  SyntaxError  的错误提示：
+1. 1 *** 3   // SyntaxError: 无效的标记 *
+变量或者参数不是有效类型时，会出现  TypeError  的错误提示：
+异常处理
+错误子类型
+RangeError
+ReferenceError
+SyntaxError
+TypeError
+异常处理
+- 128 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 129 ---
+1. '1.2'.toPrecision(1); // TypeError: '1.2'.toPrecision 不是函数。
+当传入无效参数至  encodeURI()  和  decodeURI()  时，会出现  URIError  的错误提示：
+1. decodeURI('%'); // URIError: URL 异常
+JavaScript 初学者可能有时候仅仅是抛出一个原始字符串：
+1. try {
+2.   throw 'Something bad happened';
+3. } catch (e) {
+4.   console.log(e);
+5. }
+不要这么做，使用  Error  对象的基本好处是，它能自动跟踪堆栈的属性构建以及生成位置。
+原始字符串会导致极差的调试体验，并且在分析日志时，将会变得错综复杂。
+传递一个  Error  对象是没问题的，这种方式在  Node.js  回调函数中非常常见，它用第一个参
+数作为错误对象进行回调处理。
+1. function myFunction (callback: (e: Error)) {
+2.   doSomethingAsync(function () {
+3.     if (somethingWrong) {
+4.       callback(new Error('This is my error'));
+5.     } else {
+6.       callback();
+7.     }
+8.   })
+9. }
+URIError
+使用 Error
+你并不需要 throw 抛出一个错误
+优秀的用例
+异常处理
+- 129 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 130 ---
+「Exceptions should be exceptional」是计算机科学中常用用语。这里有一些原因说明在
+JavaScript(TypeScript) 中也是如此。
+考虑如下代码块：
+1. try {
+2.   const foo = runTask1();
+3.   const bar = runTask2();
+4. } catch (e) {
+5.   console.log('Error:', e);
+6. }
+下一个开发者可能并不清楚哪个函数可能会抛出错误。在没有阅读  task1/task2  代码以及他们可
+能会调用的函数时，对代码  review  的人员可能也不会知道错误会从哪里抛出。
+你可以通过为每个可能抛出错误的代码显式捕获，来使其优雅：
+1. try {
+2.   const foo = runTask1();
+3. } catch (e) {
+4.   console.log('Error:', e);
+5. }
+6. 
+7. try {
+8.   const bar = runTask2();
+9. } catch (e) {
+10.   console.log('Error:', e);
+11. }
+但是现在，如果你想从第一个任务中传递变量到第二个任务中，代码会变的混乱（注意：foo 变量需要
+用 let 显式注解它，因为它不能从  runTask1  中返回出来）：
+1. let foo: number; // Notice 使用 let 并且显式注名类型注解
+2. 
+3. try {
+4.   foo = runTask1();
+5. } catch (e) {
+6.   console.log('Error:', e);
+不清楚从哪里抛出错误
+优雅的捕获错误
+异常处理
+- 130 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 131 ---
+7. }
+8. 
+9. try {
+10.   const bar = runTask2();
+11. } catch (e) {
+12.   console.log('Error:', e);
+13. }
+考虑如下函数：
+1. function validate(value: number) {
+2.   if (value < 0 || value > 100) {
+3.     throw new Error('Invalid value');
+4.   }
+5. }
+在这种情境下使用  Error  不是一个好的主意。因为没有用来验证函数的类型定义（如： (value:
+number) => void ），取而代之一个更好的方式是创建一个验证方法：
+1. function validate(
+2.   value: number;
+3. ): {
+4.   error?: string;
+5. } {
+6.   if (value < 0 || value > 100) {
+7.     return { error: 'Invalid value' };
+8.   }
+9. }
+现在它具有类型定义了。
+TIP
+除非你想用以非常通用（try/catch）的方式处理错误，否则不要抛出错误。
+原文: https://jkchao.github.io/typescript-book-
+chinese/typings/exceptionsHanding.html
+没有在类型系统中很好的表示
+异常处理
+- 131 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 132 ---
+TypeScript (和 JavaScript) 类只能严格的单继承，因此你不能做：
+1. class User extends Tagged, Timestamped { // ERROR : 不能多重继承
+2.   // ..
+3. }
+从可重用组件构建类的另一种方式是通过基类来构建它们，这种方式称为混合。
+这个主意是简单的，采用函数 B 接受一个类 A，并且返回一个带有新功能的类的方式来替代 A 类扩
+展 B 来获取 B 上的功能，前者中的 B 即是混合。
+TIP
+「混合」是一个函数：
+传入一个构造函数；
+创建一个带有新功能，并且扩展构造函数的新类；
+返回这个新类。
+一个完整的例子：
+1. // 所有 mixins 都需要
+2. type Constructor<T = {}> = new (...args: any[]) => T;
+3. 
+4. /////////////
+5. // mixins 例子
+6. ////////////
+7. 
+8. // 添加属性的混合例子
+9. function TimesTamped<TBase extends Constructor>(Base: TBase) {
+10.   return class extends Base {
+11.     timestamp = Date.now();
+12.   };
+13. }
+14. 
+15. // 添加属性和方法的混合例子
+16. function Activatable<TBase extends Constructor>(Base: TBase) {
+17.   return class extends Base {
+18.     isActivated = false;
+19. 
+混合
+混合
+- 132 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 133 ---
+20.     activate() {
+21.       this.isActivated = true;
+22.     }
+23. 
+24.     deactivate() {
+25.       this.isActivated = false;
+26.     }
+27.   };
+28. }
+29. 
+30. ///////////
+31. // 组合类
+32. ///////////
+33. 
+34. // 简答的类
+35. class User {
+36.   name = '';
+37. }
+38. 
+39. // 添加 TimesTamped 的 User
+40. const TimestampedUser = TimesTamped(User);
+41. 
+42. // Tina TimesTamped 和 Activatable 的类
+43. const TimestampedActivatableUser = TimesTamped(Activatable(User));
+44. 
+45. //////////
+46. // 使用组合类
+47. //////////
+48. 
+49. const timestampedUserExample = new TimestampedUser();
+50. console.log(timestampedUserExample.timestamp);
+51. 
+52. const timestampedActivatableUserExample = new TimestampedActivatableUser();
+53. console.log(timestampedActivatableUserExample.timestamp);
+54. console.log(timestampedActivatableUserExample.isActivated);
+让我们分解这个例子。
+混合接受一个类，并且使用新功能扩展它。因此，我们需要定义构造函数的类型：
+创建一个构造函数
+混合
+- 133 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 134 ---
+1. type Constructor<T = {}> = new (...args: any[]) => T;
+1. // 添加属性的混合例子
+2. function TimesTamped<TBase extends Constructor>(Base: TBase) {
+3.   return class extends Base {
+4.     timestamp = Date.now();
+5.   };
+6. }
+原文: https://jkchao.github.io/typescript-book-chinese/typings/mixins.html
+扩展一个类并且返回它
+混合
+- 134 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 135 ---
+通过  ThisType  我们可以在对象字面量中键入  this ，并提供通过上下文类型控制  this 
+类型的便捷方式。它只有在  —noImplicitThis  的选项下才有效。
+现在，在对象字面量方法中的  this  类型，将由以下决定：
+如果这个方法显示指定了  this  参数，那么  this  具有该参数的类型。（下例子中
+ bar ）
+否则，如果方法由带  this  参数的签名进行上下文键入，那么  this  具有该参数的类型。
+（下例子中  foo ）
+否则，如果  —noImplicitThis  选项已经启用，并且对象字面量中包含由  ThisType<T>  键
+入的上下文类型，那么  this  的类型为  T 。
+否则，如果  —noImplicitThis  选项已经启用，并且对象字面量中不包含由  ThisType<T> 
+键入的上下文类型，那么  this  的类型为该上下文类型。
+否则，如果  —noImplicitThis  选项已经启用， this  具有该对象字面量的类型。
+否则， this  的类型为  any 。
+一些例子：
+1. // Compile with --noImplicitThis
+2. 
+3. type Point = {
+4.   x: number;
+5.   y: number;
+6.   moveBy(dx: number, dy: number): void;
+7. };
+8. 
+9. let p: Point = {
+10.   x: 10,
+11.   y: 20,
+12.   moveBy(dx, dy) {
+13.     this.x += dx; // this has type Point
+14.     this.y += dy; // this has type Point
+15.   }
+16. };
+17. 
+18. let foo = {
+19.   x: 'hello',
+20.   f(n: number) {
+21.     this; // { x: string, f(n: number): void }
+ThisType
+ThisType
+- 135 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 136 ---
+22.   }
+23. };
+24. 
+25. let bar = {
+26.   x: 'hello',
+27.   f(this: { message: string }) {
+28.     this; // { message: string }
+29.   }
+30. };
+类似的方式，当使用  —noImplicitThis  时，函数表达式赋值给  obj.xxx  或者  obj[xxx] 
+的目标时，在函数中  this  的类型将会是  obj ：
+1. // Compile with --noImplicitThis
+2. 
+3. obj.f = function(n) {
+4.   return this.x - n; // 'this' has same type as 'obj'
+5. };
+6. 
+7. obj['f'] = function(n) {
+8.   return this.x - n; // 'this' has same type as 'obj'
+9. };
+通过 API 转换参数的形式来生成  this  的值的情景下，可以通过创建一个新的  ThisType<T> 
+标记接口，可用于在上下文中表明转换后的类型。尤其是当字面量中的上下文类型为  ThisType<T> 
+或者是包含  ThisType<T>  的交集时，显得尤为有效，对象字面量方法中  this  的类型即为
+ T 。
+1. // Compile with --noImplicitThis
+2. 
+3. type ObjectDescriptor<D, M> = {
+4.   data?: D;
+5.   methods?: M & ThisType<D & M>; // Type of 'this' in methods is D & M
+6. };
+7. 
+8. function makeObject<D, M>(desc: ObjectDescriptor<D, M>): D & M {
+9.   let data: object = desc.data || {};
+10.   let methods: object = desc.methods || {};
+11.   return { ...data, ...methods } as D & M;
+12. }
+13. 
+14. let obj = makeObject({
+ThisType
+- 136 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 137 ---
+15.   data: { x: 0, y: 0 },
+16.   methods: {
+17.     moveBy(dx: number, dy: number) {
+18.       this.x += dx; // Strongly typed this
+19.       this.y += dy; // Strongly typed this
+20.     }
+21.   }
+22. });
+23. 
+24. obj.x = 10;
+25. obj.y = 20;
+26. obj.moveBy(5, 5);
+在上面的例子中， makeObject  参数中的对象属性  methods  具有包含  ThisType<D & M> 
+的上下文类型，因此对象中  methods  属性下的方法的  this  类型为  { x: number, y:
+number } & { moveBy(dx: number, dy: number): number } 。
+ ThisType<T>  的接口，在  lib.d.ts  只是被声明为空的接口，除了可以在对象字面量上下文中
+可以被识别以外，该接口的作用等同于任意空接口。
+原文: https://jkchao.github.io/typescript-book-chinese/typings/thisType.html
+ThisType
+- 137 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 138 ---
+支持 JSX
+React JSX
+非 React JSX
+JSX
+- 138 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 139 ---
+TypeScript 支持 JSX 转换和代码分析，如果你还不了解 JSX，官网
+上有关于它的摘要：
+JSX is an XML-like syntax extension to ECMAScript without any defined semantics.
+It's NOT intended to be implemented by engines or browsers. It's NOT a proposal
+to incorporate JSX into the ECMAScript spec itself. It's intended to be used by
+various preprocessors (transpilers) to transform these tokens into standard
+ECMAScript.
+JSX 背后的动机是允许用户在 JavaScript 中书写类似于 HTML 的视图，因此你可以：
+使用相同代码，既能检查你的 JavaScript，同时能检查你的 HTML 视图层部分。
+让视图层了解运行时的上下文（加强传统 MVC 中的控制器与视图连接）。
+复用 JavaScript 设计模式维护 HTML 部分，例如：用
+ Array.prototype.map. 、 ?: 、 switch  等，代替创建新的可替代品。
+这能够减少错误的可能性，并且能增加用户界面的可维护性。目前 JSX 的主要消费者来自
+facebook 推出的 ReactJS
+，接下来我们结合它来讨论 JSX 用法。
+原文: https://jkchao.github.io/typescript-book-chinese/jsx/support.html
+支持 JSX
+支持 JSX
+- 139 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 140 ---
+在 React 中使用 TypeScript 的教学视频
+在 TypeScript in the browser
+ 章节中，我们已经学会开始开发 React 的应用了，以下是一
+些重点：
+使用文件后缀  .tsx （替代  .ts ）；
+在你的  tsconfig.json  配置文件的  compilerOptions  里设置选项  "jsx": "react" ；
+在你的项目里为  JSX  和  React  安装声明文件： npm i -D @types/react
+@types/react-dom ；
+导入  react  到你的  .tsx  文件（ import * as React from 'react' ）。
+React 不但能渲染 HTML 标签（strings）也能渲染 React 组件（classes）。JavaScript 触
+发这些的原理是不同的（ React.createElement('div')  vs
+ React.createElement(MyComponent) ）， 确定使用哪一种方式取决于首字母的大小写， foo 
+被认为是 HTML 标签， Foo  被认为是一个组件。
+一个 HTML 标签  foo  被标记为  JSX.IntrinsicElements.foo  类型。在我们已经安装的文件
+ react-jsx.d.ts  中定义了所有主要标签的类型，如下是一部分示例：
+1. declare namespace JSX {
+2.   interface IntrinsicElements {
+3.     a: React.HTMLAttributes;
+4.     abbr: React.HTMLAttributes;
+5.     div: React.HTMLAttributes;
+6.     span: React.HTMLAttributes;
+7. 
+8.     // 其他
+9.   }
+10. }
+React JSX
+建立
+HTML 标签 vs 组件
+类型检查
+HTML 标签
+React JSX
+- 140 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 141 ---
+你可以使用  React.FunctionComponent  接口定义函数组件：
+1. type Props = {
+2.   foo: string;
+3. };
+4. 
+5. const myComponent: React.FunctionComponent<Props> = props => {
+6.   return <span>{props.foo}</span>;
+7. };
+8. 
+9. <MyComponent foo="bar" />;
+根据组件的  props  属性对组件进行类型检查。这是以 JSX 如何转换做为蓝本，例如：属性成为
+ props  的组成部分。
+ react.d.ts  文件定义了  React.Component<Props,State> ，你应该使用自己所需的
+ Props  和  State  声明扩展它：
+1. type Props = {
+2.   foo: string;
+3. };
+4. 
+5. class MyComponent extends React.Component<Props, {}> {
+6.   render() {
+7.     return <span>{this.props.foo}</span>;
+8.   }
+9. }
+10. 
+11. <MyComponent foo="bar" />;
+react 类型声明文件提供了  React.ReactElement<T> ，它可以让你通过传入  <T/> ，来注解类
+组件的实例化结果。
+1. class MyAwesomeComponent extends React.Component {
+函数式组件
+类组件
+React JSX Tip: 接收组件的实例
+React JSX
+- 141 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 142 ---
+2.   render() {
+3.     return <div>Hello</div>;
+4.   }
+5. }
+6. 
+7. const foo: React.ReactElement<MyAwesomeComponent> = <MyAwesomeComponent />; // 
+Okay
+8. const bar: React.ReactElement<MyAwesomeComponent> = <NotMyAwesomeComponent />; 
+// Error!
+TIP
+当然，你可以将它用作函数参数的注解，甚至可以是 React 组件的 prop 成员。
+类型  React.Component<Props>  是  React.ComponentClass<P>  与
+ React.StatelessComponent<P>  的组合，所以你可以接受一些可以用作 Props 类型和使用 JSX
+渲染的组件。
+1. const X: React.Component<Props> = foo; // from somewhere
+2. 
+3. // Render X with some props:
+4. <X {...props} />;
+React 可以渲染一些像  JSX  或者是  string  的内容，这些被合并到类型
+ React.ReactNode  中，因此，当你接收可渲染的内容时，你可以使用它：
+1. type Props = {
+2.   header: React.ReactNode;
+3.   body: React.ReactNode;
+4. };
+5. 
+6. class MyComonent extends React.Component<Props, {}> {
+7.   render() {
+8.     return (
+9.       <div>
+10.         {this.props.header}
+React JSX Tip: 接受一个可以在 Props 起作用，并使用 JSX 渲
+染的组件
+React JSX Tip: 可渲染的接口
+React JSX
+- 142 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 143 ---
+11.         {this.props.body}
+12.       </div>
+13.     );
+14.   }
+15. }
+16. 
+17. <MyComponent foo="bar" />;
+React 声明文件提供  React.ReactElement<T>  的接口，可以让你注解一个类组件实例化的返回
+值 <T/> ，如：
+1. class MyAwesomeComponent extends React.Component {
+2.   render() {
+3.     return <div>Hello</div>;
+4.   }
+5. }
+6. 
+7. const foo: React.ReactElement<MyAwesomeComponent> = <MyAwesomeComponent />; // 
+Okay
+8. const bar: React.ReactElement<MyAwesomeComponent> = <NotMyAwesomeComponent />; 
+// Error!
+TIP
+你也可以将其用做函数参数的注解，或者是 React 组件的 prop 注解。
+类型  React.Component<Props>  合并了  React.ComponentClass<P>  和
+ React.StatelessComponent<P> ，因此，你可以接收一些使用  Prop  类型的组件，并使用 JSX
+渲染它：
+1. const X: React.Component<Props> = foo // 来自其他地方
+2. 
+3. // 渲染 X
+4. <X {...props} />
+React JSX tip: 接收组件的接口
+React JSX tip: 接收可以做为 props 的组件，并且使用 JSX 渲
+染它
+React JSX tip: 泛型组件
+React JSX
+- 143 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 144 ---
+它完全能按我们预期工作，如：
+1. // 一个泛型组件
+2. type SelectProps<T> = { items: T[] };
+3. class Select<T> extends React.Component<SelectProps<T>, any> {}
+4. 
+5. // 使用
+6. const Form = () => <Select<string> items={['a', 'b']} />;
+一些像下面这样的正常工作：
+1. function foo<T>(x: T): T {
+2.   return x;
+3. }
+然而不能使用箭头泛型函数：
+1. const foo = <T>(x: T) => T; // Error: T 标签没有关闭
+解决办法：在泛型参数里使用  extends  来提示编译器，这是个泛型：
+1. const foo = <T extends {}>(x: T) => x;
+基本上你在初始化一个变量时，使用 ref 和 null 的联合类型，并且在回调函数中初始化他：
+1. class Example extends React.Component {
+2.   example() {
+3.     // ... something
+4.   }
+5. 
+6.   render() {
+7.     return <div>Foo</div>;
+8.   }
+9. }
+10. 
+11. class Use {
+12.   exampleRef: Example | null = null;
+泛型函数
+React Tip: 强类型的 Refs
+React JSX
+- 144 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 145 ---
+13. 
+14.   render() {
+15.     return <Example ref={exampleRef => (this.exampleRef = exampleRef)} />;
+16.   }
+17. }
+使用原生元素时也一样：
+1. class FocusingInput extends React.Component<{ value: string; onChange: (value: 
+string) => any }, {}> {
+2.   input: HTMLInputElement | null = null;
+3. 
+4.   render() {
+5.     return (
+6.       <input
+7.         ref={input => (this.input = input)}
+8.         value={this.props.value}
+9.         onChange={e => {
+10.           this.props.onChange(e.target.value);
+11.         }}
+12.       />
+13.     );
+14.   }
+15.   focus() {
+16.     if (this.input != null) {
+17.       this.input.focus();
+18.     }
+19.   }
+20. }
+如我们之前提到的，可以使用  as Foo  语法进行类型断言。
+在有状态组件中使用默认的 Props：你可以通过  null  操作符（这不是一个理想的方式，但
+是这是我能想到的最简单的最小代码解决方案）告诉 TypeScript 一个属性将会被外部提供
+（React）。
+1. class Hello extends React.Component<{
+类型断言
+默认 Props
+React JSX
+- 145 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 146 ---
+2.   /**
+3.    * @default 'TypeScript'
+4.    */
+5.   compiler?: string;
+6.   framework: string;
+7. }> {
+8.   static defaultProps = {
+9.     compiler: 'TypeScript'
+10.   };
+11.   render() {
+12.     const compiler = this.props.compiler!;
+13.     return (
+14.       <div>
+15.         <div>{compiler}</div>
+16.         <div>{this.props.framework}</div>
+17.       </div>
+18.     );
+19.   }
+20. }
+21. 
+22. ReactDOM.render(
+23.   <Hello framework="React" />, // TypeScript React
+24.   document.getElementById('root')
+25. );
+在 SFC 中使用默认的 Props：推荐使用简单的 JavaScript 参数，因为同样适用于
+TypeScript 类型系统：
+1. const Hello: React.SFC<{
+2.   /**
+3.    * @default 'TypeScript'
+4.    */
+5.   compiler?: string;
+6.   framework: string;
+7. }> = ({
+8.   compiler = 'TypeScript', // Default prop
+9.   framework
+10. }) => {
+11.   return (
+12.     <div>
+13.       <div>{compiler}</div>
+14.       <div>{framework}</div>
+React JSX
+- 146 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 147 ---
+15.     </div>
+16.   );
+17. };
+18. 
+19. ReactDOM.render(
+20.   <Hello framework="React" />, // TypeScript React
+21.   document.getElementById('root')
+22. );
+原文: https://jkchao.github.io/typescript-book-chinese/jsx/reactJSX.html
+React JSX
+- 147 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 148 ---
+TypeScript 使你能够以类型安全的方式使用在 React 中使用 JSX 之外的其他方式，以下列出了
+一些可自定义点，但是请注意，这些适用于 UI 框架的作者：
+你可以  "jsx": "preserve"  选项来禁用  react  样式触发，这意味着，JSX 将按原样触
+发，然后你可以使用自定义转化器来转化 JSX 部分；
+使用  JSX  全局模块：
+你可以通过定制  JSX.IntrinsicElements  的接口成员来控制哪些 HTML 标签是可取
+的，以及如何对其进行类型检查；
+当你在组件中使用：
+你可以通过自定义默认的  interface ElementClass extends
+React.Component<any, any> { }  声明文件来控制哪个  class  必须由组件继
+承；
+你可以通过自定义  declare module JSX { interface
+ElementAttributesProperty { props: {} } }  声明文件来控制使用的哪个属性
+（property）来检查特性（attribute）（默认是  props ）。
+通过  —jsxFactory <JSX factory Name>  与  —jsx react ，能让你不同于默认  React  的
+方式使用 JSX 工厂函数。
+这个新的工厂函数名字习惯被称之为  createElement  函数。
+1. import { jsxFactory } from 'jsxFactory';
+2. 
+3. const div = <div>Hello JSX!</div>;
+使用编译：
+1. tsc --jsx react --reactNamespace jsxFactory --m commonJS
+编译结果：
+1. 'use strict';
+2. var jsxFactory_1 = require('jsxFactory');
+非 React JSX
+jsxFactory
+例子
+非 React JSX
+- 148 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 149 ---
+3. var div = jsxFactory_1.jsxFactory.createElement('div', null, 'Hello JSX!');
+你甚至可以使用 jsxPragma  为每个文件指定不同的  jsxFactory ：
+1. /** @jsx jsxFactory */
+2. import { jsxFactory } from 'jsxFactory';
+3. 
+4. var div = <div>Hello JSX!</div>;
+在 jsx 编译提示中，配合  —jsx react  命令，这个文件将会被触发使用工厂函数：
+1. 'use strict';
+2. var jsxFactory_1 = require('jsxFactory');
+3. var div = jsxFactory_1.jsxFactory.createElement('div', null, 'Hello JSX!');
+原文: https://jkchao.github.io/typescript-book-chinese/jsx/nonReactJSX.html
+jsx 编译提示
+非 React JSX
+- 149 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 150 ---
+解读 Errors
+常见的 Error
+TypeScript 错误提示
+- 150 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 151 ---
+TypeScript 是一种专注于帮助开发人员的编程语言，当错误出现时，它会提供尽可能提供非常有用
+的错误信息。这对于那些信任使用者的编译器来说，可能会导致轻微的信息量过载，而不会那么实用。
+让我们来看一个在 IDE 中的例子：
+1. type SomethingComplex = {
+2.   foo: number;
+3.   bar: string;
+4. };
+5. 
+6. function takeSomethingComplex(arg: SomethingComplex) {}
+7. 
+8. function getBar(): string {
+9.   return 'some bar';
+10. }
+11. 
+12. // 一个可能会出现的错误使用
+13. const fail = {
+14.   foo: 123,
+15.   bar: getBar
+16. };
+17. 
+18. takeSomethingComplex(fail); // 在这里 TypeScript 会报错
+这个简单的例子，演示了一个常见的程序设计错误，它调用函数失败（ bar: getBar  应该是
+ bar: getBar() ）。幸运的是，一旦不符合类型要求，TypeScript 将会捕捉到这个错误。
+TypeScript 错误信息分为两类：简洁和详细。
+简洁的错误信息是为了提供一个编译器描述的错误号以及一些相关的信息，一个简洁的错误信息类似于
+如下所示：
+1. TS2345: Argument of type '{ foo: number; bar: () => string; }' is not 
+assignable to parameter of type 'SomethingComplex'.
+解读 Errors
+错误分类
+简洁
+解读 Errors
+- 151 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 152 ---
+然而，它没有提供更深层次的信息，如为什么这个错误会发生。这就是详细错误所需要的原因。
+详细的错误信息类似于如下所示：
+1. [ts]
+2. Argument of type '{ foo: number; bar: () => string; }' is not assignable to 
+parameter of type 'SomethingComplex'.
+3.   Types of property 'bar' are incompatible.
+4.     Type '() => string' is not assignable to type 'string'.
+详细的错误信息是为了指导使用者知道为什么一些错误（在这个例子里是类型不兼容）会发生。第一行
+与简洁的错误信息相同，后跟一些详细的信息。你应该阅读这些详细信息，因为对于开发者的一些疑
+问，它都给出了问答：
+1. ERROR: Argument of type '{ foo: number; bar: () => string; }' is not assignable 
+to parameter of type 'SomethingComplex'.
+2. 
+3. WHY?
+4. CAUSE ERROR: Types of property 'bar' are incompatible.
+5. 
+6. WHY?
+7. CAUSE ERROR: Type '() => string' is not assignable to type 'string'.
+所以，最根本的原因是：
+在属性  bar 
+函数  () => string  它应该是一个字符串。
+这能够帮助开发者修复 bar 属性的 bug（它们忘记了调用这个函数）。
+IDE 通常会在详细的错误提示之后显示简洁版本，如下所示：
+详细
+在 IDE 中怎么提示
+解读 Errors
+- 152 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 153 ---
+你通常可能只会阅读「为什么」的详细信息；
+当你想寻找相同的错误时（使用  TSXXX  错误编号，或者部分错误信息），使用简洁的版本。
+原文: https://jkchao.github.io/typescript-book-chinese/error/interpreting.html
+解读 Errors
+- 153 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 154 ---
+在此章节中，我们学习在实际应用中将会遇到的常见错误代码。
+例子：
+ Cannot find name ga ,  Cannot find name $ ,  Cannot find module jquery 
+你可能在使用第三方的库（如：google analytics），但是你并没有  declare  的声明。在没有
+声明它们之前，TypeScript 试图避免错误和使用变量。因此在使用一些额外的库时，你需要明确的
+声明使用的任何变量（如何修复它）。
+例子：
+ Cannot find module 'underscore' 
+你可能把第三方的库做为模块（移步模块）来使用，并且没有一个与之对应的环境声明文件（更多声明
+文件信息）。
+例子：
+ Cannot compile modules unless the '—module' flag provided 
+请查看模块章节
+例子：
+1. try {
+2.   something();
+3. } catch (e) {
+4.   // 捕获不能有类型注解的简短变量
+5.   // ...
+6. }
+常见的 Error
+TS2304
+TS2307
+TS1148
+捕获不能有类型注解的简短变量
+常见的 Error
+- 154 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 155 ---
+TypeScript 正在保护你免受 JavaScript 代码的侵害，取而代之，使用类型保护：
+1. try {
+2.   something();
+3. } catch (e) {
+4.   // 捕获不能有类型注解的简短变量
+5.   if (e instanceof Error) {
+6.     // do...
+7.   }
+8. }
+当在编译上下文中同时含有两个  react.d.ts （ @types/react/index.d.ts ）会发生这种情况。
+修复：
+删除  node_modules  和任何  package-lock （或者  yarn lock ），然后再一次  npm
+install ；
+如果这不能工作，查找无效的模块（你所使用的所用用到了  react.d.ts  模块应该做为
+ peerDependency  而不是做为  dependency  使用）并且把这个报告给相关模块。
+原文: https://jkchao.github.io/typescript-book-chinese/error/common.html
+接口 ElementClass 不能同时扩展类型别名
+Component 和 Component
+常见的 Error
+- 155 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 156 ---
+基于字符串的枚举
+名义化类型
+状态函数
+Bind 是有害的
+柯里化
+泛型的实例化类型
+对象字面量的惰性初始化
+类是有用的
+export default 被认为是有害的
+减少 setter 属性的使用
+创建数组
+谨慎使用 —outFile
+TypeScript 中的静态构造函数
+单例模式
+函数参数
+Truthy
+构建切换
+类型安全的 Event Emitter
+Reflect Metadata
+协变与逆变
+TIPs
+- 156 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 157 ---
+有时你需要在公共的键下收集一些字符串的集合。在 TypeScript 2.4 以前，它仅支持基于数字类
+型的枚举，如果你在使用 TypeScript 2.4 以下的版本，你通过可以使用字符串字面量类型与联合
+类型组合使用创建基于字符串枚举类型的方式。
+原文: https://jkchao.github.io/typescript-book-chinese/tips/stringBasedEmuns.html
+基于字符串的枚举
+基于字符串的枚举
+- 157 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 158 ---
+TypeScript 的类型系统是结构化的，这里
+有个主要的原因。然而，在实际项目中可能是你想区分
+两个类型不同的变量，尽管它们具有相同的结构。一个非常常见的实际用例是身份的验证（它们可能只
+是在 C# 或者 Java 中表示一个它们语义化名字的字符串）。
+这有一些社区推荐的方式，我按照个人爱好降序排列：
+这种模式使用泛型和字面量类型：
+1. // 泛型 Id 类型
+2. type Id<T extends string> = {
+3.   type: T;
+4.   value: string;
+5. };
+6. 
+7. // 特殊的 Id 类型
+8. type FooId = Id<'foo'>;
+9. type BarId = Id<'bar'>;
+10. 
+11. // 可选：构造函数
+12. const createFoo = (value: string): FooId => ({ type: 'foo', value });
+13. const createBar = (value: string): BarId => ({ type: 'bar', value });
+14. 
+15. let foo = createFoo('sample');
+16. let bar = createBar('sample');
+17. 
+18. foo = bar; // Error
+19. foo = foo; // Okey
+优点
+不需要类型断言。
+缺点
+如上结构  {type,value}  可能不那么尽如人意，而且需要服务器序列化支持。
+名义化类型
+使用字面量类型
+使用枚举
+名义化类型
+- 158 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 159 ---
+TypeScript 中枚举 提供一定程度的名义化类型。如果两个枚举的命名不相同，则它们类型不相等。
+我们可以利用这个事实来为结构上兼容的类型，提供名义化类型。
+解决办法包括：
+创建一个只有名字的枚举；
+利用这个枚举与实际结构体创建一个交叉类型（ & ）。
+如下所示，当实际结构体仅仅是一个字符串时：
+1. // FOO
+2. enum FooIdBrand {};
+3. type FooId = FooIdBrand & string;
+4. 
+5. // BAR
+6. enum BarIdBrand {};
+7. type BarId = BarIdBrand & string;
+8. 
+9. // user
+10. 
+11. let fooId: FooId;
+12. let barId: BarId;
+13. 
+14. // 类型安全
+15. fooId = barId; // error
+16. barId = fooId; // error
+17. 
+18. // 创建一个新的
+19. fooId = 'foo' as FooId;
+20. barId = 'bar' as BarId;
+21. 
+22. // 两种类型都与基础兼容
+23. let str: string;
+24. str = fooId;
+25. str = barId;
+因为  number  类型与  enum  类型在类型上是兼容的，因此我们不能使用上述提到的方法来处理
+它们。取而代之，我们可以使用接口打破这种类型的兼容性。TypeScript 编译团队仍然在使用这种
+方法，因此它值得一提。使用  _  前缀和  Brand  后缀是一种我强烈推荐的惯例方法
+（TypeScript 也这么推荐
+）。
+使用接口
+名义化类型
+- 159 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 160 ---
+解决办法包括：
+在类型上添加一个不用的属性，用来打破类型兼容性；
+在需要的时候使用类型断言。
+如下所示：
+1. // FOO
+2. interface FooId extends String {
+3.   _fooIdBrand: string; // 防止类型错误
+4. }
+5. 
+6. // BAR
+7. interface BarId extends String {
+8.   _barIdBrand: string; // 防止类型错误
+9. }
+10. 
+11. // 使用
+12. let fooId: FooId;
+13. let barId: BarId;
+14. 
+15. // 类型安全
+16. fooId = barId; // error
+17. barId = fooId; // error
+18. fooId = <FooId>barId; // error
+19. barId = <BarId>fooId; // error
+20. 
+21. // 创建新的
+22. fooId = 'foo' as any;
+23. barId = 'bar' as any;
+24. 
+25. // 如果你需要以字符串作为基础
+26. var str: string;
+27. str = fooId as any;
+28. str = barId as any;
+原文: https://jkchao.github.io/typescript-book-chinese/tips/nominalTyping.html
+名义化类型
+- 160 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 161 ---
+其他编程语言有一个共同特征，它们使用  static  关键字来增加函数变量的生命周期（不是范
+围），使其超出函数的调用范围，如 C 语言中的实现：
+1. void called () {
+2.     static count = 0;
+3.     count++;
+4.     printf("Called : %d", count);
+5. }
+6. 
+7. int main () {
+8.     called(); // Called : 1
+9.     called(); // Called : 2
+10.     return 0;
+11. }
+由于 JavaScript（TypeScript）并没有静态函数的功能，你可以使用一个包裹着本地变量的抽象
+变量，如使用  class ：
+1. const { called } = new class {
+2.   count = 0;
+3.   called = () => {
+4.     this.count++;
+5.     console.log(`Called : ${this.count}`);
+6.   };
+7. }();
+8. 
+9. called(); // Called : 1
+10. called(); // Called : 2
+原文: https://jkchao.github.io/typescript-book-chinese/tips/statefulFunctions.html
+状态函数
+状态函数
+- 161 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 162 ---
+TIP
+译者注：在这个 PR
+ 下，已经解决  bind 、 call 、 apply  类型正确推导的问题，预计在
+3.2 版本中发布。
+这是在  lib.d.ts  中  bind  的定义：
+1. bind(thisArg: any, ...argArray: any[]): any
+你可以看到他的返回值是  any ，这意味着在函数上调用  bind  会导致你在原始函数调用签名上
+将会完全失去类型的安全检查。
+如下所示：
+1. function twoParams(a: number, b: number) {
+2.   return a + b;
+3. }
+4. 
+5. let curryOne = twoParams.bind(null, 123);
+6. curryOne(456); // ok
+7. curryOne('456'); // ok
+一个更好的方式的是使用类型注解的箭头函数：
+1. function twoParams(a: number, b: number) {
+2.   return a + b;
+3. }
+4. 
+5. let curryOne = (x: number) => twoParams(123, x);
+6. curryOne(456); // ok
+7. curryOne('456'); // Error
+如果你想用一个柯里化的函数，你可以看看此章节：
+另一个常见用途是在传递类函数时使用  bind  来确保  this  的正确值，不要这么做。
+在接下来的示例中，如果你使用了  bind ，你将会失去函数参数的类型安全：
+Bind 是有害的
+类成员
+Bind 是有害的
+- 162 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 163 ---
+1. class Adder {
+2.   constructor(public a: string) {}
+3. 
+4.   add(b: string): string {
+5.     return this.a + b;
+6.   }
+7. }
+8. 
+9. function useAdd(add: (x: number) => number) {
+10.   return add(456);
+11. }
+12. 
+13. let adder = new Adder('mary had a little ?');
+14. useAdd(adder.add.bind(adder)); // 没有编译的错误
+15. useAdd(x => adder.add(x)); // Error: number 不能分配给 string
+如果你想传递一个类成员的函数，使用箭头函数。例如：
+1. class Adder {
+2.   constructor(public a: string) {}
+3. 
+4.   // 此时，这个函数可以安全传递
+5.   add = (b: string): string => {
+6.     return this.a + b;
+7.   };
+8. }
+另一种方法是手动指定要绑定的变量的类型：
+1. const add: typeof adder.add = adder.add.bind(adder);
+原文: https://jkchao.github.io/typescript-book-chinese/tips/bind.html
+Bind 是有害的
+- 163 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 164 ---
+仅仅需要使用一系列箭头函数：
+1. // 一个柯里化函数
+2. let add = (x: number) => (y: number) => x + y;
+3. 
+4. // 简单使用
+5. add(123)(456);
+6. 
+7. // 部分应用
+8. let add123 = add(123);
+9. 
+10. // fully apply the function
+11. add123(456);
+原文: https://jkchao.github.io/typescript-book-chinese/tips/curry.html
+柯里化
+柯里化
+- 164 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 165 ---
+假如你有一个具有泛型参数的类型，如一个类  Foo ：
+1. class Foo<T> {
+2.   foo: T;
+3. }
+你想为一个特定的类型创建单独的版本，可以通过将它拷贝到一个新变量里，并且用具体类型代替泛型
+的类型注解的方式来实现。例如，如果你想有一个类： Foo<number> ：
+1. class Foo<T> {
+2.   foo: T;
+3. }
+4. 
+5. const FooNumber = Foo as { new (): Foo<number> }; // ref 1
+在  ref 1  中，你说  FooNumber  与  Foo  相同，但是，只是将其看作使用  new  运算符
+调用时的一个  Foo<Number>  实例。
+类型断言模式是不安全的，因为编译器相信你在做正确的事情。在其他语言中用于类的常见模式是使用
+继承：
+1. class FooNumber extends Foo<number> {}
+WARNING
+这里需要注意的一点，如果你在基类上使用修饰器，继承类可能没有与基类相同的行为（它不再被修饰
+器包裹）。
+当然，如果你不需要一个单独的类，你仍然写出一个有效的强制/断言模式，因此在开始时，我们便展
+示出了普通的断言模式：
+1. function id<T>(x: T) {
+2.   return x;
+3. }
+4. 
+5. const idNum = id as { (x: number): number };
+泛型的实例化类型
+继承
+泛型的实例化类型
+- 165 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 166 ---
+灵感来源于：stackoverflow question
+原文: https://jkchao.github.io/typescript-book-chinese/tips/typeInstantiation.html
+泛型的实例化类型
+- 166 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 167 ---
+在 JavaScript 中，像这样用字面量初始化对象的写法十分常见：
+1. let foo = {};
+2. foo.bar = 123;
+3. foo.bas = 'Hello World';
+但在 TypeScript 中，同样的写法就会报错：
+1. let foo = {};
+2. foo.bar = 123; // Error: Property 'bar' does not exist on type '{}'
+3. foo.bas = 'Hello World'; // Error: Property 'bas' does not exist on type '{}'
+这是因为 TypeScript 在解析  let foo = {}  这段赋值语句时，会进行“类型推断”：它会认为
+等号左边  foo  的类型即为等号右边  {}  的类型。由于  {}  本没有任何属性，因此，像上
+面那样给  foo  添加属性时就会报错。
+最好的解决方案就是在为变量赋值的同时，添加属性及其对应的值：
+1. let foo = {
+2.   bar: 123,
+3.   bas: 'Hello World'
+4. };
+这种写法也比较容易通过其他人或工具的代码审核，对后期维护也是有利的。
+以下的快速解决方案采用惰性的思路，本质上是在初始化变量时忘了添加属性的做法。
+如果你的 JavaScript 项目很大，那么在迁移到 TypeScript 的时候，上面的做法可能会比较麻
+烦。此时，你可以利用 TypeScript 的“类型断言”机制让代码顺利通过编译：
+1. let foo = {} as any;
+2. foo.bar = 123;
+3. foo.bas = 'Hello World';
+对象字面量的惰性初始化
+最好的解决方案
+快速解决方案
+对象字面量的惰性初始化
+- 167 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 168 ---
+当然，总是用  any  肯定是不好的，因为这样做其实是在想办法绕开 TypeScript 的类型检查。
+那么，折中的方案就是创建  interface ，这样的好处在于：
+方便撰写类型文档
+TypeScript 会参与类型检查，确保类型安全
+请看以下的示例：
+1. interface Foo {
+2.   bar: number;
+3.   bas: string;
+4. }
+5. 
+6. let foo = {} as Foo;
+7. foo.bar = 123;
+8. foo.bas = 'Hello World';
+使用  interface  可以确保类型安全，比如这种情况：
+1. interface Foo {
+2.   bar: number;
+3.   bas: string;
+4. }
+5. 
+6. let foo = {} as Foo;
+7. foo.bar = 123;
+8. foo.bas = 'Hello World';
+9. 
+10. // 然后我们尝试这样做：
+11. foo.bar = 'Hello Stranger'; // 错误：你可能把 `bas` 写成了 `bar`，不能为数字类型的属性
+赋值字符串
+原文: https://jkchao.github.io/typescript-book-
+chinese/tips/lazyObjectLiteralInitialization.html
+折中的解决方案
+对象字面量的惰性初始化
+- 168 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 169 ---
+以下结构在应用中很常见：
+1. function foo() {
+2.   let someProperty;
+3. 
+4.   // 一些其他的初始化代码
+5. 
+6.   function someMethod() {
+7.     // 用 someProperty 做一些事情
+8.     // 可能有其他属性
+9.   }
+10. 
+11.   // 可能有其他的方法
+12.   return {
+13.     someMethod
+14.     // 可能有其他方法
+15.   };
+16. }
+它被称为模块模式（利用 JavaScript 的闭包）。
+如果你使用文件模块（你确实应该将全局变量视为错误），文件中的代码与示例一样，都不是全局变
+量。
+然而，开发者有时会写以下类似代码：
+1. let someProperty;
+2. 
+3. function foo() {
+4.   // 一些初始化代码
+5. }
+6. 
+7. foo();
+8. someProperty = 123; // 其他初始化代码
+9. 
+10. // 一些其它未导出
+11. 
+12. // later
+13. export function someMethod() {}
+类是有用的
+类是有用的
+- 169 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 170 ---
+尽管我并不是一个特别喜欢使用继承的人，但是我确实发现让开发者使用类，可以在一定程度上更好的
+组织他们的代码，例如：
+1. class Foo {
+2.   public someProperty;
+3. 
+4.   constructor() {
+5.     // 一些初始化内容
+6.   }
+7. 
+8.   public someMethod() {
+9.     // ..code
+10.   }
+11. 
+12.   public someUtility() {
+13.     // .. code
+14.   }
+15. }
+16. 
+17. export = new Foo();
+这并不仅仅有利于开发者，在创建基于类的更出色可视化工具中，它更常见。并且，这有利于项目的理
+解和维护。
+TIP
+在浅层次的结构中，如果它们能够提供明显的重复使用和减少模版的好处，那么在这个观点里，我并没
+有错误。
+原文: https://jkchao.github.io/typescript-book-chinese/tips/classAreUseful.html
+类是有用的
+- 170 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 171 ---
+假如你有一个包含以下内容的  foo.ts  文件：
+1. class Foo {}
+2. 
+3. export default Foo;
+你可能会使用 ES6 语法导入它（在  bar.ts  里）：
+1. import Foo from './foo';
+这存在一些可维护性的问题：
+如果你在  foo.ts  里重构  Foo ，在  bar.ts  文件中，它将不会被重新命名；
+如果你最终需要从  foo.ts  文件中导出更多有用的信息（在你的很多文件中都存在这种情
+景），那么你必须兼顾导入语法。
+由于这些原因，我推荐在导入时使用简单的  export  与解构的形式，如  foo.ts ：
+1. export class Foo {}
+接着：
+1. import { Foo } from './Foo';
+下面，我将会介绍更多的原因。
+默认导出的可发现性非常差，你不能智能的辨别一个模块它是否有默认导出。
+在使用默认导出时，你什么也没有得到（可能它有默认导出，可能它没有）。
+1. import /* here */ from 'something';
+没有默认导出，你可以用以下方式获取智能提示：
+1. import /* here */ 'something';
+export default 被认为是有害的
+可发现性差
+export default 被认为是有害的
+- 171 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 172 ---
+不管你是否了解导出，你都可以在  import { / here / } from './foo'  的  here  位置，来
+了解导出模块的信息。
+对于必须使用  const { default } = require('module/foo')  而不是  const { Foo } =
+require('module/foo')  的 CommonJS 的用户来说，这会是一个糟糕的体验。当你导入一个模块
+时，你很可能想重命名  default  作为导入的名字。
+当你在开发时使用  import Foo from './foo'  时，并不会得到有关于拼写的任何错误，其他人可
+能会这么写  import foo from './foo' ；
+再次导出是没必要的，但是在  npm  包的根文件  index  却是很常见。如： import Foo from
+'./foo'；export { Foo } （默认导出）VS  export * from './foo'  （命名导出）。
+在动态的  import  中，默认导出会以  default  的名字暴露自己，如：
+1. const HighChart = await import('https://code.highcharts.com/js/es-
+modules/masters/highcharts.src.js');
+2. Highcharts.default.chart('container', { ... }); // Notice `.default`
+原文: https://jkchao.github.io/typescript-book-
+chinese/tips/avoidExportDefault.html
+自动完成
+CommonJS 互用
+防止拼写错误
+再次导出
+动态导入
+export default 被认为是有害的
+- 172 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 173 ---
+倾向于使用更精确的  set/get  函数（如  setBar ,  getBar ），减少使用
+ setter/getter ；
+考虑以下代码：
+1. foo.bar = {
+2.   a: 123,
+3.   b: 456
+4. };
+存在  setter/getter  时：
+1. class Foo {
+2.   a: number;
+3.   b: number;
+4.   set bar(value: { a: number; b: number }) {
+5.     this.a = value.a;
+6.     this.b = value.b;
+7.   }
+8. }
+9. 
+10. let foo = new Foo();
+这并不是  setter  的一个好的使用场景，当开发人员阅读第一段代码时，不知道将要更改的所有内
+容的上下文。然而，当开发者使用  foo.setBar(value) ，他可能会意识到在  foo  里可能会引
+起一些改变。
+原文: https://jkchao.github.io/typescript-book-
+chinese/tips/limitPropertySetters.html
+减少 setter 属性的使用
+减少 setter 属性的使用
+- 173 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 174 ---
+创建数组十分简单：
+1. const foo: string[] = [];
+你也可以在创建数组时使用 ES6 的  Array.prototype.fill  方法为数组填充数据：
+1. const foo: string[] = new Array(3).fill('');
+2. console.log(foo); // 会输出 ['','','']
+原文: https://jkchao.github.io/typescript-book-chinese/tips/createArrays.html
+创建数组
+创建数组
+- 174 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 175 ---
+由于以下几点原因，你应该谨慎使用  —outFile  选项：
+运行时的错误；
+快速编译；
+全局作用域；
+难以分析；
+难以扩展；
+ _references ；
+代码重用；
+多目标；
+单独编译；
+如果你的代码依赖于上文中的 JavaScript，你可能会在运行时得到错误：
+类的继承在运行时中断。
+有如下  foo.ts ：
+1. class Foo {}
+以及  bar.ts ：
+1. class Bar extends Foo {}
+如果你没有按正确的顺序编译它（例如： tsc bar.ts foo.ts ），虽然它能够被编译成功，但是会
+在运行时抛出  ReferenceError  的错误。
+模块拆分在运行时会失败。
+ foo.ts ：
+1. namespace App {
+2.   export const foo = 123;
+3. }
+ bar.ts ：
+谨慎使用 —outFile
+运行时的错误
+谨慎使用 —outFile
+- 175 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 176 ---
+1. namespace App {
+2.   export const bar = foo + 456;
+3. }
+与上文中一致，当你没有用正确的顺序编译它，它会在运行时将  NaN  赋值给  bar ；
+如果你使用  —out  编译选项，而没有使用一些  hacks  时，单独的  .ts  文件是不会被编译
+成单独的  .js  文件。  —out  选项实际上使用了较慢的构建方式。
+此外，由于 source map 基于长度编码，且对位置信息敏感，因此，大部分 source map 都会在编
+译时重新构建（如果你使用 source map）。
+当然，你可以使用命名空间，但是它仍然在  window  上（如果你在浏览器中打开），命名空间仅仅
+是一个临时的解决方式。 ///<reference  也不例外，它会引入一个难以维护的全局上下文。
+如果你的公司有多个独立工作的团队，当有人决定尝试集成两个程序编写 app 时，则很可能存在命名
+冲突。
+我们希望提供更多代码分析工具。如果你提供调用链的依赖关系，这些将会变得简单。
+实际上这是运行时的随机错误 + 编译时间时间慢 + 难以理解的代码的结果。
+它并没有被  tsconfig.json  支持：Comment
+，你需要手动对文件排序。
+如果你想在另一个项目中重用存在隐式依赖关系的代码，如果没有错误提示，很难移植它。
+快速编译
+全局作用域
+难以分析
+难以扩展
+_references.ts
+代码重用
+谨慎使用 —outFile
+- 176 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 177 ---
+如果你想在 nodejs 之类的环境下重用在浏览器中的代码（如：testing APIS），你将不得不将其
+转换到新的模块系统或者使用不好的  hacks ，让 nodejs 的  global  成为你的新的全局变量
+（如： window ）。
+文件无法被单独编译，如  a.ts ：
+1. namespace M {
+2.   var s = t;
+3. }
+根据不同的  b.ts  的形式，它将有不同的输出：
+1. namespace M {
+2.   export var t = 5;
+3. }
+或者：
+1. var t = 5;
+因此  a.ts  不能被单独编译;
+ —out  做的是一些构建工具的工作，这些构建工具也可以受益于外部模块所提供的依赖，因此如果
+你愿意，我们推荐你使用外部模块，让构建工具创建单文件的  .js 。
+原文: https://jkchao.github.io/typescript-book-chinese/tips/outFileCaution.html
+多目标
+单独编译
+总结
+谨慎使用 —outFile
+- 177 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 178 ---
+TypeScript 中的  class  （JavaScript 中的  class ）没有静态构造函数的功能，但是你
+可以通过调用它自己来获取相同的效果：
+1. class MyClass {
+2.   static initalize() {
+3.     //
+4.   }
+5. }
+6. 
+7. MyClass.initalize();
+原文: https://jkchao.github.io/typescript-book-
+chinese/tips/staticConstructors.html
+TypeScript 中的静态构造函数
+TypeScript 中的静态构造函数
+- 178 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 179 ---
+传统的单例模式可以用来解决所有代码必须写到  class  中的问题：
+1. class Singleton {
+2.   private static instance: Singleton;
+3.   private constructor() {
+4.     // ..
+5.   }
+6. 
+7.   public static getInstance() {
+8.     if (!Singleton.instance) {
+9.       Singleton.instance = new Singleton();
+10.     }
+11. 
+12.     return Singleton.instance;
+13.   }
+14. 
+15.   someMethod() {}
+16. }
+17. 
+18. let someThing = new Singleton(); // Error: constructor of 'singleton' is 
+private
+19. 
+20. let instacne = Singleton.getInstance(); // do some thing with the instance
+然而，如果你不想延迟初始化，你可以使用  namespace  替代：
+1. namespace Singleton {
+2.   // .. 其他初始化的代码
+3. 
+4.   export function someMethod() {}
+5. }
+6. 
+7. // 使用
+8. Singleton.someMethod();
+WARNING
+单例只是全局
+的一个别称。
+单例模式
+单例模式
+- 179 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 180 ---
+对大部分使用者来说， namespace  可以用模块来替代。
+1. // someFile.ts
+2. // ... any one time initialization goes here ...
+3. export function someMethod() {}
+4. 
+5. // Usage
+6. import { someMethod } from './someFile';
+原文: https://jkchao.github.io/typescript-book-chinese/tips/singletonPatern.html
+单例模式
+- 180 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 181 ---
+如果你有一个含有很多参数或者相同类型参数的函数，那么你可能需要考虑使用对象的形式来替代这些
+函数参数：
+如下一个函数：
+1. function foo(flagA: boolean, flagB: boolean) {
+2.   // 函数主体
+3. }
+像这样的函数，你可能会很容易错误的调用它，如  foo(flagB, flagA) ，并且你并不会从编译器得
+到想要的帮助。
+你可以使用接收一个对象参数的形式：
+1. function foo(
+2.   config: {
+3.     flagA: boolean;
+4.     flagB: boolean;
+5.   }
+6. ) {
+7.   const { flagA, flagB } = config;
+8. }
+现在，函数将会被  foo({ flagA, flagB })  的形式调用，这样有利于发现错误及代码审查。
+TIP
+如果你的函数足够简单，并且你不希望增加代码，忽略这个建议。
+原文: https://jkchao.github.io/typescript-book-
+chinese/tips/functionParameters.html
+函数参数
+函数参数
+- 181 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 182 ---
+JavaScript 有一个  truthy  概念，即在某些场景下会被推断为  true ，例如除  0  以外
+的任何数字：
+1. if (123) {
+2.   // 将会被推断出 `true`
+3.   console.log('Any number other than 0 is truthy');
+4. }
+你可以用下表来做参考：
+Variable Type
+When it is falsy
+When it is
+truthy
+boolean
+false
+true
+string
+' ' (empty
+string)
+any other
+string
+number
+0 NaN
+any other
+number
+null
+always
+never
+Any other Object including empty ones like
+{},[]
+never
+always
+通过操作符  !! ，你可以很容易的将某些值转化为布尔类型的值，例如： !!foo ，它使用了两次
+ ! ，第一个  !  用来将其（在这里是  foo ）转换为布尔值，但是这一操作取得的是其取反后
+的值，第二个取反时，能得到真正的布尔值。
+这在很多地方都可以看到：
+1. // Direct variables
+2. const hasName = !!name;
+3. 
+4. // As members of objects
+5. const someObj = {
+6.   hasName: !!name
+7. };
+8. 
+9. // ReactJS
+10. {
+Truthy
+明确的
+Truthy
+- 182 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 183 ---
+11.   !!someName && <div>{someName}</div>;
+12. }
+原文: https://jkchao.github.io/typescript-book-chinese/tips/truthy.html
+Truthy
+- 183 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 184 ---
+通常可以根据 JavaScript 项目的运行环境来切换它们，通过 webpack 可以很轻松的切换环境变
+量。
+在你的  package.json script  里，添加不同的编译目标：
+1. "build:test": "webpack -p --config ./src/webpack.config.js",
+2. "build:prod": "webpack -p --define process.env.NODE_ENV='\"production\"' --
+config ./src/webpack.config.js"
+当然，假设你已经安装了 webpack  npm install webpack ，现在，你可以运行  npm run
+build:test  了。
+使用环境变量也超级简单：
+1. /**
+2.  * This interface makes sure we don't miss adding a property to both `prod` and 
+`test`
+3.  */
+4. interface Config {
+5.   someItem: string;
+6. }
+7. 
+8. /**
+9.  * We only export a single thing. The config.
+10.  */
+11. export let config: Config;
+12. 
+13. /**
+14.  * `process.env.NODE_ENV` definition is driven from webpack
+15.  *
+16.  * The whole `else` block will be removed in the emitted JavaScript
+17.  *  for a production build
+18.  */
+19. if (process.env.NODE_ENV === 'production') {
+20.   config = {
+21.     someItem: 'prod'
+22.   };
+23.   console.log('Running in prod');
+24. } else {
+构建切换
+构建切换
+- 184 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 185 ---
+25.   config = {
+26.     someItem: 'test'
+27.   };
+28.   console.log('Running in test');
+29. }
+TIP
+我们使用  process.env.NODE_ENV  仅仅是因为绝大多数 JavaScript 库中都使用此变量，例
+如： React 。
+原文: https://jkchao.github.io/typescript-book-chinese/tips/buildToggles.html
+构建切换
+- 185 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 186 ---
+通常来说，在 Node.js 与传统的 JavaScript 里，你有一个单一的 Event Emitter，你可以用
+它来为不同的事件添加监听器。
+1. const emitter = new EventEmitter();
+2. 
+3. // Emit
+4. emitter.emit('foo', foo);
+5. emitter.emit('bar', bar);
+6. 
+7. // Listen
+8. emitter.on('foo', foo => console.log(foo));
+9. emitter.on('bar', foo => console.log(bar));
+实际上，在  EventEmitter  内部以映射数组的形式存储数据：
+1. { foo: [fooListeners], bar: [barListeners] }
+为了事件的类型安全，你可以为每个事件类型创建一个 emitter：
+1. const onFoo = new TypedEvent<Foo>();
+2. const onBar = new TypedEvent<Bar>();
+3. 
+4. // Emit:
+5. onFoo.emit(foo);
+6. onBar.emit(bar);
+7. 
+8. // Listen:
+9. onFoo.on(foo => console.log(foo));
+10. onBar.on(bar => console.log(bar));
+它一些优点：
+事件的类型，能以变量的形式被发现。
+Event Emitter 非常容易被重构。
+事件数据结构是类型安全的。
+类型安全的 Event Emitter
+参考 TypedEvent
+类型安全的 Event Emitter
+- 186 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 187 ---
+1. export interface Listener<T> {
+2.   (event: T): any;
+3. }
+4. 
+5. export interface Disposable {
+6.   dispose(): any;
+7. }
+8. 
+9. export class TypedEvent<T> {
+10.   private listeners: Listener<T>[] = [];
+11.   private listenersOncer: Listener<T>[] = [];
+12. 
+13.   public on = (listener: Listener<T>): Disposable => {
+14.     this.listeners.push(listener);
+15. 
+16.     return {
+17.       dispose: () => this.off(listener)
+18.     };
+19.   };
+20. 
+21.   public once = (listener: Listener<T>): void => {
+22.     this.listenersOncer.push(listener);
+23.   };
+24. 
+25.   public off = (listener: Listener<T>) => {
+26.     const callbackIndex = this.listeners.indexOf(listener);
+27.     if (callbackIndex > -1) this.listeners.splice(callbackIndex, 1);
+28.   };
+29. 
+30.   public emit = (event: T) => {
+31.     this.listeners.forEach(listener => listener(event));
+32. 
+33.     this.listenersOncer.forEach(listener => listener(event));
+34. 
+35.     this.listenersOncer = [];
+36.   };
+37. 
+38.   public pipe = (te: TypedEvent<T>): Disposable => {
+39.     return this.on(e => te.emit(e));
+40.   };
+41. }
+类型安全的 Event Emitter
+- 187 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 188 ---
+原文: https://jkchao.github.io/typescript-book-
+chinese/tips/typesafeEventEmitter.html
+类型安全的 Event Emitter
+- 188 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 189 ---
+Reflect Metadata 是 ES7 的一个提案，它主要用来在声明的时候添加和读取元数据。
+TypeScript 在 1.5+ 的版本已经支持它，你只需要：
+ npm i reflect-metadata —save 。
+在  tsconfig.json  里配置  emitDecoratorMetadata  选项。
+Reflect Metadata 的 API 可以用于类或者类的属性上，如：
+1. function metadata(
+2.   metadataKey: any,
+3.   metadataValue: any
+4. ): {
+5.   (target: Function): void;
+6.   (target: Object, propertyKey: string | symbol): void;
+7. };
+ Reflect.metadata  当作  Decorator  使用，当修饰类时，在类上添加元数据，当修饰类属性
+时，在类原型的属性上添加元数据，如：
+1. @Reflect.metadata('inClass', 'A')
+2. class Test {
+3.   @Reflect.metadata('inMethod', 'B')
+4.   public hello(): string {
+5.     return 'hello world';
+6.   }
+7. }
+8. 
+9. console.log(Reflect.getMetadata('inClass', Test)); // 'A'
+10. console.log(Reflect.getMetadata('inMethod', new Test(), 'hello')); // 'B'
+它具有诸多使用场景。
+譬如在  vue-property-decorator 
+ 6.1 及其以下版本中，通过使用  Reflect.getMetadata 
+API， Prop  Decorator 能获取属性类型传至 Vue，简要代码如下：
+Reflect Metadata
+基础
+获取类型信息
+Reflect Metadata
+- 189 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 190 ---
+1. function Prop(): PropertyDecorator {
+2.   return (target, key: string) => {
+3.     const type = Reflect.getMetadata('design:type', target, key);
+4.     console.log(`${key} type: ${type.name}`);
+5.     // other...
+6.   };
+7. }
+8. 
+9. class SomeClass {
+10.   @Prop()
+11.   public Aprop!: string;
+12. }
+运行代码可在控制台看到  Aprop type: string 。除能获取属性类型外，通过
+ Reflect.getMetadata("design:paramtypes", target, key)  和
+ Reflect.getMetadata("design:returntype", target, key)  可以分别获取函数参数类型和返回
+值类型。
+除能获取类型信息外，常用于自定义  metadataKey ，并在合适的时机获取它的值，示例如下：
+1. function classDecorator(): ClassDecorator {
+2.   return target => {
+3.     // 在类上定义元数据，key 为 `classMetaData`，value 为 `a`
+4.     Reflect.defineMetadata('classMetaData', 'a', target);
+5.   };
+6. }
+7. 
+8. function methodDecorator(): MethodDecorator {
+9.   return (target, key, descriptor) => {
+10.     // 在类的原型属性 'someMethod' 上定义元数据，key 为 `methodMetaData`，value 为 
+`b`
+11.     Reflect.defineMetadata('methodMetaData', 'b', target, key);
+12.   };
+13. }
+14. 
+15. @classDecorator()
+16. class SomeClass {
+17.   @methodDecorator()
+18.   someMethod() {}
+自定义 metadataKey
+Reflect Metadata
+- 190 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 191 ---
+19. }
+20. 
+21. Reflect.getMetadata('classMetaData', SomeClass); // 'a'
+22. Reflect.getMetadata('methodMetaData', new SomeClass(), 'someMethod'); // 'b'
+在 Angular 2+ 的版本中，控制反转与依赖注入
+便是基于此实现，现在，我们来实现一个简单版：
+1. type Constructor<T = any> = new (...args: any[]) => T;
+2. 
+3. const Injectable = (): ClassDecorator => target => {};
+4. 
+5. class OtherService {
+6.   a = 1;
+7. }
+8. 
+9. @Injectable()
+10. class TestService {
+11.   constructor(public readonly otherService: OtherService) {}
+12. 
+13.   testMethod() {
+14.     console.log(this.otherService.a);
+15.   }
+16. }
+17. 
+18. const Factory = <T>(target: Constructor<T>): T => {
+19.   // 获取所有注入的服务
+20.   const providers = Reflect.getMetadata('design:paramtypes', target); // 
+[OtherService]
+21.   const args = providers.map((provider: Constructor) => new provider());
+22.   return new target(...args);
+23. };
+24. 
+25. Factory(TestService).testMethod(); // 1
+如果你在使用 TypeScript 开发 Node 应用，相信你对  Controller 、 Get 、 POST  这些
+例子
+控制反转和依赖注入
+Controller 与 Get 的实现
+Reflect Metadata
+- 191 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 192 ---
+Decorator，并不陌生：
+1. @Controller('/test')
+2. class SomeClass {
+3.   @Get('/a')
+4.   someGetMethod() {
+5.     return 'hello world';
+6.   }
+7. 
+8.   @Post('/b')
+9.   somePostMethod() {}
+10. }
+这些 Decorator 也是基于  Reflect Metadata  实现，这次，我们将  metadataKey  定义在
+ descriptor  的  value  上：
+1. const METHOD_METADATA = 'method'；
+2. const PATH_METADATA = 'path'；
+3. 
+4. const Controller = (path: string): ClassDecorator => {
+5.   return target => {
+6.     Reflect.defineMetadata(PATH_METADATA, path, target);
+7.   }
+8. }
+9. 
+10. const createMappingDecorator = (method: string) => (path: string): 
+MethodDecorator => {
+11.   return (target, key, descriptor) => {
+12.     Reflect.defineMetadata(PATH_METADATA, path, descriptor.value);
+13.     Reflect.defineMetadata(METHOD_METADATA, method, descriptor.value);
+14.   }
+15. }
+16. 
+17. const Get = createMappingDecorator('GET');
+18. const Post = createMappingDecorator('POST');
+接着，创建一个函数，映射出  route ：
+1. function mapRoute(instance: Object) {
+2.   const prototype = Object.getPrototypeOf(instance);
+3. 
+4.   // 筛选出类的 methodName
+Reflect Metadata
+- 192 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 193 ---
+5.   const methodsNames = Object.getOwnPropertyNames(prototype)
+6.                               .filter(item => !isConstructor(item) && 
+isFunction(prototype[item]))；
+7.   return methodsNames.map(methodName => {
+8.     const fn = prototype[methodName];
+9. 
+10.     // 取出定义的 metadata
+11.     const route = Reflect.getMetadata(PATH_METADATA, fn);
+12.     const method = Reflect.getMetadata(METHOD_METADATA, fn)；
+13.     return {
+14.       route,
+15.       method,
+16.       fn,
+17.       methodName
+18.     }
+19.   })
+20. };
+因此，我们可以得到一些有用的信息：
+1. Reflect.getMetadata(PATH_METADATA, SomeClass); // '/test'
+2. 
+3. mapRoute(new SomeClass());
+4. 
+5. /**
+6.  * [{
+7.  *    route: '/a',
+8.  *    method: 'GET',
+9.  *    fn: someGetMethod() { ... },
+10.  *    methodName: 'someGetMethod'
+11.  *  },{
+12.  *    route: '/b',
+13.  *    method: 'POST',
+14.  *    fn: somePostMethod() { ... },
+15.  *    methodName: 'somePostMethod'
+16.  * }]
+17.  *
+18.  */
+最后，只需把  route  相关信息绑在  express  或者  koa  上就 ok 了。
+原文: https://jkchao.github.io/typescript-book-chinese/tips/metadata.html
+Reflect Metadata
+- 193 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 194 ---
+原文链接: what are covariance and contravariance
+子类型
+ 在编程理论上是一个复杂的话题，而他的复杂之处来自于一对经常会被混淆的现象，我们称
+之为协变与逆变。这篇文章将会解释上述两个概念。
+开始文章之前我们先约定如下的标记：
+ A ≼ B  意味着  A  是  B  的子类型。
+ A → B  指的是以  A  为参数类型，以  B  为返回值类型的函数类型。
+ x : A  意味着  x  的类型为  A 。
+假设我有如下三种类型：
+ Greyhound ≼ Dog ≼ Animal 
+ Greyhound  （灰狗）是  Dog  （狗）的子类，而  Dog  则是  Animal  （动物）的子类。
+由于子类型通常是可传递的，因此我们也称  Greyhound  是  Animal  的子类。
+问题：以下哪种类型是  Dog → Dog  的子类呢？
+ Greyhound → Greyhound 
+ Greyhound → Animal 
+ Animal → Animal 
+ Animal → Greyhound 
+让我们来思考一下如何解答这个问题。首先我们假设  f  是一个以  Dog → Dog  为参数的函
+数。它的返回值并不重要，为了具体描述问题，我们假设函数结构体是这样的：  f : (Dog →
+Dog) → String 。
+现在我想给函数  f  传入某个函数  g  来调用。我们来瞧瞧当  g  为以上四种类型时，会发
+生什么情况。
+1. 我们假设  g : Greyhound → Greyhound ，  f(g)  的类型是否安全？
+不安全。因为参数  (g)  有可能是一个不同于灰狗但又是狗的子类，例如  GermanShepherd 
+（牧羊犬）。
+2. 我们假设  g : Greyhound → Animal ，  f(g)  的类型是否安全？
+不安全。理由同(1)。
+协变与逆变
+一个有趣的问题
+协变与逆变
+- 194 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 195 ---
+3. 我们假设  g : Animal → Animal ，  f(g)  的类型是否安全？
+不安全。因为  f  有可能在调用完参数之后，让返回值，也就是  Animal  （动物）狗叫。并非
+所有动物都会狗叫。
+4. 我们假设  g : Animal → Greyhound ，  f(g)  的类型是否安全？
+是的，它的类型是安全的。首先， f  可能会以任何狗的品种来作为参数调用，而所有的狗都是动
+物。其次，它可能会假设结果是一条狗，而所有的灰狗都是狗。
+如上所述，我们得出结论：
+ (Animal → Greyhound) ≼ (Dog → Dog) 
+返回值类型很容易理论：灰狗是狗的子类。但参数类型则是相反的：动物是狗的父类！
+用合适的术语来描述这个奇怪的表现，可以说我们允许一个函数类型中，返回值类型是协变的，而参数
+类型是逆变的。返回值类型是协变的，意思是  A ≼ B  就意味着  (T → A) ≼ (T → B)  。参数
+类型是逆变的，意思是  A ≼ B  就意味着  (B → T) ≼ (A → T)  （  A  和  B  的位置颠倒
+过来了）。
+一个有趣的现象：在  TypeScript  中， 参数类型是双向协变的
+，也就是说既是协变又是逆变
+的，而这并不安全。但是现在你可以在  TypeScript 2.6 
+ 版本中通过  —
+strictFunctionTypes  或  —strict  标记来修复这个问题。
+问题： List<Dog>  能否为  List<Animal>  的子类？
+答案有点微妙。如果列表是不可变的（immutable），那么答案是肯定的，因为类型很安全。但是假如
+列表是可变的，那么答案绝对是否定的！
+原因是，假设我需要一串  List<Animal>  而你传给我一串  List<Dog> 。由于我认为我拥有的是
+一串  List<Animal>  ，我可能会尝试往列表插入一只  Cat 。那么你的  List<Dog>  里面就
+会有一只猫！类型系统不应该允许这种情况发生。
+总结一下，我们可以允许不变的列表（immutable）在它的参数类型上是协变的，但是对于可变的列表
+（mutable），其参数类型则必须是不变的（invariant），既不是协变也不是逆变。
+一个有趣的现象：在  Java  中，数组既是可变的，又是协变的
+。当然，这并不安全。
+原文: https://jkchao.github.io/typescript-book-
+展开讲讲？
+那其他类型呢？
+协变与逆变
+- 195 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 196 ---
+chinese/tips/covarianceAndContravariance.html
+协变与逆变
+- 196 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 197 ---
+概览
+程序
+抽象语法树
+扫描器
+解析器
+绑定器
+检查器
+发射器
+TypeScript 编译原理
+- 197 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 198 ---
+TypeScript 编译器源文件位于  src/compiler 
+ 目录下
+它分为以下几个关键部分：
+Scanner 扫描器（ scanner.ts ）
+Parser 解析器（ parser.ts ）
+Binder 绑定器（ binder.ts ）
+Checker 检查器（ checker.ts ）
+Emitter 发射器（ emitter.ts ）
+每个部分在源文件中均有独立文件，本章稍后会对这些部分做解释。
+我们有个名为 Bring Your Own TypeScript (BYOTS)
+ 的项目，通过暴露内部接口让编译器
+API 使用起来更简单。你可以在全局范围上暴露你 TypeScript 应用的本地变量。
+语法正确并不意味着语义上也正确。下面的 TypeScript 代码，语法合法，但是语义却不正确
+1. var foo: number = 'not a number';
+ 语义  从自然语言角度意味着有意义，理解这个概念对你很有用。
+以下演示简单说明 TypeScript 编译器如何将上述几个关键部分组合在一起：
+1. SourceCode（源码） ~~ 扫描器 ~~> Token 流
+1. Token 流 ~~ 解析器 ~~> AST（抽象语法树）
+1. AST ~~ 绑定器 ~~> Symbols（符号）
+符号（ Symbol ）是 TypeScript 语义系统的主要构造块。如上所示，符号是绑定的结果。符号将
+AST 中的声明节点与相同实体的其他声明相连。
+符号和 AST 是检查器用来验证源代码语义的
+概览
+BYOTS
+语法和语义
+处理概览
+概览
+- 198 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 199 ---
+1. AST + 符号 ~~ 检查器 ~~> 类型验证
+最后，需要输出 JavaScript 时：
+1. AST + 检查器 ~~ 发射器 ~~> JavaScript 代码
+TypeScript 编译器中还有一些其他文件，为我们接下来介绍的很多关键部分提供实用工具。
+ core.ts  ：TypeScript 编译器使用的核心工具集，重要的有：
+ let objectAllocator: ObjectAllocator  是一个定义为全局单例的变量。提供以下定义：
+ getNodeConstructor （节点会在解析器 / AST 中介绍）
+ getSymbolConstructor （符号会在绑定器中介绍）
+ getTypeConstructor （类型会在检查器中介绍）
+ getSignatureConstructor （签名是索引，调用和构造签名）
+ types.ts  包含整个编译器中使用的关键数据结构和接口，这里列出一些关键部分：
+ SyntaxKind AST 节点类型通过  SyntaxKind  枚举进行识别
+ TypeChecker 类型检查器提供此接口
+ CompilerHost 用于程序（ Program ）和系统之间的交互
+ Node AST 节点
+ system.ts ，TypeScript 编译器与操作系统的所有交互均通过  System  接口进行。接口及其
+实现（ WScript  和  Node ） 均定义在  system.ts  中。你可以将其视为操作环境（OE,
+Operating Environment）。
+现在对主要文件有一个整体了解了，我们继续介绍程序（ Program ）的概念
+原文: https://jkchao.github.io/typescript-book-chinese/compiler/overview.html
+文件：Utilities
+文件：关键数据结构
+文件：系统
+概览
+- 199 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 200 ---
+程序定义在  program.ts  中。编译上下文在 TypeScript 编译器中被视为一个  Program ，它
+包含  SourceFile  和编译选项
+CompilerHost 是与操作环境（OE, Operating Enviornment）进行交互的机制：
+ Program  -使用->  CompilerHost  -使用->  System 
+用  CompilerHost  作中间层的原因是可以让接口对  Program  的需求进行细粒度的调整，而无
+需考虑操作环境的需求。（例如： Program  无需关心  System  的  fileExists  函数）
+对 System 而言还有其他的使用者（比如测试）
+程序有个 API，用于获取 SourceFile： getSourceFiles(): SourceFile[]; 。得到的每个元素
+均是一棵抽象语法树的根节点（称做  SourceFile ）
+原文: https://jkchao.github.io/typescript-book-chinese/compiler/program.html
+程序
+CompilerHost 的使用
+SourceFile
+程序
+- 200 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 201 ---
+节点是抽象语法树（AST） 的基本构造块。语法上，通常  Node  表示非末端（non-terminals）
+节点。但是，有些末端节点，如：标识符和文字也会保留在树中。
+AST 节点文档由两个关键部分构成。一是节点的  SyntaxKind  枚举，用于标识 AST 中的类型。
+二是其接口，即实例化 AST 时节点提供的 API。
+这里是  interface Node  的一些关键成员：
+ TextRange  标识该节点在源文件中的起止位置。
+ parent?: Node  当前节点（在 AST 中）的父节点
+ Node  还有一些其他的成员，标志（flags）和修饰符（modifiers）等。你可以在源码中搜
+索  interface Node  来查看，而上面提到对节点的遍历是非常重要的。
+ SyntaxKind.SourceFile 
+ interface SourceFile .
+每个  SourceFile  都是一棵 AST 的顶级节点，它们包含在  Program  中。
+有个工具函数  ts.forEachChild ，可以用来访问 AST 任一节点的所有子节点。
+下面是简化的代码片段，用于演示如何工作：
+1. export function forEachChild<T>(node: Node, cbNode: (node: Node) => T, 
+cbNodeArray?: (nodes: Node[]) => T): T {
+2.     if (!node) {
+3.         return;
+4.     }
+5.     switch (node.kind) {
+6.         case SyntaxKind.BinaryExpression:
+7.             return visitNode(cbNode, (<BinaryExpression>node).left) ||
+8.                 visitNode(cbNode, (<BinaryExpression>node).operatorToken) ||
+9.                 visitNode(cbNode, (<BinaryExpression>node).right);
+10.         case SyntaxKind.IfStatement:
+11.             return visitNode(cbNode, (<IfStatement>node).expression) ||
+抽象语法树
+Node 节点
+SourceFile
+AST 技巧：访问子节点
+抽象语法树
+- 201 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 202 ---
+12.                 visitNode(cbNode, (<IfStatement>node).thenStatement) ||
+13.                 visitNode(cbNode, (<IfStatement>node).elseStatement);
+14. 
+15.         // .... 更多
+该函数主要检查  node.kind  并据此判断 node 的接口，然后在其子节点上调用  cbNode 。但
+是，要注意该函数不会为所有子节点调用  visitNode （例如：
+SyntaxKind.SemicolonToken）。想获得某 AST 节点的所有子节点，只要调用该节点的成员函数
+ .getChildren 。
+如下函数会打印 AST 节点详细信息：
+1. function printAllChildren(node: ts.Node, depth = 0) {
+2.   console.log(new Array(depth + 1).join('----'), 
+ts.syntaxKindToName(node.kind), node.pos, node.end);
+3.   depth++;
+4.   node.getChildren().forEach(c => printAllChildren(c, depth));
+5. }
+我们进一步讨论解析器时会看到该函数的使用示例。
+ SyntaxKind  被定义为一个常量枚举，如下所示：
+1. export const enum SyntaxKind {
+2.     Unknown,
+3.     EndOfFileToken,
+4.     SingleLineCommentTrivia,
+5.     // ... 更多
+这是个常量枚举，方便内联（例如： ts.SyntaxKind.EndOfFileToken  会变为  1 ），这样在使
+用 AST 时就不会有处理引用的额外开销。但编译时需要使用 —preserveConstEnums 编译标志，
+以便枚举在运行时仍可用。JavaScript 中你也可以根据需要使用
+ ts.SyntaxKind.EndOfFileToken 。另外，可以用以下函数，将枚举成员转化为可读的字符串：
+1. export function syntaxKindToName(kind: ts.SyntaxKind) {
+2.   return (<any>ts).SyntaxKind[kind];
+3. }
+AST 技巧：SyntaxKind 枚举
+抽象语法树
+- 202 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 203 ---
+杂项（Trivia）是指源文本中对正常理解代码不太重要的部分，例如：空白，注释，冲突标记。（为
+了保持轻量）杂项不会存储在 AST 中。但是可以视需要使用一些  ts.*  API 来获取。
+展示这些 API 前，你需要理解以下内容：
+通常：
+token 拥有它后面 同一行 到下一个 token 之前的所有杂项
+该行之后的注释都与下个的 token 相关
+对于文件中的前导（leading）和结束（ending）注释：
+源文件中的第一个 token 拥有所有开始的杂项
+而文件最后的一些列杂项则附加到文件结束符上，该 token 长度为 0
+注释在多数基本使用中，都是让人关注的杂项。节点的注释可以通过以下函数获取：
+函数
+描述
+ ts.getLeadingCommentRanges 
+给定源文本及其位置，返回给定位置后第一个换行符到 token 本身之间
+的注释范围（可能需要结合  ts.Node.getFullStart  使用）。
+ ts.getTrailingCommentRanges 
+给定源文本及其位置，返回给定位置后第一个换行符之前的注释范围（可
+能需要结合  ts.Node.getEnd  使用）。
+假设下面是某个源文件的一部分：
+1. debugger;/*hello*/
+2.     //bye
+3.   /*hi*/    function
+对  function  而言， getLeadingCommentRanges  仅返回最后的两个注释  //bye  和
+ /hi/ 。另外，而在  debugger  语句结束位置调用  getTrailingCommentRanges  会得到注
+释  /hello/ 。
+节点有所谓的 "token start" 和 "full start" 位置。
+AST 杂项
+杂项的所有权
+杂项 API
+Token Start 和 Full Start 位置
+抽象语法树
+- 203 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 204 ---
+Token Start：比较自然的版本，即文件中一个 token 的文本开始的位置。
+Full Start：是指扫描器从上一个重要 token 开始扫描的位置。
+AST 节点有  getStart  和  getFullStart  API 用于获取以上两种位置，还是这个例子：
+1. debugger;/*hello*/
+2.     //bye
+3.   /*hi*/    function
+对  function  而言，token start 即  function  的位置，而 full start 是
+ /hello/  的位置。要注意，full start 甚至会包含前一节点拥有的杂项。
+原文: https://jkchao.github.io/typescript-book-chinese/compiler/ast.html
+抽象语法树
+- 204 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 205 ---
+TypeScript 扫描器的源码均位于  scanner.ts 。在内部，由解析器控制扫描器将源码转化为抽象
+语法树（AST）。期望结果如下：
+1. SourceCode ~~ 扫描器 ~~> Token 流 ~~ 解析器 ~~> AST
+为避免重复创建扫描器造成的开销， parser.ts  中创建了一个扫描器的单例。解析器根据需要使用
+ initializeState  函数准备该扫描器。
+下面是解析器中的实际代码的简化版，你可以运行它演示以上概念
+ code/compiler/scanner/runScanner.ts 
+1. import * as ts from 'ntypescript';
+2. 
+3. // 单例扫描器
+4. const scanner = ts.createScanner(ts.ScriptTarget.Latest, /* 忽略杂项 */ true);
+5. 
+6. // 此函数与初始化使用的 `initializeState` 函数相似
+7. function initializeState(text: string) {
+8.   scanner.setText(text);
+9.   scanner.setOnError((message: ts.DiagnosticMessage, length: number) => {
+10.     console.error(message);
+11.   });
+12.   scanner.setScriptTarget(ts.ScriptTarget.ES5);
+13.   scanner.setLanguageVariant(ts.LanguageVariant.Standard);
+14. }
+15. 
+16. // 使用示例
+17. initializeState(
+18.   `
+19. var foo = 123;
+20. `.trim()
+21. );
+22. 
+23. // 开始扫描
+24. var token = scanner.scan();
+扫描器
+解析器对扫描器的使用
+扫描器
+- 205 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 206 ---
+25. while (token != ts.SyntaxKind.EndOfFileToken) {
+26.   console.log(ts.formatSyntaxKind(token));
+27.   token = scanner.scan();
+28. }
+该段代码输出以下内容：
+1. VarKeyword
+2. Identifier
+3. FirstAssignment
+4. FirstLiteralToken
+5. SemicolonToken
+调用  scan  后，扫描器更新其局部状态（扫描位置，当前 token 详情等）。扫描器提供了一组工
+具函数获取当前扫描器状态。下例中，我们创建一个扫描器并用它识别 token 以及 token 在代码中
+的位置。
+ code/compiler/scanner/runScannerWithPosition.ts 
+1. // 使用示例
+2. initializeState(
+3.   `
+4. var foo = 123;
+5. `.trim()
+6. );
+7. 
+8. // 开始扫描
+9. var token = scanner.scan();
+10. while (token != ts.SyntaxKind.EndOfFileToken) {
+11.   let currentToken = ts.formatSyntaxKind(token);
+12.   let tokenStart = scanner.getStartPos();
+13.   token = scanner.scan();
+14.   let tokenEnd = scanner.getStartPos();
+15.   console.log(currentToken, tokenStart, tokenEnd);
+16. }
+该代码输出以下内容：
+1. VarKeyword 0 3
+扫描器状态
+扫描器
+- 206 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 207 ---
+2. Identifier 3 7
+3. FirstAssignment 7 9
+4. FirstLiteralToken 9 13
+5. SemicolonToken 13 14
+即便 TypeScript 解析器有单例扫描器，你仍可以使用  createScanner  创建独立的扫描器，然
+后可以用  setText /  setTextPos  随意扫描文件的不同位置。
+原文: https://jkchao.github.io/typescript-book-chinese/compiler/scanner.html
+独立扫描器
+扫描器
+- 207 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 208 ---
+TypeScript 解析器代码均位于  praser.ts  中。在内部，由解析器控制扫描器将源码转化为
+AST。下面是期望结果的回顾：
+1. 源码 ~~ 扫描器 ~~> Token 流 ~~ 解析器 ~~> AST
+解析器实现为一个单例（其原因类似扫描器，如果能重新初始化就不重新构建）。实际实现成
+ namespace Parser ，包含解析器的各种状态变量和单例扫描器（ const scanner ）。该扫描器
+由解析器函数管理。
+解析器由程序间接驱动（通过之前提到过的  CompilerHost ）。基本上，简化的调用栈如下所示：
+1. 程序 ->
+2.     CompilerHost.getSourceFile ->
+3.         (全局函数 parser.ts).createSourceFile ->
+4.             Parser.parseSourceFile
+ parseSourceFile  不仅准备好解析器的状态，还调用  initializeState  准备好扫描器的状
+态。然后使用  parseSourceFileWorker  继续解析源代码。
+深入解析器的内部之前，这里有个使用 TypeScript 解析器的示例，（使用
+ ts.createSourceFile ）获取一个源文件的 AST 并打印它。
+ code/compiler/parser/runParser.ts 
+1. import * as ts from 'ntypescript';
+2. 
+3. function printAllChildren(node: ts.Node, depth = 0) {
+4.   console.log(new Array(depth + 1).join('----'), 
+ts.formatSyntaxKind(node.kind), node.pos, node.end);
+5.   depth++;
+6.   node.getChildren().forEach(c => printAllChildren(c, depth));
+7. }
+8. 
+9. var sourceCode = `
+解析器
+程序对解析器的使用
+使用示例
+解析器
+- 208 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 209 ---
+10. var foo = 123;
+11. `.trim();
+12. 
+13. var sourceFile = ts.createSourceFile('foo.ts', sourceCode, ts.ScriptTarget.ES5, 
+true);
+14. printAllChildren(sourceFile);
+该段代码会打印以下内容：
+1. SourceFile 0 14
+2. ---- SyntaxList 0 14
+3. -------- VariableStatement 0 14
+4. ------------ VariableDeclarationList 0 13
+5. ---------------- VarKeyword 0 3
+6. ---------------- SyntaxList 3 13
+7. -------------------- VariableDeclaration 3 13
+8. ------------------------ Identifier 3 7
+9. ------------------------ FirstAssignment 7 9
+10. ------------------------ FirstLiteralToken 9 13
+11. ------------ SemicolonToken 13 14
+12. ---- EndOfFileToken 14 14
+如果把头向左倾，这个看起来像棵（右侧）树
+如前所述， parseSourceFile  设置初始状态并将工作交给  parseSourceFileWorker  函数。
+该函数先创建一个  SourceFile  AST 节点，然后从  parseStatements  函数开始解析源代码。
+一旦返回结果，就用额外信息（例如  nodeCount ,  identifierCount 等） 完善
+ SourceFile  节点。
+是最重要的  parseXXX  系函数之一（概念接下来介绍）。它根据扫描器返回的当前 token 来切换
+（调用相应的  parseXXX  函数），例如：如果当前 token 是一个  SemicolonToken （分号标
+记），就会调用  paserEmptyStatement  为空语句创建一个 AST 节点。
+解析器函数
+parseSourceFileWorker
+parseStatements
+节点创建
+解析器
+- 209 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 210 ---
+解析器有一系列  parseXXX  函数用来创建相应类型为 XXX 的节点，通常在相应类型的节点出现
+时被（其他解析器函数）调用。该过程的典型示例是解析空语句（例如  ;;;;; ）时要用的
+ parseEmptyStatement()  函数。下面是其全部代码：
+1. function parseEmptyStatement(): Statement {
+2.   let node = <Statement>createNode(SyntaxKind.EmptyStatement);
+3.   parseExpected(SyntaxKind.SemicolonToken);
+4.   return finishNode(node);
+5. }
+它展示了 3 个关键函数  createNode ,  parseExpected  和  finishNode .
+解析器函数  function createNode(kind: SyntaxKind, pos?: number): Node  负责创建节点，
+设置节点的  SyntaxKind （语法类别），和初始位置（默认使用当前扫描器状态提供的位置信
+息）。
+解析器的  parseExpected  函数  function parseExpected(kind: SyntaxKind,
+diagnosticMessage?: DiagnosticMessage): boolean  会检查解析器状态中的当前 token 是否与
+指定的  SyntaxKind  匹配。如果不匹配，会报告传入的  diagnosticMessage （诊断消息），
+未传入则使用某种通用形式  xxx expected  进行报告。该函数内部用  parseErrorAtPosition 
+函数（使用扫描位置）提供良好的错误报告。
+解析器的  finishNode  函数  function finishNode<T extends Node>(node: T, end?:
+number): T  设置节点的  end  位置，并添加一些有用的信息，例如上下文标志
+（ parserContextFlags ）以及解析该节点前出现的错误（有错的话，就不能在增量解析中重用此
+AST 节点）。
+原文: https://jkchao.github.io/typescript-book-chinese/compiler/parser.html
+createNode
+parseExpected
+finishNode
+解析器
+- 210 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 211 ---
+大多数的 JavaScript 转译器（transpiler）都比 TypeScript 简单，因为它们几乎没提供代码
+分析的方法。典型的 JavaScript 转换器只有以下流程：
+1. 源码 ~~扫描器~~> Tokens ~~解析器~~> AST ~~发射器~~> JavaScript
+上述架构确实对于简化 TypeScript 生成 JavaScript 的理解有帮助，但缺失了一个关键功能，即
+TypeScript 的语义系统。为了协助（检查器执行）类型检查，绑定器将源码的各部分连接成一个相
+关的类型系统，供检查器使用。绑定器的主要职责是创建符号（Symbols）。
+符号将 AST 中的声明节点与其它声明连接到相同的实体上。符号是语义系统的基本构造块。符号的构
+造器定义在  core.ts （绑定器实际上通过  objectAllocator.getSymbolConstructor  来获取
+构造器）。下面是符号构造器：
+1. function Symbol(flags: SymbolFlags, name: string) {
+2.   this.flags = flags;
+3.   this.name = name;
+4.   this.declarations = undefined;
+5. }
+ SymbolFlags  符号标志是个标志枚举，用于识别额外的符号类别（例如：变量作用域标志
+ FunctionScopedVariable  或  BlockScopedVariable  等）
+实际上，绑定器被检查器在内部调用，而检查器又被程序调用。简化的调用栈如下所示：
+1. program.getTypeChecker ->
+2.     ts.createTypeChecker（检查器中）->
+3.         initializeTypeChecker（检查器中） ->
+4.             for each SourceFile `ts.bindSourceFile`（绑定器中）
+5.             // followed by
+6.             for each SourceFile `ts.mergeSymbolTable`（检查器中）
+SourceFile 是绑定器的工作单元， binder.ts  由  checker.ts  驱动。
+绑定器
+符号
+检查器对绑定器的使用
+绑定器
+- 211 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 212 ---
+ bindSourceFile  和  mergeSymbolTable  是两个关键的绑定器函数，我们来看下：
+该函数主要是检查  file.locals  是否定义，如果没有则交给（本地函数）  bind  来处理。
+注意： locals  定义在节点上，其类型为  SymbolTable 。 SourceFile  也是一个节点（事实
+上是 AST 中的根节点）。
+提示：TypeScript 编译器大量使用本地函数。本地函数很可能使用来自父函数的变量（通过闭包捕
+获）。例如  bind  是  bindSourceFile  中的一个本地函数，它或它调用的函数会设置
+ symbolCount  和  classifiableNames  等状态，然后将其存在返回的  SourceFile  中
+bind 能处理任一节点（不只是  SourceFile ），它做的第一件事是分配  node.parent （如果
+ parent  变量已设置，绑定器在  bindChildren  函数的处理中仍会再次设置）， 然后交给
+ bindWorker  做很多重活。最后调用  bindChildren （该函数简单地将绑定器的状态
+（如： parent ）存入函数本地变量中，接着在每个子节点上调用  bind ，然后再将状态转存回绑
+定器中）。现在我们看下  bindWorker ，一个更有趣的函数。
+该函数依据  node.kind （ SyntaxKind 类型）进行切换，并将工作委托给合适的  bindXXX 
+函数（也定义在 binder.ts 中）。例如：如果该节点是  SourceFile  则（最终且仅当节点是外
+部文件模块时）调用  bindAnonymousDeclaration 
+ bindXXX  系函数有一些通用的模式和工具函数。其中最常用的一个是  createSymbol  函数，全
+部代码展示如下：
+1. function createSymbol(flags: SymbolFlags, name: string): Symbol {
+2.   symbolCount++;
+3.   return new Symbol(flags, name);
+4. }
+如您所见，它简单地更新  symbolCount （一个  bindSourceFile  的本地变量），并使用指定的
+参数创建符号。
+绑定器函数
+bindSourceFile
+bind
+bindWorker
+bindXXX 函数
+绑定器
+- 212 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 213 ---
+节点和符号间的链接由几个函数执行。其中一个用于绑定  SourceFile  节点到源文件符号（外部模
+块的情况下）的函数是  addDeclarationToSymbol 
+注意：外部模块源文件的符号设置为  flags : SymbolFlags.ValueModule  和  name: '"' +
+removeFileExtension(file.fileName) + '"' .
+1. function addDeclarationToSymbol(symbol: Symbol, node: Declaration, symbolFlags: 
+SymbolFlags) {
+2.   symbol.flags |= symbolFlags;
+3. 
+4.   // 创建 AST 节点到 symbol 的连接
+5.   node.symbol = symbol;
+6. 
+7.   if (!symbol.declarations) {
+8.     symbol.declarations = [];
+9.   }
+10.   // 将该节点添加为该符号的一个声明
+11.   symbol.declarations.push(node);
+12. 
+13.   if (symbolFlags & SymbolFlags.HasExports && !symbol.exports) {
+14.     symbol.exports = {};
+15.   }
+16. 
+17.   if (symbolFlags & SymbolFlags.HasMembers && !symbol.members) {
+18.     symbol.members = {};
+19.   }
+20. 
+21.   if (symbolFlags & SymbolFlags.Value && !symbol.valueDeclaration) {
+22.     symbol.valueDeclaration = node;
+23.   }
+24. }
+重要的部分（译注：相关注释已添加到上面的代码中）：
+创建一个从 AST 节点到符号的链接（ node.symbol ）
+将节点添加为该符号的一个声明
+绑定器声明
+符号与声明
+声明
+绑定器
+- 213 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 214 ---
+声明就是一个有可选的名字的节点。下面是  types.ts  中的定义：
+1. interface Declaration extends Node {
+2.   _declarationBrand: any;
+3.   name?: DeclarationName;
+4. }
+AST 的节点可以作容器。这决定了的节点及相关符号的  SymbolTables  的类别。容器是个抽象概
+念（没有相关的数据结构）。该概念由一些东西决定， ContainerFlags  枚举是其中之一。函数
+ getContainerFlags （位于  binder.ts ） 驱动此标志，如下所示：
+1. function getContainerFlags(node: Node): ContainerFlags {
+2.   switch (node.kind) {
+3.     case SyntaxKind.ClassExpression:
+4.     case SyntaxKind.ClassDeclaration:
+5.     case SyntaxKind.InterfaceDeclaration:
+6.     case SyntaxKind.EnumDeclaration:
+7.     case SyntaxKind.TypeLiteral:
+8.     case SyntaxKind.ObjectLiteralExpression:
+9.       return ContainerFlags.IsContainer;
+10. 
+11.     case SyntaxKind.CallSignature:
+12.     case SyntaxKind.ConstructSignature:
+13.     case SyntaxKind.IndexSignature:
+14.     case SyntaxKind.MethodDeclaration:
+15.     case SyntaxKind.MethodSignature:
+16.     case SyntaxKind.FunctionDeclaration:
+17.     case SyntaxKind.Constructor:
+18.     case SyntaxKind.GetAccessor:
+19.     case SyntaxKind.SetAccessor:
+20.     case SyntaxKind.FunctionType:
+21.     case SyntaxKind.ConstructorType:
+22.     case SyntaxKind.FunctionExpression:
+23.     case SyntaxKind.ArrowFunction:
+24.     case SyntaxKind.ModuleDeclaration:
+25.     case SyntaxKind.SourceFile:
+26.     case SyntaxKind.TypeAliasDeclaration:
+27.       return ContainerFlags.IsContainerWithLocals;
+28. 
+绑定器容器
+绑定器
+- 214 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 215 ---
+29.     case SyntaxKind.CatchClause:
+30.     case SyntaxKind.ForStatement:
+31.     case SyntaxKind.ForInStatement:
+32.     case SyntaxKind.ForOfStatement:
+33.     case SyntaxKind.CaseBlock:
+34.       return ContainerFlags.IsBlockScopedContainer;
+35. 
+36.     case SyntaxKind.Block:
+37.       // 不要将函数内部的块直接当做块作用域的容器。
+38.       // 本块中的本地变量应当置于函数中，否则下例中的 'x' 不会重新声明为一个块作用域的本地变
+量：
+39.       //
+40.       //     function foo() {
+41.       //         var x;
+42.       //         let x;
+43.       //     }
+44.       //
+45.       // 如果将 'var x' 留在函数中，而将 'let x' 放到本块中（函数外），就不会有冲突了。
+46.       //
+47.       // 如果不在这里创建一个新的块作用域容器，'var x' 和 'let x' 都会进入函数容器本地
+中，这样就会有碰撞冲突。
+48.       return isFunctionLike(node.parent) ? ContainerFlags.None : 
+ContainerFlags.IsBlockScopedContainer;
+49.   }
+50. 
+51.   return ContainerFlags.None;
+52. }
+该函数只在绑定器函数  bindChildren  中调用，会根据  getContainerFlags  的运行结果将节
+点设为  container  和（或）  blockScopedContainer 。函数  bindChildren  如下所示：
+1. // 所有容器节点都以声明顺序保存在一个链表中。
+2. // 类型检查器中的 getLocalNameOfContainer 函数会使用该链表对容器使用的本地名称的唯一性做
+验证。
+3. function bindChildren(node: Node) {
+4.   // 在递归到子节点之前，我们先要保存父节点，容器和块容器。处理完弹出的子节点后，再将这些值存
+回原处。
+5.   let saveParent = parent;
+6.   let saveContainer = container;
+7.   let savedBlockScopeContainer = blockScopeContainer;
+8. 
+9.   // 现在要将这个节点设为父节点，我们要递归它的子节点。
+绑定器
+- 215 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 216 ---
+10.   parent = node;
+11. 
+12.   // 根据节点的类型，需要对当前容器或块容器进行调整。 如果当前节点是个容器，则自动将其视为当
+前的块容器。
+13.   // 由于我们知道容器可能包含本地变量，因此提前初始化 .locals 字段。
+14.   // 这样做是因为很可能需要将一些子（节点）置入 .locals 中（例如：函数参数或变量声明）。
+15.   //
+16.   // 但是，我们不会主动为块容器创建 .locals，因为通常块容器中不会有块作用域变量。
+17.   // 我们不想为遇到的每个块都分配一个对象，大多数情况没有必要。
+18.   //
+19.   // 最后，如果是个块容器，我们就清理该容器中可能存在的 .locals 对象。这种情况常在增量编译场
+景中发生。
+20.   // 由于我们可以重用上次编译的节点，而该节点可能已经创建了 locals 对象。
+21.   // 因此必须清理，以免意外地从上次的编译中移动了过时的数据。
+22.   let containerFlags = getContainerFlags(node);
+23.   if (containerFlags & ContainerFlags.IsContainer) {
+24.     container = blockScopeContainer = node;
+25. 
+26.     if (containerFlags & ContainerFlags.HasLocals) {
+27.       container.locals = {};
+28.     }
+29. 
+30.     addToContainerChain(container);
+31.   } else if (containerFlags & ContainerFlags.IsBlockScopedContainer) {
+32.     blockScopeContainer = node;
+33.     blockScopeContainer.locals = undefined;
+34.   }
+35. 
+36.   forEachChild(node, bind);
+37. 
+38.   container = saveContainer;
+39.   parent = saveParent;
+40.   blockScopeContainer = savedBlockScopeContainer;
+41. }
+您可能还记得绑定器函数中的这部分： bindChildren  由  bind  函数调用。我们得到这样的递
+归绑定： bind  调用  bindChildren ，而  bindChildren  又为其每个子节点调用  bind 
+符号表（SymbolTable）实现为一个简单的 HashMap，下面是其接口（ types.ts ）：
+绑定器符号表
+绑定器
+- 216 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 217 ---
+1. interface SymbolTable {
+2.   [index: string]: Symbol;
+3. }
+符号表通过绑定进行初始化，这里是编译器使用的一些符号表：
+节点上：
+1. locals?: SymbolTable;                   // 节点相关的本地变量
+符号上：
+1. members?: SymbolTable;                  // 类，接口或字面量实例成员
+2. exports?: SymbolTable;                  // 模块导出
+请注意： bindChildren  基于  ContainerFlags  初始化  locals （为  {} ）
+符号表使用符号来填充，主要是通过调用  declareSymbol  来进行，如下所示的是该函数的全部代
+码：
+1. /**
+2.  * 为指定的节点声明一个符号并加入 symbols。标识名冲突时报告错误。
+3.  * @param symbolTable - 要将节点加入进的符号表
+4.  * @param parent - 指定节点的父节点的声明
+5.  * @param node - 要添加到符号表的（节点）声明
+6.  * @param includes - SymbolFlags，指定节点额外的声明类型（例如：export, ambient 等）
+7.  * @param excludes - 不能在符号表中声明的标志，用于报告禁止的声明
+8.  */
+9. function declareSymbol(
+10.   symbolTable: SymbolTable,
+11.   parent: Symbol,
+12.   node: Declaration,
+13.   includes: SymbolFlags,
+14.   excludes: SymbolFlags
+15. ): Symbol {
+16.   Debug.assert(!hasDynamicName(node));
+17. 
+18.   // 默认导出的函数节点或类节点的符号总是"default"
+19.   let name = node.flags & NodeFlags.Default && parent ? 'default' : 
+getDeclarationName(node);
+符号表填充
+绑定器
+- 217 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 218 ---
+20. 
+21.   let symbol: Symbol;
+22.   if (name !== undefined) {
+23.     // 检查符号表中是否已有同名的符号。若没有，创建此名称的新符号并加入表中。
+24.     // 注意，我们尚未给新符号指定任何标志。这可以确保不会和传入的 excludes 标志起冲突。
+25.     //
+26.     // 如果已存在的一个符号，查看是否与要创建的新符号冲突。
+27.     // 例如：同一符号表中，'var' 符号和 'class' 符号会冲突。
+28.     // 如果有冲突，报告该问题给该符号的每个声明，然后为该声明创建一个新符号
+29.     //
+30.     // 如果我们创建的新符号既没在符号表中重名也没和现有符号冲突，就将该节点添加为新符号的唯一
+声明。
+31.     //
+32.     // 否则，就要（将新符号）合并进兼容的现有符号中（例如同一容器中有多个同名的 'var' 时）。
+这种情况下要把该节点添加到符号的声明列表中。
+33.     symbol = hasProperty(symbolTable, name)
+34.       ? symbolTable[name]
+35.       : (symbolTable[name] = createSymbol(SymbolFlags.None, name));
+36. 
+37.     if (name && includes & SymbolFlags.Classifiable) {
+38.       classifiableNames[name] = name;
+39.     }
+40. 
+41.     if (symbol.flags & excludes) {
+42.       if (node.name) {
+43.         node.name.parent = node;
+44.       }
+45. 
+46.       // 报告每个重复声明的错误位置
+47.       // 报告之前遇到的声明错误
+48.       let message =
+49.         symbol.flags & SymbolFlags.BlockScopedVariable
+50.           ? Diagnostics.Cannot_redeclare_block_scoped_variable_0
+51.           : Diagnostics.Duplicate_identifier_0;
+52.       forEach(symbol.declarations, declaration => {
+53.         file.bindDiagnostics.push(
+54.           createDiagnosticForNode(declaration.name || declaration, message, 
+getDisplayName(declaration))
+55.         );
+56.       });
+57.       file.bindDiagnostics.push(createDiagnosticForNode(node.name || node, 
+message, getDisplayName(node)));
+绑定器
+- 218 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 219 ---
+58. 
+59.       symbol = createSymbol(SymbolFlags.None, name);
+60.     }
+61.   } else {
+62.     symbol = createSymbol(SymbolFlags.None, '__missing');
+63.   }
+64. 
+65.   addDeclarationToSymbol(symbol, node, includes);
+66.   symbol.parent = parent;
+67. 
+68.   return symbol;
+69. }
+填充哪个符号表，由此函数的第一个参数决定。例如：添加声明到类型为
+ SyntaxKind.ClassDeclaration  或  SyntaxKind.ClassExpression  的容器时，将会调用下面
+的函数  declareClassMember :
+1. function declareClassMember(node: Declaration, symbolFlags: SymbolFlags, 
+symbolExcludes: SymbolFlags) {
+2.   return node.flags & NodeFlags.Static
+3.     ? declareSymbol(container.symbol.exports, container.symbol, node, 
+symbolFlags, symbolExcludes)
+4.     : declareSymbol(container.symbol.members, container.symbol, node, 
+symbolFlags, symbolExcludes);
+5. }
+绑定错误被添加到源文件的  bindDiagnostics  列表中
+一个绑定时错误检测的例子是在严格模式下使用  eval  或  arguments  作为变量名。下面展示
+了相关的全部代码（多个位置都会调用 checkStrictModeEvalOrArguments ，调用栈发自
+ bindWorker ，该函数对不同节点的  SyntaxKind  调用不同的检查函数）：
+1. function checkStrictModeEvalOrArguments(contextNode: Node, name: Node) {
+2.   if (name && name.kind === SyntaxKind.Identifier) {
+3.     let identifier = <Identifier>name;
+4.     if (isEvalOrArgumentsIdentifier(identifier)) {
+5.       // 首先检查名字是否在类声明或者类表达式中，如果是则给出明确消息，否则报告一般性错误
+6.       let span = getErrorSpanForNode(file, name);
+7.       file.bindDiagnostics.push(
+绑定器错误报告
+绑定器
+- 219 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 220 ---
+8.         createFileDiagnostic(
+9.           file,
+10.           span.start,
+11.           span.length,
+12.           getStrictModeEvalOrArgumentsMessage(contextNode),
+13.           identifier.text
+14.         )
+15.       );
+16.     }
+17.   }
+18. }
+19. 
+20. function isEvalOrArgumentsIdentifier(node: Node): boolean {
+21.   return (
+22.     node.kind === SyntaxKind.Identifier &&
+23.     ((<Identifier>node).text === 'eval' || (<Identifier>node).text === 
+'arguments')
+24.   );
+25. }
+26. 
+27. function getStrictModeEvalOrArgumentsMessage(node: Node) {
+28.   // 向用户提供特定消息，有助他们理解为何会处于严格模式。
+29.   if (getContainingClass(node)) {
+30.     return 
+Diagnostics.Invalid_use_of_0_Class_definitions_are_automatically_in_strict_mode;
+31.   }
+32. 
+33.   if (file.externalModuleIndicator) {
+34.     return 
+Diagnostics.Invalid_use_of_0_Modules_are_automatically_in_strict_mode;
+35.   }
+36. 
+37.   return Diagnostics.Invalid_use_of_0_in_strict_mode;
+38. }
+原文: https://jkchao.github.io/typescript-book-chinese/compiler/binder.html
+绑定器
+- 220 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 221 ---
+如前所述，检查器使得 TypeScript 更独特，比其它 JavaScript 转译器更强大。检查器位于
+ checker.ts  中，当前有 23k 行以上的代码（编译器中最大的部分）
+检查器是由程序初始化，下面是调用栈示意（绑定器一节也展示过）：
+1. program.getTypeChecker ->
+2.     ts.createTypeChecker（检查器中）->
+3.         initializeTypeChecker（检查器中） ->
+4.             for each SourceFile `ts.bindSourceFile`（绑定器中）
+5.             // 接着
+6.             for each SourceFile `ts.mergeSymbolTable`（检查器中）
+真正的类型检查会在调用  getDiagnostics  时才发生。该函数被调用时（比如由
+ Program.emit  请求），检查器返回一个  EmitResolver （由程序调用检查器的
+ getEmitResolver  函数得到）， EmitResolver  是  createTypeChecker  的一个本地函数
+的集合。介绍发射器时还会再次提到。
+下面是该过程直到  checkSourceFile  的调用栈（ checkSourceFile  是
+ createTypeChecker  的一个本地函数）：
+1. program.emit ->
+2.     emitWorker (program local) ->
+3.         createTypeChecker.getEmitResolver ->
+4.             // 第一次调用下面的几个 createTypeChecker 的本地函数
+5.             call getDiagnostics ->
+6.                 getDiagnosticsWorker ->
+7.                     checkSourceFile
+8. 
+9.             // 接着
+10.             return resolver
+11.             // 通过对本地函数 createResolver() 的调用，resolver 已在 
+createTypeChecker 中初始化。
+检查器
+程序对检查器的使用
+与发射器的联系
+检查器
+- 221 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 222 ---
+ initializeTypeChecker  中存在以下代码：
+1. // 初始化全局符号表（SymbolTable）。
+2. forEach(host.getSourceFiles(), file => {
+3.   if (!isExternalModule(file)) {
+4.     mergeSymbolTable(globals, file.locals);
+5.   }
+6. });
+基本上是将所有的  global  符号合并到  let globals: SymbolTable = {}  符号表中（位于
+ createTypeChecker  中）。 mergeSymbolTable  主要调用  mergeSymbol  函数。
+检查器使用本地的  error  函数报告错误，如下所示：
+1. function error(location: Node, message: DiagnosticMessage, arg0?: any, arg1?: 
+any, arg2?: any): void {
+2.   let diagnostic = location
+3.     ? createDiagnosticForNode(location, message, arg0, arg1, arg2)
+4.     : createCompilerDiagnostic(message, arg0, arg1, arg2);
+5.   diagnostics.add(diagnostic);
+6. }
+原文: https://jkchao.github.io/typescript-book-chinese/compiler/checker.html
+全局命名空间合并
+检查器错误报告
+检查器
+- 222 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 223 ---
+TypeScript 编译器提供了两个发射器：
+ emitter.ts ：可能是你最感兴趣的发射器，它是 TS -> JavaScript 的发射器
+ declarationEmitter.ts ：这个发射器用于为 TypeScript 源文件（ .ts ） 创建声明文件
+（ .d.ts ）
+本节我们介绍  emitter.ts 
+Program 提供了一个  emit  函数。该函数主要将功能委托给  emitter.ts 中的
+ emitFiles  函数。下面是调用栈：
+1. Program.emit ->
+2.     `emitWorker` （在 program.ts 中的 createProgram） ->
+3.         `emitFiles` （emitter.ts 中的函数）
+ emitWorker （通过  emitFiles  参数）给发射器提供一个  EmitResolver 。
+ EmitResolver  由程序的 TypeChecker 提供，基本上它是一个来自  createChecker  的本地
+函数的子集。
+定义在  emitter.ts  中，下面是该函数的签名：
+1. // targetSourceFile 当用户想发射项目中的某个文件时指定，保存时编译（compileOnSave）功能
+使用此参数
+2. export function emitFiles(resolver: EmitResolver, host: EmitHost, 
+targetSourceFile?: SourceFile): EmitResult {
+ EmitHost  是  CompilerHost  的简化版（运行时，很多用例实际上都是  CompilerHost ）
+ emitFiles  中的最有趣的调用栈如下所示：
+1. emitFiles ->
+2.     emitFile(jsFilePath, targetSourceFile) ->
+3.         emitJavaScript(jsFilePath, targetSourceFile);
+发射器
+Promgram 对发射器的使用
+发射器函数
+emitFiles
+发射器
+- 223 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 224 ---
+该函数有良好的注释，我们下面给出它：
+1. function emitJavaScript(jsFilePath: string, root?: SourceFile) {
+2.   let writer = createTextWriter(newLine);
+3.   let write = writer.write;
+4.   let writeTextOfNode = writer.writeTextOfNode;
+5.   let writeLine = writer.writeLine;
+6.   let increaseIndent = writer.increaseIndent;
+7.   let decreaseIndent = writer.decreaseIndent;
+8. 
+9.   let currentSourceFile: SourceFile;
+10.   // 导出器函数的名称，如果文件是个系统外部模块的话
+11.   // System.register([...], function (<exporter>) {...})
+12.   // System 模块中的导出像这样：
+13.   // export var x; ... x = 1
+14.   // =>
+15.   // var x;... exporter("x", x = 1)
+16.   let exportFunctionForFile: string;
+17. 
+18.   let generatedNameSet: Map<string> = {};
+19.   let nodeToGeneratedName: string[] = [];
+20.   let computedPropertyNamesToGeneratedNames: string[];
+21. 
+22.   let extendsEmitted = false;
+23.   let decorateEmitted = false;
+24.   let paramEmitted = false;
+25.   let awaiterEmitted = false;
+26.   let tempFlags = 0;
+27.   let tempVariables: Identifier[];
+28.   let tempParameters: Identifier[];
+29.   let externalImports: (ImportDeclaration | ImportEqualsDeclaration | 
+ExportDeclaration)[];
+30.   let exportSpecifiers: Map<ExportSpecifier[]>;
+31.   let exportEquals: ExportAssignment;
+32.   let hasExportStars: boolean;
+33. 
+34.   /** 将发射输出写入磁盘 */
+35.   let writeEmittedFiles = writeJavaScriptFile;
+36. 
+emitJavaScript
+发射器
+- 224 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 225 ---
+37.   let detachedCommentsInfo: { nodePos: number; detachedCommentEndPos: number }
+[];
+38. 
+39.   let writeComment = writeCommentRange;
+40. 
+41.   /** 发射一个节点 */
+42.   let emit = emitNodeWithoutSourceMap;
+43. 
+44.   /** 在发射节点前调用 */
+45.   let emitStart = function(node: Node) {};
+46. 
+47.   /** 发射结点完成后调用 */
+48.   let emitEnd = function(node: Node) {};
+49. 
+50.   /** 从 startPos 位置开始，为指定的 token 发射文本。默认写入的文本由 tokenKind 提供，
+51.    * 但是如果提供了可选的 emitFn 回调，将使用该回调来代替默认方式发射文本。
+52.    * @param tokenKind 要搜索并发射的 token 的类别
+53.    * @param startPos 源码中搜索 token 的起始位置
+54.    * @param emitFn 如果给出，会被调用来进行文本的发射。
+55.    */
+56.   let emitToken = emitTokenText;
+57. 
+58.   /** 该函数因为节点，会在发射的代码中于函数或类中启用词法作用域前调用
+59.    * @param scopeDeclaration 启动词法作用域的节点
+60.    * @param scopeName 可选的作用域的名称，默认从节点声明中推导
+61.    */
+62.   let scopeEmitStart = function(scopeDeclaration: Node, scopeName?: string) {};
+63. 
+64.   /** 出了作用域后调用 */
+65.   let scopeEmitEnd = function() {};
+66. 
+67.   /** 会被编码的 Sourcemap 数据 */
+68.   let sourceMapData: SourceMapData;
+69. 
+70.   if (compilerOptions.sourceMap || compilerOptions.inlineSourceMap) {
+71.     initializeEmitterWithSourceMaps();
+72.   }
+73. 
+74.   if (root) {
+75.     // 不要直接调用 emit，那样不会设置 currentSourceFile
+76.     emitSourceFile(root);
+77.   } else {
+发射器
+- 225 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 226 ---
+78.     forEach(host.getSourceFiles(), sourceFile => {
+79.       if (!isExternalModuleOrDeclarationFile(sourceFile)) {
+80.         emitSourceFile(sourceFile);
+81.       }
+82.     });
+83.   }
+84. 
+85.   writeLine();
+86.   writeEmittedFiles(writer.getText(), /*writeByteOrderMark*/ 
+compilerOptions.emitBOM);
+87.   return;
+88. 
+89.   /// 一批本地函数
+90. }
+它主要设置了一批本地变量和函数（这些函数构成  emitter.ts  的大部分内容），接着交给本地函
+数  emitSourceFile  发射文本。 emitSourceFile  函数设置  currentSourceFile  然后交
+给本地函数  emit  去处理。
+1. function emitSourceFile(sourceFile: SourceFile): void {
+2.   currentSourceFile = sourceFile;
+3.   exportFunctionForFile = undefined;
+4.   emit(sourceFile);
+5. }
+ emit  函数处理 注释 和 实际 JavaScript 的发射。实际 JavaScript 的发射是
+emitJavaScriptWorker 函数的工作。
+完整的函数：
+1. function emitJavaScriptWorker(node: Node) {
+2.   // 检查节点是否可以忽略 ScriptTarget 发射
+3.   switch (node.kind) {
+4.     case SyntaxKind.Identifier:
+5.       return emitIdentifier(<Identifier>node);
+6.     case SyntaxKind.Parameter:
+7.       return emitParameter(<ParameterDeclaration>node);
+8.     case SyntaxKind.MethodDeclaration:
+9.     case SyntaxKind.MethodSignature:
+10.       return emitMethod(<MethodDeclaration>node);
+emitJavaScriptWorker
+发射器
+- 226 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 227 ---
+11.     case SyntaxKind.GetAccessor:
+12.     case SyntaxKind.SetAccessor:
+13.       return emitAccessor(<AccessorDeclaration>node);
+14.     case SyntaxKind.ThisKeyword:
+15.       return emitThis(node);
+16.     case SyntaxKind.SuperKeyword:
+17.       return emitSuper(node);
+18.     case SyntaxKind.NullKeyword:
+19.       return write('null');
+20.     case SyntaxKind.TrueKeyword:
+21.       return write('true');
+22.     case SyntaxKind.FalseKeyword:
+23.       return write('false');
+24.     case SyntaxKind.NumericLiteral:
+25.     case SyntaxKind.StringLiteral:
+26.     case SyntaxKind.RegularExpressionLiteral:
+27.     case SyntaxKind.NoSubstitutionTemplateLiteral:
+28.     case SyntaxKind.TemplateHead:
+29.     case SyntaxKind.TemplateMiddle:
+30.     case SyntaxKind.TemplateTail:
+31.       return emitLiteral(<LiteralExpression>node);
+32.     case SyntaxKind.TemplateExpression:
+33.       return emitTemplateExpression(<TemplateExpression>node);
+34.     case SyntaxKind.TemplateSpan:
+35.       return emitTemplateSpan(<TemplateSpan>node);
+36.     case SyntaxKind.JsxElement:
+37.     case SyntaxKind.JsxSelfClosingElement:
+38.       return emitJsxElement(<JsxElement | JsxSelfClosingElement>node);
+39.     case SyntaxKind.JsxText:
+40.       return emitJsxText(<JsxText>node);
+41.     case SyntaxKind.JsxExpression:
+42.       return emitJsxExpression(<JsxExpression>node);
+43.     case SyntaxKind.QualifiedName:
+44.       return emitQualifiedName(<QualifiedName>node);
+45.     case SyntaxKind.ObjectBindingPattern:
+46.       return emitObjectBindingPattern(<BindingPattern>node);
+47.     case SyntaxKind.ArrayBindingPattern:
+48.       return emitArrayBindingPattern(<BindingPattern>node);
+49.     case SyntaxKind.BindingElement:
+50.       return emitBindingElement(<BindingElement>node);
+51.     case SyntaxKind.ArrayLiteralExpression:
+52.       return emitArrayLiteral(<ArrayLiteralExpression>node);
+发射器
+- 227 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 228 ---
+53.     case SyntaxKind.ObjectLiteralExpression:
+54.       return emitObjectLiteral(<ObjectLiteralExpression>node);
+55.     case SyntaxKind.PropertyAssignment:
+56.       return emitPropertyAssignment(<PropertyDeclaration>node);
+57.     case SyntaxKind.ShorthandPropertyAssignment:
+58.       return 
+emitShorthandPropertyAssignment(<ShorthandPropertyAssignment>node);
+59.     case SyntaxKind.ComputedPropertyName:
+60.       return emitComputedPropertyName(<ComputedPropertyName>node);
+61.     case SyntaxKind.PropertyAccessExpression:
+62.       return emitPropertyAccess(<PropertyAccessExpression>node);
+63.     case SyntaxKind.ElementAccessExpression:
+64.       return emitIndexedAccess(<ElementAccessExpression>node);
+65.     case SyntaxKind.CallExpression:
+66.       return emitCallExpression(<CallExpression>node);
+67.     case SyntaxKind.NewExpression:
+68.       return emitNewExpression(<NewExpression>node);
+69.     case SyntaxKind.TaggedTemplateExpression:
+70.       return emitTaggedTemplateExpression(<TaggedTemplateExpression>node);
+71.     case SyntaxKind.TypeAssertionExpression:
+72.       return emit((<TypeAssertion>node).expression);
+73.     case SyntaxKind.AsExpression:
+74.       return emit((<AsExpression>node).expression);
+75.     case SyntaxKind.ParenthesizedExpression:
+76.       return emitParenExpression(<ParenthesizedExpression>node);
+77.     case SyntaxKind.FunctionDeclaration:
+78.     case SyntaxKind.FunctionExpression:
+79.     case SyntaxKind.ArrowFunction:
+80.       return emitFunctionDeclaration(<FunctionLikeDeclaration>node);
+81.     case SyntaxKind.DeleteExpression:
+82.       return emitDeleteExpression(<DeleteExpression>node);
+83.     case SyntaxKind.TypeOfExpression:
+84.       return emitTypeOfExpression(<TypeOfExpression>node);
+85.     case SyntaxKind.VoidExpression:
+86.       return emitVoidExpression(<VoidExpression>node);
+87.     case SyntaxKind.AwaitExpression:
+88.       return emitAwaitExpression(<AwaitExpression>node);
+89.     case SyntaxKind.PrefixUnaryExpression:
+90.       return emitPrefixUnaryExpression(<PrefixUnaryExpression>node);
+91.     case SyntaxKind.PostfixUnaryExpression:
+92.       return emitPostfixUnaryExpression(<PostfixUnaryExpression>node);
+93.     case SyntaxKind.BinaryExpression:
+发射器
+- 228 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 229 ---
+94.       return emitBinaryExpression(<BinaryExpression>node);
+95.     case SyntaxKind.ConditionalExpression:
+96.       return emitConditionalExpression(<ConditionalExpression>node);
+97.     case SyntaxKind.SpreadElementExpression:
+98.       return emitSpreadElementExpression(<SpreadElementExpression>node);
+99.     case SyntaxKind.YieldExpression:
+100.       return emitYieldExpression(<YieldExpression>node);
+101.     case SyntaxKind.OmittedExpression:
+102.       return;
+103.     case SyntaxKind.Block:
+104.     case SyntaxKind.ModuleBlock:
+105.       return emitBlock(<Block>node);
+106.     case SyntaxKind.VariableStatement:
+107.       return emitVariableStatement(<VariableStatement>node);
+108.     case SyntaxKind.EmptyStatement:
+109.       return write(';');
+110.     case SyntaxKind.ExpressionStatement:
+111.       return emitExpressionStatement(<ExpressionStatement>node);
+112.     case SyntaxKind.IfStatement:
+113.       return emitIfStatement(<IfStatement>node);
+114.     case SyntaxKind.DoStatement:
+115.       return emitDoStatement(<DoStatement>node);
+116.     case SyntaxKind.WhileStatement:
+117.       return emitWhileStatement(<WhileStatement>node);
+118.     case SyntaxKind.ForStatement:
+119.       return emitForStatement(<ForStatement>node);
+120.     case SyntaxKind.ForOfStatement:
+121.     case SyntaxKind.ForInStatement:
+122.       return emitForInOrForOfStatement(<ForInStatement>node);
+123.     case SyntaxKind.ContinueStatement:
+124.     case SyntaxKind.BreakStatement:
+125.       return emitBreakOrContinueStatement(<BreakOrContinueStatement>node);
+126.     case SyntaxKind.ReturnStatement:
+127.       return emitReturnStatement(<ReturnStatement>node);
+128.     case SyntaxKind.WithStatement:
+129.       return emitWithStatement(<WithStatement>node);
+130.     case SyntaxKind.SwitchStatement:
+131.       return emitSwitchStatement(<SwitchStatement>node);
+132.     case SyntaxKind.CaseClause:
+133.     case SyntaxKind.DefaultClause:
+134.       return emitCaseOrDefaultClause(<CaseOrDefaultClause>node);
+135.     case SyntaxKind.LabeledStatement:
+发射器
+- 229 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 230 ---
+136.       return emitLabelledStatement(<LabeledStatement>node);
+137.     case SyntaxKind.ThrowStatement:
+138.       return emitThrowStatement(<ThrowStatement>node);
+139.     case SyntaxKind.TryStatement:
+140.       return emitTryStatement(<TryStatement>node);
+141.     case SyntaxKind.CatchClause:
+142.       return emitCatchClause(<CatchClause>node);
+143.     case SyntaxKind.DebuggerStatement:
+144.       return emitDebuggerStatement(node);
+145.     case SyntaxKind.VariableDeclaration:
+146.       return emitVariableDeclaration(<VariableDeclaration>node);
+147.     case SyntaxKind.ClassExpression:
+148.       return emitClassExpression(<ClassExpression>node);
+149.     case SyntaxKind.ClassDeclaration:
+150.       return emitClassDeclaration(<ClassDeclaration>node);
+151.     case SyntaxKind.InterfaceDeclaration:
+152.       return emitInterfaceDeclaration(<InterfaceDeclaration>node);
+153.     case SyntaxKind.EnumDeclaration:
+154.       return emitEnumDeclaration(<EnumDeclaration>node);
+155.     case SyntaxKind.EnumMember:
+156.       return emitEnumMember(<EnumMember>node);
+157.     case SyntaxKind.ModuleDeclaration:
+158.       return emitModuleDeclaration(<ModuleDeclaration>node);
+159.     case SyntaxKind.ImportDeclaration:
+160.       return emitImportDeclaration(<ImportDeclaration>node);
+161.     case SyntaxKind.ImportEqualsDeclaration:
+162.       return emitImportEqualsDeclaration(<ImportEqualsDeclaration>node);
+163.     case SyntaxKind.ExportDeclaration:
+164.       return emitExportDeclaration(<ExportDeclaration>node);
+165.     case SyntaxKind.ExportAssignment:
+166.       return emitExportAssignment(<ExportAssignment>node);
+167.     case SyntaxKind.SourceFile:
+168.       return emitSourceFileNode(<SourceFile>node);
+169.   }
+170. }
+通过简单地调用相应的  emitXXX  函数来完成递归，例如  emitFunctionDeclaration 
+1. function emitFunctionDeclaration(node: FunctionLikeDeclaration) {
+2.   if (nodeIsMissing(node.body)) {
+3.     return emitOnlyPinnedOrTripleSlashComments(node);
+4.   }
+发射器
+- 230 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 231 ---
+5. 
+6.   if (node.kind !== SyntaxKind.MethodDeclaration && node.kind !== 
+SyntaxKind.MethodSignature) {
+7.     // 会把注释当做方法声明的一部分去发射。
+8.     emitLeadingComments(node);
+9.   }
+10. 
+11.   // 目标为 es6 之前时，使用 function 关键字来发射类函数（functions-like）声明，包括箭头
+函数
+12.   // 目标为 es6 时，可以发射原生的 ES6 箭头函数，并使用宽箭头代替 function 关键字.
+13.   if (!shouldEmitAsArrowFunction(node)) {
+14.     if (isES6ExportedDeclaration(node)) {
+15.       write('export ');
+16.       if (node.flags & NodeFlags.Default) {
+17.         write('default ');
+18.       }
+19.     }
+20. 
+21.     write('function');
+22.     if (languageVersion >= ScriptTarget.ES6 && node.asteriskToken) {
+23.       write('*');
+24.     }
+25.     write(' ');
+26.   }
+27. 
+28.   if (shouldEmitFunctionName(node)) {
+29.     emitDeclarationName(node);
+30.   }
+31. 
+32.   emitSignatureAndBody(node);
+33.   if (
+34.     languageVersion < ScriptTarget.ES6 &&
+35.     node.kind === SyntaxKind.FunctionDeclaration &&
+36.     node.parent === currentSourceFile &&
+37.     node.name
+38.   ) {
+39.     emitExportMemberAssignments((<FunctionDeclaration>node).name);
+40.   }
+41.   if (node.kind !== SyntaxKind.MethodDeclaration && node.kind !== 
+SyntaxKind.MethodSignature) {
+42.     emitTrailingComments(node);
+43.   }
+发射器
+- 231 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 232 ---
+44. }
+如前所述  emitter.ts  的大部分是本地函数  emitJavaScript （我们之前展示过该函数的初始
+化例程）。它主要是设置一批本地变量并交给  emitSourceFile  处理。下面我们再看一遍这个函
+数，这次我们重点关注  SourceMap  的部分：
+1. function emitJavaScript(jsFilePath: string, root?: SourceFile) {
+2. 
+3.     // 无关代码 ........... 已移除
+4.     let writeComment = writeCommentRange;
+5. 
+6.     /** 将发射的输出写到磁盘上 */
+7.     let writeEmittedFiles = writeJavaScriptFile;
+8. 
+9.     /** 发射一个节点 */
+10.     let emit = emitNodeWithoutSourceMap;
+11. 
+12.     /** 节点发射前调用 */
+13.     let emitStart = function (node: Node) { };
+14. 
+15.     /** 节点发射完成后调用 */
+16.     let emitEnd = function (node: Node) { };
+17. 
+18.     /** 从 startPos 位置开始，为指定的 token 发射文本。默认写入的文本由 tokenKind 提
+供，
+19.       * 但是如果提供了可选的 emitFn 回调，将使用该回调来代替默认方式发射文本。
+20.       * @param tokenKind 要搜索并发射的 token 的类别
+21.       * @param startPos 源码中搜索 token 的起始位置
+22.       * @param emitFn 如果给出，会被调用来进行文本的发射。*/
+23.     let emitToken = emitTokenText;
+24. 
+25.     /** 该函数因为节点，会在发射的代码中于函数或类中启用词法作用域前调用
+26.       * @param scopeDeclaration 启动词法作用域的节点
+27.       * @param scopeName 可选的作用域的名称，默认从节点声明中推导
+28.       */
+29.     let scopeEmitStart = function(scopeDeclaration: Node, scopeName?: string) { 
+};
+30. 
+31.     /** 出了作用域后调用 */
+发射器源映射（SourceMaps）
+发射器
+- 232 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 233 ---
+32.     let scopeEmitEnd = function() { };
+33. 
+34.     /** 会被编码的 Sourcemap 数据 */
+35.     let sourceMapData: SourceMapData;
+36. 
+37.     if (compilerOptions.sourceMap || compilerOptions.inlineSourceMap) {
+38.         initializeEmitterWithSourceMaps();
+39.     }
+40. 
+41.     if (root) {
+42.         // 不要直接调用 emit，那样不会设置 currentSourceFile
+43.         emitSourceFile(root);
+44.     }
+45.     else {
+46.         forEach(host.getSourceFiles(), sourceFile => {
+47.             if (!isExternalModuleOrDeclarationFile(sourceFile)) {
+48.                 emitSourceFile(sourceFile);
+49.             }
+50.         });
+51.     }
+52. 
+53.     writeLine();
+54.     writeEmittedFiles(writer.getText(), /*writeByteOrderMark*/ 
+compilerOptions.emitBOM);
+55.     return;
+重要的函数调用是  initializeEmitterWithSourceMaps ，该函数是  emitJavaScript  的本地
+函数，它覆盖了部分已定义的本地函数。覆盖的函数可以在  initalizeEmitterWithSourceMap  的
+底部找到：
+1. // `initializeEmitterWithSourceMaps` 函数的最后部分
+2. 
+3. writeEmittedFiles = writeJavaScriptAndSourceMapFile;
+4. emit = emitNodeWithSourceMap;
+5. emitStart = recordEmitNodeStartSpan;
+6. emitEnd = recordEmitNodeEndSpan;
+7. emitToken = writeTextWithSpanRecord;
+8. scopeEmitStart = recordScopeNameOfNode;
+9. scopeEmitEnd = recordScopeNameEnd;
+10. writeComment = writeCommentRangeWithMap;
+就是说大部分的发射器代码不关心  SourceMap ，它们以相同的方式使用这些（带或不带
+发射器
+- 233 -
+本文档使用 书栈(BookStack.CN) 构建
+
+
+--- page 234 ---
+SourceMap 的）本地函数。
+原文: https://jkchao.github.io/typescript-book-chinese/compiler/emitter.html
+发射器
+- 234 -
+本文档使用 书栈(BookStack.CN) 构建

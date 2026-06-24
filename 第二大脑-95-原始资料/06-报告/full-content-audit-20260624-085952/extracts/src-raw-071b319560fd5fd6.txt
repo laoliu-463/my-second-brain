@@ -1,0 +1,70 @@
+path: raw/sources/操作系统练习题/调度习题讲解.docx
+source_id: src-raw-071b319560fd5fd6
+sha256: ee5fa885c32d0a74b4589c2b507e893ed88950621741625aaa378b17bc299291
+parser: python-docx
+status: text_extracted
+
+For the processes listed in the following table, please write out the turnaround/ response time of each process and the average turnaround/response time for the following algorithms (1) ~ (4). You must write out the computing course. 
+(1) Priority Scheduling (non-preemptive, 1 is the highest priority)
+(2) Priority Scheduling (preemptive, 1 is the lowest priority)
+(3) RR(quantum=2)   (4) RR(quantum=3)
+(1)
+order: A->B->C->E->D
+turnaround time: A:4-0=4, B:5-1=4, C:7-2=5, D:18-3=15, E:12-4=8
+ATT: (4+4+5+15+8)/5=36/5=7.2
+response time: A: 0, B:4-1=3, C:5-2=3, D:12-3=9, E:7-4=3
+ART: (3+3+9+3)/5=18/5=3.6
+For the processes listed in the following table, please write out the turnaround/ response time of each process and the average turnaround/response time for the following algorithms (1) ~ (4). You must write out the computing course. 
+(1) Priority Scheduling (non-preemptive, 1 is the highest priority)
+(2) Priority Scheduling (preemptive, 1 is the lowest priority)
+(3) RR(quantum=2)   (4) RR(quantum=3)
+(2)
+order: A(3)->D->E->C->A(1)->B
+turnaround time: A:17-0=17, B:18-1=17, C:16-2=14, D:9-3=6, E:14-4=10
+ATT: (17+17+14+6+10)/5=64/5=12.8
+response time: A: 0, B:17-1=16, C:14-2=12, D:0, E:9-4=5
+ART: (16+12+5)/5=33/5=6.6
+For the processes listed in the following table, please write out the turnaround/ response time of each process and the average turnaround/response time for the following algorithms (1) ~ (4). You must write out the computing course. 
+(1) Priority Scheduling (non-preemptive, 1 is the highest priority)
+(2) Priority Scheduling (preemptive, 1 is the lowest priority)
+(3) RR(quantum=2)   (4) RR(quantum=3)
+(3)
+order: A(2)->B->C->A(2)->D(2)->E(2)->D(2)->E(2)->D(2)->E(1)
+turnaround time: A:7-0=7, B:3-1=2, C:5-2=3, D:17-3=14, E:18-4=14
+ATT: (7+2+3+14+14)/5=40/5=8
+response time: A: 0, B:2-1=1, C:3-2=1, D:7-3=4, E:9-4=5
+ART: (1+1+4+5)/5=11/5=2.2
+For the processes listed in the following table, please write out the turnaround/ response time of each process and the average turnaround/response time for the following algorithms (1) ~ (4). You must write out the computing course. 
+(1) Priority Scheduling (non-preemptive, 1 is the highest priority)
+(2) Priority Scheduling (preemptive, 1 is the lowest priority)
+(3) RR(quantum=2)   (4) RR(quantum=3)
+(4)
+order: A(3)->B->C->D(3)->A(1)->E(3)->D(3)->E(2)
+turnaround time: A:10-0=10, B:4-1=3, C:6-2=4, D:16-3=13, E:18-4=14
+ATT: (10+3+4+13+14)/5=44/5=8.8
+response time: A: 0, B:3-1=2, C:4-2=2, D:6-3=3, E:10-4=6
+ART: (2+2+3+6)/5=13/5=2.6
+Process | Arrival Time | Running Time | Priority
+A | 0 | 4 | 2
+B | 1 | 1 | 1
+C | 2 | 2 | 2
+D | 3 | 6 | 4
+E | 4 | 5 | 3
+Process | Arrival Time | Running Time | Priority
+A | 0 | 4 | 2
+B | 1 | 1 | 1
+C | 2 | 2 | 2
+D | 3 | 6 | 4
+E | 4 | 5 | 3
+Process | Arrival Time | Running Time | Priority
+A | 0 | 4 | 2
+B | 1 | 1 | 1
+C | 2 | 2 | 2
+D | 3 | 6 | 4
+E | 4 | 5 | 3
+Process | Arrival Time | Running Time | Priority
+A | 0 | 4 | 2
+B | 1 | 1 | 1
+C | 2 | 2 | 2
+D | 3 | 6 | 4
+E | 4 | 5 | 3

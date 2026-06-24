@@ -1,0 +1,91 @@
+path: raw/sources/操作系统练习题/死锁习题.docx
+source_id: src-raw-c6f77d46add0a172
+sha256: c481db2388067bc6fc290497522e696a5e9f9e99846caa3f5d9f7b3361315536
+parser: python-docx
+status: text_extracted
+
+① Is it safe now?
+② If Process B requests resource (0 0 1 0), can the system allocate to it?
+③ If Process E requests resource (1 0 1 0), can the system allocate to it?
+Solution:
+D runs first, A= (1 0 2 0)-(0 0 1 0)=(1 0 1 0)
+   D release resource, A=(1 0 1 0)+(1 1 1 1)=(2 1 2 1)
+A runs second, A= (2 1 2 1)-(1 1 0 0)=(1 0 2 1)
+   A release resource, A= (1 0 2 1)+(4 1 1 1)=(5 1 3 2)
+B runs third, A= (5 1 3 2)-(0 1 1 2)=(5 0 2 0)
+   B release resource, A= (5 0 2 0)+(0 2 1 2)=(5 2 3 2)
+C runs fourth, A= (5 2 3 2)-(3 1 0 0)=(2 1 3 2)
+   C release resource, A= (2 1 3 2)+(4 2 1 0)=(6 3 4 2)
+E runs fifth, A= (6 3 4 2)-(2 1 1 0)=(4 2 3 2)
+   E release resource, A= (4 2 3 2)+(2 1 1 0)=(6 3 4 2)
+There is one scheduling order D->A->B->C->E, in which every process can run to completion, so it is safe.
+② If Process B requests resource (0 0 1 0), can the system allocate to it?
+Solution:
+Suppose the system allocate to Process B, the resources change as follow:
+D runs first, A= (1 0 1 0)-(0 0 1 0)=(1 0 0 0)
+   D release resource, A=(1 0 0 0)+(1 1 1 1)=(2 1 1 1)
+A runs second, A= (2 1 1 1)-(1 1 0 0)=(1 0 1 1)
+   A release resource, A= (1 0 1 1)+(4 1 1 1)=(5 1 2 2)
+(3) B runs third, A= (5 1 2 2)-(0 1 0 2)=(5 0 2 0)
+   B release resource, A= (5 0 2 0)+(0 2 1 2)=(5 2 3 2)
+(4) C runs fourth, A= (5 2 3 2)-(3 1 0 0)=(2 1 3 2)
+   C release resource, A= (2 1 3 2)+(4 2 1 0)=(6 3 4 2)
+(5) E runs fifth, A= (6 3 4 2)-(2 1 1 0)=(4 2 3 2)
+   E release resource, A= (4 2 3 2)+(2 1 1 0)=(6 3 4 2)
+There is one scheduling order D->A->B->C->E, in which every process can run to completion, so it is safe. So the system can allocate resources to Process B.
+* A system has four processes and three assignable resources. The current allocation and maximum needs are as follows: 
+Allocated        Maximum          Available
+Process A        2  0  1          2  2  1           0  x  0
+Process B        1  1  0          5  2  2
+Process C        1  0  0          4  0  2
+Process D        1  0  2          2  1  2
+What is the smallest value of x for which this is a safe state? 
+ If x is the smallest value, please fill in the following blanks:
+Process     can be satisfied first, when it is over, the available is      
+Process     can be satisfied next, when it is over, the available is      
+Process     can be satisfied next, when it is over, the available is      
+Process     can be satisfied next, when it is over, the available is      
+Solution:
+(1) What is the smallest value of x for which this is a safe state?  x =  2  ;    
+(2) Fill in the following blanks:
+Process  A  can be satisfied first, when it is over, the available is (2  2  1)   
+Process  D  can be satisfied next, when it is over, the available is (3  2  3)    
+Process  C  can be satisfied next, when it is over, the available is (4  2  3)   
+Process  B  can be satisfied next, when it is over, the available is (5  3  3)  
+A system has four processes and five allocatable resources. The current allocation and maximum needs are as follows:
+What is the smallest value of x for which this is a safe state?
+Solution:
+Request matrix:
+A  0 1 0 0 1 
+B  0 2 1 0 0
+C  1 0 3 0 0
+D  0 0 1 1 1 
+Process D runs, x>=1
+Available: 1 1 x+1 2 1
+Process A runs, x+1>=0 x>=-1 
+Available: 2 1 x+3 3 2
+Process C runs, x+3>=3 x>=0
+Available: 3 2 x+3 4 2
+Process B runs, x+3>=1 x>=-2
+Available: 5 2 x+4 5 2
+So, x>=1
+The smallest value of x for which this is a safe state is 1.
+Table 1  System status at T0 time | Table 1  System status at T0 time | Table 1  System status at T0 time | Table 1  System status at T0 time | Table 1  System status at T0 time
+Process | Maximum | Assigned | Request | Available
+A | 4  1  1  1 | 3  0  1  1 | 1  1  0  0 | 1  0  2  0
+B | 0  2  1  2 | 0  1  0  0 | 0  1  1  2 | 
+C | 4  2  1  0 | 1  1  1  0 | 3  1  0  0 | 
+D | 1  1  1  1 | 1  1  0  1 | 0  0  1  0 | 
+E | 2  1  1  0 | 0  0  0  0 | 2  1  1  0 | 
+Table 1  System status at T0 time | Table 1  System status at T0 time | Table 1  System status at T0 time | Table 1  System status at T0 time | Table 1  System status at T0 time
+Process | Maximum | Assigned | Request | Available
+A | 4  1  1  1 | 3  0  1  1 | 1  1  0  0 | 1  0  1  0
+B | 0  2  1  2 | 0  1  1  0 | 0  1  0  2 | 
+C | 4  2  1  0 | 1  1  1  0 | 3  1  0  0 | 
+D | 1  1  1  1 | 1  1  0  1 | 0  0  1  0 | 
+E | 2  1  1  0 | 0  0  0  0 | 2  1  1  0 | 
+ | Allocated | Maximum | Available
+Process A | 1 0 2 1 1 | 1 1 2 1 2 | 0 0 x 1 1
+Process B | 2 0 1 1 0 | 2 2 2 1 0 | 
+Process C | 1 1 0 1 0 | 2 1 3 1 0 | 
+Process D | 1 1 1 1 0 | 1 1 2 2 1 |

@@ -1,0 +1,10 @@
+path: raw/sources/线性代数及其应用(原书第5版)_by_[美]_戴维_C.雷_[美]_史蒂文_R.雷_[美]_朱迪_J.麦克唐纳.pdf
+source_id: src-raw-d773f199c9528b6e
+sha256: 0efcaa5b3c7e4bd7193b04fb4b11b9fff6902b6eab1c20ca87474a70df0195d0
+parser: fitz
+status: text_extracted
+
+--- page 567 ---
+[General Information]
+书名=a
+SS号=14487752

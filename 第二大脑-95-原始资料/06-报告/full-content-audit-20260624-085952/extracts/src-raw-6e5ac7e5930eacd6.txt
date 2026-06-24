@@ -1,0 +1,23 @@
+path: raw/sources/Akkkk缺失视频转写/2026-03-29_7622601323007698417.json
+source_id: src-raw-6e5ac7e5930eacd6
+sha256: d51961dddce7d5de1fd6cc71e6029eec74f83d96d2576a095f0ea2113a707de9
+parser: json-text
+status: text_extracted
+
+{
+  "aweme_id": "7622601323007698417",
+  "language": "zh",
+  "duration": 8.6610625,
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 2.82,
+      "text": "这些被你们直接掉毛气的不太养开口说话"
+    },
+    {
+      "start": 2.82,
+      "end": 5.38,
+      "text": "你们就自己看文字吧"
+    }
+  ]
+}

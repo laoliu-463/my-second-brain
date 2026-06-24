@@ -1,0 +1,12 @@
+path: raw/sources/Akkkk缺失视频转写/2025-08-14_7538408246748679482.json
+source_id: src-raw-82871265e1fe6ecb
+sha256: e0347afcfb29be8419635946c260f2d8bb285c6f839b8aa01593e26cccf3bae8
+parser: json-text
+status: text_extracted
+
+{
+  "aweme_id": "7538408246748679482",
+  "language": "zh",
+  "duration": 130.03175,
+  "segments": []
+}

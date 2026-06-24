@@ -1,0 +1,18 @@
+path: raw/sources/Akkkk缺失视频转写/2026-04-26_7633037423778412538.json
+source_id: src-raw-2bc7f1cb30afda1c
+sha256: 7a6aacb1a9870834c01c5ad041affb42785b09ec108c1e0240b4bd9988e61540
+parser: json-text
+status: text_extracted
+
+{
+  "aweme_id": "7633037423778412538",
+  "language": "zh",
+  "duration": 20.78325,
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 7.6,
+      "text": "说过无数次,用时间去证明使人力的差距,陆地神仙,陈殿"
+    }
+  ]
+}
