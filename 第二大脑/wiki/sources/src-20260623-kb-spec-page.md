@@ -2,14 +2,17 @@
 id: 'src-20260623-kb-spec-page'
 type: source
 source_id: 'src-20260623-kb-spec-page'
-title: '页面规范.md'
-original_title: '页面规范.md'
+title: 'src-20260623-kb-spec-page'
+original_title: 'src-20260623-kb-spec-page'
 aliases: []
 status: 'active'
 canonical_url: ''
 raw_path: ''
 raw_sha256: ''
 ---
+
+
+
 
 # 页面规范.md
 

@@ -2,14 +2,17 @@
 id: 'src-20260623-kb-spec-structure'
 type: source
 source_id: 'src-20260623-kb-spec-structure'
-title: '结构规范.md'
-original_title: '结构规范.md'
+title: 'src-20260623-kb-spec-structure'
+original_title: 'src-20260623-kb-spec-structure'
 aliases: []
 status: 'active'
 canonical_url: ''
 raw_path: ''
 raw_sha256: ''
 ---
+
+
+
 
 # 结构规范.md
 

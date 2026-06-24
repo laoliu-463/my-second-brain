@@ -2,14 +2,17 @@
 id: 'src-20260623-kb-status-confirmed-decisions'
 type: source
 source_id: 'src-20260623-kb-status-confirmed-decisions'
-title: '已确认决策.md'
-original_title: '已确认决策.md'
+title: 'src-20260623-kb-status-confirmed-decisions'
+original_title: 'src-20260623-kb-status-confirmed-decisions'
 aliases: []
 status: 'active'
 canonical_url: ''
 raw_path: ''
 raw_sha256: ''
 ---
+
+
+
 
 # 已确认决策.md
 
