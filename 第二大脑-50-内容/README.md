@@ -1,3 +1,15 @@
+---
+id: kb-content-root-README
+type: meta
+title: 'README.md — 第二大脑-50-内容'
+original_title: 'README.md — 第二大脑-50-内容'
+aliases: []
+status: active
+source_id: ''
+created: 2026-06-24
+updated: 2026-06-24
+---
+
 # README.md — 第二大脑-50-内容
 
 > 内容创作实例说明。

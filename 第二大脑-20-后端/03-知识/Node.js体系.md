@@ -1,3 +1,15 @@
+---
+id: kb-backend-03-知识-Node.js体系
+type: concept
+title: 'Node.js体系'
+original_title: 'Node.js体系'
+aliases: []
+status: active
+source_id: ''
+created: 2026-06-24
+updated: 2026-06-24
+---
+
 # Node.js体系.md
 
 > Node.js 体系。源：`知识库/02-后端知识体系/04-Node.js体系/` 4 md。

@@ -1,3 +1,15 @@
+---
+id: kb-inbox-03-知识-Skills教程
+type: concept
+title: 'Skills教程'
+original_title: 'Skills教程'
+aliases: []
+status: active
+source_id: ''
+created: 2026-06-24
+updated: 2026-06-24
+---
+
 # Skills教程.md
 
 > Skills / Agent 技能体系入门摘录。源：`00-收件箱/Skills 教程  菜鸟教程.md`。

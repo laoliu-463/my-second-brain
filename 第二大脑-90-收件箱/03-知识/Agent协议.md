@@ -1,3 +1,15 @@
+---
+id: kb-inbox-03-知识-Agent协议
+type: concept
+title: 'Agent协议'
+original_title: 'Agent协议'
+aliases: []
+status: active
+source_id: ''
+created: 2026-06-24
+updated: 2026-06-24
+---
+
 # Agent协议.md
 
 > Agent 行为协议。补充 [[../第二大脑/AGENTS]]。

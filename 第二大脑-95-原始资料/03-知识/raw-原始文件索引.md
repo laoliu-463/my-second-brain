@@ -1,3 +1,15 @@
+---
+id: kb-raw-03-知识-raw-原始文件索引
+type: concept
+title: 'raw 原始文件索引'
+original_title: 'raw 原始文件索引'
+aliases: []
+status: active
+source_id: ''
+created: 2026-06-24
+updated: 2026-06-24
+---
+
 # raw 原始文件索引
 
 > 本页由来源链接修复任务生成，只建立本地原始文件的可点击跳转、source_id 与 SHA-256；未移动、重命名、删除或修改 raw 原文。

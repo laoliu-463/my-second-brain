@@ -1,3 +1,15 @@
+---
+id: kb-content-03-知识-Akkkk视频原文
+type: concept
+title: 'Akkkk视频原文'
+original_title: 'Akkkk视频原文'
+aliases: []
+status: active
+source_id: ''
+created: 2026-06-24
+updated: 2026-06-24
+---
+
 # Akkkk视频原文.md
 
 > Akkkk 视频原文归档。源：`知识库/06-内容创作与传播/Akkkk视频原文归档/` 32 md。

@@ -1,3 +1,15 @@
+---
+id: kb-inbox-03-知识-Collection类关系图
+type: concept
+title: 'Collection类关系图'
+original_title: 'Collection类关系图'
+aliases: []
+status: active
+source_id: ''
+created: 2026-06-24
+updated: 2026-06-24
+---
+
 # Collection类关系图.md
 
 > Java 集合框架类关系图。源：`00-收件箱/Collection 类关系图.md` + `知识库/02-后端知识体系/03-Java体系/Collection类关系图.md` 96 行。

@@ -1,3 +1,15 @@
+---
+id: kb-geo-root-README
+type: meta
+title: 'README.md — 第二大脑-30-地缘'
+original_title: 'README.md — 第二大脑-30-地缘'
+aliases: []
+status: active
+source_id: ''
+created: 2026-06-24
+updated: 2026-06-24
+---
+
 # README.md — 第二大脑-30-地缘
 
 > 地缘政治实例说明。

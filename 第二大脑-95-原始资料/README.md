@@ -1,3 +1,15 @@
+---
+id: kb-raw-root-README
+type: meta
+title: 'README.md — 第二大脑-95-原始资料'
+original_title: 'README.md — 第二大脑-95-原始资料'
+aliases: []
+status: active
+source_id: ''
+created: 2026-06-24
+updated: 2026-06-24
+---
+
 # README.md — 第二大脑-95-原始资料
 
 > 原始资料实例说明。

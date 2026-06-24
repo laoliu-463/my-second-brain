@@ -1,3 +1,15 @@
+---
+id: kb-raw-03-知识-抖音团长SaaS设计
+type: concept
+title: '抖音团长SaaS设计'
+original_title: '抖音团长SaaS设计'
+aliases: []
+status: active
+source_id: ''
+created: 2026-06-24
+updated: 2026-06-24
+---
+
 # 抖音团长SaaS设计.md
 
 > 抖音团长 SaaS 设计文档。源：`raw/sources/抖音团长SaaS设计文档/` 12 md。

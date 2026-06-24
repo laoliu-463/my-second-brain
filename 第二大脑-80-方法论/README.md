@@ -1,3 +1,15 @@
+---
+id: kb-method-root-README
+type: meta
+title: 'README.md — 第二大脑-80-方法论'
+original_title: 'README.md — 第二大脑-80-方法论'
+aliases: []
+status: active
+source_id: ''
+created: 2026-06-24
+updated: 2026-06-24
+---
+
 # README.md — 第二大脑-80-方法论
 
 > 方法论工具实例说明。

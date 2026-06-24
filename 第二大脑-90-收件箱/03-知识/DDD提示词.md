@@ -1,3 +1,15 @@
+---
+id: kb-inbox-03-知识-DDD提示词
+type: concept
+title: 'DDD提示词'
+original_title: 'DDD提示词'
+aliases: []
+status: active
+source_id: ''
+created: 2026-06-24
+updated: 2026-06-24
+---
+
 # DDD提示词.md
 
 > DDD 提示词。源：`00-收集箱/DDD提示词.md`。

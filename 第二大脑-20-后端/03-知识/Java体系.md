@@ -1,3 +1,15 @@
+---
+id: kb-backend-03-知识-Java体系
+type: concept
+title: 'Java体系'
+original_title: 'Java体系'
+aliases: []
+status: active
+source_id: ''
+created: 2026-06-24
+updated: 2026-06-24
+---
+
 # Java体系.md
 
 > Java 体系知识入口。源：`知识库/02-后端知识体系/03-Java体系/` 99 md。

@@ -1,3 +1,15 @@
+---
+id: kb-raw-06-报告-source-link-repair-report
+type: evidence
+title: '来源链接修复报告'
+original_title: '来源链接修复报告'
+aliases: []
+status: active
+source_id: ''
+created: 2026-06-24
+updated: 2026-06-24
+---
+
 # 来源链接修复报告
 
 ## 扫描结果

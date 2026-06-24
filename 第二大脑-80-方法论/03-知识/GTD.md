@@ -1,3 +1,15 @@
+---
+id: kb-method-03-知识-GTD
+type: concept
+title: 'GTD'
+original_title: 'GTD'
+aliases: []
+status: active
+source_id: ''
+created: 2026-06-24
+updated: 2026-06-24
+---
+
 # GTD.md
 
 > GTD（Getting Things Done）方法论。

@@ -1,3 +1,15 @@
+---
+id: kb-cog-root-README
+type: meta
+title: 'README.md — 第二大脑-40-认知'
+original_title: 'README.md — 第二大脑-40-认知'
+aliases: []
+status: active
+source_id: ''
+created: 2026-06-24
+updated: 2026-06-24
+---
+
 # README.md — 第二大脑-40-认知
 
 > 认知与成长实例说明。

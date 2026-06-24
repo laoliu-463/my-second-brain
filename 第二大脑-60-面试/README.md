@@ -1,3 +1,15 @@
+---
+id: kb-interview-root-README
+type: meta
+title: 'README.md — 第二大脑-60-面试'
+original_title: 'README.md — 第二大脑-60-面试'
+aliases: []
+status: active
+source_id: ''
+created: 2026-06-24
+updated: 2026-06-24
+---
+
 # README.md — 第二大脑-60-面试
 
 > 面试备战实例说明。

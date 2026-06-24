@@ -1,3 +1,15 @@
+---
+id: kb-method-03-知识-Hermes工具
+type: concept
+title: 'Hermes工具'
+original_title: 'Hermes工具'
+aliases: []
+status: active
+source_id: ''
+created: 2026-06-24
+updated: 2026-06-24
+---
+
 # Hermes工具.md
 
 > Hermes Agent 工具集。源：`知识库/04-方法论与工具/Hermes/` 6 md。

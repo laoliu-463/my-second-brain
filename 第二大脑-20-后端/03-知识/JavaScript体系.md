@@ -1,3 +1,15 @@
+---
+id: kb-backend-03-知识-JavaScript体系
+type: concept
+title: 'JavaScript体系'
+original_title: 'JavaScript体系'
+aliases: []
+status: active
+source_id: ''
+created: 2026-06-24
+updated: 2026-06-24
+---
+
 # JavaScript体系.md
 
 > JavaScript 体系。源：`知识库/02-后端知识体系/04-JavaScript体系/` 10 md。

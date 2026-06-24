@@ -1,3 +1,15 @@
+---
+id: kb-saas-root-README
+type: meta
+title: 'README.md — 第二大脑-10-SaaS'
+original_title: 'README.md — 第二大脑-10-SaaS'
+aliases: []
+status: active
+source_id: ''
+created: 2026-06-24
+updated: 2026-06-24
+---
+
 # README.md — 第二大脑-10-SaaS
 
 > 抖音团长 SaaS V1实例说明。

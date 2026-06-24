@@ -1,3 +1,15 @@
+---
+id: kb-raw-03-知识-Akkkk视频转写
+type: concept
+title: 'Akkkk视频转写'
+original_title: 'Akkkk视频转写'
+aliases: []
+status: active
+source_id: ''
+created: 2026-06-24
+updated: 2026-06-24
+---
+
 # Akkkk视频转写.md
 
 > Akkkk 视频转写（缺失视频补全）。源：`raw/sources/Akkkk缺失视频转写/` 46 md。

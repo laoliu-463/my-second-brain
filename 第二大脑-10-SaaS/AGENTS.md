@@ -1,3 +1,15 @@
+---
+id: kb-saas-root-AGENTS
+type: meta
+title: 'AGENTS.md — 第二大脑-10-SaaS Agent 合同'
+original_title: 'AGENTS.md — 第二大脑-10-SaaS Agent 合同'
+aliases: []
+status: active
+source_id: ''
+created: 2026-06-24
+updated: 2026-06-24
+---
+
 # AGENTS.md — 第二大脑-10-SaaS Agent 合同
 
 > 本实例 Agent 行为合同。所有 Agent 必读。

@@ -1,3 +1,15 @@
+---
+id: kb-physics-root-README
+type: meta
+title: 'README.md — 第二大脑-70-物理'
+original_title: 'README.md — 第二大脑-70-物理'
+aliases: []
+status: active
+source_id: ''
+created: 2026-06-24
+updated: 2026-06-24
+---
+
 # README.md — 第二大脑-70-物理
 
 > 大学物理实例说明。

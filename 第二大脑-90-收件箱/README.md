@@ -1,3 +1,15 @@
+---
+id: kb-inbox-root-README
+type: meta
+title: 'README.md — 第二大脑-90-收件箱'
+original_title: 'README.md — 第二大脑-90-收件箱'
+aliases: []
+status: active
+source_id: ''
+created: 2026-06-24
+updated: 2026-06-24
+---
+
 # README.md — 第二大脑-90-收件箱
 
 > 收件箱实例说明。
