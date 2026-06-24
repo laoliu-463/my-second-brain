@@ -7,8 +7,8 @@ original_title: "业务闭环.md"
 aliases: []
 status: "active"
 canonical_url: ""
-raw_path: ""
-raw_sha256: ""
+raw_path: "D:\Projects\SAAS\docs\02-业务闭环总览.md"
+raw_sha256: "1cb03594fd3ba7603d1b2ba0778d5944a1bac6787c338c9610995b10e1ed25d2"
 ---
 # 业务闭环.md
 
@@ -16,8 +16,9 @@ raw_sha256: ""
 - 本地原始文件：未找到，见 [[来源链接复核报告]]
 - 原始网页：未记录
 - 来源编号：`src-20260623-kb-overview-business-loop`
-- 文件校验：`未记录`
-
-## 影响的知识页
+- 文件校验：`1cb03594fd3ba7603d1b2ba0778d5944a1bac6787c338c9610995b10e1ed25d2`## 影响的知识页
 - [[02-项目总览/业务闭环|业务闭环]]
 
+## 影响的知识页
+- [[02-项目总览\业务闭环.md|业务闭环.md]]
+- [[wiki\sources\src-20260623-kb-overview-business-loop.md|业务闭环.md]]

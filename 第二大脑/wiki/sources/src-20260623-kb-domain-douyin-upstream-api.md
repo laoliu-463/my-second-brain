@@ -7,8 +7,8 @@ original_title: "抖音上游接口.md"
 aliases: []
 status: "active"
 canonical_url: ""
-raw_path: ""
-raw_sha256: ""
+raw_path: "D:\Projects\SAAS\docs\08-第三方对接总览.md"
+raw_sha256: "f132590af7e6b1af598d7475cf5010201484b1a77f0c888c68e85b926944633f"
 ---
 # 抖音上游接口.md
 
@@ -16,8 +16,9 @@ raw_sha256: ""
 - 本地原始文件：未找到，见 [[来源链接复核报告]]
 - 原始网页：未记录
 - 来源编号：`src-20260623-kb-domain-douyin-upstream-api`
-- 文件校验：`未记录`
-
-## 影响的知识页
+- 文件校验：`f132590af7e6b1af598d7475cf5010201484b1a77f0c888c68e85b926944633f`## 影响的知识页
 - [[03-领域知识/抖音上游接口|抖音上游接口]]
 
+## 影响的知识页
+- [[03-领域知识\抖音上游接口.md|抖音上游接口.md]]
+- [[wiki\sources\src-20260623-kb-domain-douyin-upstream-api.md|抖音上游接口.md]]
