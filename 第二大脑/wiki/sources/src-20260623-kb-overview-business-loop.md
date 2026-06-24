@@ -22,7 +22,8 @@ raw_sha256: '1cb03594fd3ba7603d1b2ba0778d5944a1bac6787c338c9610995b10e1ed25d2'
 - 原始网页：未记录
 - 来源编号：src-20260623-kb-overview-business-loop
 - 文件校验：1cb03594fd3ba7603d1b2ba0778d5944a1bac6787c338c9610995b10e1ed25d2
-
 ## 影响的知识页
 
-- 来源待确认（暂无已确认知识页）
+- [02-业务闭环总览.md](../syntheses/02-业务闭环总览.md)
+
+

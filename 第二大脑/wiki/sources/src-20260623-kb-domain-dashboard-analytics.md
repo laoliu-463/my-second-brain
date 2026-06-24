@@ -22,7 +22,8 @@ raw_sha256: 'c5b084de3b39ff77fa5e82c574bcf4e2873ca5980f771a65c4c6789cda4e0b81'
 - 原始网页：未记录
 - 来源编号：src-20260623-kb-domain-dashboard-analytics
 - 文件校验：c5b084de3b39ff77fa5e82c574bcf4e2873ca5980f771a65c4c6789cda4e0b81
-
 ## 影响的知识页
 
-- 来源待确认（暂无已确认知识页）
+- [分析模块.md](../syntheses/分析模块.md)
+
+

@@ -22,7 +22,8 @@ raw_sha256: '3a8e0a44858b39e9dae5ea953903ae98512c23a751c127358ca847a72bbd2b8c'
 - 原始网页：未记录
 - 来源编号：src-20260623-kb-spec-safety-boundary
 - 文件校验：3a8e0a44858b39e9dae5ea953903ae98512c23a751c127358ca847a72bbd2b8c
-
 ## 影响的知识页
 
-- 来源待确认（暂无已确认知识页）
+- [03-禁止范围与安全边界.md](../syntheses/03-禁止范围与安全边界.md)
+
+
