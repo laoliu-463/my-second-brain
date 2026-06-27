@@ -41,6 +41,24 @@ function Normalize-RepoPath {
     return ($Path -replace "\\", "/").Trim()
 }
 
+function Get-RelativeRepoPath {
+    param([string]$FullPath)
+
+    try {
+        return [System.IO.Path]::GetRelativePath($KbRoot, $FullPath)
+    } catch {
+        $rootFull = [System.IO.Path]::GetFullPath($KbRoot)
+        $fileFull = [System.IO.Path]::GetFullPath($FullPath)
+        $rootUriText = $rootFull
+        if (-not $rootUriText.EndsWith([System.IO.Path]::DirectorySeparatorChar)) {
+            $rootUriText += [System.IO.Path]::DirectorySeparatorChar
+        }
+        $rootUri = New-Object System.Uri($rootUriText)
+        $fileUri = New-Object System.Uri($fileFull)
+        return [System.Uri]::UnescapeDataString($rootUri.MakeRelativeUri($fileUri).ToString()).Replace("/", [System.IO.Path]::DirectorySeparatorChar)
+    }
+}
+
 function Get-ChangedFiles {
     $files = New-Object System.Collections.Generic.HashSet[string]
 
@@ -71,7 +89,7 @@ function Get-AllMarkdownFiles {
             $full -notmatch "\\\.obsidian\\"
         } |
         ForEach-Object {
-            Normalize-RepoPath ([System.IO.Path]::GetRelativePath($KbRoot, $_.FullName))
+            Normalize-RepoPath (Get-RelativeRepoPath $_.FullName)
         }
 }
 

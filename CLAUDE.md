@@ -80,6 +80,15 @@ sources: [来源1, 来源2]
 - 不得自动上传全盘原文到 EverOS；上传前必须由用户确认摘要或文件片段
 - 全盘扫描前必须先使用 `--dry-run` 核对范围，并保留默认敏感文件排除规则
 
+## 自动记忆
+
+- `tools/memory_capture.py` 是跨 Agent 统一记忆捕获入口
+- `tools/agent_memory_wrapper.ps1` 可包装 Codex/Hermes/其他 CLI Agent，退出时自动捕获 transcript 并写入脱敏摘要
+- Claude Code Stop hook 应 best-effort 调用该脚本，保存本地 transcript 并向 EverOS Cloud 写入脱敏摘要
+- 云端只保存脱敏摘要、关键决策、任务轨迹和认知讨论摘要；完整原文只保存在 `tmp/agent-memory-transcripts/`
+- 认知、政治、经济、地缘、博弈、社会趋势等讨论属于必须写入摘要的内容
+- Cloud 写入失败不能阻断正常工程工作，但必须保留本地 transcript 和失败状态
+
 ## 参考
 
 完整规范见：[[AGENTS]]

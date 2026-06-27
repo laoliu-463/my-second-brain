@@ -3,6 +3,29 @@ $ErrorActionPreference = "Continue"
 $scriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
 $kbRoot = [System.IO.Path]::GetFullPath((Join-Path $scriptDir "..\.."))
 $validator = Join-Path $kbRoot "tools\kb_validate.ps1"
+$memoryCapture = Join-Path $kbRoot "tools\memory_capture.py"
+$inputJson = [Console]::In.ReadToEnd()
+
+function Invoke-MemoryCapture {
+    param([string]$HookJson)
+
+    if (-not (Test-Path -LiteralPath $memoryCapture)) {
+        return
+    }
+
+    $tmpDir = Join-Path $kbRoot "tmp\agent-memory-transcripts\hook-input"
+    New-Item -ItemType Directory -Force -Path $tmpDir | Out-Null
+    $tmpFile = Join-Path $tmpDir ("claude-stop-" + [DateTimeOffset]::UtcNow.ToUnixTimeMilliseconds() + ".json")
+    if ([string]::IsNullOrWhiteSpace($HookJson)) {
+        "{}" | Set-Content -LiteralPath $tmpFile -Encoding UTF8
+    } else {
+        $HookJson | Set-Content -LiteralPath $tmpFile -Encoding UTF8
+    }
+
+    python $memoryCapture --agent claude --source claude-stop --session-id my-second-brain-claude --input-file $tmpFile --input-format claude-stop-json 2>$null 1>$null
+}
+
+Invoke-MemoryCapture -HookJson $inputJson
 
 function New-UnicodeString {
     param([int[]]$CodePoints)

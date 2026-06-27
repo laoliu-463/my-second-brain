@@ -62,6 +62,14 @@
 - 该索引供 Codex / Hermes / Claude 等本机代理共享检索；不得自动上传全盘原文到 EverOS
 - 全盘扫描前必须先使用 `--dry-run` 核对范围，并保留默认敏感文件排除规则
 
+自动记忆口径：
+- `tools/memory_capture.py` 是 Codex / Claude / Hermes 等代理统一记忆捕获入口
+- `tools/agent_memory_wrapper.ps1` 是无原生 hook 的 Agent/命令启动器，退出时自动把本地 transcript 交给 `memory_capture.py`
+- 云端 EverOS 只写入脱敏摘要、关键决策、任务轨迹和认知讨论摘要，不上传完整原文 transcript
+- 完整 transcript 只保存在 `tmp/agent-memory-transcripts/`，默认不入库、不提交
+- 讨论认知、政治、经济、地缘、博弈、社会趋势等内容时，应自动写入脱敏摘要
+- Cloud 写入失败不得丢弃本地 transcript；应保留本地记录并在输出或日志中暴露失败状态
+
 Agent 控制面口径：
 - 治理规范位于 `知识库/_meta/agent-governance/`
 - `KB_PROTOCOL.md` 定义 ingest、promote、review、audit 的标准维护流程

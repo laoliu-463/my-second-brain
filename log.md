@@ -133,3 +133,12 @@
 - 验证结果：`.claude/settings.json` JSON 解析通过；`tools/kb_validate.ps1 -ChangedOnly` 通过，提示两个 `05-*` 目录为预期警告；`.claude/hooks/kb-stop.ps1` 通过；PreToolUse 模拟测试中 `.obsidian` Edit、`raw/` Edit、破坏性 Bash 均以 exit 2 阻断，普通 Read 以 exit 0 放行。
 - 待复查项：本次不实施 Cursor rules、Claude skills/subagents、MCP server，也不修复历史断链、raw_path 和旧 frontmatter 问题。
 
+## [2026-06-27] integration | 跨 Agent 自动记忆捕获入口
+
+- 改动范围：新增统一记忆捕获脚本、通用 Agent 启动器与测试，更新 Claude Stop hook、`.gitignore`、AGENTS/CLAUDE 口径。
+- 改动原因：用户要求 Codex、Claude、Hermes 等智能体在当前项目中实现自动记忆；确认策略为云端 EverOS 只写脱敏摘要，本地 `tmp/agent-memory-transcripts/` 保存完整 transcript 且不入库。
+- 影响文件：`tools/memory_capture.py`、`tools/agent_memory_wrapper.ps1`、`tests/test_memory_capture.py`、`.claude/hooks/kb-stop.ps1`、`tools/kb_validate.ps1`、`.gitignore`、`AGENTS.md`、`CLAUDE.md`、`log.md`。
+- 验证结果：`py_compile` 通过；`python -m unittest discover -s tests -v` 通过 12 项；dry-run 捕获在 `tmp/agent-memory-transcripts/` 写入本地 transcript；Cloud 捕获 `cloud-smoke-20260627` 写入成功并可搜索；`tools/agent_memory_wrapper.ps1 -NoCloud -CommandLine "echo ..."` 冒烟通过；敏感信息扫描无命中；`tools/kb_validate.ps1 -ChangedOnly` 通过。
+- 验证边界：`tools/kb_validate.ps1` 全量扫描已修复 PowerShell `GetRelativePath` 兼容错误，但仍因历史页面缺少 frontmatter/source 字段失败；该历史债务非本次自动记忆改动引入。
+- 待复查项：Codex 原生桌面会话仍需要宿主或 `tools/agent_memory_wrapper.ps1` 提供 transcript；Claude Stop hook 可 best-effort 捕获 hook 输入和 transcript_path；Hermes 需通过同一 wrapper 启动后才能做到自动。
+
