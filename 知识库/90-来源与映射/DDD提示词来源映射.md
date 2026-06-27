@@ -22,9 +22,9 @@ sources:
 
 | 正式页面 | 对应来源 | 作用 |
 | --- | --- | --- |
-| [[知识库/sources/src-20260623-local-ddd-refactor-prompts\|SAAS DDD 渐进式重构提示词包]] | `raw/sources/src-20260623-local-ddd-refactor-prompts/original.md` | 主来源页：元数据、证据地图、影响页面 |
-| [[知识库/syntheses/SAAS DDD渐进式重构任务链\|SAAS DDD渐进式重构任务链]] | 同上 | 综合页：任务包执行顺序、依赖、验收 |
-| [[00-收集箱/DDD提示词\|DDD提示词（收集箱原稿）]] | `00-收集箱/DDD提示词.md` | 原始抓取稿登记与状态标记 |
+| [[知识库/sources/src-20260623-local-ddd-refactor-prompts|SAAS DDD 渐进式重构提示词包]] | `raw/sources/src-20260623-local-ddd-refactor-prompts/original.md` | 主来源页：元数据、证据地图、影响页面 |
+| [[知识库/syntheses/SAAS DDD渐进式重构任务链|SAAS DDD渐进式重构任务链]] | 同上 | 综合页：任务包执行顺序、依赖、验收 |
+| [[00-收集箱/DDD提示词|DDD提示词（收集箱原稿）]] | `00-收集箱/DDD提示词.md` | 原始抓取稿登记与状态标记 |
 
 ## 说明
 

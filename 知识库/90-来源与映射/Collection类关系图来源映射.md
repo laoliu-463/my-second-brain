@@ -24,7 +24,7 @@ sources:
 | --- | --- | --- |
 | [[知识库/sources/src-20260512-pdai-collection-relations|Java 集合框架关系图来源]] | `raw/sources/src-20260512-pdai-collection-relations/original.md` | 主来源页：元数据、证据地图、影响页面 |
 | [[知识库/02-后端知识体系/03-Java体系/Collection类关系图|Collection类关系图]] | `raw/sources/src-20260512-pdai-collection-relations/original.md` | 知识提炼页：集合框架关系与常见实现选择 |
-| [[00-收件箱/Collection 类关系图\|Collection类关系图（收件箱）]] | `00-收件箱/Collection 类关系图.md` | 收件箱层来源登记与草稿摘要 |
+| [[00-收件箱/Collection 类关系图|Collection类关系图（收件箱）]] | `00-收件箱/Collection 类关系图.md` | 收件箱层来源登记与草稿摘要 |
 
 ## 说明
 

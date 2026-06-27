@@ -47,6 +47,6 @@ sources: [D:\Projects\SAAS/harness/plans/DDD_OPTIMIZATION_ROADMAP.md]
 - **Outbox、前端领域化、E2E、GC 最后**：跨域治理和回归保障，依赖前面边界明确
 
 ## 相关概念
-- [[SAAS-Harness规范总览]]
+- [[知识库/02-后端知识体系/SAAS-Harness规范/00-Harness规范总览|SAAS-Harness规范总览]]
 - [[SAAS-任务路由表]]
 - [[SAAS-领域状态跟踪]]

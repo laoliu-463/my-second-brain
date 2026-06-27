@@ -23,7 +23,7 @@ confidence: 0.5
 |------------|------|
 | [[Akkkk内容研究/]] | Akkkk 抖音创作者内容研究（8个文件） |
 | [[Akkkk视频原文归档/]] | Akkkk 全部视频文案按月归档（31个月） |
-| [[prompts/]] | md2wechat AI 模式发布 prompt（7个） |
+| [[知识库/06-内容创作与传播/prompts/md2wechat-AI模式发布流程|prompts/]] | md2wechat AI 模式发布 prompt（7个） |
 | [[内容创作导航中心]] | 内容平台入口汇总 |
 | [[Akkkk缺失视频补抓与转写索引]] | 50条无文案视频补抓入口 |
 | [[知识库/syntheses/SAAS代码图谱业务流程图]] | SAAS code-review-graph 图谱综合入口 |
@@ -35,9 +35,9 @@ confidence: 0.5
 | [[Akkkk内容主题提炼与认知映射]] | 内容母题、传播特征与认知系列映射 |
 | [[Akkkk与认知系列全量映射]] | Akkkk 与人智认知、醒与悟系列统一映射表 |
 | [[Akkkk高互动视频认知分析]] | 高互动内容认知分析 |
-| [[Akkkk高互动样本]] | 高互动样本、收藏/分享峰值 |
-| [[Akkkk评论区画像]] | 评论区受众画像、高频关切 |
-| [[Akkkk视频原文归档索引]] | 全部视频文案归档索引 |
+| [[知识库/06-内容创作与传播/Akkkk内容研究/抖音创作者Akkkk高互动样本|Akkkk高互动样本]] | 高互动样本、收藏/分享峰值 |
+| [[知识库/06-内容创作与传播/Akkkk内容研究/抖音创作者Akkkk评论区画像|Akkkk评论区画像]] | 评论区受众画像、高频关切 |
+| [[知识库/06-内容创作与传播/Akkkk视频原文归档/index|Akkkk视频原文归档索引]] | 全部视频文案归档索引 |
 | [[知识库/syntheses/SAAS代码图谱业务流程图]] | SAAS 图谱原文已迁入 raw，正式页只保留综合入口 |
 
 ## Akkkk视频原文归档
@@ -54,8 +54,8 @@ confidence: 0.5
 
 | 页面 | 说明 |
 |------|------|
-| [[prompts/ai主题-prompt-极简主义]] | 极简主义排版主题 |
-| [[prompts/ai主题-prompt-极简主义v2]] | 极简主义 v2 |
-| [[prompts/ai主题-prompt-极简主义v3合并版]] | 极简主义 v3 合并版 |
-| [[prompts/ai主题-prompt-深度认知干货菁英风]] | 深度认知菁英风 |
-| [[prompts/ai主题-prompt-优化版]] | 优化版 prompt |
+| [[知识库/06-内容创作与传播/prompts/ai主题-prompt-极简主义.txt|prompts/ai主题-prompt-极简主义]] | 极简主义排版主题 |
+| [[知识库/06-内容创作与传播/prompts/ai主题-prompt-极简主义v2.txt|prompts/ai主题-prompt-极简主义v2]] | 极简主义 v2 |
+| [[知识库/06-内容创作与传播/prompts/ai主题-prompt-极简主义v3合并版.txt|prompts/ai主题-prompt-极简主义v3合并版]] | 极简主义 v3 合并版 |
+| [[知识库/06-内容创作与传播/prompts/ai主题-prompt-深度认知干货菁英风.txt|prompts/ai主题-prompt-深度认知干货菁英风]] | 深度认知菁英风 |
+| [[知识库/06-内容创作与传播/prompts/ai主题-prompt-优化版.txt|prompts/ai主题-prompt-优化版]] | 优化版 prompt |

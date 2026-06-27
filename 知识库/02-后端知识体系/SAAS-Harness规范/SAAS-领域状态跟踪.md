@@ -86,6 +86,6 @@ sources: [D:\Projects\SAAS/harness/state/DOMAIN_STATUS.md, D:\Projects\SAAS/harn
 - 寄样自动完成依赖真实归因订单样本
 
 ## 相关概念
-- [[SAAS-Harness规范总览]]
+- [[知识库/02-后端知识体系/SAAS-Harness规范/00-Harness规范总览|SAAS-Harness规范总览]]
 - [[SAAS-DDD优化路线图]]
 - [[SAAS-任务路由表]]

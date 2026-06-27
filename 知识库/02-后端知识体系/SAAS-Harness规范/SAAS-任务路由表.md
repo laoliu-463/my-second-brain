@@ -76,6 +76,6 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\harness\commands\retire-co
 ```
 
 ## 相关概念
-- [[SAAS-Harness规范总览]]
+- [[知识库/02-后端知识体系/SAAS-Harness规范/00-Harness规范总览|SAAS-Harness规范总览]]
 - [[SAAS-DDD优化路线图]]
 - [[SAAS-领域状态跟踪]]

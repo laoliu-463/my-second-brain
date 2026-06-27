@@ -101,6 +101,8 @@ function Test-WikiTargetExists {
     }
 
     $target = $target.Replace("\", "/")
+    if (Test-VaultRelativeFileExists -RelativePath $target) { return $true }
+
     if ($target.Contains("/")) {
         $targetWithExt = $target
         if ($targetWithExt -notmatch '\.md$') { $targetWithExt = "$targetWithExt.md" }
@@ -185,8 +187,8 @@ function Test-HasMissingOriginalMarker {
 function Remove-MarkdownCodeContent {
     param([string]$Text)
     if ([string]::IsNullOrEmpty($Text)) { return "" }
-    $withoutFences = [regex]::Replace($Text, "(?ms)^[ \t]*(```|~~~).*?^[ \t]*\1[ \t]*$", "")
-    return [regex]::Replace($withoutFences, "`[^`\r\n]+`", "")
+    $withoutFences = [regex]::Replace($Text, '(?ms)^[ \t]*(```|~~~).*?^[ \t]*\1[ \t]*$', "")
+    return [regex]::Replace($withoutFences, '`[^`\r\n]+`', "")
 }
 
 function Test-VaultRelativeFileExists {

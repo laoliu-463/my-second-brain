@@ -22,9 +22,9 @@ sources:
 
 | 正式页面 | 对应来源 | 作用 |
 | --- | --- | --- |
-| [[知识库/sources/src-20260617-runoob-skills-tutorial\|Agent Skills 入门来源]] | `raw/sources/src-20260617-runoob-skills-tutorial/original.md` | 主来源页：元数据、证据地图、影响页面 |
-| [[知识库/concepts/Agent Skills\|Agent Skills]] | 同上 | 概念页：Agent Skills 定义、价值与本库使用规则 |
-| [[00-收件箱/Skills 教程  菜鸟教程\|Skills 教程 \| 菜鸟教程（收件箱原稿）]] | `00-收件箱/Skills 教程  菜鸟教程.md` | 原始抓取稿登记与状态标记 |
+| [[知识库/sources/src-20260617-runoob-skills-tutorial|Agent Skills 入门来源]] | `raw/sources/src-20260617-runoob-skills-tutorial/original.md` | 主来源页：元数据、证据地图、影响页面 |
+| [[知识库/concepts/Agent Skills|Agent Skills]] | 同上 | 概念页：Agent Skills 定义、价值与本库使用规则 |
+| [[00-收件箱/Skills 教程  菜鸟教程|Skills 教程 \| 菜鸟教程（收件箱原稿）]] | `00-收件箱/Skills 教程  菜鸟教程.md` | 原始抓取稿登记与状态标记 |
 
 ## 说明
 

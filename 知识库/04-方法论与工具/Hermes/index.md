@@ -26,4 +26,4 @@ Hermes Agent 使用指南和配置。
 
 ## 相关
 
-见 [[../agent-llm-wiki模式]] - LLM Wiki 完整模式说明。
+见 [[知识库/04-方法论与工具/agent-llm-wiki模式|../agent-llm-wiki模式]] - LLM Wiki 完整模式说明。

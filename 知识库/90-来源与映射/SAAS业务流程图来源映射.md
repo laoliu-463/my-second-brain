@@ -22,10 +22,10 @@ sources:
 
 | 正式页面 | 对应来源 | 作用 |
 | --- | --- | --- |
-| [[知识库/sources/src-20260524-code-review-graph-saas-flow\|SAAS code-review-graph 业务流程图来源]] | `raw/sources/src-20260524-code-review-graph-saas-flow/original.md` | 主来源页：元数据、证据地图、影响页面 |
-| [[知识库/syntheses/SAAS代码图谱业务流程图\|SAAS代码图谱业务流程图]] | 同上 | 综合页：架构社区与执行流结论 |
-| [[知识库/06-内容创作与传播/Akkkk内容研究/SAAS全项目业务流程图\|SAAS全项目业务流程图]] | 同上 | 内容研究维度引用页 |
-| [[00-收集箱/未命名 2\|SAAS 业务流程图（收集箱原稿）]] | `00-收集箱/未命名 2.md` | 原始抓取稿登记与状态标记 |
+| [[知识库/sources/src-20260524-code-review-graph-saas-flow|SAAS code-review-graph 业务流程图来源]] | `raw/sources/src-20260524-code-review-graph-saas-flow/original.md` | 主来源页：元数据、证据地图、影响页面 |
+| [[知识库/syntheses/SAAS代码图谱业务流程图|SAAS代码图谱业务流程图]] | 同上 | 综合页：架构社区与执行流结论 |
+| [[知识库/06-内容创作与传播/Akkkk内容研究/SAAS全项目业务流程图|SAAS全项目业务流程图]] | 同上 | 内容研究维度引用页 |
+| [[00-收集箱/未命名 2|SAAS 业务流程图（收集箱原稿）]] | `00-收集箱/未命名 2.md` | 原始抓取稿登记与状态标记 |
 
 ## 说明
 

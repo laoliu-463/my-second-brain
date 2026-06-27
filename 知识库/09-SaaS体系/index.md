@@ -30,7 +30,7 @@ confidence: 0.5
 
 | 子目录 | 内容 |
 |---|---|
-| [[Harness/]] | AI Agent 工程执行系统（核心入口、Gate、State、DDD） |
+| [[知识库/02-后端知识体系/SAAS-Harness规范/index|Harness/]] | AI Agent 工程执行系统（核心入口、Gate、State、DDD） |
 | [[Harness-Domains/]] | 8 个领域执行规范（用户/配置/订单/业绩/商品/达人/寄样/分析） |
 | [[Harness-Skills/]] | 15 个 AI Agent 可执行技能规范 |
 | [[Harness-Runbooks/]] | 13 个执行手册（后端/前端/DB/Docker/部署/回滚等） |
