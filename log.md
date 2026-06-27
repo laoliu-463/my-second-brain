@@ -129,7 +129,7 @@
 
 - 改动范围：新增 `知识库/_meta/agent-governance/` 三个治理文档，补充 Claude Code hooks 与通用校验脚本入口，并更新跨 Agent 入口说明。
 - 改动原因：按用户要求把 `AGENTS.md` 软规范升级为“治理文档 + 项目级 hooks + 通用校验脚本 + 审计日志”的最小可用控制面。
-- 影响文件：`AGENTS.md`、`CLAUDE.md`、`index.md`、`log.md`、`.claude/settings.json`、`.claude/hooks/kb-pretooluse.ps1`、`.claude/hooks/kb-stop.ps1`、`tools/kb_validate.ps1`、`知识库/_meta/agent-governance/KB_PROTOCOL.md`、`知识库/_meta/agent-governance/PATH_RULES.md`、`知识库/_meta/agent-governance/KB_SCHEMA.md`。
+- 影响文件：`.gitignore`、`AGENTS.md`、`CLAUDE.md`、`index.md`、`log.md`、`.claude/settings.json`、`.claude/hooks/kb-pretooluse.ps1`、`.claude/hooks/kb-stop.ps1`、`tools/kb_validate.ps1`、`知识库/_meta/agent-governance/KB_PROTOCOL.md`、`知识库/_meta/agent-governance/PATH_RULES.md`、`知识库/_meta/agent-governance/KB_SCHEMA.md`。
 - 验证计划：执行 `.claude/settings.json` JSON 解析、`tools/kb_validate.ps1 -ChangedOnly`、hook JSON 模拟阻断测试。
 - 待复查项：本次不实施 Cursor rules、Claude skills/subagents、MCP server，也不修复历史断链、raw_path 和旧 frontmatter 问题。
 

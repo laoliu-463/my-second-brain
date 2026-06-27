@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "enabledPlugins": {
+    "superpowers@claude-plugins-official": true
+  },
+  "permissions": {
+    "deny": [
+      "Edit(./.obsidian/**)",
+      "Write(./.obsidian/**)",
+      "MultiEdit(./.obsidian/**)",
+      "Bash(*Remove-Item* .obsidian*)",
+      "Bash(*rm -rf* .obsidian*)",
+      "Bash(*del* .obsidian*)"
+    ],
+    "ask": [
+      "Edit(./raw/**)",
+      "Write(./raw/**)",
+      "MultiEdit(./raw/**)",
+      "Edit(./知识库/**)",
+      "Write(./知识库/**)",
+      "MultiEdit(./知识库/**)",
+      "Edit(./index.md)",
+      "Write(./index.md)",
+      "Edit(./log.md)",
+      "Write(./log.md)",
+      "Bash(*repair_source_links.ps1*)"
+    ],
+    "allow": [
+      "Read(./AGENTS.md)",
+      "Read(./CLAUDE.md)",
+      "Read(./agent.md)",
+      "Read(./README.md)",
+      "Read(./index.md)",
+      "Read(./log.md)",
+      "Read(./知识库/**)",
+      "Read(./raw/**)",
+      "Grep",
+      "Glob",
+      "Bash(git status*)",
+      "Bash(git diff*)",
+      "Bash(git ls-files*)",
+      "Bash(powershell -NoProfile -ExecutionPolicy Bypass -File ./tools/kb_validate.ps1*)"
+    ]
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Edit|Write|MultiEdit|Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "powershell -NoProfile -ExecutionPolicy Bypass -File ./.claude/hooks/kb-pretooluse.ps1"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "powershell -NoProfile -ExecutionPolicy Bypass -File ./.claude/hooks/kb-stop.ps1"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,6 +1,9 @@
 .obsidian/workspace.json
 .obsidian/workspace-mobile.json
-.claude/
+.claude/*
+!.claude/settings.json
+!.claude/hooks/
+!.claude/hooks/*.ps1
 .env
 .env.*
 !.env.example
