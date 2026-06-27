@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>DIYgod/RSSHub Issues</title><link>https://github.com/DIYgod/RSSHub/issues</link><atom:link href="http://127.0.0.1:1200/github/issue/DIYgod/RSSHub?limit=1" rel="self" type="application/rss+xml"></atom:link><description>DIYgod/RSSHub Issues - Powered by RSSHub</description><generator>RSSHub</generator><webMaster>contact@rsshub.app (RSSHub)</webMaster><language>en</language><lastBuildDate>Fri, 26 Jun 2026 04:37:05 GMT</lastBuildDate><ttl>5</ttl><item><title>Support Pawchive.st</title><description>&lt;h3&gt;Category&lt;/h3&gt;
+&lt;p&gt;Multimedia&lt;/p&gt;
+&lt;h3&gt;Website URL&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;https://pawchive.st/&quot;&gt;https://pawchive.st&lt;/a&gt;&lt;/p&gt;
+&lt;h3&gt;What content should be included?&lt;/h3&gt;
+&lt;p&gt;Currently only supports a subset of &lt;a href=&quot;http://kemono.cr/&quot;&gt;kemono.cr&lt;/a&gt; sources:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Patreon&lt;/li&gt;
+&lt;li&gt;Pixiv Fanbox&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Additional description&lt;/h3&gt;
+&lt;p&gt;Similar to site &lt;a href=&quot;http://kemono.cr/&quot;&gt;kemono.cr&lt;/a&gt; and which is already supported.&lt;/p&gt;
+&lt;h3&gt;This is not a duplicated rss request&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;[x] I have searched &lt;a href=&quot;https://github.com/DIYgod/RSSHub/issues&quot;&gt;existing issues&lt;/a&gt; and &lt;a href=&quot;https://github.com/DIYgod/RSSHub/pulls&quot;&gt;pull requests&lt;/a&gt; to ensure this rss proposal has not already been requested&lt;/li&gt;
+&lt;/ul&gt;
+</description><link>https://github.com/DIYgod/RSSHub/issues/22339</link><guid isPermaLink="false">https://github.com/DIYgod/RSSHub/issues/22339</guid><pubDate>Thu, 25 Jun 2026 19:25:33 GMT</pubDate><author>jobobby04</author></item></channel></rss>

@@ -24,3 +24,104 @@
 - canonical_url 异常: 4
 - frontmatter缺失: 131
 
+## [2026-06-26] report | GitHub 每日热门项目汇总
+
+- 新建 `06-报告证据/latest-github-trending.md` 固定滚动页与 `06-报告证据/报告索引.md`，沉淀 2026-06-26 GitHub Trending 10 个项目证据。
+- 同步更新 `index.md` 报告入口；按任务要求尝试执行 `line_guard.py`、`brain_lint.py`、`brain_search.py "GitHub"`，待确认实际脚本路径与可用性。
+
+## [2026-06-26] ingest | RSSHub 到知识库的信息采集方案
+
+- 改动范围：新增 RSSHub 信息采集到知识库/RAG 的正式工具页、来源页和 raw 原文副本。
+- 改动原因：用户提供粘贴文本，要求按当前 Obsidian 知识库规则沉淀为可追踪资料。
+- 影响文件：`raw/sources/src-20260626-local-rsshub-knowledge-ingest-a8843ce1/original.md`、`知识库/sources/src-20260626-local-rsshub-knowledge-ingest-a8843ce1.md`、`知识库/04-方法论与工具/实用工具/RSSHub 到知识库的信息采集方案.md`、`知识库/04-方法论与工具/index.md`、`知识库/04-方法论与工具/实用工具/index.md`、`知识库/sources/index.md`、`index.md`。
+- 待复查项：RSSHub 官方 Docker Compose/配置变量、Dify Knowledge API 字段和 RSSHub 通用参数未在本次维护中联网复核；落地自动入库前需要最小样本验证。
+
+## [2026-06-26] lint | 每日知识库维护
+
+- 执行脚本: daily_kb_maintenance.ps1
+- 执行时间: 12:33:04
+- 知识页扫描数: 774
+- 缺失 WikiLink: 1916
+- 缺失 Markdown 链接: 13
+- 缺失 raw_path: 223
+- canonical_url 异常: 5
+- frontmatter缺失: 131
+
+## [2026-06-26] lint | 每日知识库维护
+
+- 执行脚本: daily_kb_maintenance.ps1
+- 执行时间: 12:33:34
+- 知识页扫描数: 774
+- 缺失 WikiLink: 1914
+- 缺失 Markdown 链接: 13
+- 缺失 raw_path: 223
+- canonical_url 异常: 5
+- frontmatter缺失: 131
+
+## [2026-06-26] integration | EverOS 记忆层接入
+
+- 改动范围：新增 EverOS Cloud 项目级 CLI、依赖清单、官方文档 raw 副本、来源页、来源映射和正式接入说明页。
+- 改动原因：按用户要求将 EverOS 作为 AI Agent 外部记忆层接入本知识库，并保留可追踪 API 文档证据链。
+- 影响文件：`.gitignore`、`tools/requirements-everos.txt`、`tools/everos_memory.py`、`raw/sources/src-20260626-everos-llms-full/llms-full.txt`、`知识库/05-智能体与Agent体系/EverOS 记忆层接入方案.md`、`知识库/sources/src-20260626-everos-llms-full.md`、`知识库/90-来源与映射/EverOS官方API文档来源映射.md`、`知识库/sources/index.md`、`知识库/90-来源与映射/index.md`、`index.md`。
+- 验证结果：已安装 `everos-cloud 0.4.1`；`python tools/everos_memory.py self-test` 本地自检通过；使用临时进程环境变量完成 Cloud 冒烟，`self-test --live` 认证成功，`add --sync` 返回 `Messages accepted`，`flush` 返回 `extracted`，`search --method hybrid` 检索到测试 episode。
+- 待复查项：确认当前账号 quota 和 dashboard memory space；补充哪些维护内容允许进入 EverOS 的脱敏规则。
+
+## [2026-06-26] smoke | RSSHub 与知识库配合使用验证
+
+- 启动本地 RSSHub 容器 `rsshub-kb-test`，绑定 `127.0.0.1:1200`，首页访问 200。
+- 公共 `rsshub.app` GitHub release 路由被 Cloudflare challenge 阻断；本地 `/github/release/DIYgod/RSSHub` 与 `/github/trending/daily/any` 返回 503，`/github/issue/DIYgod/RSSHub?limit=1` 返回 200 XML。
+- 生成测试产物 `tmp/rsshub-kb-smoke-20260626-123740/kb-sample.md`，frontmatter 与 `raw_path/raw_sha256` 校验通过。
+- 新增报告 `06-报告证据/rsshub-kb-smoke-test-20260626.md`，同步更新 `06-报告证据/报告索引.md` 与 `index.md`。
+- 阶段性结论：RSSHub 可作为信息采集层配合当前知识库，但正式自动入库前还需要路由白名单、去重、正文清洗、失败报告和访问控制。
+
+## [2026-06-26] integration | 本地全电脑文件检索工具
+
+- 改动范围：新增本地 SQLite/FTS 文件索引 CLI、单元测试、正式工具说明页，并更新索引与 AGENTS 维护口径。
+- 改动原因：用户确认希望实现“全电脑可检索”，并允许 Codex 等本机代理读取本地索引。
+- 影响文件：`.gitignore`、`AGENTS.md`、`tools/local_file_index.py`、`tests/test_local_file_index.py`、`知识库/04-方法论与工具/实用工具/本地全电脑文件检索方案.md`、`知识库/04-方法论与工具/实用工具/index.md`、`知识库/05-智能体与Agent体系/EverOS 记忆层接入方案.md`、`index.md`、`log.md`。
+- 验证结果：`python -m py_compile tools/local_file_index.py` 通过；`python -m unittest discover -s tests` 通过 2 项；`scan --root . --limit 20` 生成本地索引 20 个文件、0 个错误；`search EverOS --format json` 命中 `log.md`、`index.md`、`AGENTS.md`；`show ... --extract` 能抽取 Markdown 正文。
+- 待复查项：正式全盘扫描前需先运行 `--preset all-drives --allow-all-drives --dry-run` 核对候选数量；后续可补增量扫描与摘要写入 EverOS 的白名单策略。
+
+## [2026-06-26] test | 本地文件检索工具验证
+
+- 测试范围：本地文件索引 CLI、EverOS CLI 本地自检、敏感信息扫描、常用目录 dry-run、全盘扫描安全开关、小范围索引与检索。
+- 测试结果：`py_compile` 通过；`python -m unittest discover -s tests -v` 通过 2 项；`python tools/everos_memory.py self-test` 通过且当前 shell 未设置 API Key；`scan --preset common --dry-run` 识别常用目录候选文件 88648 个；`scan --root . --limit 50` 成功索引 50 个文件、0 错误。
+- 全盘保护：`scan --preset all-drives --dry-run` 被正确拒绝，提示必须添加 `--allow-all-drives`；`scan --preset all-drives --allow-all-drives --dry-run --limit 1000` 成功识别 `C:\` 与 `D:\` 两个根。
+- 检索验证：补扫 `知识库/04-方法论与工具/实用工具` 与 `知识库/05-智能体与Agent体系` 后，`search "本地全电脑文件检索"` 命中正式说明页，`search "EverOS 记忆层"` 命中 EverOS 接入方案页；`stats` 显示当前本地索引 58 个文件、0 错误。
+- 安全检查：完整 EverOS API Key、私钥头和明显 `EVEROS_API_KEY=...` 模式扫描无命中；`git diff --check` 无 whitespace 错误，仅有 CRLF/LF 换行提示。
+
+## [2026-06-26] integration | EverOS OSS 本地长期记忆服务
+
+- 改动范围：读取用户附件并保存 raw 副本，联网核验 EverOS 官方 GitHub 文档，新增 OSS 本地长期记忆方案页、来源页、来源映射和本地 HTTP 桥接脚本。
+- 改动原因：附件建议将 EverOS 作为本地长期记忆服务，和当前 Cloud SDK 接入属于不同 API 形态，需要分层落地。
+- 影响文件：`.gitignore`、`tools/everos_local_memory.py`、`tests/test_everos_local_memory.py`、`raw/sources/src-20260626-local-everos-oss-memory-service/original.md`、`知识库/05-智能体与Agent体系/EverOS 本地长期记忆服务方案.md`、`知识库/sources/src-20260626-local-everos-oss-memory-service.md`、`知识库/90-来源与映射/EverOS本地长期记忆服务来源映射.md`、`知识库/sources/index.md`、`知识库/90-来源与映射/index.md`、`index.md`、`log.md`。
+- 证据结论：官方文档确认 OSS API 为 `/api/v1/memory/*`，默认 `127.0.0.1:8000` 且无内置鉴权，Markdown 是 source of truth，SQLite/LanceDB 是可重建索引；当前本机 `everos 0.4.0` 包存在但无 CLI/server，`where everos` 未找到命令。
+- 本地端口证据：`http://127.0.0.1:8000/health` 可访问，但 `/openapi.json` 显示当前服务为 `Smart Campus Voice Demo Backend`，不包含 `/api/v1/memory/*` 路由；`tools/everos_local_memory.py add` 调用 `/api/v1/memory/add` 返回 404。
+- 验证结果：`py_compile` 通过；`python -m unittest discover -s tests -v` 通过 6 项；`tools/everos_local_memory.py health --soft` 返回 `everos_memory_api=false`；`health --require-memory-api` 正确以 exit 2 失败；附件 raw 副本 SHA256 校验一致。
+- 待复查项：安装真正的 EverOS OSS server 后执行 `health --require-memory-api -> add -> flush -> search` 端到端验证；如 8000 被占用，需换端口并设置 `EVEROS_LOCAL_BASE_URL`；配置模型 provider 时不得提交 `everos.toml`、`.env` 或 `.everos/`。
+
+## [2026-06-26] config | EverOS Cloud 用户级环境变量接入
+
+- 改动范围：将 EverOS API Key 设置为 Windows 当前用户级环境变量，并增强 `tools/everos_memory.py` 的环境变量读取逻辑。
+- 改动原因：用户选择让 EverOS Cloud 对 Codex 等本机代理全局可读；当前 Codex 进程无法自动继承新写入的用户级环境变量，需要脚本从 HKCU 用户环境兜底读取。
+- 影响文件：`tools/everos_memory.py`、`tests/test_everos_memory.py`、`log.md`。
+- 验证结果：用户级 `EVEROS_API_KEY` 已存在且长度为 36；当前进程环境未继承该变量；脚本通过用户级环境 fallback 后 `self-test --live` 可访问 EverOS Cloud。
+- 待复查项：重启 Codex 后再执行一次不带 fallback 前缀的 live 自检，确认新进程是否已直接继承用户级环境变量。
+
+## [2026-06-26] report | GitHub 热门项目滚动日报刷新
+
+- 改动范围：更新 `06-报告证据/latest-github-trending.md` 的今日热门项目、来源证据、风险项与后续观察，并保留固定滚动页结构。
+- 改动原因：旧日报项目列表与当日 GitHub Trending Daily 快照不一致，需要按最新榜单重写并显式记账路径/规范缺失项。
+- 验证结果：`latest-github-trending.md` 当前 44 行，满足单文件 200 行限制；按任务要求执行 `python 第二大脑/07-脚本/line_guard.py`、`brain_lint.py`、`brain_search.py "GitHub"`，三者均因目标路径不存在而失败，当前无法完成知识库验证闭环。
+
+## [2026-06-27] lint | 每日知识库维护
+
+- 执行脚本: daily_kb_maintenance.ps1
+- 执行时间: 11:11:41
+- 知识页扫描数: 781
+- 缺失 WikiLink: 1914
+- 缺失 Markdown 链接: 13
+- 缺失 raw_path: 225
+- canonical_url 异常: 6
+- frontmatter缺失: 131
+

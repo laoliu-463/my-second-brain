@@ -3,6 +3,7 @@
 本文件与 `AGENTS.md` 保持同一套知识库维护规范，供 Claude / Hermes / Codex 等代理共享。
 
 > 若两者冲突，以 `AGENTS.md` 为准，并应尽快同步修正本文件。
+> 若 `知识库/04-方法论与工具/Hermes/AGENTS.md` 存在更细分规则，以其为同级补充，冲突时仍以 `AGENTS.md` 为准。
 
 ## 使用方式
 
@@ -59,6 +60,13 @@ sources: [来源1, 来源2]
 - 不让正式页面脱离索引和日志
 - 不在未核对引用关系前删除正式页面
 - 规范升级、批量补链、系统性清理后必须更新 `log.md`
+
+## 本地检索工具
+
+- `tools/local_file_index.py` 用于构建本机文件 SQLite/FTS 索引，默认索引库为 `tmp/local-file-index/files.sqlite3`
+- 该索引供 Codex / Hermes / Claude 等本机代理共享检索
+- 不得自动上传全盘原文到 EverOS；上传前必须由用户确认摘要或文件片段
+- 全盘扫描前必须先使用 `--dry-run` 核对范围，并保留默认敏感文件排除规则
 
 ## 参考
 

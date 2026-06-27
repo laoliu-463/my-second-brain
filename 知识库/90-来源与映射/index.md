@@ -27,3 +27,5 @@
 - [[DDD提示词来源映射]] - DDD 提示词原文来源与知识页映射
 - [[SAAS业务流程图来源映射]] - SAAS code-review-graph 业务流程图来源与知识页映射
 - [[Skills教程来源映射]] - Skills 教程来源与知识页映射
+- [[EverOS官方API文档来源映射]] - EverOS Cloud API 文档、SDK 接入脚本与知识页映射
+- [[EverOS本地长期记忆服务来源映射]] - EverOS OSS 本地长期记忆服务、HTTP API 和桥接脚本来源映射

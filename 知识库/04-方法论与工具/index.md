@@ -6,6 +6,10 @@
 
 - [[agent-llm-wiki模式]] - LLM Wiki 模式说明
 
+## 信息采集
+
+- [[RSSHub 到知识库的信息采集方案]] - RSSHub 作为信息采集层接入本地知识库/RAG 的方案
+
 ## Hermes
 
 见 [[Hermes/]]

@@ -1,3 +1,11 @@
 .obsidian/workspace.json
 .obsidian/workspace-mobile.json
 .claude/
+.env
+.env.*
+!.env.example
+tmp/local-file-index/
+tmp/everos-local/
+.everos/
+everos.toml
+ome.toml

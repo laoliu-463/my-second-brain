@@ -1,6 +1,6 @@
 ---
 title: 来源页索引
-updated: 2026-06-23
+updated: 2026-06-26
 tags:
   - index
   - source
@@ -8,7 +8,7 @@ tags:
 
 # 来源页索引
 
-- 来源组总数：227
+- 来源组总数：230
 - 规则：一份来源对应一个来源页；raw 原文只登记路径和哈希，不在来源页改写原文。
 
 ## canonical-raw-dir
@@ -18,6 +18,9 @@ tags:
 - [[知识库/sources/src-20260524-code-review-graph-saas-flow|src-20260524-code-review-graph-saas-flow]]
 - [[知识库/sources/src-20260617-runoob-skills-tutorial|src-20260617-runoob-skills-tutorial]]
 - [[知识库/sources/src-20260623-local-ddd-refactor-prompts|src-20260623-local-ddd-refactor-prompts]]
+- [[知识库/sources/src-20260626-everos-llms-full|src-20260626-everos-llms-full]]
+- [[知识库/sources/src-20260626-local-everos-oss-memory-service|src-20260626-local-everos-oss-memory-service]]
+- [[知识库/sources/src-20260626-local-rsshub-knowledge-ingest-a8843ce1|src-20260626-local-rsshub-knowledge-ingest-a8843ce1]]
 
 ## raw-file:Akkkk缺失视频媒体信息.csv
 
