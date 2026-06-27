@@ -2,10 +2,10 @@
 title: Java方法重载与重写
 tags: [Java, 重载, overload, 重写, override, 多态, 继承]
 created: 2026-05-12
-updated: 2026-05-12
+updated: 2026-06-27
+source_level: none
 sources: []
 ---
-
 # Java 方法重载与重写
 
 > 一句话记住：重载看参数，重写看继承。

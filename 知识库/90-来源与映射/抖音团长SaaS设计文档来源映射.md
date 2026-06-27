@@ -2,12 +2,11 @@
 title: 抖音团长SaaS设计文档来源映射
 tags: [来源映射, SaaS, DDD, 抖音团长]
 created: 2026-05-18
-updated: 2026-05-18
+updated: 2026-06-27
 sources:
   - raw/sources/抖音团长SaaS设计文档/saas系统文件.zip
   - raw/sources/抖音团长SaaS设计文档/
 ---
-
 # 抖音团长SaaS设计文档来源映射
 
 ## 概述

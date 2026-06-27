@@ -1,3 +1,18 @@
+---
+title: "来源与映射"
+type: index
+status: active
+created_at: 2026-06-27
+updated_at: 2026-06-27
+source_level: none
+sources: []
+raw_evidence: []
+related: []
+tags: []
+maintainers:
+  - codex
+confidence: 0.5
+---
 # 来源与映射
 
 原始资料来源追踪，记录知识库内容的原始出处。

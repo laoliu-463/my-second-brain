@@ -2,10 +2,10 @@
 title: JIT编译器详解
 tags: [JVM, JIT, AOT, 编译器, 性能优化, Java]
 created: 2026-05-12
-updated: 2026-05-12
+updated: 2026-06-27
+source_level: none
 sources: [美团技术博客-Java即时编译器原理解析及实践]
 ---
-
 # JIT 编译器详解
 
 > 来源：美团技术博客《Java即时编译器原理解析及实践》

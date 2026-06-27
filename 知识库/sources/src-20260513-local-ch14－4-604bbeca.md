@@ -11,12 +11,11 @@ original_link: "本地原始资料"
 raw_path: "raw/sources/大学物理复习/ch14－4.ppt"
 type: source
 created: 2026-06-23
-updated: 2026-06-23
+updated: 2026-06-27
 tags:
   - source
   - raw-evidence
 ---
-
 # ch14－4
 
 ## 来源元数据

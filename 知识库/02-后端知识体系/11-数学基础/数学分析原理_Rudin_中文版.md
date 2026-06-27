@@ -5,11 +5,15 @@ tags: [数学分析, Rudin, 实分析, 数学]
 category: 02-后端知识体系/11-数学基础
 source: "raw/sources/数学分析原理(Rudin_着)中文版.pdf"
 created: 2026-05-03
-updated: 2026-05-03
+updated: 2026-06-27
 type: book-summary
 ---
-
 # 数学分析原理
+
+
+## 原文链接
+
+- [[raw/sources/数学分析原理(Rudin_着)中文版.pdf|数学分析原理(Rudin_着)中文版.pdf]]
 
 **作者/版本：** Walter Rudin / 机械工业出版社
 

@@ -11,12 +11,11 @@ original_link: "本地原始资料"
 raw_path: "raw/sources/Spring MVC+MYBatis企业应用实战.pdf"
 type: source
 created: 2026-06-23
-updated: 2026-06-23
+updated: 2026-06-27
 tags:
   - source
   - raw-evidence
 ---
-
 # Spring MVC+MYBatis企业应用实战
 
 ## 来源元数据

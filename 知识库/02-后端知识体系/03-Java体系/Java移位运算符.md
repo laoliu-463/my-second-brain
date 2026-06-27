@@ -2,10 +2,10 @@
 title: Java移位运算符
 tags: [Java, 移位运算符, 位运算, HashMap, 权限控制]
 created: 2026-05-12
-updated: 2026-05-12
+updated: 2026-06-27
+source_level: none
 sources: []
 ---
-
 # Java 移位运算符
 
 > 一句话记住：移位运算符用于"用二进制位来提高效率、压缩信息、做底层计算"。

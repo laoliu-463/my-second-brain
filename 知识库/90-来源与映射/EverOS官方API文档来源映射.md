@@ -2,7 +2,7 @@
 title: EverOS官方API文档来源映射
 tags: [EverOS, 来源映射, AI-Agent]
 created: 2026-06-26
-updated: 2026-06-26
+updated: 2026-06-27
 source_id: src-20260626-everos-llms-full
 raw_path: raw/sources/src-20260626-everos-llms-full/llms-full.txt
 raw_sha256: 6DC7046698A4605109E87D55467CAA5AA07182DE0173340CCC6597CA406FA3A3
@@ -11,7 +11,6 @@ sources:
   - raw/sources/src-20260626-everos-llms-full/llms-full.txt
   - 知识库/sources/src-20260626-everos-llms-full.md
 ---
-
 # EverOS官方API文档来源映射
 
 ## 来源

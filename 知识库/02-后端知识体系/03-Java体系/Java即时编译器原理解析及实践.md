@@ -1,7 +1,8 @@
 ---
 title: "Java即时编译器原理解析及实践"
 created: 2026-05-12
-updated: 2026-06-23
+updated: 2026-06-27
+source_level: none
 source: "https://tech.meituan.com/2020/10/22/java-jit-practice-in-meituan.html"
 outputs:
   - 知识库/90-来源与映射/Java即时编译器原理解析及实践来源映射.md
@@ -13,7 +14,6 @@ tags:
   - Java
   - 性能优化
 ---
-
 # Java即时编译器原理解析及实践（旧来源入口）
 
 > 兼容旧入口。主来源页已迁到 [[知识库/sources/src-20201022-meituan-jit-practice|Java JIT 编译器原理与实践]]；知识结论统一沉淀到 [[JIT编译器详解]]。

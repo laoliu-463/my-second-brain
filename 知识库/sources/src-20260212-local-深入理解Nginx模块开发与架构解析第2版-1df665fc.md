@@ -11,12 +11,11 @@ original_link: "本地原始资料"
 raw_path: "raw/sources/深入理解Nginx模块开发与架构解析第2版.pdf"
 type: source
 created: 2026-06-23
-updated: 2026-06-23
+updated: 2026-06-27
 tags:
   - source
   - raw-evidence
 ---
-
 # 深入理解Nginx模块开发与架构解析第2版
 
 ## 来源元数据

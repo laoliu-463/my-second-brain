@@ -2,10 +2,10 @@
 title: Java标识符与关键字
 tags: [Java, 标识符, 关键字, 语法基础]
 created: 2026-05-12
-updated: 2026-05-12
+updated: 2026-06-27
+source_level: none
 sources: []
 ---
-
 # Java 标识符与关键字
 
 ---

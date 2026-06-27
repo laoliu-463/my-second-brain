@@ -17,7 +17,6 @@ maintainers:
   - codex
 confidence: 1.0
 ---
-
 # Agent 控制面路径规则
 
 ## 总原则
@@ -49,7 +48,7 @@ Agent 可以：
 - 新增原始资料。
 - 新增来源说明或校验信息。
 - 计算 hash 并建立辅助 source mapping。
-- 被正式知识页通过 `[[raw/sources/...|...]]` 直接引用，从而让 Obsidian backlinks / graph 反查引用它的页面。
+- 被正式知识页通过 `...（原文缺失待核查：`raw/sources/...`）` 直接引用，从而让 Obsidian backlinks / graph 反查引用它的页面。
 
 Agent 禁止：
 

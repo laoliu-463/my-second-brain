@@ -5,11 +5,15 @@ tags: [java, java8, 函数式编程, stream]
 category: 02-后端知识体系/03-Java体系
 source: "raw/sources/Java 8 实战.pdf"
 created: 2026-05-03
-updated: 2026-05-03
+updated: 2026-06-27
 type: book-summary
 ---
-
 # Java 8 实战
+
+
+## 原文链接
+
+- [[raw/sources/Java 8 实战.pdf|Java 8 实战.pdf]]
 
 **作者/版本：** Martin Gulpers / 人民邮电出版社
 

@@ -11,12 +11,11 @@ original_link: "本地原始资料"
 raw_path: "raw/sources/JavaScript高级程序设计（第4版 中文高清）.pdf"
 type: source
 created: 2026-06-23
-updated: 2026-06-23
+updated: 2026-06-27
 tags:
   - source
   - raw-evidence
 ---
-
 # JavaScript高级程序设计（第4版 中文高清）
 
 ## 来源元数据

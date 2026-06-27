@@ -2,10 +2,10 @@
 title: SAAS Harness 规范总览
 tags: [harness, saas, ddd, 工程规范]
 created: 2026-06-02
-updated: 2026-06-02
+updated: 2026-06-27
+source_level: none
 sources: [D:\Projects\SAAS/harness/README.md, D:\Projects\SAAS/harness/CURRENT_STATE.md]
 ---
-
 # SAAS Harness 规范总览
 
 ## 概述

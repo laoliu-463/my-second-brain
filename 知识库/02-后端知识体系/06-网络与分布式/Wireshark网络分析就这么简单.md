@@ -5,11 +5,15 @@ tags: [wireshark, 网络分析, 抓包, tcpdump]
 category: 02-后端知识体系/06-网络与分布式
 source: "raw/sources/Wireshark网络分析就这么简单.pdf"
 created: 2026-05-03
-updated: 2026-05-03
+updated: 2026-06-27
 type: book-summary
 ---
-
 # Wireshark网络分析就这么简单
+
+
+## 原文链接
+
+- [[raw/sources/Wireshark网络分析就这么简单.pdf|Wireshark网络分析就这么简单.pdf]]
 
 **作者/版本：** 林信满 / 电子工业出版社
 

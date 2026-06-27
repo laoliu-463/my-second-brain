@@ -1,3 +1,18 @@
+---
+title: "Prompt: release check"
+type: note
+status: active
+created_at: 2026-06-27
+updated_at: 2026-06-27
+source_level: none
+sources: []
+raw_evidence: []
+related: []
+tags: []
+maintainers:
+  - codex
+confidence: 0.5
+---
 # Prompt: release check
 
 请执行上线前总检查：

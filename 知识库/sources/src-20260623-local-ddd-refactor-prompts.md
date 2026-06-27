@@ -2,6 +2,7 @@
 source_id: src-20260623-local-ddd-refactor-prompts
 original_title: DDD提示词（原始）
 title: SAAS DDD 渐进式重构提示词包
+updated_at: 2026-06-27
 aliases:
   - DDD提示词
   - DDD 重构提示词包
@@ -18,7 +19,6 @@ topics:
 tags:
   - source
 ---
-
 # SAAS DDD 渐进式重构提示词包
 
 ## 原文跳转

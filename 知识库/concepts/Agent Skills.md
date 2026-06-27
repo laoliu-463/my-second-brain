@@ -5,7 +5,7 @@ aliases:
   - Agent 技能
   - 技能包
 created: 2026-06-23
-updated: 2026-06-23
+updated: 2026-06-27
 topics:
   - Agent
   - 工程工作流
@@ -15,8 +15,12 @@ sources:
   - 知识库/sources/src-20260617-runoob-skills-tutorial.md
   - 知识库/05-智能体与Agent体系/mattpocock-skills研究.md
 ---
-
 # Agent Skills
+
+
+## 原文链接
+
+- [[raw/sources/src-20260617-runoob-skills-tutorial/original.md|original.md]]
 
 ## 概述
 

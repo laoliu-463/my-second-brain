@@ -2,10 +2,10 @@
 title: 17-达人数据补全 Provider 体系
 tags: [TalentDataProvider, EnrichOrchestrator, 数据源优先级, 字段溯源]
 created: 2026-05-10
-updated: 2026-05-10
+updated: 2026-06-27
+source_level: none
 sources: [TalentEnrichOrchestrator.java, TalentDataProvider.java, InternalBusinessTalentProvider.java, ManualTalentProvider.java, ThirdPartyTalentProvider.java, TestTalentProvider.java, TalentFieldSource.java]
 ---
-
 # 17-达人数据补全 Provider 体系
 
 ## 1. 概述

@@ -1,3 +1,18 @@
+---
+title: "cpp-learning-fragment"
+type: review
+status: review
+created_at: 2026-06-27
+updated_at: 2026-06-27
+source_level: none
+sources: []
+raw_evidence: []
+related: []
+tags: []
+maintainers:
+  - codex
+confidence: 0.5
+---
 string字符串
 substr(1,3)从下标1开始截取3个字符
 注意数组下标从零开始

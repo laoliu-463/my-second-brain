@@ -2,10 +2,10 @@
 title: Java中==与equals及hashCode
 tags: [Java, equals, hashCode, ==, String, Integer, HashMap, 面试高频]
 created: 2026-05-12
-updated: 2026-05-12
+updated: 2026-06-27
+source_level: none
 sources: []
 ---
-
 # Java 中 == 与 equals 及 hashCode
 
 > 核心关系：基本类型 vs 引用类型、String、Integer 缓存、HashMap/HashSet 全部串起来问。

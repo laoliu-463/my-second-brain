@@ -1,4 +1,4 @@
-param(
+﻿param(
     [switch]$ChangedOnly
 )
 
@@ -19,6 +19,7 @@ $SourceMappingDir = "90-" + (New-UnicodeString @(0x6765, 0x6E90, 0x4E0E, 0x6620,
 $CognitiveFolder = "05-" + (New-UnicodeString @(0x8BA4, 0x77E5, 0x4E0E, 0x6210, 0x957F))
 $AgentFolder = "05-" + (New-UnicodeString @(0x667A, 0x80FD, 0x4F53, 0x4E0E)) + "Agent" + (New-UnicodeString @(0x4F53, 0x7CFB))
 $OriginalLinkHeading = New-UnicodeString @(0x539F, 0x6587, 0x94FE, 0x63A5)
+$MissingOriginalMarker = New-UnicodeString @(0x539F, 0x6587, 0x7F3A, 0x5931, 0x5F85, 0x6838, 0x67E5)
 
 function Write-Fail {
     param([string]$Message)
@@ -98,7 +99,7 @@ function Get-FileText {
     param([string]$RepoPath)
     $fullPath = Join-Path $KbRoot ($RepoPath -replace "/", [System.IO.Path]::DirectorySeparatorChar)
     if (-not (Test-Path -LiteralPath $fullPath)) { return $null }
-    return Get-Content -LiteralPath $fullPath -Raw
+    return Get-Content -LiteralPath $fullPath -Raw -Encoding UTF8
 }
 
 function Test-HasFrontmatter {
@@ -108,7 +109,7 @@ function Test-HasFrontmatter {
 
 function Test-FormalKnowledgePage {
     param([string]$RepoPath)
-    if (-not $RepoPath.StartsWith("$KnowledgeDir/")) { return $false }
+    if (-not $RepoPath.StartsWith("${KnowledgeDir}/")) { return $false }
     if ($RepoPath -match ("^" + [regex]::Escape($KnowledgeDir) + "/(_review|_meta|sources|" + [regex]::Escape($SourceMappingDir) + ")(/|$)")) { return $false }
     return ($RepoPath -match '\.md$')
 }
@@ -146,6 +147,11 @@ function Get-RawSourceWikiTargets {
     return @($targets | Where-Object { $_ } | Sort-Object -Unique)
 }
 
+function Test-HasMissingOriginalMarker {
+    param([string]$Text)
+    return (-not [string]::IsNullOrWhiteSpace($Text) -and $Text.Contains($MissingOriginalMarker))
+}
+
 function Test-RawSourceTargetExists {
     param([string]$Target)
     $pathText = ($Target -replace "/", [System.IO.Path]::DirectorySeparatorChar)
@@ -155,7 +161,7 @@ function Test-RawSourceTargetExists {
 
 function Test-KnowledgeMarkdownPage {
     param([string]$RepoPath)
-    return ($RepoPath.StartsWith("$KnowledgeDir/") -and $RepoPath.EndsWith(".md"))
+    return ($RepoPath.StartsWith("${KnowledgeDir}/") -and $RepoPath.EndsWith(".md"))
 }
 
 $isGitRepo = Test-GitRepo
@@ -187,7 +193,7 @@ if ($isGitRepo) {
     Write-Warn "Not a git work tree; raw append-only checks are limited during full scan."
 }
 
-$kbOrRawChanged = @($files | Where-Object { $_.StartsWith("$KnowledgeDir/") -or $_.StartsWith("raw/") })
+$kbOrRawChanged = @($files | Where-Object { $_.StartsWith("${KnowledgeDir}/") -or $_.StartsWith("raw/") })
 $logChanged = @($files | Where-Object { $_ -eq "log.md" })
 
 if ($kbOrRawChanged.Count -gt 0 -and $logChanged.Count -eq 0) {
@@ -216,7 +222,9 @@ foreach ($file in $files) {
             $originalSection = Get-OriginalLinkSection -Text $text
             $rawTargets = Get-RawSourceWikiTargets -Text $originalSection
             if ($rawTargets.Count -eq 0) {
-                Write-Fail "Formal page must have a ## $OriginalLinkHeading section with a raw/sources WikiLink: $file"
+                if (-not (Test-HasMissingOriginalMarker -Text $originalSection)) {
+                    Write-Fail "Formal page must have a ## $OriginalLinkHeading section with a raw/sources WikiLink or an explicit missing-original marker: $file"
+                }
             } else {
                 foreach ($target in $rawTargets) {
                     if (-not (Test-RawSourceTargetExists -Target $target)) {

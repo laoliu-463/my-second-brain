@@ -1,3 +1,18 @@
+---
+title: "Runbook: closeout and garbage collection"
+type: procedure
+status: active
+created_at: 2026-06-27
+updated_at: 2026-06-27
+source_level: none
+sources: []
+raw_evidence: []
+related: []
+tags: []
+maintainers:
+  - codex
+confidence: 0.5
+---
 # Runbook: closeout and garbage collection
 
 ## 适用场景

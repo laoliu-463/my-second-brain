@@ -5,11 +5,15 @@ tags: [linux, 高性能, 网络编程, 服务器]
 category: 02-后端知识体系/05-系统编程
 source: "raw/sources/Linux高性能服务器编程.pdf"
 created: 2026-05-03
-updated: 2026-05-03
+updated: 2026-06-27
 type: book-summary
 ---
-
 # Linux高性能服务器编程
+
+
+## 原文链接
+
+- [[raw/sources/Linux高性能服务器编程.pdf|Linux高性能服务器编程.pdf]]
 
 **作者/版本：** 游双 / 机械工业出版社
 

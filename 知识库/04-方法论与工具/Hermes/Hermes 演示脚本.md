@@ -2,10 +2,10 @@
 title: Hermes 演示脚本
 tags: [Hermes, 演示, 演讲, 脚本, PPT]
 created: 2026-04-25
-updated: 2026-04-25
+updated: 2026-06-27
+source_level: none
 sources: [hermes_demo_script.md]
 ---
-
 # Hermes 演示脚本
 
 > 大学水课演讲用 Demo 演示脚本（5分钟版本）

@@ -1,3 +1,18 @@
+---
+title: "Prompt: domain alignment"
+type: note
+status: active
+created_at: 2026-06-27
+updated_at: 2026-06-27
+source_level: none
+sources: []
+raw_evidence: []
+related: []
+tags: []
+maintainers:
+  - codex
+confidence: 0.5
+---
 # Prompt: domain alignment
 
 请先做领域对齐，不要直接改代码：

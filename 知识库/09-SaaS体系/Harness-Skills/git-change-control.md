@@ -1,3 +1,18 @@
+---
+title: "Git Change Control"
+type: procedure
+status: active
+created_at: 2026-06-27
+updated_at: 2026-06-27
+source_level: none
+sources: []
+raw_evidence: []
+related: []
+tags: []
+maintainers:
+  - codex
+confidence: 0.5
+---
 # Git Change Control
 
 > 本文件定义 Harness 中所有 Git 相关强约束。任何 Agent 任务在开始、修改、提交、推送、部署、结束前必须按本文件执行对应 Gate。

@@ -11,12 +11,11 @@ original_link: "本地原始资料"
 raw_path: "raw/sources/离散数学及其应用_原书第7版_,(美)KENNETH_H.ROSEN著_,P793.pdf"
 type: source
 created: 2026-06-23
-updated: 2026-06-23
+updated: 2026-06-27
 tags:
   - source
   - raw-evidence
 ---
-
 # 离散数学及其应用_原书第7版_,(美)KENNETH_H.ROSEN著_,P793
 
 ## 来源元数据

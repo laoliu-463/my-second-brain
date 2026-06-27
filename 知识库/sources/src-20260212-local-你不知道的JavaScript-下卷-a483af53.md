@@ -11,12 +11,11 @@ original_link: "本地原始资料"
 raw_path: "raw/sources/你不知道的JavaScript（下卷）.pdf"
 type: source
 created: 2026-06-23
-updated: 2026-06-23
+updated: 2026-06-27
 tags:
   - source
   - raw-evidence
 ---
-
 # 你不知道的JavaScript（下卷）
 
 ## 来源元数据

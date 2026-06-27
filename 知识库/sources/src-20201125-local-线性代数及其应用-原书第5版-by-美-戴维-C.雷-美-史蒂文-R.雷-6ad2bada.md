@@ -11,12 +11,11 @@ original_link: "本地原始资料"
 raw_path: "raw/sources/线性代数及其应用(原书第5版)_by_[美]_戴维_C.雷_[美]_史蒂文_R.雷_[美]_朱迪_J.麦克唐纳.pdf"
 type: source
 created: 2026-06-23
-updated: 2026-06-23
+updated: 2026-06-27
 tags:
   - source
   - raw-evidence
 ---
-
 # 线性代数及其应用(原书第5版)_by_[美]_戴维_C.雷_[美]_史蒂文_R.雷_[美]_朱迪_J.麦克唐纳
 
 ## 来源元数据

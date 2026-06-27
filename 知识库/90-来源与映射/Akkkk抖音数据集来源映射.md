@@ -2,10 +2,9 @@
 title: Akkkk抖音数据集来源映射
 tags: [来源映射, 数据集, 抖音, 内容创作]
 created: 2026-04-30
-updated: 2026-05-17
+updated: 2026-06-27
 sources: [00-收集箱/未命名.md, creator_contents_cleaned.csv, creator_comments_cleaned.csv]
 ---
-
 # Akkkk抖音数据集来源映射
 
 ## 概述

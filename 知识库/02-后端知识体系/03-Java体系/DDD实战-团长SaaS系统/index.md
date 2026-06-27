@@ -2,7 +2,8 @@
 title: DDD实战-团长SaaS系统
 tags: [DDD, SaaS, SpringBoot, Vue3, 抖音团长, 项目索引]
 created: 2026-05-29
-updated: 2026-05-29
+updated: 2026-06-27
+source_level: none
 sources:
   - D:/Projects/SAAS/README.md
   - D:/Projects/SAAS/AGENTS.md
@@ -10,7 +11,6 @@ sources:
   - 知识库/90-来源与映射/抖音团长SaaS当前项目来源映射.md
   - 知识库/90-来源与映射/抖音团长SaaS设计文档来源映射.md
 ---
-
 # DDD实战-团长SaaS系统
 
 ## 概述

@@ -1,11 +1,11 @@
 ---
 title: 内容沉淀地图
-updated: 2026-06-23
+updated: 2026-06-27
+source_level: none
 tags:
   - map
   - distillation
 ---
-
 # 内容沉淀地图
 
 ## 页面类型入口

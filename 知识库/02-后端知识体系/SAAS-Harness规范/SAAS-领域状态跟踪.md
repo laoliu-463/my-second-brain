@@ -2,10 +2,10 @@
 title: SAAS 领域状态跟踪
 tags: [harness, saas, ddd, 领域状态]
 created: 2026-06-02
-updated: 2026-06-02
+updated: 2026-06-27
+source_level: none
 sources: [D:\Projects\SAAS/harness/state/DOMAIN_STATUS.md, D:\Projects\SAAS/harness/DOMAIN_MAP.md]
 ---
-
 # SAAS 领域状态跟踪
 
 ## 各域当前状态

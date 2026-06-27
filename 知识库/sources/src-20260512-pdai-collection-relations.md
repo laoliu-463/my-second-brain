@@ -2,6 +2,7 @@
 source_id: src-20260512-pdai-collection-relations
 original_title: Collection 类关系图
 title: Java 集合框架关系图来源
+updated_at: 2026-06-27
 aliases:
   - Collection 类关系图
   - Java Collection 类关系图
@@ -17,7 +18,6 @@ topics:
 tags:
   - source
 ---
-
 # Java 集合框架关系图来源
 
 ## 原文跳转

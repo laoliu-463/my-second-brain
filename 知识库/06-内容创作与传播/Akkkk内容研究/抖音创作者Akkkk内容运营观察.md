@@ -2,10 +2,10 @@
 title: 抖音创作者Akkkk内容运营观察
 tags: [内容创作, 抖音, 创作者分析, 运营数据]
 created: 2026-04-30
-updated: 2026-05-01
+updated: 2026-06-27
+source_level: none
 sources: [creator_contents_cleaned.csv, creator_comments_cleaned.csv]
 ---
-
 # 抖音创作者Akkkk内容运营观察
 
 ## 概述

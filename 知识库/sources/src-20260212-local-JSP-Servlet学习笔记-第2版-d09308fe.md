@@ -11,12 +11,11 @@ original_link: "本地原始资料"
 raw_path: "raw/sources/JSP_Servlet学习笔记(第2版).pdf"
 type: source
 created: 2026-06-23
-updated: 2026-06-23
+updated: 2026-06-27
 tags:
   - source
   - raw-evidence
 ---
-
 # JSP_Servlet学习笔记(第2版)
 
 ## 来源元数据

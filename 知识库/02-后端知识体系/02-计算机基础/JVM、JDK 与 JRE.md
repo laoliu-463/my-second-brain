@@ -2,10 +2,10 @@
 title: JVM、JDK 与 JRE
 tags: [Java, JVM, JDK, JRE, 计算机基础]
 created: 2026-05-01
-updated: 2026-05-01
+updated: 2026-06-27
+source_level: none
 sources: [00-收件箱/JVM JDK JRE.md]
 ---
-
 # JVM、JDK 与 JRE
 
 ## 概述

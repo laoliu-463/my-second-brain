@@ -1,7 +1,7 @@
 ---
 title: Collection类关系图来源映射
 created: 2026-06-23
-updated: 2026-06-23
+updated: 2026-06-27
 tags:
   - 来源映射
   - Java
@@ -11,7 +11,6 @@ sources:
   - 知识库/sources/src-20260512-pdai-collection-relations.md
   - 00-收件箱/Collection 类关系图.md
 ---
-
 # Collection类关系图来源映射
 
 ## 概述

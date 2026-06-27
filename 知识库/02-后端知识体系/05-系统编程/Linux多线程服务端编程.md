@@ -5,11 +5,15 @@ tags: [linux, 多线程, 服务端, 网络编程]
 category: 02-后端知识体系/05-系统编程
 source: "raw/sources/Linux多线程服务端编程_陈硕.pdf"
 created: 2026-05-03
-updated: 2026-05-03
+updated: 2026-06-27
 type: book-summary
 ---
-
 # Linux多线程服务端编程
+
+
+## 原文链接
+
+- [[raw/sources/Linux多线程服务端编程_陈硕.pdf|Linux多线程服务端编程_陈硕.pdf]]
 
 **作者/版本：** 陈硕 / 电子工业出版社
 
@@ -18,7 +22,7 @@ type: book-summary
 
 ## 相关资源
 
-PDF阅读：[[raw/sources/Linux多线程服务端编程 书签高清非扫描 - 陈硕.pdf|打开 PDF]]
+PDF阅读：[[raw/sources/Linux多线程服务端编程_陈硕.pdf|打开 PDF]]
 
 ## 核心内容
 

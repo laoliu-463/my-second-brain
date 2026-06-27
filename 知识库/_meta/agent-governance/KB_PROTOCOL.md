@@ -17,7 +17,6 @@ maintainers:
   - codex
 confidence: 1.0
 ---
-
 # Agent 控制面维护协议
 
 ## 定位

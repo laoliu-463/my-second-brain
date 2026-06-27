@@ -1,7 +1,7 @@
 ---
 title: Java即时编译器原理解析及实践来源映射
 created: 2026-06-23
-updated: 2026-06-23
+updated: 2026-06-27
 tags:
   - 来源映射
   - JVM
@@ -11,7 +11,6 @@ sources:
   - 知识库/sources/src-20201022-meituan-jit-practice.md
   - 00-收件箱/Java即时编译器原理解析及实践.md
 ---
-
 # Java即时编译器原理解析及实践来源映射
 
 ## 概述

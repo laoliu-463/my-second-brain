@@ -11,12 +11,11 @@ original_link: "本地原始资料"
 raw_path: "raw/sources/数据结构与算法分析_C++语言描述.4th.Mark_Allen_Weiss.2016.pdf"
 type: source
 created: 2026-06-23
-updated: 2026-06-23
+updated: 2026-06-27
 tags:
   - source
   - raw-evidence
 ---
-
 # 数据结构与算法分析_C++语言描述.4th.Mark_Allen_Weiss.2016
 
 ## 来源元数据

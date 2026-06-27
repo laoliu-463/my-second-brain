@@ -5,11 +5,15 @@ tags: [jsp, servlet, java, web]
 category: 02-后端知识体系/03-Java体系
 source: "raw/sources/JSP_Servlet学习笔记(第2版).pdf"
 created: 2026-05-03
-updated: 2026-05-03
+updated: 2026-06-27
 type: book-summary
 ---
-
 # JSP_Servlet学习笔记
+
+
+## 原文链接
+
+- [[raw/sources/JSP_Servlet学习笔记(第2版).pdf|JSP_Servlet学习笔记(第2版).pdf]]
 
 **作者/版本：** 林信良 / 清华大学出版社
 

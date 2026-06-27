@@ -2,10 +2,10 @@
 title: 面试备战索引
 tags: [面试, 索引]
 created: 2026-05-11
-updated: 2026-05-22
+updated: 2026-06-27
+source_level: none
 sources: []
 ---
-
 # 面试备战索引
 
 > 校招/实习面试准备资料库，按模块沉淀八股文、算法、系统设计等备考内容。

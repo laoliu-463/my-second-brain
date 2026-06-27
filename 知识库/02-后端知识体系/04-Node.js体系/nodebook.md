@@ -5,11 +5,15 @@ tags: [nodejs, javascript, 后端]
 category: 02-后端知识体系/04-Node.js体系
 source: "raw/sources/nodebook.pdf"
 created: 2026-05-03
-updated: 2026-05-03
+updated: 2026-06-27
 type: book-summary
 ---
-
 # nodebook
+
+
+## 原文链接
+
+- [[raw/sources/nodebook.pdf|nodebook.pdf]]
 
 **作者/版本：** 人民邮电出版社
 

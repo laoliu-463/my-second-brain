@@ -2,6 +2,7 @@
 source_id: src-20201022-meituan-jit-practice
 original_title: Java即时编译器原理解析及实践
 title: Java JIT 编译器原理与实践
+updated_at: 2026-06-27
 aliases:
   - Java即时编译器原理解析及实践
   - 美团 JIT 实践
@@ -18,7 +19,6 @@ topics:
 tags:
   - source
 ---
-
 # Java JIT 编译器原理与实践
 
 ## 原文跳转

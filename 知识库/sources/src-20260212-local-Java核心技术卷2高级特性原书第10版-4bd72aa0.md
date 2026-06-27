@@ -11,12 +11,11 @@ original_link: "本地原始资料"
 raw_path: "raw/sources/Java核心技术卷2高级特性原书第10版.pdf"
 type: source
 created: 2026-06-23
-updated: 2026-06-23
+updated: 2026-06-27
 tags:
   - source
   - raw-evidence
 ---
-
 # Java核心技术卷2高级特性原书第10版
 
 ## 来源元数据

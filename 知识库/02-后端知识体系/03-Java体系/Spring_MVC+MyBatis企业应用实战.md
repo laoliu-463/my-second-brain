@@ -5,11 +5,15 @@ tags: [springmvc, mybatis, java, 企业开发]
 category: 02-后端知识体系/03-Java体系
 source: "raw/sources/Spring MVC+MYBatis企业应用实战.pdf"
 created: 2026-05-03
-updated: 2026-05-03
+updated: 2026-06-27
 type: book-summary
 ---
-
 # Spring MVC+MyBatis企业应用实战
+
+
+## 原文链接
+
+- [[raw/sources/Spring MVC+MYBatis企业应用实战.pdf|Spring MVC+MYBatis企业应用实战.pdf]]
 
 **作者/版本：** 清华大学出版社
 

@@ -1,7 +1,7 @@
 ---
 title: Skills教程来源映射
 created: 2026-06-24
-updated: 2026-06-24
+updated: 2026-06-27
 tags:
   - 来源映射
   - Agent
@@ -11,7 +11,6 @@ sources:
   - 知识库/sources/src-20260617-runoob-skills-tutorial.md
   - 00-收件箱/Skills 教程  菜鸟教程.md
 ---
-
 # Skills教程来源映射
 
 ## 概述

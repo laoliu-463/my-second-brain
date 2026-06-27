@@ -2,7 +2,8 @@
 title: RSSHub 到知识库的信息采集方案
 tags: [RSSHub, 知识库, RAG, 信息采集, 自动化]
 created: 2026-06-26
-updated: 2026-06-26
+updated: 2026-06-27
+source_level: none
 source_id: src-20260626-local-rsshub-knowledge-ingest-a8843ce1
 raw_path: raw/sources/src-20260626-local-rsshub-knowledge-ingest-a8843ce1/original.md
 raw_sha256: A8843CE1180DDA6FFA3C773726EEAB9EA0B5E0AAEEDEB94C54DB74138C956DF8
@@ -11,7 +12,6 @@ sources:
   - raw/sources/src-20260626-local-rsshub-knowledge-ingest-a8843ce1/original.md
   - 知识库/sources/src-20260626-local-rsshub-knowledge-ingest-a8843ce1.md
 ---
-
 # RSSHub 到知识库的信息采集方案
 
 ## 定位

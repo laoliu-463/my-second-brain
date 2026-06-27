@@ -2,7 +2,7 @@
 title: EverOS本地长期记忆服务来源映射
 tags: [EverOS, 来源映射, 本地记忆服务]
 created: 2026-06-26
-updated: 2026-06-26
+updated: 2026-06-27
 source_id: src-20260626-local-everos-oss-memory-service
 raw_path: raw/sources/src-20260626-local-everos-oss-memory-service/original.md
 raw_sha256: 5407F81FBCE96603C1CE8EFB83C5B5432BAFBDA799AC5CEAF7675CAC61C9266D
@@ -11,7 +11,6 @@ sources:
   - raw/sources/src-20260626-local-everos-oss-memory-service/original.md
   - 知识库/sources/src-20260626-local-everos-oss-memory-service.md
 ---
-
 # EverOS本地长期记忆服务来源映射
 
 ## 来源

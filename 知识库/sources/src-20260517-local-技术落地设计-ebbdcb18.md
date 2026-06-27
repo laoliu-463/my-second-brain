@@ -11,12 +11,11 @@ original_link: "本地原始资料"
 raw_path: "raw/sources/抖音团长SaaS设计文档/技术落地设计.md"
 type: source
 created: 2026-06-23
-updated: 2026-06-23
+updated: 2026-06-27
 tags:
   - source
   - raw-evidence
 ---
-
 # 技术落地设计
 
 ## 来源元数据

@@ -5,11 +5,15 @@ tags: [nodejs, javascript, 后端, 异步]
 category: 02-后端知识体系/04-Node.js体系
 source: "raw/sources/深入浅出Node.js.pdf"
 created: 2026-05-03
-updated: 2026-05-03
+updated: 2026-06-27
 type: book-summary
 ---
-
 # 深入浅出Node.js
+
+
+## 原文链接
+
+- [[raw/sources/深入浅出Node.js.pdf|深入浅出Node.js.pdf]]
 
 **作者/版本：** 朴灵 / 人民邮电出版社
 

@@ -2,11 +2,11 @@
 title: 转链与pick_source归因
 tags: [抖店团长, 转链, pick_source, 归因, 技术]
 created: 2026-05-29
-updated: 2026-05-29
+updated: 2026-06-27
+source_level: none
 sources:
   - D:/Projects/SAAS/docs/对接/转链与pick_source归因.md
 ---
-
 # 转链与pick_source归因
 
 ## 概述

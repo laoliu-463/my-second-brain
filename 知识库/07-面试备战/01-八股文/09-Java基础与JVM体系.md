@@ -2,10 +2,10 @@
 title: Java基础与JVM体系
 tags: [Java, JVM, JDK, JRE, 八股文, 跨平台]
 created: 2026-05-12
-updated: 2026-05-12
+updated: 2026-06-27
+source_level: none
 sources: []
 ---
-
 # Java基础与JVM体系
 
 > 核心问题：Java 代码到底是怎么跑起来的？理解这个，JVM/JDK/JRE 三者关系、类加载、Spring Boot 启动流程都会变简单。

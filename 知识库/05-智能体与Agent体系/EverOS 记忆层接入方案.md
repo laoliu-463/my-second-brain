@@ -2,7 +2,8 @@
 title: EverOS 记忆层接入方案
 tags: [EverOS, AI-Agent, Memory, 知识库工具]
 created: 2026-06-26
-updated: 2026-06-26
+updated: 2026-06-27
+source_level: none
 source_id: src-20260626-everos-llms-full
 raw_path: raw/sources/src-20260626-everos-llms-full/llms-full.txt
 raw_sha256: 6DC7046698A4605109E87D55467CAA5AA07182DE0173340CCC6597CA406FA3A3
@@ -11,7 +12,6 @@ sources:
   - raw/sources/src-20260626-everos-llms-full/llms-full.txt
   - 知识库/sources/src-20260626-everos-llms-full.md
 ---
-
 # EverOS 记忆层接入方案
 
 ## 定位

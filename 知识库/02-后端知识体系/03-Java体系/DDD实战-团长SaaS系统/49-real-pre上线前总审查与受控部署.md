@@ -2,7 +2,8 @@
 title: real-pre上线前总审查与受控部署
 tags: [DDD, SaaS, real-pre, 部署, 验收, release, 抖音团长]
 created: 2026-05-29
-updated: 2026-05-29
+updated: 2026-06-27
+source_level: none
 sources:
   - D:/Projects/SAAS/docs/release/README.md
   - D:/Projects/SAAS/docs/release/real-pre上线总审查报告-20260528-171543.md
@@ -10,7 +11,6 @@ sources:
   - D:/Projects/SAAS/docker-compose.real-pre.yml
   - D:/Projects/SAAS/.env.real-pre.example
 ---
-
 # real-pre上线前总审查与受控部署
 
 ## 概述

@@ -2,10 +2,10 @@
 title: Java静态与实例变量及方法
 tags: [Java, static, 静态变量, 实例变量, 静态方法, 实例方法, 类与对象]
 created: 2026-05-12
-updated: 2026-05-12
+updated: 2026-06-27
+source_level: none
 sources: []
 ---
-
 # Java 静态与实例变量及方法
 
 > 重要基础：连接 static 关键字、类和对象的区别、方法区/堆内存、Spring Bean、工具类、单例模式、线程安全。

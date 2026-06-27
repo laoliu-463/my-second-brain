@@ -2,10 +2,10 @@
 title: 03-本地与三方调用SOP分离
 tags: [DDD, 本地操作, 三方API, 抖音开放平台, SOP]
 created: 2026-05-10
-updated: 2026-05-10
+updated: 2026-06-27
+source_level: none
 sources: [ProductService.java, AttributionService.java, PickSourceMappingService.java, ProductBizStatus.java]
 ---
-
 # 03-本地与三方调用 SOP 分离
 
 ## 概述

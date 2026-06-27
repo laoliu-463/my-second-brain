@@ -2,10 +2,10 @@
 title: Java注释
 tags: [Java, 注释, 文档注释, Javadoc]
 created: 2026-05-12
-updated: 2026-05-12
+updated: 2026-06-27
+source_level: none
 sources: []
 ---
-
 # Java 注释
 
 > 核心用途：给代码加说明，注释本身不会被执行。文档注释可生成 API 文档。

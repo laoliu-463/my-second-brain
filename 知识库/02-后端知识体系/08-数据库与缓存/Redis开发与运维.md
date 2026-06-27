@@ -5,11 +5,15 @@ tags: [redis, 缓存, nosql, 数据库]
 category: 02-后端知识体系/08-数据库与缓存
 source: "raw/sources/Redis开发与运维(付磊).pdf"
 created: 2026-05-03
-updated: 2026-05-03
+updated: 2026-06-27
 type: book-summary
 ---
-
 # Redis开发与运维
+
+
+## 原文链接
+
+- [[raw/sources/Redis开发与运维(付磊).pdf|Redis开发与运维(付磊).pdf]]
 
 **作者/版本：** 付磊 / 电子工业出版社
 

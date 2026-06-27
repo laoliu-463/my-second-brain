@@ -2,10 +2,10 @@
 title: 04-测试规范与TDD评估
 tags: [TDD, 单元测试, JaCoCo, JUnit5, Mockito, 抖店SaaS]
 created: 2026-05-10
-updated: 2026-05-10
+updated: 2026-06-27
+source_level: none
 sources: [pom.xml, AttributionServiceTest.java, PickSourceMappingServiceTest.java, ProductServiceTest.java]
 ---
-
 # 04-测试规范与 TDD 评估
 
 ## 1. 测试基础设施

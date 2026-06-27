@@ -1,4 +1,4 @@
-param(
+﻿param(
     [string]$KbRoot = "D:\Docs\Books\my second brain",
     [string]$ReportDir = "D:\Docs\Books\my second brain\06-报告证据\日报"
 )
@@ -11,6 +11,26 @@ function Resolve-PathSafe {
         return [System.IO.Path]::GetFullPath((Resolve-Path -LiteralPath $Path -ErrorAction Stop).ProviderPath)
     } catch {
         return $null
+    }
+}
+
+function Get-RelativePathSafe {
+    param(
+        [string]$BasePath,
+        [string]$FullPath
+    )
+    try {
+        return [System.IO.Path]::GetRelativePath($BasePath, $FullPath)
+    } catch {
+        $baseFull = [System.IO.Path]::GetFullPath($BasePath)
+        $fileFull = [System.IO.Path]::GetFullPath($FullPath)
+        $baseUriText = $baseFull
+        if (-not $baseUriText.EndsWith([System.IO.Path]::DirectorySeparatorChar)) {
+            $baseUriText += [System.IO.Path]::DirectorySeparatorChar
+        }
+        $baseUri = New-Object System.Uri($baseUriText)
+        $fileUri = New-Object System.Uri($fileFull)
+        return [System.Uri]::UnescapeDataString($baseUri.MakeRelativeUri($fileUri).ToString()).Replace("/", [System.IO.Path]::DirectorySeparatorChar)
     }
 }
 
@@ -51,6 +71,11 @@ function Get-RawSourceWikiTargets {
         $targets += $match.Groups[1].Value.Trim()
     }
     return @($targets | Where-Object { $_ } | Sort-Object -Unique)
+}
+
+function Test-HasMissingOriginalMarker {
+    param([string]$Text)
+    return (-not [string]::IsNullOrWhiteSpace($Text) -and $Text.Contains("原文缺失待核查"))
 }
 
 function Test-VaultRelativeFileExists {
@@ -138,7 +163,7 @@ if (-not (Test-Path -LiteralPath $knowledgePath)) {
     $relMap = @{}
     $nameMap = @{}
     foreach ($f in $wikiFiles) {
-        $rel = [System.IO.Path]::GetRelativePath($kbPath, $f.FullName).Replace("\", "/")
+        $rel = (Get-RelativePathSafe -BasePath $kbPath -FullPath $f.FullName).Replace("\", "/")
         $relNoExt = [System.IO.Path]::ChangeExtension($rel, $null).Replace("\", "/")
         $relWithExt = $rel
         $relMap[$rel] = $f.FullName
@@ -150,8 +175,8 @@ if (-not (Test-Path -LiteralPath $knowledgePath)) {
     }
 
     foreach ($f in $wikiFiles) {
-        $text = Get-Content -LiteralPath $f.FullName -Raw
-        $relative = [System.IO.Path]::GetRelativePath($kbPath, $f.FullName).Replace("\", "/")
+        $text = Get-Content -LiteralPath $f.FullName -Raw -Encoding UTF8
+        $relative = (Get-RelativePathSafe -BasePath $kbPath -FullPath $f.FullName).Replace("\", "/")
         $stats["目录项检查数"]++
 
         if (-not ($text -match "(?s)^\s*---\s*\r?\n(.*?)\r?\n---")) {
@@ -170,13 +195,13 @@ if (-not (Test-Path -LiteralPath $knowledgePath)) {
             if (-not $sourceExempt) {
                 $originalSection = Get-OriginalLinkSection -Text $text
                 $rawTargetsInOriginalSection = Get-RawSourceWikiTargets -Text $originalSection
-                if ($rawTargetsInOriginalSection.Count -eq 0) {
+                if ($rawTargetsInOriginalSection.Count -eq 0 -and -not (Test-HasMissingOriginalMarker -Text $originalSection)) {
                     $stats["原文链接区块缺失"]++
                     $issues.Add([PSCustomObject]@{
                         Severity = "WARN"
                         Area = "原文链接"
                         Message = "正式知识页缺少可点击 raw 原文链接区块：$relative"
-                        Suggest = "添加 ## 原文链接，并用 Obsidian WikiLink 直接指向真实存在的 raw/sources 原文附件"
+                        Suggest = "添加 ## 原文链接，并用 Obsidian WikiLink 直接指向真实存在的 raw/sources 原文附件；raw 缺失时明确标记原文缺失待核查"
                     })
                 }
             }
@@ -188,6 +213,7 @@ if (-not (Test-Path -LiteralPath $knowledgePath)) {
             $targetRaw = $m.Groups[1].Value.Trim()
             if ($targetRaw -match '^(https?|mailto):') { continue }
             if ($targetRaw.StartsWith("raw/sources/")) {
+                if ($targetRaw.Contains("...")) { continue }
                 if (-not (Test-VaultRelativeFileExists -RelativePath $targetRaw)) {
                     $stats["raw原文目标缺失"]++
                     $issues.Add([PSCustomObject]@{
@@ -249,14 +275,14 @@ if (-not (Test-Path -LiteralPath $knowledgePath)) {
     if (Test-Path -LiteralPath $sourcesPath) {
         $sourcePages = Get-ChildItem -LiteralPath $sourcesPath -Filter "*.md" -File
         foreach ($sp in $sourcePages) {
-            $sText = Get-Content -LiteralPath $sp.FullName -Raw
+            $sText = Get-Content -LiteralPath $sp.FullName -Raw -Encoding UTF8
             $canonical = Get-FrontMatterValue -Text $sText -Key "canonical_url"
             if ($canonical -and $canonical -notmatch '^https?://') {
                 $stats["canonical_url异常"]++
                 $issues.Add([PSCustomObject]@{
                     Severity = "WARN"
                     Area = "来源映射"
-                    Message = "canonical_url 非标准URL：$([System.IO.Path]::GetRelativePath($kbPath, $sp.FullName).Replace('\','/')) => $canonical"
+                    Message = "canonical_url 非标准URL：$((Get-RelativePathSafe -BasePath $kbPath -FullPath $sp.FullName).Replace('\','/')) => $canonical"
                     Suggest = "保留合法 URL 或记录为 未记录"
                 })
             }

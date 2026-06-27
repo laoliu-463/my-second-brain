@@ -5,11 +5,15 @@ tags: [java, corejava, 高级特性]
 category: 02-后端知识体系/03-Java体系
 source: "raw/sources/Java核心技术卷2高级特性原书第10版.pdf"
 created: 2026-05-03
-updated: 2026-05-03
+updated: 2026-06-27
 type: book-summary
 ---
-
 # Java核心技术卷2高级特性
+
+
+## 原文链接
+
+- [[raw/sources/Java核心技术卷2高级特性原书第10版.pdf|Java核心技术卷2高级特性原书第10版.pdf]]
 
 **作者/版本：** Cay S. Horstmann / 机械工业出版社
 

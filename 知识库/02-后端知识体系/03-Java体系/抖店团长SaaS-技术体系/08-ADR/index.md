@@ -2,11 +2,11 @@
 title: 架构决策记录（ADR）
 tags: [抖店团长, ADR, 架构决策, 技术]
 created: 2026-05-29
-updated: 2026-05-29
+updated: 2026-06-27
+source_level: none
 sources:
   - D:/Projects/SAAS/docs/决策/*.md
 ---
-
 # 架构决策记录（ADR）
 
 ## 概述

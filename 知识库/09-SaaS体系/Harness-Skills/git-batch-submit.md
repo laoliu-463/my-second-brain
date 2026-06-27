@@ -1,3 +1,18 @@
+---
+title: "Git Batch Submit"
+type: procedure
+status: active
+created_at: 2026-06-27
+updated_at: 2026-06-27
+source_level: none
+sources: []
+raw_evidence: []
+related: []
+tags: []
+maintainers:
+  - codex
+confidence: 0.5
+---
 # Git Batch Submit
 
 > 本文件定义 Harness 中批次提交（git batch submit）的具体操作流程。适用于多任务累积 dirty 后的分批提交场景。

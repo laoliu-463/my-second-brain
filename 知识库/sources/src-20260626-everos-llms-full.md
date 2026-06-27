@@ -2,6 +2,7 @@
 source_id: src-20260626-everos-llms-full
 original_title: EverOS — Full Reference
 title: EverOS 官方 API 参考
+updated_at: 2026-06-27
 aliases:
   - EverOS llms-full
   - EverOS Cloud API Reference
@@ -19,7 +20,6 @@ topics:
 tags:
   - source
 ---
-
 # EverOS 官方 API 参考
 
 ## 原文跳转

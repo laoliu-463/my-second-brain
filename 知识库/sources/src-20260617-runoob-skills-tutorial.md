@@ -2,6 +2,7 @@
 source_id: src-20260617-runoob-skills-tutorial
 original_title: Skills 教程 | 菜鸟教程
 title: Agent Skills 入门来源
+updated_at: 2026-06-27
 aliases:
   - Skills 教程
   - 菜鸟教程 Skills
@@ -17,7 +18,6 @@ topics:
 tags:
   - source
 ---
-
 # Agent Skills 入门来源
 
 ## 原文跳转

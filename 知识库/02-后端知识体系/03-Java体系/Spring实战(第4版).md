@@ -5,11 +5,15 @@ tags: [spring, java, 企业开发]
 category: 02-后端知识体系/03-Java体系
 source: "raw/sources/Spring实战中文版（第4版）.pdf"
 created: 2026-05-03
-updated: 2026-05-03
+updated: 2026-06-27
 type: book-summary
 ---
-
 # Spring实战（第4版）
+
+
+## 原文链接
+
+- [[raw/sources/Spring实战中文版（第4版）.pdf|Spring实战中文版（第4版）.pdf]]
 
 **作者/版本：** Craig Walls / 人民邮电出版社
 

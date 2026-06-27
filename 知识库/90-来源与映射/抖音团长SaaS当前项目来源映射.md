@@ -2,7 +2,7 @@
 title: 抖音团长SaaS当前项目来源映射
 tags: [来源映射, SaaS, DDD, SpringBoot, HarnessEngineering, 抖音团长]
 created: 2026-05-29
-updated: 2026-05-29
+updated: 2026-06-27
 sources:
   - D:/Projects/SAAS/
   - D:/Projects/SAAS/AGENTS.md
@@ -10,7 +10,6 @@ sources:
   - D:/Projects/SAAS/docs/
   - code-review-graph:SAAS
 ---
-
 # 抖音团长SaaS当前项目来源映射
 
 ## 概述

@@ -1,3 +1,18 @@
+---
+title: "知识库Harness"
+type: index
+status: active
+created_at: 2026-06-27
+updated_at: 2026-06-27
+source_level: none
+sources: []
+raw_evidence: []
+related: []
+tags: []
+maintainers:
+  - codex
+confidence: 0.5
+---
 # 知识库Harness
 
 > 知识库自身运维 Harness——任务路由、完成门禁、Session 退出检查、GC 政策

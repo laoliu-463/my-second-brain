@@ -5,11 +5,15 @@ tags: [linux, 网络编程, socket, posix]
 category: 02-后端知识体系/06-网络与分布式
 source: "raw/sources/Linux网络编程.pdf"
 created: 2026-05-03
-updated: 2026-05-03
+updated: 2026-06-27
 type: book-summary
 ---
-
 # Linux网络编程
+
+
+## 原文链接
+
+- [[raw/sources/Linux网络编程.pdf|Linux网络编程.pdf]]
 
 **作者/版本：** Stephen / 电子工业出版社
 

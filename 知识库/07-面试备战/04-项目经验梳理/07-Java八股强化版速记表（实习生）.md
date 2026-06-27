@@ -2,10 +2,10 @@
 title: Java八股强化版速记表（实习生）
 tags: [面试, Java, 八股, JUC, 线程池, SQL, Redis]
 created: 2026-05-12
-updated: 2026-05-12
+updated: 2026-06-27
+source_level: none
 sources: [用户提供Java八股强化版速记表]
 ---
-
 # Java八股强化版速记表（实习生）
 
 ## 概述

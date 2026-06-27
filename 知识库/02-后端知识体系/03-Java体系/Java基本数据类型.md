@@ -2,10 +2,10 @@
 title: Java基本数据类型
 tags: [Java, 基本数据类型, 变量, 内存, 整数, 浮点, 字符, 布尔]
 created: 2026-05-12
-updated: 2026-05-12
+updated: 2026-06-27
+source_level: none
 sources: []
 ---
-
 # Java 基本数据类型
 
 > 为什么重要：基本数据类型是理解变量、内存、包装类、自动装箱拆箱、== 和 equals、集合泛型、JVM 栈帧的基础。

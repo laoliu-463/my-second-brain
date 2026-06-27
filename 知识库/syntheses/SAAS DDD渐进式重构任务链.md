@@ -4,7 +4,7 @@ aliases:
   - DDD提示词任务链
   - SAAS DDD 重构路线
 created: 2026-06-23
-updated: 2026-06-23
+updated: 2026-06-27
 topics:
   - SAAS
   - DDD
@@ -14,8 +14,12 @@ tags:
 sources:
   - 知识库/sources/src-20260623-local-ddd-refactor-prompts.md
 ---
-
 # SAAS DDD渐进式重构任务链
+
+
+## 原文链接
+
+- [[raw/sources/src-20260623-local-ddd-refactor-prompts/original.md|original.md]]
 
 ## 概述
 

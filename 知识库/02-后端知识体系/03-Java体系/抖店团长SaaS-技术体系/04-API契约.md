@@ -2,11 +2,11 @@
 title: API契约
 tags: [抖店团长, API, REST, 技术]
 created: 2026-05-29
-updated: 2026-05-29
+updated: 2026-06-27
+source_level: none
 sources:
   - D:/Projects/SAAS/docs/05-API契约总表.md
 ---
-
 # API契约
 
 ## 概述

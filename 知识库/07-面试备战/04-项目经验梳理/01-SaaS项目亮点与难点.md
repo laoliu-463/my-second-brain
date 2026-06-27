@@ -2,10 +2,10 @@
 title: SAAS项目亮点与难点梳理
 tags: [项目经验, 面试, 抖店团长SaaS]
 created: 2026-05-11
-updated: 2026-05-11
+updated: 2026-06-27
+source_level: none
 sources: [SAAS项目文档]
 ---
-
 # SAAS 项目亮点与难点梳理
 
 > 抖店团长 SaaS 系统项目经验梳理，适合面试时回答"介绍一下你最熟悉的项目"。

@@ -3,12 +3,16 @@ title: pdai
 aliases:
   - pdai.tech
 created: 2026-06-23
-updated: 2026-06-23
+updated: 2026-06-27
 tags:
   - entity
 ---
-
 # pdai
+
+
+## 原文链接
+
+- [[raw/sources/src-20260512-pdai-collection-relations/original.md|original.md]]
 
 ## 定位
 

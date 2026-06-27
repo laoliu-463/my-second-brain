@@ -2,7 +2,8 @@
 title: EverOS 本地长期记忆服务方案
 tags: [EverOS, 本地优先, AI-Agent, Memory, 第二大脑]
 created: 2026-06-26
-updated: 2026-06-26
+updated: 2026-06-27
+source_level: none
 source_id: src-20260626-local-everos-oss-memory-service
 raw_path: raw/sources/src-20260626-local-everos-oss-memory-service/original.md
 raw_sha256: 5407F81FBCE96603C1CE8EFB83C5B5432BAFBDA799AC5CEAF7675CAC61C9266D
@@ -15,7 +16,6 @@ sources:
   - https://github.com/EverMind-AI/EverOS/blob/main/docs/api.md
   - https://github.com/EverMind-AI/EverOS/blob/main/docs/how-memory-works.md
 ---
-
 # EverOS 本地长期记忆服务方案
 
 ## 定位

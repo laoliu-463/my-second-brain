@@ -2,13 +2,13 @@
 title: 前端页面与API图谱脉络
 tags: [DDD, SaaS, 前端, Vue3, TypeScript, 代码图谱]
 created: 2026-05-29
-updated: 2026-05-29
+updated: 2026-06-27
+source_level: none
 sources:
   - code-review-graph:SAAS
   - D:/Projects/SAAS/frontend/src/
   - D:/Projects/SAAS/frontend/package.json
 ---
-
 # 前端页面与API图谱脉络
 
 ## 概述

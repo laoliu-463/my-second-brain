@@ -2,10 +2,10 @@
 title: 认证授权与JWT
 tags: [Java, Spring, 认证授权, JWT, 八股文]
 created: 2026-05-11
-updated: 2026-05-11
+updated: 2026-06-27
+source_level: none
 sources: [SAAS/docs/02-架构设计, SAAS/docs/05-接口与数据模型]
 ---
-
 # 认证授权与 JWT
 
 ## 一、双令牌机制

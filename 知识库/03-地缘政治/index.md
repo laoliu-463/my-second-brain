@@ -1,3 +1,18 @@
+---
+title: "03-地缘政治"
+type: index
+status: active
+created_at: 2026-06-27
+updated_at: 2026-06-27
+source_level: none
+sources: []
+raw_evidence: []
+related: []
+tags: []
+maintainers:
+  - codex
+confidence: 0.5
+---
 # 03-地缘政治
 
 > 地缘政治、中美博弈、资本收割模型系列内容

@@ -5,11 +5,15 @@ tags: [css, 前端, 布局, 动画]
 category: 02-后端知识体系/04-JavaScript体系
 source: "raw/sources/CSS揭秘.pdf"
 created: 2026-05-03
-updated: 2026-05-03
+updated: 2026-06-27
 type: book-summary
 ---
-
 # CSS揭秘
+
+
+## 原文链接
+
+- [[raw/sources/CSS揭秘.pdf|CSS揭秘.pdf]]
 
 **作者/版本：** Lea Verou / 人民邮电出版社
 

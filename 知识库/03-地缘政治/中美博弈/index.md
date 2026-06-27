@@ -1,3 +1,18 @@
+---
+title: "中美博弈"
+type: index
+status: active
+created_at: 2026-06-27
+updated_at: 2026-06-27
+source_level: none
+sources: []
+raw_evidence: []
+related: []
+tags: []
+maintainers:
+  - codex
+confidence: 0.5
+---
 # 中美博弈
 
 > 中美博弈 + 资本收割模型系列，共 91 个 PDF 文件（图片扫描版）

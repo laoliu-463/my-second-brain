@@ -1,3 +1,18 @@
+---
+title: "Skill: order-attribution"
+type: procedure
+status: active
+created_at: 2026-06-27
+updated_at: 2026-06-27
+source_level: none
+sources: []
+raw_evidence: []
+related: []
+tags: []
+maintainers:
+  - codex
+confidence: 0.5
+---
 # Skill: order-attribution
 
 ## 使用场景

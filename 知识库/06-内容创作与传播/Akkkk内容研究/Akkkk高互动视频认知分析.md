@@ -2,10 +2,10 @@
 title: Akkkk高互动视频认知分析
 tags: [内容创作, 抖音, 认知分析, Akkkk, 高互动, ASR]
 created: 2026-05-03
-updated: 2026-05-03
+updated: 2026-06-27
+source_level: none
 sources: [raw/sources/Akkkk缺失视频转写/, creator_contents_cleaned.csv]
 ---
-
 # Akkkk高互动视频认知分析
 
 ## 概述

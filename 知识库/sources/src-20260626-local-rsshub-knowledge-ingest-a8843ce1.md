@@ -2,6 +2,7 @@
 source_id: src-20260626-local-rsshub-knowledge-ingest-a8843ce1
 original_title: RSSHub 到知识库的信息采集方案
 title: RSSHub 到知识库的信息采集方案
+updated_at: 2026-06-27
 aliases:
   - RSSHub 信息采集层
   - RSSHub 入库方案
@@ -20,7 +21,6 @@ topics:
 tags:
   - source
 ---
-
 # RSSHub 到知识库的信息采集方案
 
 ## 原文跳转

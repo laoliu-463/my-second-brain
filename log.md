@@ -173,3 +173,15 @@
 - 验证结果：PowerShell Parser 解析 `tools/kb_validate.ps1`、`tools/daily_kb_maintenance.ps1`、`.claude/hooks/kb-pretooluse.ps1` 通过；`python -m py_compile tools/kb_full_distill.py` 通过；`tools/kb_validate.ps1 -ChangedOnly` 通过 13 个变更文件，仅提示两个 `05-*` 目录为既有设计警告；直接运行 `python tools/kb_full_distill.py` 会按预期阻断旧 source 页批量迁移，需显式 `--legacy-source-pages` 才能运行。
 - 待复查项：当前 `raw/sources/人智认知系列` 目录不存在，已抽查到 `原生家庭篇`、`学习篇` 等页面的 raw 原文链接仍无法命中；后续需按真实 raw 文件恢复或落账为缺失，不能通过新建 source 页冒充修复。
 
+## [2026-06-27] lint | ÿ��֪ʶ��ά��
+
+- ִ�нű�: daily_kb_maintenance.ps1
+- ִ��ʱ��: 15:20:32
+- ֪ʶҳɨ����: 784
+- ȱʧ WikiLink: 1394
+- ȱʧ Markdown ����: 13
+- ԭ����������ȱʧ: 0
+- raw ԭ��Ŀ��ȱʧ: 0
+- canonical_url �쳣: 6
+- frontmatterȱʧ: 0
+

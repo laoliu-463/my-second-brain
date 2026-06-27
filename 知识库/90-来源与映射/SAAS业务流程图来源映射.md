@@ -1,7 +1,7 @@
 ---
 title: SAAS业务流程图来源映射
 created: 2026-06-24
-updated: 2026-06-24
+updated: 2026-06-27
 tags:
   - 来源映射
   - SAAS
@@ -11,7 +11,6 @@ sources:
   - 知识库/sources/src-20260524-code-review-graph-saas-flow.md
   - 00-收集箱/未命名 2.md
 ---
-
 # SAAS业务流程图来源映射
 
 ## 概述

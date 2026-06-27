@@ -1,3 +1,18 @@
+---
+title: "Java 体系"
+type: index
+status: active
+created_at: 2026-06-27
+updated_at: 2026-06-27
+source_level: none
+sources: []
+raw_evidence: []
+related: []
+tags: []
+maintainers:
+  - codex
+confidence: 0.5
+---
 # Java 体系
 
 Java 核心知识点整理。

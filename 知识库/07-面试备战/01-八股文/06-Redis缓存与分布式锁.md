@@ -2,10 +2,10 @@
 title: Redis 缓存与分布式锁
 tags: [Java, Redis, 分布式锁, 缓存, 八股文]
 created: 2026-05-11
-updated: 2026-05-11
+updated: 2026-06-27
+source_level: none
 sources: [SAAS/docs/02-架构设计, SAAS/docs/04-开发进度]
 ---
-
 # Redis 缓存与分布式锁
 
 ## 一、Token 黑名单存储

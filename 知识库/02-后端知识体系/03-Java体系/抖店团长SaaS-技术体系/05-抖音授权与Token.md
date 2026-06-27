@@ -2,11 +2,11 @@
 title: 抖音授权与Token
 tags: [抖店团长, 抖音, OAuth, Token, 技术]
 created: 2026-05-29
-updated: 2026-05-29
+updated: 2026-06-27
+source_level: none
 sources:
   - D:/Projects/SAAS/docs/对接/抖音授权与Token.md
 ---
-
 # 抖音授权与Token
 
 ## 概述

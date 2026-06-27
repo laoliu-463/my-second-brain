@@ -2,13 +2,13 @@
 title: FastAPI技术落地蓝图
 tags: [FastAPI, SaaS, DDD, Celery, PostgreSQL, 抖音开放平台]
 created: 2026-05-18
-updated: 2026-05-18
+updated: 2026-06-27
+source_level: none
 sources:
   - raw/sources/抖音团长SaaS设计文档/技术落地设计.md
   - raw/sources/抖音团长SaaS设计文档/V1交付范围表.md
   - raw/sources/抖音团长SaaS设计文档/设计骨架.md
 ---
-
 # FastAPI技术落地蓝图
 
 ## 概述

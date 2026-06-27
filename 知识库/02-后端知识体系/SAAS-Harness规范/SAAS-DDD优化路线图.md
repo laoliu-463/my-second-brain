@@ -2,10 +2,10 @@
 title: SAAS DDD 优化路线图
 tags: [harness, saas, ddd, 优化路线]
 created: 2026-06-02
-updated: 2026-06-02
+updated: 2026-06-27
+source_level: none
 sources: [D:\Projects\SAAS/harness/plans/DDD_OPTIMIZATION_ROADMAP.md]
 ---
-
 # SAAS DDD 优化路线图
 
 ## 总原则

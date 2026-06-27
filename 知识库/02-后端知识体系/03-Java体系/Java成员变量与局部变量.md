@@ -2,10 +2,10 @@
 title: Java成员变量与局部变量
 tags: [Java, 成员变量, 局部变量, 实例变量, 静态变量, this, 默认值]
 created: 2026-05-12
-updated: 2026-05-12
+updated: 2026-06-27
+source_level: none
 sources: []
 ---
-
 # Java 成员变量与局部变量
 
 > 重要基础：连接 JVM 内存结构、栈和堆、对象创建、默认值、static、线程安全、变量作用域。

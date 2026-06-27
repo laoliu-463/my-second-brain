@@ -2,11 +2,11 @@
 title: 抖店团长SaaS技术体系
 tags: [抖店团长, 技术体系, SpringBoot, Vue3, 代码架构, SaaS]
 created: 2026-05-29
-updated: 2026-05-29
+updated: 2026-06-27
+source_level: none
 sources:
   - D:/Projects/SAAS
 ---
-
 # 抖店团长SaaS技术体系
 
 ## 概述

@@ -3,14 +3,14 @@ title: SAAS 全项目业务流程图
 aliases:
   - SAAS 业务流程图 (code-review-graph official API)
 created: 2026-05-24
-updated: 2026-06-23
+updated: 2026-06-27
 source_id: src-20260524-code-review-graph-saas-flow
 sources:
   - raw/sources/src-20260524-code-review-graph-saas-flow/original.md
   - 知识库/sources/src-20260524-code-review-graph-saas-flow.md
 status: migrated-to-synthesis
+source_level: none
 ---
-
 # SAAS 全项目业务流程图
 
 > 兼容旧入口。原页面曾包含 code-review-graph 生成的完整图谱输出，现已归档到 `raw/sources/src-20260524-code-review-graph-saas-flow/original.md`。

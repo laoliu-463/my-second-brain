@@ -2,10 +2,10 @@
 title: Akkkk内容主题提炼与认知映射
 tags: [内容创作, 抖音, 内容提炼, 认知映射, Akkkk]
 created: 2026-05-01
-updated: 2026-05-01
+updated: 2026-06-27
+source_level: none
 sources: [creator_contents_cleaned.csv, creator_comments_cleaned.csv, Akkkk视频原文归档索引]
 ---
-
 # Akkkk内容主题提炼与认知映射
 
 ## 概述

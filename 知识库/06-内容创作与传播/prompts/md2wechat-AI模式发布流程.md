@@ -2,10 +2,10 @@
 title: md2wechat AI 模式发布流程
 tags: [公众号, md2wechat, AI模式, 发布流程]
 created: 2026-05-03
-updated: 2026-05-03
+updated: 2026-06-27
+source_level: none
 sources: [md2wechat-skill 项目文档, 2026-05-03 实测验证]
 ---
-
 # md2wechat AI 模式发布流程
 
 ## 概述

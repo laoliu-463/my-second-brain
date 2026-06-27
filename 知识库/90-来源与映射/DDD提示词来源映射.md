@@ -1,7 +1,7 @@
 ---
 title: DDD提示词来源映射
 created: 2026-06-24
-updated: 2026-06-24
+updated: 2026-06-27
 tags:
   - 来源映射
   - DDD
@@ -11,7 +11,6 @@ sources:
   - 知识库/sources/src-20260623-local-ddd-refactor-prompts.md
   - 00-收集箱/DDD提示词.md
 ---
-
 # DDD提示词来源映射
 
 ## 概述

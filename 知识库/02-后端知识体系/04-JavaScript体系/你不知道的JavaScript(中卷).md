@@ -5,11 +5,15 @@ tags: [javascript, 异步, Promise, 生成器]
 category: 02-后端知识体系/04-JavaScript体系
 source: raw/sources/你不知道的JavaScript（中卷）.pdf
 created: 2026-05-03
-updated: 2026-05-03
+updated: 2026-06-27
 type: book-summary
 ---
-
 # 你不知道的JavaScript（中卷）
+
+
+## 原文链接
+
+- [[raw/sources/你不知道的JavaScript（中卷）.pdf|你不知道的JavaScript（中卷）.pdf]]
 
 **作者/版本：** Kyle Simpson / 人民邮电出版社
 

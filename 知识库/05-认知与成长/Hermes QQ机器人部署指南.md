@@ -2,10 +2,10 @@
 title: Hermes QQ机器人部署指南
 tags: [Hermes, QQ机器人, 部署, DevOps]
 created: 2026-04-25
-updated: 2026-04-25
+updated: 2026-06-27
+source_level: none
 sources: [Hermes Agent配置, 实际操作记录]
 ---
-
 # Hermes QQ机器人部署指南
 
 ## 概述

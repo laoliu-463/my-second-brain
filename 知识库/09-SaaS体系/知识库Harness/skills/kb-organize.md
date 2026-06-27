@@ -1,4 +1,26 @@
+---
+title: "Skill: kb-organize"
+type: procedure
+status: active
+created_at: 2026-06-27
+updated_at: 2026-06-27
+source_level: none
+sources: []
+raw_evidence: []
+related: []
+tags: []
+maintainers:
+  - codex
+confidence: 0.5
+---
 # Skill: kb-organize
+
+
+## 原文链接
+
+- 原文缺失待核查：`raw/sources/.../original.md`
+- 原文缺失待核查：`raw/sources/.../original.pdf`
+- 原文缺失待核查：`raw/sources/.../transcript.md`
 
 ## 触发条件
 
@@ -141,7 +163,7 @@ unknown        无法可靠判断
 3. 把文章特有语境保留在来源页。
 4. 只把可复用、可独立查询的内容写入知识页。
 5. 知识页的关键陈述必须同时具备两类链接：来源页回链和原文跳转链接，并尽可能标注章节、页码、时间戳或锚点。
-6. 证据格式优先使用：`陈述 — [[知识库/sources/src-id|来源页]]；原文：[[raw/sources/.../original.md#章节|章节]]`。PDF 使用 `[[raw/sources/.../original.pdf#page=12|p.12]]`；转写使用 `[[raw/sources/.../transcript.md#00-03-21|00:03:21]]`。暂未迁入 raw 的原始文件可链接当前登记路径，但必须列入待迁移项。
+6. 证据格式优先使用：`陈述 — [[知识库/sources/src-id|来源页]]；原文：章节（原文缺失待核查：`raw/sources/.../original.md`）`。PDF 使用 `p.12（原文缺失待核查：`raw/sources/.../original.pdf`）`；转写使用 `00:03:21（原文缺失待核查：`raw/sources/.../transcript.md`）`。暂未迁入 raw 的原始文件可链接当前登记路径，但必须列入待迁移项。
 7. 同一概念分散在多篇文章笔记中时，合并到一个主知识页。
 8. 旧页面不得直接删除，先转换为重定向、归档候选或复核项。
 9. 来源相互冲突时，保留双方观点、证据、日期和各自原文跳转链接，不擅自消解。

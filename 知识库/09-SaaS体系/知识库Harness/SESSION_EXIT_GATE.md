@@ -1,3 +1,18 @@
+---
+title: "Knowledge Base Session Exit Gate"
+type: note
+status: active
+created_at: 2026-06-27
+updated_at: 2026-06-27
+source_level: none
+sources: []
+raw_evidence: []
+related: []
+tags: []
+maintainers:
+  - codex
+confidence: 0.5
+---
 # Knowledge Base Session Exit Gate
 
 每次知识库整理会话结束前，必须满足：

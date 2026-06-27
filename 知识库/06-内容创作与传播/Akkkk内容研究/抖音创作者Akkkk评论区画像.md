@@ -2,10 +2,10 @@
 title: 抖音创作者Akkkk评论区画像
 tags: [内容创作, 评论区分析, 受众洞察, 抖音]
 created: 2026-04-30
-updated: 2026-05-01
+updated: 2026-06-27
+source_level: none
 sources: [creator_comments_cleaned.csv, creator_contents_cleaned.csv]
 ---
-
 # 抖音创作者Akkkk评论区画像
 
 ## 概述

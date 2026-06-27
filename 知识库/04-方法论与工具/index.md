@@ -1,3 +1,18 @@
+---
+title: "方法论与工具"
+type: index
+status: active
+created_at: 2026-06-27
+updated_at: 2026-06-27
+source_level: none
+sources: []
+raw_evidence: []
+related: []
+tags: []
+maintainers:
+  - codex
+confidence: 0.5
+---
 # 方法论与工具
 
 学习方法论、AI 工具使用指南、实用工具配置。

@@ -1,3 +1,18 @@
+---
+title: "Skill: ddd-domain-optimization"
+type: procedure
+status: active
+created_at: 2026-06-27
+updated_at: 2026-06-27
+source_level: none
+sources: []
+raw_evidence: []
+related: []
+tags: []
+maintainers:
+  - codex
+confidence: 0.5
+---
 # Skill: ddd-domain-optimization
 
 ## 使用场景

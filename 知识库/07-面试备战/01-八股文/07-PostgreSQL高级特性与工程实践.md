@@ -2,10 +2,10 @@
 title: PostgreSQL 高级特性与工程实践
 tags: [Java, PostgreSQL, MyBatis-Plus, 八股文]
 created: 2026-05-11
-updated: 2026-05-11
+updated: 2026-06-27
+source_level: none
 sources: [SAAS/docs/02-架构设计, SAAS/docs/04-开发进度]
 ---
-
 # PostgreSQL 高级特性与工程实践
 
 ## 一、为什么选 PostgreSQL 而不是 MySQL？

@@ -5,11 +5,15 @@ tags: [vue, javascript, 前端, 框架]
 category: 02-后端知识体系/04-JavaScript体系
 source: "raw/sources/Vue.js实战.pdf"
 created: 2026-05-03
-updated: 2026-05-03
+updated: 2026-06-27
 type: book-summary
 ---
-
 # Vue.js实战
+
+
+## 原文链接
+
+- [[raw/sources/Vue.js实战.pdf|Vue.js实战.pdf]]
 
 **作者/版本：** 梁灏 / 人民邮电出版社
 

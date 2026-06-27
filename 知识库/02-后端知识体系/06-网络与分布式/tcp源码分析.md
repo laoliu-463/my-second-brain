@@ -5,11 +5,15 @@ tags: [tcp, ip, 网络协议, 源码分析]
 category: 02-后端知识体系/06-网络与分布式
 source: "raw/sources/tcp源码分析.pdf"
 created: 2026-05-03
-updated: 2026-05-03
+updated: 2026-06-27
 type: book-summary
 ---
-
 # tcp源码分析
+
+
+## 原文链接
+
+- [[raw/sources/tcp源码分析.pdf|tcp源码分析.pdf]]
 
 **作者/版本：** W. Richard Stevens / 机械工业出版社
 

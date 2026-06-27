@@ -1,12 +1,16 @@
 ---
 title: 概念页索引
 created: 2026-06-23
-updated: 2026-06-23
+updated: 2026-06-27
 tags:
   - concept-index
 ---
-
 # 概念页索引
+
+
+## 原文链接
+
+- [[raw/sources/src-20260617-runoob-skills-tutorial/original.md|original.md]]
 
 本索引只提供导航，不承载独立知识结论；概念页中的正式知识陈述必须同时回链来源页和原文跳转。
 

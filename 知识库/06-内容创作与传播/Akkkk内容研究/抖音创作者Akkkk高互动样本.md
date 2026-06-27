@@ -2,10 +2,10 @@
 title: 抖音创作者Akkkk高互动样本
 tags: [内容创作, 抖音, 爆款分析, 传播样本]
 created: 2026-04-30
-updated: 2026-05-01
+updated: 2026-06-27
+source_level: none
 sources: [creator_contents_cleaned.csv]
 ---
-
 # 抖音创作者Akkkk高互动样本
 
 ## 概述

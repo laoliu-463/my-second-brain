@@ -5,11 +5,15 @@ tags: [react, javascript, 前端, 框架]
 category: 02-后端知识体系/04-JavaScript体系
 source: "raw/sources/深入React技术栈.pdf"
 created: 2026-05-03
-updated: 2026-05-03
+updated: 2026-06-27
 type: book-summary
 ---
-
 # 深入React技术栈
+
+
+## 原文链接
+
+- [[raw/sources/深入React技术栈.pdf|深入React技术栈.pdf]]
 
 **作者/版本：** 陈天河 / 人民邮电出版社
 

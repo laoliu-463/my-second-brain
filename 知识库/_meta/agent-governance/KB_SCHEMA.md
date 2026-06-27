@@ -17,7 +17,6 @@ maintainers:
   - codex
 confidence: 1.0
 ---
-
 # Agent 控制面页面元数据规范
 
 ## 适用范围

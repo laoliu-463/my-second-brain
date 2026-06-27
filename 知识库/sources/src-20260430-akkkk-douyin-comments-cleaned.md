@@ -2,6 +2,7 @@
 source_id: src-20260430-akkkk-douyin-comments-cleaned
 original_title: creator_comments_cleaned.csv
 title: Akkkk 抖音评论数据集
+updated_at: 2026-06-27
 aliases:
   - creator_comments_cleaned.csv
 source_type: dataset
@@ -17,7 +18,6 @@ tags:
   - source
   - dataset
 ---
-
 # Akkkk 抖音评论数据集
 
 ## 原文跳转

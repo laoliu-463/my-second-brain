@@ -1,3 +1,18 @@
+---
+title: "P0/P1/P2 Register"
+type: note
+status: active
+created_at: 2026-06-27
+updated_at: 2026-06-27
+source_level: none
+sources: []
+raw_evidence: []
+related: []
+tags: []
+maintainers:
+  - codex
+confidence: 0.5
+---
 # P0/P1/P2 Register
 
 | 编号 | 领域 | 级别 | 现象 | 根因 | 当前状态 | 证据路径 | 下一步 | 是否阻塞 V1 闭环 |

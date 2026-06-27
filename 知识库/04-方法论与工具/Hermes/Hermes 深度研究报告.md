@@ -2,10 +2,10 @@
 title: Hermes Agent 深度研究报告
 tags: [AI, Agent, Hermes, 研究报告, 横纵分析法]
 created: 2026-04-25
-updated: 2026-04-25
+updated: 2026-06-27
+source_level: none
 sources: [横纵研究法]
 ---
-
 # Hermes Agent 深度研究报告
 
 > 基于横纵研究法 | 研究对象：Hermes Agent

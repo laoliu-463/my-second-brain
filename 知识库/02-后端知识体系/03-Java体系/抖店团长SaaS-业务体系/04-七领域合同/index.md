@@ -2,12 +2,12 @@
 title: 七领域合同
 tags: [抖店团长, 领域合同, DDD]
 created: 2026-05-29
-updated: 2026-05-29
+updated: 2026-06-27
+source_level: none
 sources:
   - D:/Projects/SAAS/docs/03-领域架构总览.md
   - D:/Projects/SAAS/docs/领域/*.md
 ---
-
 # 七领域合同
 
 ## 概述

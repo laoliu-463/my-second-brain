@@ -2,10 +2,10 @@
 title: 14-Maven依赖与版本清单
 tags: [Maven, Java, 依赖管理, SpringBoot]
 created: 2026-05-10
-updated: 2026-05-10
+updated: 2026-06-27
+source_level: none
 sources: [pom.xml]
 ---
-
 # 14-Maven 依赖与版本清单
 
 ## 1. 父工程与版本

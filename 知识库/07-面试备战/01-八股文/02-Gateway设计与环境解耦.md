@@ -2,10 +2,10 @@
 title: Gateway 设计与环境解耦
 tags: [Java, Spring, 设计模式, Gateway, 八股文]
 created: 2026-05-11
-updated: 2026-05-16
+updated: 2026-06-27
+source_level: none
 sources: [SAAS/docs/02-架构设计, SAAS/docs/03-Test与Real网关契约, SAAS/docs/06-部署与对接计划]
 ---
-
 # Gateway 设计与环境解耦
 
 ## 一、核心问题：环境差异不该侵入业务代码

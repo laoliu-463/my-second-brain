@@ -1,3 +1,18 @@
+---
+title: "Akkkk视频原文归档"
+type: index
+status: active
+created_at: 2026-06-27
+updated_at: 2026-06-27
+source_level: none
+sources: []
+raw_evidence: []
+related: []
+tags: []
+maintainers:
+  - codex
+confidence: 0.5
+---
 # Akkkk视频原文归档
 
 > Akkkk 全部视频文案按月份归档，从 2023-11 至 2026-04 共 30 个月。

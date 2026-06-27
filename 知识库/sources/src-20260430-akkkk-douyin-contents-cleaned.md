@@ -2,6 +2,7 @@
 source_id: src-20260430-akkkk-douyin-contents-cleaned
 original_title: creator_contents_cleaned.csv
 title: Akkkk 抖音内容数据集
+updated_at: 2026-06-27
 aliases:
   - creator_contents_cleaned.csv
 source_type: dataset
@@ -17,7 +18,6 @@ tags:
   - source
   - dataset
 ---
-
 # Akkkk 抖音内容数据集
 
 ## 原文跳转

@@ -2,10 +2,10 @@
 title: Hermes 使用指南
 tags: [Hermes, AI助手, 工具使用, 技能系统]
 created: 2026-05-01
-updated: 2026-05-01
+updated: 2026-06-27
+source_level: none
 sources: [用户提供的 Hermes 使用教程]
 ---
-
 # Hermes 使用指南
 
 ## 概述

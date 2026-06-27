@@ -2,10 +2,10 @@
 title: Akkkk与认知系列全量映射
 tags: [Akkkk, 内容创作, 认知映射, 人智认知系列, 醒与悟系列]
 created: 2026-05-01
-updated: 2026-05-01
+updated: 2026-06-27
+source_level: none
 sources: [Akkkk内容主题提炼与认知映射, Akkkk视频原文归档索引, 01-人智认知系列, 醒与悟系列索引]
 ---
-
 # Akkkk与认知系列全量映射
 
 ## 概述

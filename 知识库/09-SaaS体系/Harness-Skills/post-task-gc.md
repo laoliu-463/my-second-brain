@@ -1,3 +1,18 @@
+---
+title: "Post Task GC"
+type: procedure
+status: active
+created_at: 2026-06-27
+updated_at: 2026-06-27
+source_level: none
+sources: []
+raw_evidence: []
+related: []
+tags: []
+maintainers:
+  - codex
+confidence: 0.5
+---
 # Post Task GC
 
 > 本文件定义任务结束后的清理流程（garbage collection），包含临时文件清理、报告提交、状态文件检查、dirty 归属登记和未提交项进入下一任务队列。

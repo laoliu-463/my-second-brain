@@ -2,10 +2,10 @@
 title: 18-Webhook 事件接收与消费体系
 tags: [Webhook, 抖店, 事件接收, 幂等, SHA-256, 事件重放]
 created: 2026-05-10
-updated: 2026-05-10
+updated: 2026-06-27
+source_level: none
 sources: [DouyinWebhookEventService.java, DouyinWebhookEvent.java]
 ---
-
 # 18-Webhook 事件接收与消费体系
 
 ## 1. 概述

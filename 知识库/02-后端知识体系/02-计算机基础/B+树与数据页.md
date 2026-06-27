@@ -6,11 +6,11 @@ tags:
   - 索引
   - 数据库
 created: 2026-04-27
-updated: 2026-04-27
+updated: 2026-06-27
+source_level: none
 sources:
   - 小林coding - 从数据页的角度看B+树
 ---
-
 # B+树与数据页
 
 ## 概述

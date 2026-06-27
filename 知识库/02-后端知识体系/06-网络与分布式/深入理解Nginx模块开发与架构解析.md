@@ -5,11 +5,15 @@ tags: [nginx, 反向代理, web服务器, 架构]
 category: 02-后端知识体系/06-网络与分布式
 source: "raw/sources/深入理解Nginx模块开发与架构解析第2版.pdf"
 created: 2026-05-03
-updated: 2026-05-03
+updated: 2026-06-27
 type: book-summary
 ---
-
 # 深入理解Nginx模块开发与架构解析
+
+
+## 原文链接
+
+- [[raw/sources/深入理解Nginx模块开发与架构解析第2版.pdf|深入理解Nginx模块开发与架构解析第2版.pdf]]
 
 **作者/版本：** 陶辉 / 电子工业出版社
 

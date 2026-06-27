@@ -11,12 +11,11 @@ original_link: "本地原始资料"
 raw_path: "raw/sources/Redis开发与运维(付磊).pdf"
 type: source
 created: 2026-06-23
-updated: 2026-06-23
+updated: 2026-06-27
 tags:
   - source
   - raw-evidence
 ---
-
 # Redis开发与运维(付磊)
 
 ## 来源元数据

@@ -1,7 +1,8 @@
 ---
 title: "Collection 类关系图"
 created: 2026-05-17
-updated: 2026-06-23
+updated: 2026-06-27
+source_level: none
 sources:
   - raw/sources/src-20260512-pdai-collection-relations/original.md
 tags:
@@ -9,7 +10,6 @@ tags:
   - 集合
   - JCF
 ---
-
 # Collection 类关系图
 
 > 这是一份知识页，不保留原文全文。原始材料保持在 `raw/` 下不变。

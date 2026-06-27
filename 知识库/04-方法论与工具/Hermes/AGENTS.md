@@ -1,3 +1,18 @@
+---
+title: "AGENTS.md"
+type: note
+status: active
+created_at: 2026-06-27
+updated_at: 2026-06-27
+source_level: none
+sources: []
+raw_evidence: []
+related: []
+tags: []
+maintainers:
+  - codex
+confidence: 0.5
+---
 # AGENTS.md
 
 Hermes Agent / Codex / Claude 通用的知识库维护规范。

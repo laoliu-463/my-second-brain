@@ -5,11 +5,15 @@ tags: [git, 版本控制, 协作]
 category: 02-后端知识体系/07-开发工具
 source: "raw/sources/Pro Git中文PDF版.pdf"
 created: 2026-05-03
-updated: 2026-05-03
+updated: 2026-06-27
 type: book-summary
 ---
-
 # Pro Git中文PDF版
+
+
+## 原文链接
+
+- [[raw/sources/Pro Git中文PDF版.pdf|Pro Git中文PDF版.pdf]]
 
 **作者/版本：** Scott Chacon / 人民邮电出版社
 

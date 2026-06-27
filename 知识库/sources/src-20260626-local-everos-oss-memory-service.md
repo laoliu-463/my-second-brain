@@ -2,6 +2,7 @@
 source_id: src-20260626-local-everos-oss-memory-service
 original_title: EverOS 当成本地长期记忆服务配合使用
 title: EverOS 本地长期记忆服务方案来源
+updated_at: 2026-06-27
 aliases:
   - EverOS 本地长期记忆
   - EverOS OSS 本地服务
@@ -20,7 +21,6 @@ topics:
 tags:
   - source
 ---
-
 # EverOS 本地长期记忆服务方案来源
 
 ## 原文跳转

@@ -5,11 +5,15 @@ tags: [Linux, 鸟哥, Linux命令, Shell, 系统管理]
 category: 02-后端知识体系/05-系统编程
 source: "raw/sources/鸟哥的Linux私房菜-基础学习篇(第四版)高清完整书签PDF版.pdf"
 created: 2026-05-03
-updated: 2026-05-03
+updated: 2026-06-27
 type: book-summary
 ---
-
 # 鸟哥的Linux私房菜：基础学习篇
+
+
+## 原文链接
+
+- [[raw/sources/鸟哥的Linux私房菜-基础学习篇(第四版)高清完整书签PDF版.pdf|鸟哥的Linux私房菜-基础学习篇(第四版)高清完整书签PDF版.pdf]]
 
 **作者/版本：** 鸟哥 / 人民邮电出版社
 

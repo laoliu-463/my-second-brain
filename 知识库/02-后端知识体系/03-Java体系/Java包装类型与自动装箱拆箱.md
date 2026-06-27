@@ -2,10 +2,10 @@
 title: Java包装类型与自动装箱拆箱
 tags: [Java, 包装类型, 自动装箱, 自动拆箱, Integer缓存, equals]
 created: 2026-05-12
-updated: 2026-05-12
+updated: 2026-06-27
+source_level: none
 sources: []
 ---
-
 # Java 包装类型与自动装箱拆箱
 
 > 核心关系：== 和 equals、自动装箱拆箱、Integer 缓存、集合泛型、空指针防范都以此为基础。

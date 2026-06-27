@@ -11,12 +11,11 @@ original_link: "本地原始资料"
 raw_path: "raw/sources/数学分析原理(Rudin_着)中文版.pdf"
 type: source
 created: 2026-06-23
-updated: 2026-06-23
+updated: 2026-06-27
 tags:
   - source
   - raw-evidence
 ---
-
 # 数学分析原理(Rudin_着)中文版
 
 ## 来源元数据

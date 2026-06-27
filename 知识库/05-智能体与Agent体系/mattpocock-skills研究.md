@@ -6,14 +6,14 @@ tags:
   - claude-code
   - 工程方法论
 created: 2026-05-16
-updated: 2026-05-16
+updated: 2026-06-27
+source_level: none
 sources:
   - https://github.com/mattpocock/skills
   - https://raw.githubusercontent.com/mattpocock/skills/main/README.md
   - https://raw.githubusercontent.com/mattpocock/skills/main/CLAUDE.md
   - https://raw.githubusercontent.com/mattpocock/skills/main/CONTEXT.md
 ---
-
 # mattpocock/skills 研究
 
 > 86k ⭐ 的开源 agent skills 仓库，Matt Pocock（Total TypeScript 作者）把自己在 Claude Code 中的 skills 目录直接开源。
