@@ -41,11 +41,115 @@ function Get-FrontMatterValue {
     )
     if ($Text -notmatch "(?s)^\s*---\s*\r?\n(.*?)\r?\n---") { return $null }
     $block = $matches[1]
-    $pattern = "(?m)^\s*$([regex]::Escape($Key))\s*:\s*(.+?)\s*$"
+    $pattern = "(?m)^[ \t]*$([regex]::Escape($Key))[ \t]*:[ \t]*(.*)[ \t]*$"
     if ($block -match $pattern) {
         return $matches[1].Trim().Trim('"').Trim("'")
     }
     return $null
+}
+
+function Get-FirstHeadingTitle {
+    param([string]$Text)
+    $match = [regex]::Match($Text, "(?m)^[ \t]*#[ \t]+(.+?)[ \t]*$")
+    if ($match.Success) {
+        return $match.Groups[1].Value.Trim()
+    }
+    return $null
+}
+
+function Add-LinkIndexEntry {
+    param(
+        [hashtable]$Map,
+        [string]$Key,
+        [string]$FullPath
+    )
+    if ([string]::IsNullOrWhiteSpace($Key)) { return }
+    $normalizedKey = $Key.Trim()
+    if (-not $Map.ContainsKey($normalizedKey)) { $Map[$normalizedKey] = @() }
+    $Map[$normalizedKey] += $FullPath
+}
+
+function Test-AnyMapKeyEndsWith {
+    param(
+        [hashtable]$Map,
+        [string]$Suffix
+    )
+    $suffixText = "/$($Suffix.TrimStart('/'))"
+    foreach ($key in $Map.Keys) {
+        if ($key -eq $Suffix -or $key.EndsWith($suffixText)) {
+            return $true
+        }
+    }
+    return $false
+}
+
+function Test-WikiTargetExists {
+    param(
+        [string]$TargetRaw,
+        [hashtable]$RelMap,
+        [hashtable]$NameMap,
+        [hashtable]$TitleMap
+    )
+    $target = $TargetRaw.Trim()
+    if ($target.Contains("#")) { $target = $target -replace '#.*$' }
+    $target = $target.Trim("/")
+    if ([string]::IsNullOrWhiteSpace($target)) { return $true }
+
+    try {
+        $target = [System.Uri]::UnescapeDataString($target)
+    } catch {
+    }
+
+    $target = $target.Replace("\", "/")
+    if ($target.Contains("/")) {
+        $targetWithExt = $target
+        if ($targetWithExt -notmatch '\.md$') { $targetWithExt = "$targetWithExt.md" }
+        $targetNoExt = [System.IO.Path]::ChangeExtension($targetWithExt, $null).Replace("\", "/")
+        $candidates = @(
+            $targetWithExt,
+            $targetNoExt,
+            "知识库/$targetWithExt",
+            "知识库/$targetNoExt"
+        )
+        foreach ($candidate in $candidates) {
+            if ($RelMap.ContainsKey($candidate)) { return $true }
+        }
+        if (Test-AnyMapKeyEndsWith -Map $RelMap -Suffix $targetWithExt) { return $true }
+        if (Test-AnyMapKeyEndsWith -Map $RelMap -Suffix $targetNoExt) { return $true }
+        return $false
+    }
+
+    if ($NameMap.ContainsKey($target) -and $NameMap[$target].Count -ge 1) { return $true }
+    if ($TitleMap.ContainsKey($target) -and $TitleMap[$target].Count -ge 1) { return $true }
+    return $false
+}
+
+function Resolve-MarkdownLinkCandidate {
+    param(
+        [string]$Link,
+        [string]$BaseDirectory
+    )
+    $linkText = $Link.Trim()
+    if ($linkText.StartsWith("<") -and $linkText.EndsWith(">")) {
+        $linkText = $linkText.Substring(1, $linkText.Length - 2)
+    }
+    $linkText = $linkText -replace '#.*$', ''
+    if ([string]::IsNullOrWhiteSpace($linkText)) { return $null }
+
+    try {
+        $linkText = [System.Uri]::UnescapeDataString($linkText)
+    } catch {
+    }
+
+    if ($linkText -match '^/[A-Za-z]:[\\/]') {
+        $linkText = $linkText.Substring(1)
+    }
+    $linkText = $linkText.Replace("/", [System.IO.Path]::DirectorySeparatorChar)
+
+    if ([System.IO.Path]::IsPathRooted($linkText)) {
+        return [System.IO.Path]::GetFullPath($linkText)
+    }
+    return [System.IO.Path]::GetFullPath((Join-Path $BaseDirectory $linkText))
 }
 
 function Test-FormalKnowledgePage {
@@ -160,9 +264,18 @@ if (-not (Test-Path -LiteralPath $knowledgePath)) {
     $wikiFiles = Get-ChildItem -LiteralPath $knowledgePath -Recurse -File -Filter "*.md"
     $stats["知识页扫描数"] = $wikiFiles.Count
 
+    $allMarkdownFiles = Get-ChildItem -LiteralPath $kbPath -Recurse -File -Filter "*.md" |
+        Where-Object {
+            $full = $_.FullName
+            $full -notmatch "\\\.git\\" -and
+            $full -notmatch "\\tmp\\" -and
+            $full -notmatch "\\\.obsidian\\"
+        }
+
     $relMap = @{}
     $nameMap = @{}
-    foreach ($f in $wikiFiles) {
+    $titleMap = @{}
+    foreach ($f in $allMarkdownFiles) {
         $rel = (Get-RelativePathSafe -BasePath $kbPath -FullPath $f.FullName).Replace("\", "/")
         $relNoExt = [System.IO.Path]::ChangeExtension($rel, $null).Replace("\", "/")
         $relWithExt = $rel
@@ -170,8 +283,11 @@ if (-not (Test-Path -LiteralPath $knowledgePath)) {
         $relMap["$relNoExt.md"] = $f.FullName
         $relMap[$relNoExt] = $f.FullName
         $base = [System.IO.Path]::GetFileNameWithoutExtension($f.Name)
-        if (-not $nameMap.ContainsKey($base)) { $nameMap[$base] = @() }
-        $nameMap[$base] += $f.FullName
+        Add-LinkIndexEntry -Map $nameMap -Key $base -FullPath $f.FullName
+
+        $indexText = Get-Content -LiteralPath $f.FullName -Raw -Encoding UTF8
+        Add-LinkIndexEntry -Map $titleMap -Key (Get-FrontMatterValue -Text $indexText -Key "title") -FullPath $f.FullName
+        Add-LinkIndexEntry -Map $titleMap -Key (Get-FirstHeadingTitle -Text $indexText) -FullPath $f.FullName
     }
 
     foreach ($f in $wikiFiles) {
@@ -212,32 +328,24 @@ if (-not (Test-Path -LiteralPath $knowledgePath)) {
         foreach ($m in $wikiMatches) {
             $targetRaw = $m.Groups[1].Value.Trim()
             if ($targetRaw -match '^(https?|mailto):') { continue }
-            if ($targetRaw.StartsWith("raw/sources/")) {
+            if ($targetRaw.StartsWith("raw/")) {
                 if ($targetRaw.Contains("...")) { continue }
                 if (-not (Test-VaultRelativeFileExists -RelativePath $targetRaw)) {
-                    $stats["raw原文目标缺失"]++
+                    if ($targetRaw.StartsWith("raw/sources/")) {
+                        $stats["raw原文目标缺失"]++
+                    } else {
+                        $stats["WikiLink缺失"]++
+                    }
                     $issues.Add([PSCustomObject]@{
                         Severity = "WARN"
-                        Area = "原文链接"
-                        Message = "raw 原文链接无法命中：$relative => $targetRaw"
-                        Suggest = "确认 raw/sources 下真实文件名，修正链接；文件确实缺失时写入待核查报告，不要新建 source 页冒充"
+                        Area = if ($targetRaw.StartsWith("raw/sources/")) { "原文链接" } else { "WikiLink" }
+                        Message = if ($targetRaw.StartsWith("raw/sources/")) { "raw 原文链接无法命中：$relative => $targetRaw" } else { "raw 附件链接无法命中：$relative => $targetRaw" }
+                        Suggest = if ($targetRaw.StartsWith("raw/sources/")) { "确认 raw/sources 下真实文件名，修正链接；文件确实缺失时写入待核查报告，不要新建 source 页冒充" } else { "确认 raw 附件真实文件名，修正链接或标记附件缺失" }
                     })
                 }
                 continue
             }
-            $target = $targetRaw
-            if ($target.Contains("#")) { $target = $target -replace '#.*$' }
-            $found = $false
-            if ($target.Contains("/")) {
-                if ($target -notmatch '\.md$') { $target = "$target.md" }
-                if ($relMap.ContainsKey($target) -or $relMap.ContainsKey("知识库/$target")) {
-                    $found = $true
-                }
-            } else {
-                if ($nameMap.ContainsKey($target) -and $nameMap[$target].Count -ge 1) {
-                    $found = $true
-                }
-            }
+            $found = Test-WikiTargetExists -TargetRaw $targetRaw -RelMap $relMap -NameMap $nameMap -TitleMap $titleMap
             if (-not $found) {
                 $stats["WikiLink缺失"]++
                 $issues.Add([PSCustomObject]@{
@@ -258,8 +366,8 @@ if (-not (Test-Path -LiteralPath $knowledgePath)) {
             $link = $linkRaw -replace '#.*$'
             if ($link -eq '') { continue }
 
-            $isAbsolutePath = [System.IO.Path]::IsPathRooted($link)
-            $candidate = if ($isAbsolutePath) { $link } else { Join-Path $f.DirectoryName $link }
+            $candidate = Resolve-MarkdownLinkCandidate -Link $link -BaseDirectory $f.DirectoryName
+            if ($null -eq $candidate) { continue }
             if (-not (Test-Path -LiteralPath $candidate)) {
                 $stats["Markdown链接缺失"]++
                 $issues.Add([PSCustomObject]@{

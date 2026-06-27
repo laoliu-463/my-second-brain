@@ -185,3 +185,27 @@
 - canonical_url 异常: 6
 - frontmatter缺失: 0
 
+## [2026-06-27] lint | 每日知识库维护
+
+- 执行脚本: daily_kb_maintenance.ps1
+- 执行时间: 15:23:10
+- 知识页扫描数: 784
+- 缺失 WikiLink: 985
+- 缺失 Markdown 链接: 1
+- 原文链接区块缺失: 0
+- raw 原文目标缺失: 0
+- canonical_url 异常: 0
+- frontmatter缺失: 0
+
+## [2026-06-27] lint | 每日知识库维护
+
+- 执行脚本: daily_kb_maintenance.ps1
+- 执行时间: 15:24:39
+- 知识页扫描数: 784
+- 缺失 WikiLink: 893
+- 缺失 Markdown 链接: 1
+- 原文链接区块缺失: 0
+- raw 原文目标缺失: 0
+- canonical_url 异常: 0
+- frontmatter缺失: 0
+
