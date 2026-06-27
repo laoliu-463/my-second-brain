@@ -62,6 +62,14 @@
 - 该索引供 Codex / Hermes / Claude 等本机代理共享检索；不得自动上传全盘原文到 EverOS
 - 全盘扫描前必须先使用 `--dry-run` 核对范围，并保留默认敏感文件排除规则
 
+Agent 控制面口径：
+- 治理规范位于 `知识库/_meta/agent-governance/`
+- `KB_PROTOCOL.md` 定义 ingest、promote、review、audit 的标准维护流程
+- `PATH_RULES.md` 定义 `raw/`、`知识库/`、`.obsidian/`、`tools/` 等路径边界
+- `KB_SCHEMA.md` 定义新建或修改正式知识页的 frontmatter 与来源字段要求
+- Claude Code 项目级门禁位于 `.claude/hooks/`，通用校验入口为 `tools/kb_validate.ps1`
+- 历史页面暂不强制全量整改；新建或本次修改过的页面必须遵守当前 schema
+
 ## 四、维护优先级
 
 1. 修复断链与失效引用（Wiki 链接、Markdown 链接、raw_path）

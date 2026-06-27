@@ -10,6 +10,7 @@
 || 后端知识体系 | 146 | 2026-06-02 |
 || 方法论与工具 | 16 | 2026-06-26 |
 || 智能体与Agent体系 | 3 | 2026-06-26 |
+|| 治理与元数据 | 6 | 2026-06-27 |
 || 内容创作与传播 | 45 | 2026-05-17 |
 || 面试备战 | 23 | 2026-05-22 |
 || 大学物理复习 | 12 | 2026-05-23 |
@@ -356,6 +357,16 @@
 | [[知识库/05-智能体与Agent体系/mattpocock-skills研究|mattpocock/skills 研究]] | Matt Pocock 开源 agent skills 体系研究：handoff、diagnose、tdd、triage 等技能如何组成可复用代理能力 | 2026-05-16 |
 | [[知识库/05-智能体与Agent体系/EverOS 记忆层接入方案|EverOS 记忆层接入方案]] | EverOS Cloud 作为本知识库 AI Agent 外部记忆层的接入边界、CLI 命令和验证清单 | 2026-06-26 |
 | [[知识库/05-智能体与Agent体系/EverOS 本地长期记忆服务方案|EverOS 本地长期记忆服务方案]] | EverOS OSS 本地服务作为第二大脑长期记忆层的 API、数据落盘、安全边界和桥接脚本方案 | 2026-06-26 |
+
+---
+
+## 治理与元数据
+
+||| 页面 | 摘要 | 更新时间 |
+|||------|------|----------|
+| [[知识库/_meta/agent-governance/KB_PROTOCOL|Agent 控制面维护协议]] | 多 Agent 维护知识库的 ingest、promote、review、audit 标准流程 | 2026-06-27 |
+| [[知识库/_meta/agent-governance/PATH_RULES|Agent 控制面路径规则]] | raw、知识库、_review、_meta、.obsidian、tools 等路径读写边界 | 2026-06-27 |
+| [[知识库/_meta/agent-governance/KB_SCHEMA|Agent 控制面页面元数据规范]] | 新建或修改正式知识页的 frontmatter、来源字段和过渡期兼容口径 | 2026-06-27 |
 
 ---
 

@@ -33,6 +33,18 @@
 - 来源入口处理完成后，应回填 `status / updated / outputs`
 - Hermes Agent 应作为“长期维护代理”工作，而不是只做临时回答
 
+## Claude Code 控制面
+
+Claude Code 在本仓库中应额外遵守项目级控制面：
+
+- 治理文档：`知识库/_meta/agent-governance/KB_PROTOCOL.md`
+- 路径边界：`知识库/_meta/agent-governance/PATH_RULES.md`
+- 页面 schema：`知识库/_meta/agent-governance/KB_SCHEMA.md`
+- 运行时门禁：`.claude/hooks/`
+- 通用校验：`tools/kb_validate.ps1 -ChangedOnly`
+
+若 Claude Code 的 hook 或校验脚本与聊天上下文冲突，以脚本阻断结果为准；需要放行时必须由用户明确说明原因。
+
 ## 页面最低结构
 
 ```markdown
