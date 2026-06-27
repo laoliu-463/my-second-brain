@@ -9,7 +9,6 @@ tags:
 sources:
   - raw/sources/src-20260512-pdai-collection-relations/original.md
   - 知识库/sources/src-20260512-pdai-collection-relations.md
-  - 00-收件箱/Collection 类关系图.md
 ---
 # Collection类关系图来源映射
 
@@ -24,10 +23,10 @@ sources:
 | --- | --- | --- |
 | [[知识库/sources/src-20260512-pdai-collection-relations|Java 集合框架关系图来源]] | `raw/sources/src-20260512-pdai-collection-relations/original.md` | 主来源页：元数据、证据地图、影响页面 |
 | [[知识库/02-后端知识体系/03-Java体系/Collection类关系图|Collection类关系图]] | `raw/sources/src-20260512-pdai-collection-relations/original.md` | 知识提炼页：集合框架关系与常见实现选择 |
-| [[00-收件箱/Collection 类关系图|Collection类关系图（收件箱）]] | `00-收件箱/Collection 类关系图.md` | 收件箱层来源登记与草稿摘要 |
+| [[raw/sources/src-20260512-pdai-collection-relations/original.md|Collection类关系图原文]] | `raw/sources/src-20260512-pdai-collection-relations/original.md` | 原始抓取稿已迁入 raw，收件箱副本已清理 |
 
 ## 说明
 
-- 已完成状态：`00-收件箱/Collection 类关系图.md` 仍保留原文，`知识库/02-后端知识体系/03-Java体系/Collection类关系图.md` 改为概念提炼页。  
+- 已完成状态：原收件箱副本已清理，原文保留在 `raw/sources/src-20260512-pdai-collection-relations/original.md`，`知识库/02-后端知识体系/03-Java体系/Collection类关系图.md` 改为概念提炼页。  
 - 主来源页为 `知识库/sources/src-20260512-pdai-collection-relations.md`。
 - 后续规则：该原文有新版本时，仅更新 `raw/sources/.../original.md` 与本映射关系，不在知识页重复粘贴全文。

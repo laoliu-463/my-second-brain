@@ -53,6 +53,6 @@ tags:
 ## 影响的知识页
 
 - [[知识库/concepts/Agent Skills|Agent Skills]]
-- [[00-收件箱/Skills 教程  菜鸟教程|Skills 教程（收件箱原稿）]]
+- [[raw/sources/src-20260617-runoob-skills-tutorial/original.md|Skills 教程原文]]
 
 

@@ -54,6 +54,6 @@ tags:
 ## 影响的知识页
 
 - [[知识库/syntheses/SAAS DDD渐进式重构任务链|SAAS DDD渐进式重构任务链]]
-- [[00-收集箱/DDD提示词|DDD提示词（收集箱原稿）]]
+- [[raw/sources/src-20260623-local-ddd-refactor-prompts/original.md|DDD提示词原文]]
 
 
