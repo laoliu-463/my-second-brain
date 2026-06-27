@@ -221,3 +221,25 @@
 - canonical_url �쳣: 0
 - frontmatterȱʧ: 0
 
+## [2026-06-27] lint | ÿ��֪ʶ��ά��
+
+- ִ�нű�: daily_kb_maintenance.ps1
+- ִ��ʱ��: 15:32:56
+- ֪ʶҳɨ����: 785
+- ȱʧ WikiLink: 0
+- ȱʧ Markdown ����: 0
+- ԭ����������ȱʧ: 0
+- raw ԭ��Ŀ��ȱʧ: 0
+- canonical_url �쳣: 0
+- frontmatterȱʧ: 0
+
+
+## [2026-06-27] repair | 原文链接与全库断链清零
+
+- 改动范围: 知识库正式页原文链接、Akkkk 内容研究路径、SaaS Harness/DDD 历史链接、概念索引、日报巡检脚本
+- 改动原因: 统一维护“知识页 -> raw/sources 原文附件”的可点击边，并清理巡检发现的 WikiLink / Markdown 断链
+- 关键修复: 784 个知识页已具备 frontmatter 与 `## 原文链接` 或 `source_level: none`；Akkkk 旧入口、尾随反斜杠路径、prompt 附件路径、历史 DDD 旧页引用已修正
+- 新增页面: `知识库/concepts/政治经济学.md`
+- 巡检结果: `06-报告证据/日报/daily-maintenance-20260627-153256.md`，issues=0，wikiLinks=0，mdLinks=0，rawMissing=0，originalSections=0
+- 验证结果: `tools/kb_validate.ps1` 通过 1026 个文件，仅保留项目约定警告“两组 05-* 目录并存”；`python -m unittest discover -s tests -v` 15 项通过；Python 工具 py_compile 通过；`git diff --check` 无空白错误，仅有 Git 换行提示
+- 待复查项: 无来源链路待修；后续若新增正式知识页，必须继续直接链接 `raw/sources/...` 原始附件，不再补造中间 source 元数据页

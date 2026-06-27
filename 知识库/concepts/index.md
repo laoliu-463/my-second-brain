@@ -17,3 +17,4 @@ tags:
 | 概念页 | aliases | 支撑来源 | 原文跳转 |
 |---|---|---|---|
 | [[Agent Skills]] | Skills, Agent 技能包 | [[知识库/sources/src-20260617-runoob-skills-tutorial|Agent Skills 入门来源]]、[[知识库/05-智能体与Agent体系/mattpocock-skills研究|mattpocock/skills 研究]] | [[raw/sources/src-20260617-runoob-skills-tutorial/original.md|Skills 教程原文]]、[mattpocock README](https://raw.githubusercontent.com/mattpocock/skills/main/README.md) |
+| [[政治经济学]] | 经济学、资本与税收 | [[印花税]]、[[学习资料整理]] | 内部概念页，无独立 raw 原文 |
