@@ -9,6 +9,16 @@ $script:warningCount = 0
 $ScriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
 $KbRoot = [System.IO.Path]::GetFullPath((Join-Path $ScriptDir ".."))
 
+function New-UnicodeString {
+    param([int[]]$CodePoints)
+    return -join ($CodePoints | ForEach-Object { [char]$_ })
+}
+
+$KnowledgeDir = New-UnicodeString @(0x77E5, 0x8BC6, 0x5E93)
+$SourceMappingDir = "90-" + (New-UnicodeString @(0x6765, 0x6E90, 0x4E0E, 0x6620, 0x5C04))
+$CognitiveFolder = "05-" + (New-UnicodeString @(0x8BA4, 0x77E5, 0x4E0E, 0x6210, 0x957F))
+$AgentFolder = "05-" + (New-UnicodeString @(0x667A, 0x80FD, 0x4F53, 0x4E0E)) + "Agent" + (New-UnicodeString @(0x4F53, 0x7CFB))
+
 function Write-Fail {
     param([string]$Message)
     Write-Host "KB_VALIDATION_ERROR: $Message" -ForegroundColor Red
@@ -79,14 +89,14 @@ function Test-HasFrontmatter {
 
 function Test-FormalKnowledgePage {
     param([string]$RepoPath)
-    if ($RepoPath -notmatch "^知识库/") { return $false }
-    if ($RepoPath -match "^知识库/(_review|_meta|sources|90-来源与映射)(/|$)") { return $false }
-    return ($RepoPath -match "\.md$")
+    if (-not $RepoPath.StartsWith("$KnowledgeDir/")) { return $false }
+    if ($RepoPath -match ("^" + [regex]::Escape($KnowledgeDir) + "/(_review|_meta|sources|" + [regex]::Escape($SourceMappingDir) + ")(/|$)")) { return $false }
+    return ($RepoPath -match '\.md$')
 }
 
 function Test-KnowledgeMarkdownPage {
     param([string]$RepoPath)
-    return ($RepoPath -match "^知识库/.*\.md$")
+    return ($RepoPath.StartsWith("$KnowledgeDir/") -and $RepoPath.EndsWith(".md"))
 }
 
 $isGitRepo = Test-GitRepo
@@ -118,11 +128,11 @@ if ($isGitRepo) {
     Write-Warn "Not a git work tree; raw append-only checks are limited during full scan."
 }
 
-$kbOrRawChanged = @($files | Where-Object { $_ -match "^(知识库|raw)/" })
+$kbOrRawChanged = @($files | Where-Object { $_.StartsWith("$KnowledgeDir/") -or $_.StartsWith("raw/") })
 $logChanged = @($files | Where-Object { $_ -eq "log.md" })
 
 if ($kbOrRawChanged.Count -gt 0 -and $logChanged.Count -eq 0) {
-    Write-Fail "Changes under 知识库/ or raw/ require updating log.md"
+    Write-Fail "Changes under knowledge or raw paths require updating log.md"
 }
 
 foreach ($file in $files) {
@@ -137,14 +147,14 @@ foreach ($file in $files) {
     }
 
     if (Test-FormalKnowledgePage $file) {
-        if ($text -notmatch "(?m)^\s*(updated_at|updated)\s*:") {
+        if ($text -notmatch '(?m)^\s*(updated_at|updated)\s*:') {
             Write-Fail "Formal knowledge page lacks updated_at or updated: $file"
         }
 
         $hasSource = (
-            $text -match "(?m)^\s*sources\s*:" -or
-            $text -match "(?m)^\s*raw_evidence\s*:" -or
-            $text -match "(?m)^\s*source_level\s*:\s*none\s*$"
+            $text -match '(?m)^\s*sources\s*:' -or
+            $text -match '(?m)^\s*raw_evidence\s*:' -or
+            $text -match '(?m)^\s*source_level\s*:\s*none\s*$'
         )
         if (-not $hasSource) {
             Write-Fail "Formal page must have sources, raw_evidence, or source_level: none: $file"
@@ -152,8 +162,8 @@ foreach ($file in $files) {
     }
 }
 
-$cognitivePath = Join-Path $KbRoot "知识库\05-认知与成长"
-$agentPath = Join-Path $KbRoot "知识库\05-智能体与Agent体系"
+$cognitivePath = Join-Path (Join-Path $KbRoot $KnowledgeDir) $CognitiveFolder
+$agentPath = Join-Path (Join-Path $KbRoot $KnowledgeDir) $AgentFolder
 if ((Test-Path -LiteralPath $cognitivePath) -and (Test-Path -LiteralPath $agentPath)) {
     Write-Warn "Two 05-* folders exist by design. Do not rename them without explicit approval."
 }
