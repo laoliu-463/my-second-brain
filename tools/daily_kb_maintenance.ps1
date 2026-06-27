@@ -28,6 +28,38 @@ function Get-FrontMatterValue {
     return $null
 }
 
+function Test-FormalKnowledgePage {
+    param([string]$RelativePath)
+    if (-not $RelativePath.StartsWith("知识库/")) { return $false }
+    if ($RelativePath -match '^知识库/(_review|_meta|sources|90-来源与映射)(/|$)') { return $false }
+    return $RelativePath.EndsWith(".md")
+}
+
+function Get-OriginalLinkSection {
+    param([string]$Text)
+    $match = [regex]::Match($Text, "(?ms)^##\s*原文链接\s*\r?\n(?<body>.*?)(?=^##\s+|\z)")
+    if ($match.Success) { return $match.Groups["body"].Value }
+    return $null
+}
+
+function Get-RawSourceWikiTargets {
+    param([string]$Text)
+    if ([string]::IsNullOrWhiteSpace($Text)) { return @() }
+    $matches = [regex]::Matches($Text, '\[\[\s*(raw/sources/[^\]\|#]+)(?:#[^\]\|]+)?(?:\|[^\]]+)?\]\]')
+    $targets = @()
+    foreach ($match in $matches) {
+        $targets += $match.Groups[1].Value.Trim()
+    }
+    return @($targets | Where-Object { $_ } | Sort-Object -Unique)
+}
+
+function Test-VaultRelativeFileExists {
+    param([string]$RelativePath)
+    $pathText = ($RelativePath -replace "/", [System.IO.Path]::DirectorySeparatorChar)
+    $fullPath = Join-Path $kbPath $pathText
+    return (Test-Path -LiteralPath $fullPath -PathType Leaf)
+}
+
 function Add-Section {
     param(
         [System.Text.StringBuilder]$Builder,
@@ -72,7 +104,8 @@ $stats = @{
     "知识页扫描数" = 0
     "WikiLink缺失" = 0
     "Markdown链接缺失" = 0
-    "raw_path缺失" = 0
+    "原文链接区块缺失" = 0
+    "raw原文目标缺失" = 0
     "canonical_url异常" = 0
     "Frontmatter缺失" = 0
 }
@@ -131,11 +164,41 @@ if (-not (Test-Path -LiteralPath $knowledgePath)) {
             })
         }
 
+        if (Test-FormalKnowledgePage -RelativePath $relative) {
+            $sourceLevel = Get-FrontMatterValue -Text $text -Key "source_level"
+            $sourceExempt = ($sourceLevel -and $sourceLevel.Trim().ToLowerInvariant() -eq "none")
+            if (-not $sourceExempt) {
+                $originalSection = Get-OriginalLinkSection -Text $text
+                $rawTargetsInOriginalSection = Get-RawSourceWikiTargets -Text $originalSection
+                if ($rawTargetsInOriginalSection.Count -eq 0) {
+                    $stats["原文链接区块缺失"]++
+                    $issues.Add([PSCustomObject]@{
+                        Severity = "WARN"
+                        Area = "原文链接"
+                        Message = "正式知识页缺少可点击 raw 原文链接区块：$relative"
+                        Suggest = "添加 ## 原文链接，并用 Obsidian WikiLink 直接指向真实存在的 raw/sources 原文附件"
+                    })
+                }
+            }
+        }
+
         $wikiLinkPattern = '\[\[([^\]\n#|]+)(?:#[^\]\n]+)?(?:\|[^\]\n]+)?\]\]'
         $wikiMatches = [regex]::Matches($text, $wikiLinkPattern)
         foreach ($m in $wikiMatches) {
             $targetRaw = $m.Groups[1].Value.Trim()
             if ($targetRaw -match '^(https?|mailto):') { continue }
+            if ($targetRaw.StartsWith("raw/sources/")) {
+                if (-not (Test-VaultRelativeFileExists -RelativePath $targetRaw)) {
+                    $stats["raw原文目标缺失"]++
+                    $issues.Add([PSCustomObject]@{
+                        Severity = "WARN"
+                        Area = "原文链接"
+                        Message = "raw 原文链接无法命中：$relative => $targetRaw"
+                        Suggest = "确认 raw/sources 下真实文件名，修正链接；文件确实缺失时写入待核查报告，不要新建 source 页冒充"
+                    })
+                }
+                continue
+            }
             $target = $targetRaw
             if ($target.Contains("#")) { $target = $target -replace '#.*$' }
             $found = $false
@@ -187,21 +250,7 @@ if (-not (Test-Path -LiteralPath $knowledgePath)) {
         $sourcePages = Get-ChildItem -LiteralPath $sourcesPath -Filter "*.md" -File
         foreach ($sp in $sourcePages) {
             $sText = Get-Content -LiteralPath $sp.FullName -Raw
-            $rawPathValue = Get-FrontMatterValue -Text $sText -Key "raw_path"
             $canonical = Get-FrontMatterValue -Text $sText -Key "canonical_url"
-            if ($rawPathValue) {
-                $resolvedRawPath = $rawPathValue -replace '^./',''
-                $resolvedRawPath = Join-Path $sourcesPath $resolvedRawPath
-                if (-not (Test-Path -LiteralPath $resolvedRawPath)) {
-                    $stats["raw_path缺失"]++
-                    $issues.Add([PSCustomObject]@{
-                        Severity = "WARN"
-                        Area = "来源映射"
-                        Message = "raw_path 无法命中：$([System.IO.Path]::GetRelativePath($kbPath, $sp.FullName).Replace('\','/')) => $rawPathValue"
-                        Suggest = "补齐 raw 文件或更新 raw_path 为可验证路径"
-                    })
-                }
-            }
             if ($canonical -and $canonical -notmatch '^https?://') {
                 $stats["canonical_url异常"]++
                 $issues.Add([PSCustomObject]@{
@@ -244,7 +293,8 @@ foreach ($line in $collector) {
 [void]$builder.AppendLine("- 00-收件箱 文件数：$mailboxCount")
 [void]$builder.AppendLine("- 缺失 WikiLink 数：$($stats["WikiLink缺失"])")
 [void]$builder.AppendLine("- 缺失 Markdown 链接数：$($stats["Markdown链接缺失"])")
-[void]$builder.AppendLine("- raw_path 缺失数：$($stats["raw_path缺失"])")
+[void]$builder.AppendLine("- 原文链接区块缺失数：$($stats["原文链接区块缺失"])")
+[void]$builder.AppendLine("- raw 原文目标缺失数：$($stats["raw原文目标缺失"])")
 [void]$builder.AppendLine("- canonical_url 异常数：$($stats["canonical_url异常"])")
 [void]$builder.AppendLine("- frontmatter 缺失数：$($stats["Frontmatter缺失"])")
 [void]$builder.AppendLine("")
@@ -294,7 +344,8 @@ $logBody = @(
     "- 知识页扫描数: $($stats["知识页扫描数"])",
     "- 缺失 WikiLink: $($stats["WikiLink缺失"])",
     "- 缺失 Markdown 链接: $($stats["Markdown链接缺失"])",
-    "- 缺失 raw_path: $($stats["raw_path缺失"])",
+    "- 原文链接区块缺失: $($stats["原文链接区块缺失"])",
+    "- raw 原文目标缺失: $($stats["raw原文目标缺失"])",
     "- canonical_url 异常: $($stats["canonical_url异常"])",
     "- frontmatter缺失: $($stats["Frontmatter缺失"])",
     ""
@@ -304,4 +355,4 @@ Add-Content -LiteralPath $logPath -Value $logBody
 
 Write-Host "DONE: $reportPath"
 Write-Host "issues=$($issues.Count)"
-Write-Host "wikiLinks=$($stats["WikiLink缺失"]) mdLinks=$($stats["Markdown链接缺失"])"
+Write-Host "wikiLinks=$($stats["WikiLink缺失"]) mdLinks=$($stats["Markdown链接缺失"]) rawMissing=$($stats["raw原文目标缺失"]) originalSections=$($stats["原文链接区块缺失"])"

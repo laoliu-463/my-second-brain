@@ -44,7 +44,7 @@ source_level: none | weak | normal | strong
 sources:
   - ""
 raw_evidence:
-  - ""
+  - "raw/sources/..."
 related:
   - ""
 tags:
@@ -72,8 +72,8 @@ confidence: 0.0
 - `created_at` / `created`：创建日期。
 - `updated_at` / `updated`：最后维护日期。
 - `source_level`：来源强度，内部规范可使用 `none`。
-- `sources`：来源页、来源映射页或外部来源。
-- `raw_evidence`：可回溯的 raw 文件路径。
+- `sources`：机器可读来源提示，可填写 raw 路径、来源映射页或外部来源；它不能替代正文中的 `## 原文链接`。
+- `raw_evidence`：可回溯的 raw 文件路径，优先指向 `raw/sources/...` 下的真实原文附件。
 - `related`：相关 wiki 链接。
 - `tags`：检索标签。
 - `maintainers`：维护者或 agent 名称。
@@ -81,10 +81,17 @@ confidence: 0.0
 
 ## 来源要求
 
-正式知识页必须满足以下至少一项：
+正式知识页必须优先满足以下要求：
 
-- 有 `sources` 字段。
-- 有 `raw_evidence` 字段。
-- 明确写出 `source_level: none`，表示该页是内部规范、索引或无外部来源的维护说明。
+- 页面正文有 `## 原文链接` 区块。
+- `## 原文链接` 区块中至少有一个 Obsidian Wiki 链接直接指向真实存在的 `raw/sources/...` 原始文件。
+- raw 原文通过 Obsidian backlinks / graph / 脚本索引能反查引用它的知识页。
+
+以下页面可以豁免 raw 原文直链：
+
+- 明确写出 `source_level: none` 的内部规范、索引、流程或无外部来源维护说明。
+- 暂无 raw 文件但已在 `_review/`、维护报告或页面中明确标记“原文缺失待核查”的过渡页。
+
+`sources` 与 `raw_evidence` 字段仍可保留，用于脚本检索、批量审计和外部来源映射，但不是来源完整性的唯一判据。
 
 不得伪造来源链接。raw 文件缺失时，应写入待核查或报告，而不是补一个不存在的链接。

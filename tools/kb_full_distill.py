@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import hashlib
 import re
+import sys
 from collections import Counter, defaultdict
 from dataclasses import dataclass
 from datetime import datetime
@@ -16,6 +17,7 @@ SOURCE_DIR = WIKI / "sources"
 META_DIR = WIKI / "_meta"
 REVIEW_DIR = WIKI / "_review"
 MAPS_DIR = WIKI / "maps"
+LEGACY_SOURCE_PAGE_FLAG = "--legacy-source-pages"
 
 EXCLUDE_PARTS = {".git", ".obsidian", ".claude", ".cursor", "__pycache__"}
 STRUCTURAL_NAMES = {
@@ -699,6 +701,12 @@ def append_log(files: list[Path], rows: list[dict[str, str]], groups: list[Sourc
 
 
 def main() -> None:
+    if LEGACY_SOURCE_PAGE_FLAG not in sys.argv:
+        raise SystemExit(
+            "kb_full_distill.py is a legacy source-page migration script. "
+            "Current source integrity is knowledge page -> raw/sources direct links. "
+            f"Re-run with {LEGACY_SOURCE_PAGE_FLAG} only when intentionally maintaining historical source pages."
+        )
     ensure_dirs()
     files = all_files()
     md_files = [p for p in files if p.suffix.lower() == ".md"]

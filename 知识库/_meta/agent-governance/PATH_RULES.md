@@ -48,7 +48,8 @@ Agent 可以：
 
 - 新增原始资料。
 - 新增来源说明或校验信息。
-- 计算 hash 并建立 source mapping。
+- 计算 hash 并建立辅助 source mapping。
+- 被正式知识页通过 `[[raw/sources/...|...]]` 直接引用，从而让 Obsidian backlinks / graph 反查引用它的页面。
 
 Agent 禁止：
 
@@ -64,12 +65,12 @@ Agent 可以：
 
 - 新增或修改正式知识页。
 - 维护 `sources/`、`90-来源与映射/`、`concepts/`、`entities/`、`maps/`、`syntheses/`。
-- 建立交叉引用和来源追踪。
+- 建立交叉引用和来源追踪，其中来源主链路应是知识页正文 `## 原文链接` 直接指向 `raw/sources/...`。
 
 Agent 必须：
 
 - 新建或修改正式页时保留 frontmatter。
-- 事实性内容保留来源链路。
+- 事实性内容保留来源链路，优先使用可点击的 raw 原文附件 Wiki 链接。
 - 重要新页接入 `index.md` 或局部索引页。
 - 涉及 `知识库/` 的成批改动必须追加 `log.md`。
 
@@ -90,6 +91,20 @@ Agent 必须：
 用途：治理规范、迁移清单、内容清单和维护元数据。
 
 Agent 可以维护本目录下的治理文档，但不得把普通知识正文放入 `_meta/`。
+
+## `知识库/sources/` 与 `知识库/90-来源与映射/`
+
+用途：辅助来源索引、多对多映射、外部 URL、hash、审计说明和批量迁移记录。
+
+Agent 可以：
+
+- 记录 `source_id/raw_path/canonical_url/raw_sha256` 等机器可读元数据。
+- 维护一个 raw 原文对应多个知识页、一个知识页对应多个 raw 原文的映射关系。
+
+Agent 不应：
+
+- 用 source 元数据页替代正式知识页内的 `## 原文链接`。
+- 在 raw 文件缺失时新建来源页冒充来源完整。
 
 ## `.obsidian/`
 

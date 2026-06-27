@@ -364,9 +364,9 @@
 
 ||| 页面 | 摘要 | 更新时间 |
 |||------|------|----------|
-| [[知识库/_meta/agent-governance/KB_PROTOCOL|Agent 控制面维护协议]] | 多 Agent 维护知识库的 ingest、promote、review、audit 标准流程 | 2026-06-27 |
+| [[知识库/_meta/agent-governance/KB_PROTOCOL|Agent 控制面维护协议]] | 多 Agent 维护知识库的 ingest、promote、review、audit 标准流程，强调知识页直接链接 raw 原文 | 2026-06-27 |
 | [[知识库/_meta/agent-governance/PATH_RULES|Agent 控制面路径规则]] | raw、知识库、_review、_meta、.obsidian、tools 等路径读写边界 | 2026-06-27 |
-| [[知识库/_meta/agent-governance/KB_SCHEMA|Agent 控制面页面元数据规范]] | 新建或修改正式知识页的 frontmatter、来源字段和过渡期兼容口径 | 2026-06-27 |
+| [[知识库/_meta/agent-governance/KB_SCHEMA|Agent 控制面页面元数据规范]] | 新建或修改正式知识页的 frontmatter、原文链接区块和过渡期兼容口径 | 2026-06-27 |
 
 ---
 

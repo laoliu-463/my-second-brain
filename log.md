@@ -165,3 +165,11 @@
 - 影响文件：`tools/memory_capture.py`、`tests/test_memory_capture.py`、`log.md`。
 - 验证结果：`python -m unittest discover -s tests -v` 通过 15 项；带 `prompt + transcript_path` 的 `UserPromptSubmit -NoCloud` 冒烟只写入 66 字 prompt；修正后真实 Cloud 写入 `codex-hook-corrected-cloud-smoke-20260627` 成功，metadata 显示 `char_count=92`、`cognitive_required=true`、`cloud_written=true`，EverOS profile 检索包含该 marker。
 
+## [2026-06-27] governance | raw 原文直链来源口径
+
+- 改动范围：将知识库来源完整性口径从“source 元数据页中转”调整为“正式知识页 `## 原文链接` 直接链接 `raw/sources/...` 原文附件”，并要求 Obsidian backlinks / graph / 脚本索引能反查引用关系。
+- 改动原因：用户明确要求维护的是知识页与 raw 原文之间的可点击双向边，不得用 `知识库/sources/` 元数据页替代来源完整性。
+- 影响文件：`AGENTS.md`、`CLAUDE.md`、`agent.md`、`index.md`、`.claude/hooks/kb-pretooluse.ps1`、`tools/kb_validate.ps1`、`tools/daily_kb_maintenance.ps1`、`tools/kb_full_distill.py`、`知识库/_meta/agent-governance/KB_PROTOCOL.md`、`知识库/_meta/agent-governance/PATH_RULES.md`、`知识库/_meta/agent-governance/KB_SCHEMA.md`、`log.md`。
+- 验证结果：PowerShell Parser 解析 `tools/kb_validate.ps1`、`tools/daily_kb_maintenance.ps1`、`.claude/hooks/kb-pretooluse.ps1` 通过；`python -m py_compile tools/kb_full_distill.py` 通过；`tools/kb_validate.ps1 -ChangedOnly` 通过 13 个变更文件，仅提示两个 `05-*` 目录为既有设计警告；直接运行 `python tools/kb_full_distill.py` 会按预期阻断旧 source 页批量迁移，需显式 `--legacy-source-pages` 才能运行。
+- 待复查项：当前 `raw/sources/人智认知系列` 目录不存在，已抽查到 `原生家庭篇`、`学习篇` 等页面的 raw 原文链接仍无法命中；后续需按真实 raw 文件恢复或落账为缺失，不能通过新建 source 页冒充修复。
+

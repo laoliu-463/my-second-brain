@@ -18,6 +18,7 @@ $KnowledgeDir = New-UnicodeString @(0x77E5, 0x8BC6, 0x5E93)
 $SourceMappingDir = "90-" + (New-UnicodeString @(0x6765, 0x6E90, 0x4E0E, 0x6620, 0x5C04))
 $CognitiveFolder = "05-" + (New-UnicodeString @(0x8BA4, 0x77E5, 0x4E0E, 0x6210, 0x957F))
 $AgentFolder = "05-" + (New-UnicodeString @(0x667A, 0x80FD, 0x4F53, 0x4E0E)) + "Agent" + (New-UnicodeString @(0x4F53, 0x7CFB))
+$OriginalLinkHeading = New-UnicodeString @(0x539F, 0x6587, 0x94FE, 0x63A5)
 
 function Write-Fail {
     param([string]$Message)
@@ -112,6 +113,46 @@ function Test-FormalKnowledgePage {
     return ($RepoPath -match '\.md$')
 }
 
+function Get-FrontMatterScalar {
+    param(
+        [string]$Text,
+        [string]$Key
+    )
+    if ($Text -notmatch "(?s)^\s*---\s*\r?\n(.*?)\r?\n---") { return $null }
+    $block = $matches[1]
+    $pattern = "(?m)^\s*$([regex]::Escape($Key))\s*:\s*(.+?)\s*$"
+    if ($block -match $pattern) {
+        return $matches[1].Trim().Trim('"').Trim("'")
+    }
+    return $null
+}
+
+function Get-OriginalLinkSection {
+    param([string]$Text)
+    $heading = [regex]::Escape($OriginalLinkHeading)
+    $match = [regex]::Match($Text, "(?ms)^##\s*$heading\s*\r?\n(?<body>.*?)(?=^##\s+|\z)")
+    if ($match.Success) { return $match.Groups["body"].Value }
+    return $null
+}
+
+function Get-RawSourceWikiTargets {
+    param([string]$Text)
+    if ([string]::IsNullOrWhiteSpace($Text)) { return @() }
+    $matches = [regex]::Matches($Text, '\[\[\s*(raw/sources/[^\]\|#]+)(?:#[^\]\|]+)?(?:\|[^\]]+)?\]\]')
+    $targets = @()
+    foreach ($match in $matches) {
+        $targets += $match.Groups[1].Value.Trim()
+    }
+    return @($targets | Where-Object { $_ } | Sort-Object -Unique)
+}
+
+function Test-RawSourceTargetExists {
+    param([string]$Target)
+    $pathText = ($Target -replace "/", [System.IO.Path]::DirectorySeparatorChar)
+    $fullPath = Join-Path $KbRoot $pathText
+    return (Test-Path -LiteralPath $fullPath -PathType Leaf)
+}
+
 function Test-KnowledgeMarkdownPage {
     param([string]$RepoPath)
     return ($RepoPath.StartsWith("$KnowledgeDir/") -and $RepoPath.EndsWith(".md"))
@@ -169,13 +210,20 @@ foreach ($file in $files) {
             Write-Fail "Formal knowledge page lacks updated_at or updated: $file"
         }
 
-        $hasSource = (
-            $text -match '(?m)^\s*sources\s*:' -or
-            $text -match '(?m)^\s*raw_evidence\s*:' -or
-            $text -match '(?m)^\s*source_level\s*:\s*none\s*$'
-        )
-        if (-not $hasSource) {
-            Write-Fail "Formal page must have sources, raw_evidence, or source_level: none: $file"
+        $sourceLevel = Get-FrontMatterScalar -Text $text -Key "source_level"
+        $sourceExempt = ($sourceLevel -and $sourceLevel.Trim().ToLowerInvariant() -eq "none")
+        if (-not $sourceExempt) {
+            $originalSection = Get-OriginalLinkSection -Text $text
+            $rawTargets = Get-RawSourceWikiTargets -Text $originalSection
+            if ($rawTargets.Count -eq 0) {
+                Write-Fail "Formal page must have a ## $OriginalLinkHeading section with a raw/sources WikiLink: $file"
+            } else {
+                foreach ($target in $rawTargets) {
+                    if (-not (Test-RawSourceTargetExists -Target $target)) {
+                        Write-Fail "Formal page raw source link does not resolve: $file => $target"
+                    }
+                }
+            }
         }
     }
 }

@@ -77,7 +77,7 @@ if ($normalizedFile -match "^\.obsidian/" -or (Test-PathUnder $resolvedFile ".ob
 }
 
 if ($toolName -match "^(Edit|MultiEdit)$" -and ($normalizedFile -match "^raw/" -or (Test-PathUnder $resolvedFile "raw"))) {
-    [Console]::Error.WriteLine("Blocked: existing raw evidence is append-only. Create a new raw file or source note instead.")
+    [Console]::Error.WriteLine("Blocked: existing raw evidence is append-only. Add a new raw file or update the knowledge page original-link/source mapping instead.")
     exit 2
 }
 
