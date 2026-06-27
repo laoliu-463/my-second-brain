@@ -155,5 +155,5 @@
 - 改动范围：调整 `tools/memory_capture.py` 的 `codex-hook-json` 解析顺序，`UserPromptSubmit` 优先捕获本次 `prompt`，不再优先读取整段 `transcript_path`；补充对应单元测试。
 - 改动原因：用户信任 hook 后的实测记录显示 Codex `UserPromptSubmit` 事件同时携带 `prompt` 与 `transcript_path`，旧逻辑优先读取完整 session transcript，导致本地记录过大且云端摘要不够聚焦。
 - 影响文件：`tools/memory_capture.py`、`tests/test_memory_capture.py`、`log.md`。
-- 验证项：需重新执行单元测试与一次带 `prompt + transcript_path` 的 hook 冒烟。
+- 验证结果：`python -m unittest discover -s tests -v` 通过 15 项；带 `prompt + transcript_path` 的 `UserPromptSubmit -NoCloud` 冒烟只写入 66 字 prompt；修正后真实 Cloud 写入 `codex-hook-corrected-cloud-smoke-20260627` 成功，metadata 显示 `char_count=92`、`cognitive_required=true`、`cloud_written=true`，EverOS profile 检索包含该 marker。
 
