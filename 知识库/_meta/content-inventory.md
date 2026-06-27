@@ -70,8 +70,8 @@ tags:
 | `第二大脑-95-原始资料` | 49 |
 | `LLM Wiki` | 38 |
 | `tools` | 4 |
-| `00-收件箱` | 3 |
-| `00-收集箱` | 2 |
+| `00-收件箱` | 0 |
+| `00-收集箱` | 0 |
 | `.gitattributes` | 1 |
 | `.gitignore` | 1 |
 | `CLAUDE.md` | 1 |
@@ -87,11 +87,6 @@ tags:
 
 | 原始路径 | 当前标题 | 文件类型 | 是否包含完整原文 | 是否包含个人批注或 AI 总结 | 原始链接、作者和日期 | 建议 source_id | 重复候选 | 建议合并到的知识页 | 目标路径 | 风险和待确认项 |
 |---|---|---|---|---|---|---|---|---|---|---|
-| `00-收件箱/Collection 类关系图.md` | Collection 类关系图 | raw-source | 否 | 否 | https://pdai.tech/md/java/collection/java-collection-all.html | `src-20260623-local-Collection-类关系图-9fde3f55` | 知识库/02-后端知识体系/03-Java体系/Collection类关系图.md | raw/sources 或 知识库/sources/<source_id>.md | raw/sources 或 知识库/sources/<source_id>.md | 收件箱原文或待归档来源 |
-| `00-收件箱/Java即时编译器原理解析及实践.md` | Java即时编译器原理解析及实践 | raw-source | 可能 | 否 | https://tech.meituan.com/2020/10/22/java-jit-practice-in-meituan.html | `src-20260623-local-Java即时编译器原理解析及实践-3090d36d` | 知识库/02-后端知识体系/03-Java体系/Java即时编译器原理解析及实践.md | raw/sources 或 知识库/sources/<source_id>.md | raw/sources 或 知识库/sources/<source_id>.md | 收件箱原文或待归档来源 |
-| `00-收件箱/Skills 教程  菜鸟教程.md` | Skills 教程 \| 菜鸟教程 | raw-source | 否 | 是 | https://www.runoob.com/skills/skills-tutorial.html | `src-20260623-local-Skills-教程-菜鸟教程-60a30403` | raw/sources/src-20260617-runoob-skills-tutorial/original.md | raw/sources 或 知识库/sources/<source_id>.md | raw/sources 或 知识库/sources/<source_id>.md | 收件箱原文或待归档来源 |
-| `00-收集箱/DDD提示词.md` | DDD提示词（原始） | mixed | 可能 | 是 | 未发现 | `src-20260623-local-DDD提示词-原始-11f1e045` | raw/sources/src-20260623-local-ddd-refactor-prompts/original.md | 知识库/_review/unresolved-items.md | 知识库/_review/unresolved-items.md | 收件箱长文且混合批注/摘要 |
-| `00-收集箱/未命名 2.md` | SAAS 业务流程图 (code-review-graph official API) | raw-source | 可能 | 否 | 未发现 | `src-20260623-local-SAAS-业务流程图-code-review-graph-off-77da3a6e` | raw/sources/src-20260524-code-review-graph-saas-flow/original.md | raw/sources 或 知识库/sources/<source_id>.md | raw/sources 或 知识库/sources/<source_id>.md | 收件箱原文或待归档来源 |
 | `CLAUDE.md` | CLAUDE.md | unknown | 否 | 否 | 未发现 | `` |  | CLAUDE.md | CLAUDE.md | 结构、索引、任务、日志或模板文件 |
 | `index.md` | 索引 | unknown | 可能 | 是 | 未发现 | `` |  | index.md | index.md | 结构、索引、任务、日志或模板文件 |
 | `LLM Wiki/Harness/00-Harness-Engineering.md` | Harness Engineering | concept | 否 | 是 | 未发现 | `` |  | 知识库/concepts/Harness Engineering.md | 知识库/concepts/Harness Engineering.md | 稳定概念、方法或知识页 |
@@ -180,9 +175,9 @@ tags:
 | `raw/sources/Akkkk缺失视频转写/2026-04-30_7634534925051462001.md` | Akkkk缺失视频转写-2026-04-30-7634534925051462001 | raw-source | 是 | 是 | https://www.douyin.com/video/7634534925051462001 | `src-20260430-local-Akkkk缺失视频转写-2026-04-30-763453492-426f421d` |  | raw/sources 或 知识库/sources/<source_id>.md | raw/sources 或 知识库/sources/<source_id>.md | raw 原始层 |
 | `raw/sources/src-20201022-meituan-jit-practice/original.md` | original | raw-source | 是 | 否 | https://tech.meituan.com/2020/10/22/java-jit-practice-in-meituan.html' | `src-20260623-local-original-abb8e979` | raw/sources/src-20260512-pdai-collection-relations/original.md | raw/sources 或 知识库/sources/<source_id>.md | raw/sources 或 知识库/sources/<source_id>.md | raw 原始层 |
 | `raw/sources/src-20260512-pdai-collection-relations/original.md` | original | raw-source | 是 | 否 | https://pdai.tech/md/java/collection/java-collection-all.html' | `src-20260623-local-original-fa5eae8f` | raw/sources/src-20201022-meituan-jit-practice/original.md | raw/sources 或 知识库/sources/<source_id>.md | raw/sources 或 知识库/sources/<source_id>.md | raw 原始层 |
-| `raw/sources/src-20260524-code-review-graph-saas-flow/original.md` | SAAS 业务流程图 (code-review-graph official API) | raw-source | 是 | 否 | 未发现 | `src-20260524-local-SAAS-业务流程图-code-review-graph-off-1ac8b5a6` | 00-收集箱/未命名 2.md | raw/sources 或 知识库/sources/<source_id>.md | raw/sources 或 知识库/sources/<source_id>.md | raw 原始层 |
-| `raw/sources/src-20260617-runoob-skills-tutorial/original.md` | Skills 教程 \| 菜鸟教程 | raw-source | 是 | 是 | https://www.runoob.com/skills/skills-tutorial.html | `src-20260623-local-Skills-教程-菜鸟教程-9ad0db24` | 00-收件箱/Skills 教程  菜鸟教程.md | raw/sources 或 知识库/sources/<source_id>.md | raw/sources 或 知识库/sources/<source_id>.md | raw 原始层 |
-| `raw/sources/src-20260623-local-ddd-refactor-prompts/original.md` | DDD提示词（原始） | raw-source | 是 | 是 | 未发现 | `src-20260623-local-DDD提示词-原始-4bd27356` | 00-收集箱/DDD提示词.md | raw/sources 或 知识库/sources/<source_id>.md | raw/sources 或 知识库/sources/<source_id>.md | raw 原始层 |
+| `raw/sources/src-20260524-code-review-graph-saas-flow/original.md` | SAAS 业务流程图 (code-review-graph official API) | raw-source | 是 | 否 | 未发现 | `src-20260524-local-SAAS-业务流程图-code-review-graph-off-1ac8b5a6` | 知识库/sources/src-20260524-code-review-graph-saas-flow.md | raw/sources 或 知识库/sources/<source_id>.md | raw/sources 或 知识库/sources/<source_id>.md | raw 原始层 |
+| `raw/sources/src-20260617-runoob-skills-tutorial/original.md` | Skills 教程 \| 菜鸟教程 | raw-source | 是 | 是 | https://www.runoob.com/skills/skills-tutorial.html | `src-20260623-local-Skills-教程-菜鸟教程-9ad0db24` | 知识库/sources/src-20260617-runoob-skills-tutorial.md | raw/sources 或 知识库/sources/<source_id>.md | raw/sources 或 知识库/sources/<source_id>.md | raw 原始层 |
+| `raw/sources/src-20260623-local-ddd-refactor-prompts/original.md` | DDD提示词（原始） | raw-source | 是 | 是 | 未发现 | `src-20260623-local-DDD提示词-原始-4bd27356` | 知识库/sources/src-20260623-local-ddd-refactor-prompts.md | raw/sources 或 知识库/sources/<source_id>.md | raw/sources 或 知识库/sources/<source_id>.md | raw 原始层 |
 | `raw/sources/抖音团长SaaS设计文档/saas系统V2.2(定稿).md` | 抖音团长 SaaS 系统 - 完整需求方案文档 | raw-source | 是 | 是 | https://www.douyin.com/aweme/v1/web/user/profile/?sec_uid={sec_uid}` | `src-20260408-local-抖音团长-SaaS-系统-完整需求方案文档-fff9f9fb` |  | raw/sources 或 知识库/sources/<source_id>.md | raw/sources 或 知识库/sources/<source_id>.md | raw 原始层 |
 | `raw/sources/抖音团长SaaS设计文档/V1交付范围表.md` | 抖音团长 SaaS — V1 交付范围表 | raw-source | 是 | 否 | 未发现 | `src-20260517-local-抖音团长-SaaS-—-V1-交付范围表-f5e0b672` |  | raw/sources 或 知识库/sources/<source_id>.md | raw/sources 或 知识库/sources/<source_id>.md | raw 原始层 |
 | `raw/sources/抖音团长SaaS设计文档/技术落地设计.md` | 抖音团长 SaaS — 技术落地设计 | raw-source | 是 | 否 | 未发现 | `src-20260517-local-抖音团长-SaaS-—-技术落地设计-ebbdcb18` |  | raw/sources 或 知识库/sources/<source_id>.md | raw/sources 或 知识库/sources/<source_id>.md | raw 原始层 |
@@ -326,7 +321,7 @@ tags:
 | `知识库/02-后端知识体系/02-计算机基础/index.md` | 02-计算机基础 | unknown | 否 | 否 | 未发现 | `` |  | 知识库/02-后端知识体系/02-计算机基础/index.md | 知识库/02-后端知识体系/02-计算机基础/index.md | 结构、索引、任务、日志或模板文件 |
 | `知识库/02-后端知识体系/02-计算机基础/JIT编译器详解.md` | JIT编译器详解 | synthesis | 否 | 是 | 未发现 | `` |  | 知识库/syntheses/JIT编译器详解.md | 知识库/syntheses/JIT编译器详解.md | 跨页汇总、索引、路线或体系页 |
 | `知识库/02-后端知识体系/02-计算机基础/JVM、JDK 与 JRE.md` | JVM、JDK 与 JRE | synthesis | 否 | 否 | 未发现 | `` |  | 知识库/syntheses/JVM、JDK 与 JRE.md | 知识库/syntheses/JVM、JDK 与 JRE.md | 跨页汇总、索引、路线或体系页 |
-| `知识库/02-后端知识体系/03-Java体系/Collection类关系图.md` | Collection 类关系图 | synthesis | 否 | 否 | 未发现 | `` | 00-收件箱/Collection 类关系图.md | 知识库/syntheses/Collection 类关系图.md | 知识库/syntheses/Collection 类关系图.md | 跨页汇总、索引、路线或体系页 |
+| `知识库/02-后端知识体系/03-Java体系/Collection类关系图.md` | Collection 类关系图 | synthesis | 否 | 否 | 未发现 | `` | raw/sources/src-20260512-pdai-collection-relations/original.md | 知识库/syntheses/Collection 类关系图.md | 知识库/syntheses/Collection 类关系图.md | 跨页汇总、索引、路线或体系页 |
 | `知识库/02-后端知识体系/03-Java体系/DDD实战-团长SaaS系统/01-战略设计-限界上下文划分.md` | 01-战略设计-限界上下文划分 | synthesis | 否 | 否 | 未发现 | `` |  | 知识库/syntheses/01-战略设计-限界上下文划分.md | 知识库/syntheses/01-战略设计-限界上下文划分.md | 跨页汇总、索引、路线或体系页 |
 | `知识库/02-后端知识体系/03-Java体系/DDD实战-团长SaaS系统/02-核心领域模型详解.md` | 02-核心领域模型详解 | synthesis | 可能 | 是 | 未发现 | `` |  | 知识库/syntheses/02-核心领域模型详解.md | 知识库/syntheses/02-核心领域模型详解.md | 跨页汇总、索引、路线或体系页 |
 | `知识库/02-后端知识体系/03-Java体系/DDD实战-团长SaaS系统/03-本地与三方调用SOP分离.md` | 03-本地与三方调用SOP分离 | synthesis | 否 | 否 | 未发现 | `` |  | 知识库/syntheses/03-本地与三方调用SOP分离.md | 知识库/syntheses/03-本地与三方调用SOP分离.md | 跨页汇总、索引、路线或体系页 |
@@ -371,7 +366,7 @@ tags:
 | `知识库/02-后端知识体系/03-Java体系/Java_8_实战.md` | Java 8 实战 | synthesis | 否 | 否 | 未发现 | `` | 知识库/sources/src-20260212-local-Java-8-实战-f8e625ec.md | 知识库/syntheses/Java 8 实战.md | 知识库/syntheses/Java 8 实战.md | 跨页汇总、索引、路线或体系页 |
 | `知识库/02-后端知识体系/03-Java体系/Java中equals与hashCode.md` | Java中==与equals及hashCode | synthesis | 否 | 否 | 未发现 | `` |  | 知识库/syntheses/Java中==与equals及hashCode.md | 知识库/syntheses/Java中==与equals及hashCode.md | 跨页汇总、索引、路线或体系页 |
 | `知识库/02-后端知识体系/03-Java体系/Java包装类型与自动装箱拆箱.md` | Java包装类型与自动装箱拆箱 | synthesis | 否 | 否 | 未发现 | `` |  | 知识库/syntheses/Java包装类型与自动装箱拆箱.md | 知识库/syntheses/Java包装类型与自动装箱拆箱.md | 跨页汇总、索引、路线或体系页 |
-| `知识库/02-后端知识体系/03-Java体系/Java即时编译器原理解析及实践.md` | Java即时编译器原理解析及实践 | synthesis | 否 | 否 | https://tech.meituan.com/2020/10/22/java-jit-practice-in-meituan.html | `` | 00-收件箱/Java即时编译器原理解析及实践.md | 知识库/syntheses/Java即时编译器原理解析及实践.md | 知识库/syntheses/Java即时编译器原理解析及实践.md | 跨页汇总、索引、路线或体系页 |
+| `知识库/02-后端知识体系/03-Java体系/Java即时编译器原理解析及实践.md` | Java即时编译器原理解析及实践 | synthesis | 否 | 否 | https://tech.meituan.com/2020/10/22/java-jit-practice-in-meituan.html | `` | raw/sources/src-20201022-meituan-jit-practice/original.md | 知识库/syntheses/Java即时编译器原理解析及实践.md | 知识库/syntheses/Java即时编译器原理解析及实践.md | 跨页汇总、索引、路线或体系页 |
 | `知识库/02-后端知识体系/03-Java体系/Java基本数据类型.md` | Java基本数据类型 | synthesis | 否 | 否 | 未发现 | `` |  | 知识库/syntheses/Java基本数据类型.md | 知识库/syntheses/Java基本数据类型.md | 跨页汇总、索引、路线或体系页 |
 | `知识库/02-后端知识体系/03-Java体系/Java成员变量与局部变量.md` | Java成员变量与局部变量 | synthesis | 否 | 否 | 未发现 | `` |  | 知识库/syntheses/Java成员变量与局部变量.md | 知识库/syntheses/Java成员变量与局部变量.md | 跨页汇总、索引、路线或体系页 |
 | `知识库/02-后端知识体系/03-Java体系/Java方法重载与重写.md` | Java方法重载与重写 | synthesis | 否 | 否 | 未发现 | `` |  | 知识库/syntheses/Java方法重载与重写.md | 知识库/syntheses/Java方法重载与重写.md | 跨页汇总、索引、路线或体系页 |

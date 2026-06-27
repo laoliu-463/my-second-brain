@@ -45,5 +45,5 @@ sources:
 
 ## 待验证
 
-- `00-收集箱/未命名 2.md` 与原图谱内容重复，但 frontmatter 不同；当前只记录重复候选，不自动删除。
+- 原收集箱副本已清理；原图谱内容保留在 [[raw/sources/src-20260524-code-review-graph-saas-flow/original.md|SAAS 业务流程图原文]]。
 - 图谱生成时间为 2026-05-24，可能落后于当前 SAAS 项目代码。

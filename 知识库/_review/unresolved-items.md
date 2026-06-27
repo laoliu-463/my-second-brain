@@ -30,7 +30,6 @@ tags:
 
 | 路径 | 标题 | 类型 | 原因 |
 |---|---|---|---|
-| `00-收集箱/DDD提示词.md` | DDD提示词（原始） | mixed | 收件箱长文且混合批注/摘要 |
 | `CLAUDE.md` | CLAUDE.md | unknown | 结构、索引、任务、日志或模板文件 |
 | `index.md` | 索引 | unknown | 结构、索引、任务、日志或模板文件 |
 | `LLM Wiki/Harness/doc/04-state/03-P0-P1问题台账.md` | P0/P1 问题台账 | question | 问题或待确认页面 |
@@ -335,16 +334,8 @@ tags:
 
 | 路径 | 标题 | 重复候选 |
 |---|---|---|
-| `00-收件箱/Collection 类关系图.md` | Collection 类关系图 | 知识库/02-后端知识体系/03-Java体系/Collection类关系图.md |
-| `00-收件箱/Java即时编译器原理解析及实践.md` | Java即时编译器原理解析及实践 | 知识库/02-后端知识体系/03-Java体系/Java即时编译器原理解析及实践.md |
-| `00-收件箱/Skills 教程  菜鸟教程.md` | Skills 教程 \| 菜鸟教程 | raw/sources/src-20260617-runoob-skills-tutorial/original.md |
-| `00-收集箱/DDD提示词.md` | DDD提示词（原始） | raw/sources/src-20260623-local-ddd-refactor-prompts/original.md |
-| `00-收集箱/未命名 2.md` | SAAS 业务流程图 (code-review-graph official API) | raw/sources/src-20260524-code-review-graph-saas-flow/original.md |
 | `raw/sources/src-20201022-meituan-jit-practice/original.md` | original | raw/sources/src-20260512-pdai-collection-relations/original.md |
 | `raw/sources/src-20260512-pdai-collection-relations/original.md` | original | raw/sources/src-20201022-meituan-jit-practice/original.md |
-| `raw/sources/src-20260524-code-review-graph-saas-flow/original.md` | SAAS 业务流程图 (code-review-graph official API) | 00-收集箱/未命名 2.md |
-| `raw/sources/src-20260617-runoob-skills-tutorial/original.md` | Skills 教程 \| 菜鸟教程 | 00-收件箱/Skills 教程  菜鸟教程.md |
-| `raw/sources/src-20260623-local-ddd-refactor-prompts/original.md` | DDD提示词（原始） | 00-收集箱/DDD提示词.md |
 | `raw/sources/抖音团长SaaS设计文档/设计骨架.md` | 设计骨架 | 知识库/sources/src-20260518-local-设计骨架-915921e4.md |
 | `raw/sources/抖音团长SaaS设计文档/领域设计/业绩域.md` | 业绩域 | 团长SaaS知识库/domains-业务领域/07-performance-domain-业绩域.md; 知识库/02-后端知识体系/03-Java体系/抖店团长SaaS-业务体系/04-七领域合同/业绩域.md; 知识库/sources/src-20260517-local-业绩域-fcf369be.md |
 | `raw/sources/抖音团长SaaS设计文档/领域设计/分析模块.md` | 分析模块 | 知识库/02-后端知识体系/03-Java体系/抖店团长SaaS-业务体系/04-七领域合同/分析模块.md; 知识库/sources/src-20260517-local-分析模块-cf3a2526.md |
@@ -363,10 +354,8 @@ tags:
 | `团长SaaS知识库/domains-业务领域/05-sample-domain-寄样域.md` | 寄样域 | raw/sources/抖音团长SaaS设计文档/领域设计/寄样域.md; 知识库/02-后端知识体系/03-Java体系/抖店团长SaaS-业务体系/04-七领域合同/寄样域.md; 知识库/sources/src-20260517-local-寄样域-130bebed.md |
 | `团长SaaS知识库/domains-业务领域/06-order-domain-订单域.md` | 订单域 | raw/sources/抖音团长SaaS设计文档/领域设计/订单域.md; 知识库/02-后端知识体系/03-Java体系/抖店团长SaaS-业务体系/04-七领域合同/订单域.md; 知识库/sources/src-20260517-local-订单域-364d9877.md |
 | `团长SaaS知识库/domains-业务领域/07-performance-domain-业绩域.md` | 业绩域 | raw/sources/抖音团长SaaS设计文档/领域设计/业绩域.md; 知识库/02-后端知识体系/03-Java体系/抖店团长SaaS-业务体系/04-七领域合同/业绩域.md; 知识库/sources/src-20260517-local-业绩域-fcf369be.md |
-| `知识库/02-后端知识体系/03-Java体系/Collection类关系图.md` | Collection 类关系图 | 00-收件箱/Collection 类关系图.md |
 | `知识库/02-后端知识体系/03-Java体系/DDD实战-团长SaaS系统/46-权限与数据范围.md` | 权限与数据范围 | 知识库/02-后端知识体系/03-Java体系/抖店团长SaaS-业务体系/05-权限与数据范围.md |
 | `知识库/02-后端知识体系/03-Java体系/Java_8_实战.md` | Java 8 实战 | 知识库/sources/src-20260212-local-Java-8-实战-f8e625ec.md |
-| `知识库/02-后端知识体系/03-Java体系/Java即时编译器原理解析及实践.md` | Java即时编译器原理解析及实践 | 00-收件箱/Java即时编译器原理解析及实践.md |
 | `知识库/02-后端知识体系/03-Java体系/Spring_MVC+MyBatis企业应用实战.md` | Spring MVC+MyBatis企业应用实战 | 知识库/sources/src-20260212-local-Spring-MVC-MYBatis企业应用实战-62f8af12.md |
 | `知识库/02-后端知识体系/03-Java体系/抖店团长SaaS-业务体系/04-七领域合同/业绩域.md` | 业绩域 | raw/sources/抖音团长SaaS设计文档/领域设计/业绩域.md; 团长SaaS知识库/domains-业务领域/07-performance-domain-业绩域.md; 知识库/sources/src-20260517-local-业绩域-fcf369be.md |
 | `知识库/02-后端知识体系/03-Java体系/抖店团长SaaS-业务体系/04-七领域合同/分析模块.md` | 分析模块 | raw/sources/抖音团长SaaS设计文档/领域设计/分析模块.md; 知识库/sources/src-20260517-local-分析模块-cf3a2526.md |
