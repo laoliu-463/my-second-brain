@@ -64,6 +64,8 @@
 
 自动记忆口径：
 - `tools/memory_capture.py` 是 Codex / Claude / Hermes 等代理统一记忆捕获入口
+- Codex 官方 lifecycle hooks 可通过用户级 `~/.codex/hooks.json` 调用 `.codex/hooks/codex-memory-capture.ps1`
+- 当前项目的 Codex 自动记忆使用 `UserPromptSubmit` 捕获用户输入、`Stop` 捕获回合结束事件或 transcript
 - `tools/agent_memory_wrapper.ps1` 是无原生 hook 的 Agent/命令启动器，退出时自动把本地 transcript 交给 `memory_capture.py`
 - 云端 EverOS 只写入脱敏摘要、关键决策、任务轨迹和认知讨论摘要，不上传完整原文 transcript
 - 完整 transcript 只保存在 `tmp/agent-memory-transcripts/`，默认不入库、不提交

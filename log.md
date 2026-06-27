@@ -142,3 +142,11 @@
 - 验证边界：`tools/kb_validate.ps1` 全量扫描已修复 PowerShell `GetRelativePath` 兼容错误，但仍因历史页面缺少 frontmatter/source 字段失败；该历史债务非本次自动记忆改动引入。
 - 待复查项：Codex 原生桌面会话仍需要宿主或 `tools/agent_memory_wrapper.ps1` 提供 transcript；Claude Stop hook 可 best-effort 捕获 hook 输入和 transcript_path；Hermes 需通过同一 wrapper 启动后才能做到自动。
 
+## [2026-06-27] integration | Codex 官方 hooks 自动记忆
+
+- 改动范围：按 Codex 官方 hooks 文档新增 `.codex/hooks/codex-memory-capture.ps1`，扩展 `tools/memory_capture.py` 解析 `codex-hook-json`，并将用户级 `~/.codex/hooks.json` 合并出 Codex `UserPromptSubmit` 与 `Stop` 记忆入口。
+- 改动原因：用户要求确认并落实 Codex hook 自动调用，避免依赖手动执行 wrapper。
+- 影响文件：`.codex/hooks/codex-memory-capture.ps1`、`tools/memory_capture.py`、`tests/test_memory_capture.py`、`AGENTS.md`、`CLAUDE.md`、`log.md`、用户级 `C:\Users\caojianing\.codex\hooks.json`。
+- 验证结果：`hooks.json` JSON 解析通过；`python -m unittest discover -s tests -v` 通过 14 项；Codex hook 脚本本地 `UserPromptSubmit -NoCloud` 冒烟通过；项目外 cwd 事件会跳过；真实 Cloud 写入 `codex-hook-cloud-smoke-20260627` 成功并可通过 EverOS search/get 检索。
+- 验证边界：Codex 新 hook 需要在 Codex `/hooks` 中由用户信任后才会由宿主自动执行；本轮已验证脚本与 Cloud 链路，不能在当前回答内替代宿主信任确认。
+

@@ -83,6 +83,8 @@ sources: [来源1, 来源2]
 ## 自动记忆
 
 - `tools/memory_capture.py` 是跨 Agent 统一记忆捕获入口
+- Codex 使用官方 lifecycle hooks，从用户级 `~/.codex/hooks.json` 调用 `.codex/hooks/codex-memory-capture.ps1`
+- 当前项目的 Codex 自动记忆使用 `UserPromptSubmit` 捕获用户输入、`Stop` 捕获回合结束事件或 transcript
 - `tools/agent_memory_wrapper.ps1` 可包装 Codex/Hermes/其他 CLI Agent，退出时自动捕获 transcript 并写入脱敏摘要
 - Claude Code Stop hook 应 best-effort 调用该脚本，保存本地 transcript 并向 EverOS Cloud 写入脱敏摘要
 - 云端只保存脱敏摘要、关键决策、任务轨迹和认知讨论摘要；完整原文只保存在 `tmp/agent-memory-transcripts/`

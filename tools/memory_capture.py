@@ -165,6 +165,46 @@ def build_cloud_summary(
     return summary, cognitive_required
 
 
+TRANSCRIPT_PATH_KEYS = (
+    "transcript_path",
+    "transcriptPath",
+    "transcript",
+    "conversation_path",
+    "conversationPath",
+    "transcript_file",
+    "transcriptFile",
+)
+
+CODEX_TEXT_KEYS = (
+    "prompt",
+    "user_prompt",
+    "userPrompt",
+    "message",
+    "content",
+    "input",
+    "text",
+    "response",
+    "final_response",
+    "finalResponse",
+)
+
+
+def read_transcript_path_from_event(event: dict[str, Any], metadata: dict[str, Any]) -> str | None:
+    for key in TRANSCRIPT_PATH_KEYS:
+        value = event.get(key)
+        if not value or not isinstance(value, str):
+            continue
+
+        path = Path(value).expanduser()
+        metadata["transcript_path_from_event"] = str(path)
+        if path.exists() and path.is_file():
+            return path.read_text(encoding="utf-8", errors="replace")
+        metadata["transcript_missing"] = True
+        return None
+
+    return None
+
+
 def read_claude_stop_json(text: str) -> tuple[str, dict[str, Any]]:
     try:
         event = json.loads(text)
@@ -172,19 +212,62 @@ def read_claude_stop_json(text: str) -> tuple[str, dict[str, Any]]:
         return text, {"input_format": "claude-stop-json", "parse_error": "invalid_json"}
 
     metadata: dict[str, Any] = {"input_format": "claude-stop-json", "event_keys": sorted(event.keys())}
-    transcript_path = (
-        event.get("transcript_path")
-        or event.get("transcriptPath")
-        or event.get("transcript")
-        or event.get("conversation_path")
-    )
-    if transcript_path:
-        path = Path(str(transcript_path)).expanduser()
-        metadata["transcript_path_from_event"] = str(path)
-        if path.exists() and path.is_file():
-            return path.read_text(encoding="utf-8", errors="replace"), metadata
-        metadata["transcript_missing"] = True
+    transcript_text = read_transcript_path_from_event(event, metadata) if isinstance(event, dict) else None
+    if transcript_text is not None:
+        return transcript_text, metadata
 
+    return text, metadata
+
+
+def collect_codex_text(value: Any) -> list[str]:
+    if isinstance(value, str):
+        stripped = value.strip()
+        return [stripped] if stripped else []
+
+    if isinstance(value, list):
+        collected: list[str] = []
+        for item in value:
+            collected.extend(collect_codex_text(item))
+        return collected
+
+    if isinstance(value, dict):
+        collected: list[str] = []
+        for key in CODEX_TEXT_KEYS:
+            if key in value:
+                collected.extend(collect_codex_text(value[key]))
+        return collected
+
+    return []
+
+
+def read_codex_hook_json(text: str) -> tuple[str, dict[str, Any]]:
+    try:
+        event = json.loads(text)
+    except json.JSONDecodeError:
+        return text, {"input_format": "codex-hook-json", "parse_error": "invalid_json"}
+
+    if not isinstance(event, dict):
+        return text, {"input_format": "codex-hook-json", "event_type": type(event).__name__}
+
+    metadata: dict[str, Any] = {"input_format": "codex-hook-json", "event_keys": sorted(event.keys())}
+    transcript_text = read_transcript_path_from_event(event, metadata)
+    if transcript_text is not None:
+        return transcript_text, metadata
+
+    sections: list[str] = []
+    for key in CODEX_TEXT_KEYS:
+        if key in event:
+            sections.extend(collect_codex_text(event[key]))
+
+    for key in ("messages", "conversation", "turns"):
+        if key in event:
+            sections.extend(collect_codex_text(event[key]))
+
+    if sections:
+        metadata["extracted_text_sections"] = len(sections)
+        return "\n".join(sections), metadata
+
+    metadata["fallback_raw_json"] = True
     return text, metadata
 
 
@@ -203,6 +286,8 @@ def read_input(args: argparse.Namespace) -> tuple[str, dict[str, Any]]:
 
     if args.input_format == "claude-stop-json":
         return read_claude_stop_json(raw)
+    if args.input_format == "codex-hook-json":
+        return read_codex_hook_json(raw)
     return raw, metadata
 
 
@@ -329,7 +414,7 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--everos-session-id", help="EverOS Cloud session_id. Defaults to my-second-brain-agent-capture.")
     parser.add_argument("--user-id", help="EverOS user_id. Defaults to project default.")
     parser.add_argument("--input-file", help="Transcript or event file to capture.")
-    parser.add_argument("--input-format", choices=["text", "claude-stop-json"], default="text")
+    parser.add_argument("--input-format", choices=["text", "claude-stop-json", "codex-hook-json"], default="text")
     parser.add_argument("--text", help="Transcript text to capture.")
     parser.add_argument("--encoding", default="utf-8")
     parser.add_argument("--output-dir", default=str(DEFAULT_TRANSCRIPT_DIR))
