@@ -150,3 +150,10 @@
 - 验证结果：`hooks.json` JSON 解析通过；`python -m unittest discover -s tests -v` 通过 14 项；Codex hook 脚本本地 `UserPromptSubmit -NoCloud` 冒烟通过；项目外 cwd 事件会跳过；真实 Cloud 写入 `codex-hook-cloud-smoke-20260627` 成功并可通过 EverOS search/get 检索。
 - 验证边界：Codex 新 hook 需要在 Codex `/hooks` 中由用户信任后才会由宿主自动执行；本轮已验证脚本与 Cloud 链路，不能在当前回答内替代宿主信任确认。
 
+## [2026-06-27] fix | Codex UserPromptSubmit 捕获范围收窄
+
+- 改动范围：调整 `tools/memory_capture.py` 的 `codex-hook-json` 解析顺序，`UserPromptSubmit` 优先捕获本次 `prompt`，不再优先读取整段 `transcript_path`；补充对应单元测试。
+- 改动原因：用户信任 hook 后的实测记录显示 Codex `UserPromptSubmit` 事件同时携带 `prompt` 与 `transcript_path`，旧逻辑优先读取完整 session transcript，导致本地记录过大且云端摘要不够聚焦。
+- 影响文件：`tools/memory_capture.py`、`tests/test_memory_capture.py`、`log.md`。
+- 验证项：需重新执行单元测试与一次带 `prompt + transcript_path` 的 hook 冒烟。
+

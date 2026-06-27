@@ -250,11 +250,8 @@ def read_codex_hook_json(text: str) -> tuple[str, dict[str, Any]]:
         return text, {"input_format": "codex-hook-json", "event_type": type(event).__name__}
 
     metadata: dict[str, Any] = {"input_format": "codex-hook-json", "event_keys": sorted(event.keys())}
-    transcript_text = read_transcript_path_from_event(event, metadata)
-    if transcript_text is not None:
-        return transcript_text, metadata
-
     sections: list[str] = []
+    hook_event_name = str(event.get("hook_event_name") or event.get("event_name") or "")
     for key in CODEX_TEXT_KEYS:
         if key in event:
             sections.extend(collect_codex_text(event[key]))
@@ -262,6 +259,14 @@ def read_codex_hook_json(text: str) -> tuple[str, dict[str, Any]]:
     for key in ("messages", "conversation", "turns"):
         if key in event:
             sections.extend(collect_codex_text(event[key]))
+
+    if hook_event_name == "UserPromptSubmit" and sections:
+        metadata["extracted_text_sections"] = len(sections)
+        return "\n".join(sections), metadata
+
+    transcript_text = read_transcript_path_from_event(event, metadata)
+    if transcript_text is not None:
+        return transcript_text, metadata
 
     if sections:
         metadata["extracted_text_sections"] = len(sections)

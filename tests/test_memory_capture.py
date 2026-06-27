@@ -71,6 +71,25 @@ class MemoryCaptureTests(unittest.TestCase):
         self.assertEqual(text, "codex transcript 认知内容")
         self.assertEqual(metadata["input_format"], "codex-hook-json")
 
+    def test_codex_user_prompt_submit_prefers_prompt_over_transcript(self):
+        with tempfile.TemporaryDirectory() as tmpdir:
+            transcript = Path(tmpdir) / "codex-transcript.txt"
+            transcript.write_text("old full transcript", encoding="utf-8")
+            event = json.dumps(
+                {
+                    "hook_event_name": "UserPromptSubmit",
+                    "transcript_path": str(transcript),
+                    "prompt": "fresh prompt 认知内容",
+                    "cwd": str(ROOT),
+                },
+                ensure_ascii=False,
+            )
+
+            text, metadata = mc.read_codex_hook_json(event)
+
+        self.assertEqual(text, "fresh prompt 认知内容")
+        self.assertEqual(metadata["extracted_text_sections"], 1)
+
     def test_capture_writes_local_transcript_without_cloud(self):
         with tempfile.TemporaryDirectory() as tmpdir:
             args = Namespace(
