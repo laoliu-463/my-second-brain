@@ -182,6 +182,13 @@ function Test-HasMissingOriginalMarker {
     return (-not [string]::IsNullOrWhiteSpace($Text) -and $Text.Contains("原文缺失待核查"))
 }
 
+function Remove-MarkdownCodeContent {
+    param([string]$Text)
+    if ([string]::IsNullOrEmpty($Text)) { return "" }
+    $withoutFences = [regex]::Replace($Text, "(?ms)^[ \t]*(```|~~~).*?^[ \t]*\1[ \t]*$", "")
+    return [regex]::Replace($withoutFences, "`[^`\r\n]+`", "")
+}
+
 function Test-VaultRelativeFileExists {
     param([string]$RelativePath)
     $pathText = ($RelativePath -replace "/", [System.IO.Path]::DirectorySeparatorChar)
@@ -292,6 +299,7 @@ if (-not (Test-Path -LiteralPath $knowledgePath)) {
 
     foreach ($f in $wikiFiles) {
         $text = Get-Content -LiteralPath $f.FullName -Raw -Encoding UTF8
+        $linkScanText = Remove-MarkdownCodeContent -Text $text
         $relative = (Get-RelativePathSafe -BasePath $kbPath -FullPath $f.FullName).Replace("\", "/")
         $stats["目录项检查数"]++
 
@@ -324,7 +332,7 @@ if (-not (Test-Path -LiteralPath $knowledgePath)) {
         }
 
         $wikiLinkPattern = '\[\[([^\]\n#|]+)(?:#[^\]\n]+)?(?:\|[^\]\n]+)?\]\]'
-        $wikiMatches = [regex]::Matches($text, $wikiLinkPattern)
+        $wikiMatches = [regex]::Matches($linkScanText, $wikiLinkPattern)
         foreach ($m in $wikiMatches) {
             $targetRaw = $m.Groups[1].Value.Trim()
             if ($targetRaw -match '^(https?|mailto):') { continue }
@@ -358,7 +366,7 @@ if (-not (Test-Path -LiteralPath $knowledgePath)) {
         }
 
         $mdLinkPattern = '(?<!\!)\[[^\]]+\]\(([^)\s]+)\)'
-        $mdMatches = [regex]::Matches($text, $mdLinkPattern)
+        $mdMatches = [regex]::Matches($linkScanText, $mdLinkPattern)
         foreach ($m in $mdMatches) {
             $linkRaw = $m.Groups[1].Value.Trim()
             if ($linkRaw -match '^(https?|mailto|file):') { continue }
@@ -432,9 +440,7 @@ foreach ($line in $collector) {
 [void]$builder.AppendLine("- canonical_url 异常数：$($stats["canonical_url异常"])")
 [void]$builder.AppendLine("- frontmatter 缺失数：$($stats["Frontmatter缺失"])")
 [void]$builder.AppendLine("")
-
-Add-Section -Builder $builder -Title "本次问题清单" -Items @()
-
+[void]$builder.AppendLine("## 本次问题清单")
 if ($issues.Count -eq 0) {
     [void]$builder.AppendLine("- 无")
 } else {
