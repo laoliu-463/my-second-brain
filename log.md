@@ -309,5 +309,5 @@
 - 改动范围: `知识库/05-智能体与Agent体系/XianyuAutoAgent MiniMax部署与启动SOP.md`、`raw/sources/src-20260701-xianyuautoagent-minimax-deploy/original.md`、`tools/start_xianyu_autoagent.ps1`、`index.md`
 - 改动原因: 用户已完成 XianyuAutoAgent + MiniMax Token Plan + 闲鱼 Cookie 部署并验证自动回复成功，需要沉淀为可复用知识库 SOP，并保证后续启动流程可重复
 - 关键修复: 固化本机实测 `https://api.minimaxi.com/v1` 可用、`https://api.minimax.io/v1` 对当前 Token Plan Key 返回 401 的证据；记录 `<think>...</think>` 输出过滤边界；新增无密钥启动脚本，自动检查 `.env`、依赖、MiniMax 连通性和后台启动
-- 验证结果: `powershell -NoProfile -ExecutionPolicy Bypass -File tools/start_xianyu_autoagent.ps1 -SkipApiCheck -CheckOnly` 通过，脚本可识别当前 PID 43432 且未重复启动；脚本已改为 ASCII 提示，避免 Windows PowerShell 编码解析失败
+- 验证结果: `powershell -NoProfile -ExecutionPolicy Bypass -File tools/start_xianyu_autoagent.ps1 -SkipApiCheck -CheckOnly` 通过，脚本可识别当前 PID 43432 且未重复启动；脚本已改为 ASCII 提示，避免 Windows PowerShell 编码解析失败；`tools/kb_validate.ps1` 通过 1027 个文件，仅保留既有两组 05-* 目录警告；新增/变更文件脱敏扫描通过；`rg` 可命中新 SOP、raw 证据和启动脚本入口
 - 待复查项: `.env` 中 `API_KEY` 与 `COOKIES_STR` 不得写入知识库或脚本；若上游项目更新 `XianyuAgent.py`，需复核 `_safe_filter` 中 MiniMax thinking 过滤仍然有效
