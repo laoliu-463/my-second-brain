@@ -173,64 +173,64 @@
 - 验证结果：PowerShell Parser 解析 `tools/kb_validate.ps1`、`tools/daily_kb_maintenance.ps1`、`.claude/hooks/kb-pretooluse.ps1` 通过；`python -m py_compile tools/kb_full_distill.py` 通过；`tools/kb_validate.ps1 -ChangedOnly` 通过 13 个变更文件，仅提示两个 `05-*` 目录为既有设计警告；直接运行 `python tools/kb_full_distill.py` 会按预期阻断旧 source 页批量迁移，需显式 `--legacy-source-pages` 才能运行。
 - 待复查项：当前 `raw/sources/人智认知系列` 目录不存在，已抽查到 `原生家庭篇`、`学习篇` 等页面的 raw 原文链接仍无法命中；后续需按真实 raw 文件恢复或落账为缺失，不能通过新建 source 页冒充修复。
 
-## [2026-06-27] lint | ÿ��֪ʶ��ά��
+## [2026-06-27] lint | ÿ��֪ʶ��ά��
 
-- ִ�нű�: daily_kb_maintenance.ps1
-- ִ��ʱ��: 15:20:32
-- ֪ʶҳɨ����: 784
+- ִ�нű�: daily_kb_maintenance.ps1
+- ִ��ʱ��: 15:20:32
+- ֪ʶҳɨ����: 784
 - ȱʧ WikiLink: 1394
-- ȱʧ Markdown ����: 13
-- ԭ����������ȱʧ: 0
-- raw ԭ��Ŀ��ȱʧ: 0
-- canonical_url �쳣: 6
+- ȱʧ Markdown ����: 13
+- ԭ����������ȱʧ: 0
+- raw ԭ��Ŀ��ȱʧ: 0
+- canonical_url �쳣: 6
 - frontmatterȱʧ: 0
 
-## [2026-06-27] lint | ÿ��֪ʶ��ά��
+## [2026-06-27] lint | ÿ��֪ʶ��ά��
 
-- ִ�нű�: daily_kb_maintenance.ps1
-- ִ��ʱ��: 15:23:10
-- ֪ʶҳɨ����: 784
+- ִ�нű�: daily_kb_maintenance.ps1
+- ִ��ʱ��: 15:23:10
+- ֪ʶҳɨ����: 784
 - ȱʧ WikiLink: 985
-- ȱʧ Markdown ����: 1
-- ԭ����������ȱʧ: 0
-- raw ԭ��Ŀ��ȱʧ: 0
-- canonical_url �쳣: 0
+- ȱʧ Markdown ����: 1
+- ԭ����������ȱʧ: 0
+- raw ԭ��Ŀ��ȱʧ: 0
+- canonical_url �쳣: 0
 - frontmatterȱʧ: 0
 
-## [2026-06-27] lint | ÿ��֪ʶ��ά��
+## [2026-06-27] lint | ÿ��֪ʶ��ά��
 
-- ִ�нű�: daily_kb_maintenance.ps1
-- ִ��ʱ��: 15:24:39
-- ֪ʶҳɨ����: 784
+- ִ�нű�: daily_kb_maintenance.ps1
+- ִ��ʱ��: 15:24:39
+- ֪ʶҳɨ����: 784
 - ȱʧ WikiLink: 893
-- ȱʧ Markdown ����: 1
-- ԭ����������ȱʧ: 0
-- raw ԭ��Ŀ��ȱʧ: 0
-- canonical_url �쳣: 0
+- ȱʧ Markdown ����: 1
+- ԭ����������ȱʧ: 0
+- raw ԭ��Ŀ��ȱʧ: 0
+- canonical_url �쳣: 0
 - frontmatterȱʧ: 0
 
-## [2026-06-27] lint | ÿ��֪ʶ��ά��
+## [2026-06-27] lint | ÿ��֪ʶ��ά��
 
-- ִ�нű�: daily_kb_maintenance.ps1
-- ִ��ʱ��: 15:30:37
-- ֪ʶҳɨ����: 784
+- ִ�нű�: daily_kb_maintenance.ps1
+- ִ��ʱ��: 15:30:37
+- ֪ʶҳɨ����: 784
 - ȱʧ WikiLink: 14
-- ȱʧ Markdown ����: 1
-- ԭ����������ȱʧ: 0
-- raw ԭ��Ŀ��ȱʧ: 0
-- canonical_url �쳣: 0
+- ȱʧ Markdown ����: 1
+- ԭ����������ȱʧ: 0
+- raw ԭ��Ŀ��ȱʧ: 0
+- canonical_url �쳣: 0
 - frontmatterȱʧ: 0
 
-## [2026-06-27] lint | ÿ��֪ʶ��ά��
+## [2026-06-27] lint | ÿ��֪ʶ��ά��
 
-- ִ�нű�: daily_kb_maintenance.ps1
-- ִ��ʱ��: 15:32:56
-- ֪ʶҳɨ����: 785
+- ִ�нű�: daily_kb_maintenance.ps1
+- ִ��ʱ��: 15:32:56
+- ֪ʶҳɨ����: 785
 - ȱʧ WikiLink: 0
-- ȱʧ Markdown ����: 0
-- ԭ����������ȱʧ: 0
-- raw ԭ��Ŀ��ȱʧ: 0
-- canonical_url �쳣: 0
+- ȱʧ Markdown ����: 0
+- ԭ����������ȱʧ: 0
+- raw ԭ��Ŀ��ȱʧ: 0
+- canonical_url �쳣: 0
 - frontmatterȱʧ: 0
 
 
@@ -251,14 +251,55 @@
 - 关键修复: 清理 5 个已归档/已整理暂存文件；移除待复核清单中的旧重复候选；将内容盘点中的 raw 反查关系改为来源页或真实 raw 原文
 - 验证结果: `00-收集箱` 与 `00-收件箱` 当前均为 0 个文件；当前维护文件中无指向已删除暂存文件的 WikiLink 或具体路径引用
 - 待复查项: 历史日志和历史报告中保留的旧路径仅作为历史记录，不作为当前入口
-## [2026-06-27] lint | ÿ��֪ʶ��ά��
+## [2026-06-27] lint | ÿ��֪ʶ��ά��
 
-- ִ�нű�: daily_kb_maintenance.ps1
-- ִ��ʱ��: 15:42:41
-- ֪ʶҳɨ����: 785
+- ִ�нű�: daily_kb_maintenance.ps1
+- ִ��ʱ��: 15:42:41
+- ֪ʶҳɨ����: 785
 - ȱʧ WikiLink: 0
-- ȱʧ Markdown ����: 0
-- ԭ����������ȱʧ: 0
-- raw ԭ��Ŀ��ȱʧ: 0
-- canonical_url �쳣: 0
+- ȱʧ Markdown ����: 0
+- ԭ����������ȱʧ: 0
+- raw ԭ��Ŀ��ȱʧ: 0
+- canonical_url �쳣: 0
 - frontmatterȱʧ: 0
+
+## [2026-06-27] maintenance | 清理残留收集箱挂载源
+
+- 改动范围: `知识库/02-后端知识体系/02-计算机基础/JVM、JDK 与 JRE.md`、`知识库/90-来源与映射/Akkkk抖音数据集来源映射.md`
+- 改动原因: 上述文件仍残留已清理收集箱入口，存在潜在来源链不一致
+- 关键修复: 将 JVM 页的 `sources` 置空（无残留入口）；Akkkk 映射页去除 `00-收集箱/未命名.md` 引用，保留 CSV 与映射关系为准的来源声明
+- 结果: 残留收集箱路径从活跃知识链路里降到仅历史记录和治理说明中的历史叙述
+## [2026-06-28] lint | ÿ��֪ʶ��ά��
+
+- ִ�нű�: daily_kb_maintenance.ps1
+- ִ��ʱ��: 11:32:16
+- ֪ʶҳɨ����: 785
+- ȱʧ WikiLink: 0
+- ȱʧ Markdown ����: 0
+- ԭ����������ȱʧ: 0
+- raw ԭ��Ŀ��ȱʧ: 0
+- canonical_url �쳣: 0
+- frontmatterȱʧ: 0
+
+## [2026-06-28] maintenance | 元数据快照纠偏
+
+- 改动范围: 知识库/_meta/migration-plan.md、知识库/_meta/distillation-log.md、知识库/_review/unresolved-items.md
+- 改动原因: 全库校验已通过，但元数据清单仍保留一批已移除的 第二大脑* 历史路径，继续按旧快照处理会误导后续来源整理
+- 关键结论: 当前适合做的是“元数据纠偏”而不是“重跑旧来源迁移脚本”；本轮不处理新来源，不批量重写 知识库/sources/src-*.md
+- 验证结果: 	ools/kb_validate.ps1 通过；	ools/daily_kb_maintenance.ps1 输出 issues=0、wikiLinks=0、mdLinks=0、awMissing=0、originalSections=0
+- 待复查项: 后续需单开批次刷新 content-inventory.md 历史快照，并决定是否保留 第二大脑* 旧路径作为审计记录
+## [2026-06-29] automation | GitHub 热门项目滚动日报更新
+
+- 改动范围: 06-报告证据/latest-github-trending.md、06-报告证据/报告索引.md、index.md
+- 改动原因: 按 GitHub Trending Daily 与 Repository API 更新最近 24 小时热门项目滚动页，并同步索引日期
+- 验证结果: 待执行指定命令校验 latest-github-trending.md 行数、索引命中与本地文件索引检索
+- 补充验证: latest-github-trending.md 共 44 行；index/report 索引命中正常；local_file_index search 在控制台编码容错后通过
+## [2026-06-30] maintenance | GitHub 热门观察迁移到知识库
+
+- 改动范围: 知识库/04-方法论与工具/实用工具/GitHub 热门项目滚动观察.md、raw/sources/GitHub Trending/2026-06-29 GitHub Trending Daily 与 Repository API 快照.md、知识库/04-方法论与工具/* 索引、index.md、06-报告证据/报告索引.md
+- 改动原因: 用户要求 GitHub 热门项目不再放入报告区，改为按知识库结构沉淀为正式知识页，并保留 raw 来源快照
+- 验证结果: 新知识页与 raw 快照已入索引；旧文件 06-报告证据/latest-github-trending.md 已删除；local_file_index 可命中新路径
+## [2026-06-30] automation | GitHub 热门项目滚动日报恢复
+- 改动范围: 06-报告证据/latest-github-trending.md、06-报告证据/报告索引.md、index.md
+- 改动原因: 当前自动化要求仍以固定滚动报告页落盘；虽与 2026-06-30 迁移到知识库页的记录冲突，但本次按实际根目录结构恢复并在报告风险项显式记账
+- 验证结果: latest-github-trending.md 40 行；index/report 命中正常；tools/local_file_index.py search GitHub --limit 5 返回命中结果

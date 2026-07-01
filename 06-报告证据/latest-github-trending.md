@@ -1,44 +1,40 @@
 # GitHub 热门项目滚动日报
 
-## 本次日报
-- 数据日期：2026-06-26
-- 统计窗口：GitHub Trending `since=daily` 页面快照；总 Star、语言、描述用 GitHub Repository API 交叉校验。
+- 数据日期：2026-06-30（抓取时点：Asia/Shanghai 2026-06-30）
+- 主要来源：[GitHub Trending Daily](https://github.com/trending?since=daily)
+- 说明：以下 Star 与 `stars today` 为页面抓取时可见快照；“值得关注原因”和“适合人群”属于基于榜单位置、项目主题与仓库说明的阶段性判断，不等同于官方结论。
 
-1. `google-labs-code/design.md` | 仓库：https://github.com/google-labs-code/design.md | 语言：TypeScript | 总 Star：20,103；Trending 显示今日 +1,475。简介：给编码代理提供视觉规范的结构化描述格式。值得关注：设计系统开始被直接做成 Agent 可消费协议。适合：设计工程、前端平台、AI Coding 工作流使用者。
-2. `calesthio/OpenMontage` | 仓库：https://github.com/calesthio/OpenMontage | 语言：Python | 总 Star：22,766；Trending 显示今日 +3,434。简介：开源 agentic 视频生产系统，覆盖多条流水线和工具。值得关注：多代理协作开始从写代码外溢到内容工业化生产。适合：AI 视频团队、自动化内容工作室、Agent 工具开发者。
-3. `xbtlin/ai-berkshire` | 仓库：https://github.com/xbtlin/ai-berkshire | 语言：Python | 总 Star：2,567；Trending 显示今日 +309。简介：基于 Claude Code 的多 Agent 价值投资研究框架。值得关注：Agent 正在进入专业分析场景，而不是停留在通用问答。适合：量化/投研工程师、金融分析自动化团队、Agent 方法论关注者。
-4. `mauriceboe/TREK` | 仓库：https://github.com/mauriceboe/TREK | 语言：TypeScript | 总 Star：7,079；Trending 显示今日 +241。简介：支持实时协作、地图、预算和清单的自托管旅行规划器。值得关注：垂直 SaaS 仍有“可自托管 + 协作体验”需求。适合：独立开发者、自托管用户、产品原型团队。
-5. `apple/container` | 仓库：https://github.com/apple/container | 语言：Swift | 总 Star：43,424；Trending 显示今日 +1,351。简介：Apple 提供的 Mac 轻量 Linux 容器工具。值得关注：Apple Silicon 开发环境和容器体验仍是高热基础设施话题。适合：macOS 开发者、DevOps、平台工程师。
-6. `JCodesMore/ai-website-cloner-template` | 仓库：https://github.com/JCodesMore/ai-website-cloner-template | 语言：TypeScript | 总 Star：20,856；Trending 显示今日 +1,024。简介：用 AI 编码代理一条命令克隆网站。值得关注：低门槛“AI 做前端”模板仍有很强传播性。适合：前端原型团队、独立开发者、AI 编程实践者。
-7. `garrytan/gstack` | 仓库：https://github.com/garrytan/gstack | 语言：TypeScript | 总 Star：116,115；Trending 显示今日 +767。简介：一套面向 Claude Code 的多角色工具栈。值得关注：社区持续把“提示词”升级为“角色化工作流编排”。适合：AI 工程团队、研发管理者、重度 AI Coding 用户。
-8. `aws/agent-toolkit-for-aws` | 仓库：https://github.com/aws/agent-toolkit-for-aws | 语言：Python | 总 Star：1,214；Trending 显示今日 +47。简介：AWS 官方支持的 MCP server、skills、plugins 工具集。值得关注：云厂商开始正式提供 Agent 基础设施配套。适合：云平台团队、企业内部平台组、MCP 集成开发者。
-9. `alibaba/page-agent` | 仓库：https://github.com/alibaba/page-agent | 语言：TypeScript | 总 Star：20,071；Trending 显示今日 +163。简介：在网页内运行的 JavaScript GUI Agent。值得关注：GUI Agent 仍处于高热区，而且更偏工程可集成。适合：浏览器自动化、RPA、Agent 产品团队。
-10. `opendatalab/MinerU` | 仓库：https://github.com/opendatalab/MinerU | 语言：Python | 总 Star：69,931；Trending 显示今日 +644。简介：把 PDF 和 Office 文档转成 LLM/Agent 可用的 Markdown 或 JSON。值得关注：文档结构化仍是 RAG 和 Agent 链路的基础入口。适合：知识库工程、RAG 平台、文档处理团队。
+## 今日关注项目（10 个）
+
+- `simplex-chat` | 仓库：[simplex-chat/simplex-chat](https://github.com/simplex-chat/simplex-chat) | 语言：Shell | 24.4k Star / 今日 +361 | 简介：强调无用户标识的私密聊天平台。 | 值得关注：隐私通信与去中心化社交仍有持续热度。 | 适合：安全工程、隐私产品、即时通信从业者。
+- `agency-agents` | 仓库：[agency-ai/agency-agents](https://github.com/agency-ai/agency-agents) | 语言：Python | 8.8k Star / 今日 +188 | 简介：面向多智能体协作的工程框架。 | 值得关注：Agent 编排仍是热点，且项目定位偏实战。 | 适合：AI Agent、工作流编排、自动化开发者。
+- `cupy` | 仓库：[cupy/cupy](https://github.com/cupy/cupy) | 语言：Python | 10.5k Star / 今日 +539 | 简介：NumPy/SciPy 的 GPU 加速替代实现。 | 值得关注：AI 训练与科学计算继续把 GPU 工程工具推高。 | 适合：机器学习、科学计算、CUDA 工程师。
+- `FluidVoice` | 仓库：[FluidInference/FluidVoice](https://github.com/FluidInference/FluidVoice) | 语言：Python | 7.2k Star / 今日 +1,256 | 简介：实时语音理解与低延迟语音 Agent 方案。 | 值得关注：单日增长高，说明实时语音 Agent 关注度很强。 | 适合：语音交互、实时 AI、边缘推理开发者。
+- `maigret` | 仓库：[soxoj/maigret](https://github.com/soxoj/maigret) | 语言：Python | 16.7k Star / 今日 +57 | 简介：从用户名聚合公开账号信息的 OSINT 工具。 | 值得关注：安全研究与公开情报工具长期稳定受关注。 | 适合：安全研究、OSINT、风控调查人员。
+- `openpilot` | 仓库：[commaai/openpilot](https://github.com/commaai/openpilot) | 语言：Python | 58.1k Star / 今日 +175 | 简介：开源高级驾驶辅助系统。 | 值得关注：自动驾驶基础设施项目仍具强社区号召力。 | 适合：自动驾驶、嵌入式、计算机视觉工程师。
+- `free-for-dev` | 仓库：[ripienaar/free-for-dev](https://github.com/ripienaar/free-for-dev) | 语言：HTML | 108k Star / 今日 +90 | 简介：开发者可免费使用的 SaaS / API / 云服务清单。 | 值得关注：AI 与独立开发热潮继续带动低成本工具需求。 | 适合：独立开发者、初创团队、学生开发者。
+- `logto` | 仓库：[logto-io/logto](https://github.com/logto-io/logto) | 语言：TypeScript | 14.1k Star / 今日 +583 | 简介：开源身份认证、授权与用户管理平台。 | 值得关注：Auth 基础设施在 AI 应用和 SaaS 场景里持续重要。 | 适合：SaaS、平台工程、身份与权限团队。
+- `ai-berkshire-hathaway` | 仓库：[virattt/ai-berkshire-hathaway](https://github.com/virattt/ai-berkshire-hathaway) | 语言：Jupyter Notebook | 8k Star / 今日 +191 | 简介：用多 Agent 模拟投资研究与组合决策。 | 值得关注：Agent 从效率工具扩展到投研工作流实验。 | 适合：量化研究、投研自动化、AI 应用实验者。
+- `video-use` | 仓库：[jbilcke-hf/video-use](https://github.com/jbilcke-hf/video-use) | 语言：TypeScript | 3.1k Star / 今日 +183 | 简介：让 Agent 读取和理解视频内容的工具链。 | 值得关注：多模态 Agent 从文本/图像继续向视频扩展。 | 适合：多模态 AI、媒体处理、Agent 产品开发者。
 
 ## 整体趋势观察
-- 阶段性判断 1：Agent 工程化仍是主线，`design.md`、`gstack`、`agent-toolkit-for-aws`、`page-agent`、`ai-berkshire` 都指向“规范、角色、平台、垂直工作流”。
-- 阶段性判断 2：Agent 应用边界继续外扩，今天同时出现视频生产、投研分析、网页克隆和 GUI 控制，说明社区已从单点编码工具扩展到具体行业任务。
-- 阶段性判断 3：基础设施与入口层仍有稳定热度，`apple/container` 和 `MinerU` 代表“运行环境”与“文档结构化”这两类底层能力还在持续吸星。
+
+1. Agent 主题仍是主线，但形态已从“通用聊天”转向“多智能体编排、实时语音、视频理解、投研自动化”等垂直执行场景。
+2. AI 基础设施与工程工具并行升温，`cupy`、`logto`、`free-for-dev` 说明开发者不只追新模型，也在补 GPU、认证、成本控制等配套能力。
+3. 安全与隐私项目依旧有稳定热度，`simplex-chat`、`maigret` 反映出通信隐私与公开情报两端都在持续吸引开发者。
 
 ## 来源证据
-- GitHub Trending Daily：https://github.com/trending?since=daily
-- GitHub Repository API：
-  - https://api.github.com/repos/google-labs-code/design.md
-  - https://api.github.com/repos/calesthio/OpenMontage
-  - https://api.github.com/repos/xbtlin/ai-berkshire
-  - https://api.github.com/repos/mauriceboe/TREK
-  - https://api.github.com/repos/apple/container
-  - https://api.github.com/repos/JCodesMore/ai-website-cloner-template
-  - https://api.github.com/repos/garrytan/gstack
-  - https://api.github.com/repos/aws/agent-toolkit-for-aws
-  - https://api.github.com/repos/alibaba/page-agent
-  - https://api.github.com/repos/opendatalab/MinerU
+
+- Trending 榜单快照：[GitHub Trending Daily](https://github.com/trending?since=daily)
+- 项目主页：以上各仓库链接均指向对应 GitHub Repository 页面，用于后续补查 README、版本、Issue 与提交活跃度。
 
 ## 风险与不确定项
-- Trending 的“今日 +Star”来自页面快照，不等于严格意义上的完整 24 小时统计。
-- “值得关注原因”和“趋势观察”基于榜单结构、仓库描述与公开元数据，只能算阶段性判断。
-- 自动化任务说明中的 `第二大脑/` 子目录、`页面规范.md`、`资料吸收流程.md`、`报告模板.md`、`索引.md`、`日志.md`、`07-脚本/*` 在当前工作区未找到；本次按实际存在的根目录与 `06-报告证据/` 口径执行。
+
+- 当前仓库状态与自动化描述存在冲突：`log.md` 显示 2026-06-30 曾将 GitHub 热门观察迁移到知识库页并删除本报告页；本次按自动化要求恢复 `06-报告证据/latest-github-trending.md` 固定滚动页。
+- GitHub Trending 是页面快照，不保证全天一致；Star 总量与 `stars today` 会随抓取时点变化。
+- “上榜原因/适合人群/趋势观察”不是 GitHub 官方字段，属于基于当日榜单和仓库描述的阶段性判断，后续需要结合 README、发布节奏和社区讨论继续验证。
 
 ## 后续观察
-- 继续观察 `OpenMontage`、`design.md`、`page-agent` 是否连续多日上榜。
-- 若 `agent-toolkit-for-aws` 持续活跃，下一轮可补充 release、issues 和示例集成深度。
+
+- 明日优先比较：今日 10 个项目中哪些继续留榜，哪些被新的 Agent / 多模态项目替换。
+- 若某项目连续两天高增长，补查其 Release、README 更新和 Issues 讨论，判断是短期传播还是长期趋势。

@@ -1,7 +1,7 @@
 ---
 title: 沉淀日志
 created: 2026-06-23
-updated: 2026-06-27
+updated: 2026-06-28
 tags:
   - distillation-log
 ---
@@ -60,3 +60,11 @@ tags:
 - 刷新：`content-inventory.md`、`migration-plan.md`、`sources/index.md`、`content-distillation-map.md`、`unresolved-items.md`。
 - 安全边界：未删除文件，未覆盖 raw 原文，未批量移动历史知识页。
 - 分类分布：concept=409；entity=20；mixed=2；question=1；raw-source=67；source-note=241；synthesis=277；unknown=505
+
+## [2026-06-28] maintenance | 元数据快照纠偏
+
+- 扫描证据：`tools/kb_validate.ps1` 通过；`tools/daily_kb_maintenance.ps1` 输出 `issues=0`、`wikiLinks=0`、`mdLinks=0`、`rawMissing=0`、`originalSections=0`。
+- 工作区证据：当前根目录不存在 `第二大脑/`、`第二大脑-10-SaaS/`、`第二大脑-20-后端/` 等旧并行目录，但 `content-inventory.md` 与 `unresolved-items.md` 仍保留历史快照引用。
+- 本轮动作：更新迁移计划与复核清单，明确“快照陈旧”是当前优先问题；不重跑会批量重写 `知识库/sources/src-*.md` 的旧迁移脚本。
+- 来源处理：0 个；创建来源页：0；移动来源：0；合并候选仅保留为后续人工决策，不在本轮自动执行。
+- 风险控制：不删除文件，不覆盖 raw，不碰已存在未提交修改的正式知识页。

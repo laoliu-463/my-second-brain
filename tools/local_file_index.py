@@ -26,6 +26,11 @@ from xml.etree import ElementTree
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_DB = PROJECT_ROOT / "tmp" / "local-file-index" / "files.sqlite3"
 
+if hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(errors="replace")
+if hasattr(sys.stderr, "reconfigure"):
+    sys.stderr.reconfigure(errors="replace")
+
 DEFAULT_ALLOWED_EXTENSIONS = {
     ".bat",
     ".cfg",

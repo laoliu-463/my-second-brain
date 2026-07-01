@@ -24,6 +24,7 @@ confidence: 0.5
 ## 信息采集
 
 - [[RSSHub 到知识库的信息采集方案]] - RSSHub 作为信息采集层接入本地知识库/RAG 的方案
+- [[GitHub 热门项目滚动观察]] - GitHub Trending 每日热点项目的滚动观察与阶段性判断
 
 ## Hermes
 
