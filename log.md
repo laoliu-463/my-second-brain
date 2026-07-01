@@ -311,3 +311,11 @@
 - 关键修复: 固化本机实测 `https://api.minimaxi.com/v1` 可用、`https://api.minimax.io/v1` 对当前 Token Plan Key 返回 401 的证据；记录 `<think>...</think>` 输出过滤边界；新增无密钥启动脚本，自动检查 `.env`、依赖、MiniMax 连通性和后台启动
 - 验证结果: `powershell -NoProfile -ExecutionPolicy Bypass -File tools/start_xianyu_autoagent.ps1 -SkipApiCheck -CheckOnly` 通过，脚本可识别当前 PID 43432 且未重复启动；脚本已改为 ASCII 提示，避免 Windows PowerShell 编码解析失败；`tools/kb_validate.ps1` 通过 1027 个文件，仅保留既有两组 05-* 目录警告；新增/变更文件脱敏扫描通过；`rg` 可命中新 SOP、raw 证据和启动脚本入口
 - 待复查项: `.env` 中 `API_KEY` 与 `COOKIES_STR` 不得写入知识库或脚本；若上游项目更新 `XianyuAgent.py`，需复核 `_safe_filter` 中 MiniMax thinking 过滤仍然有效
+
+## [2026-07-01] maintenance | 公众号写作与发布SOP补全
+
+- 改动范围: `知识库/06-内容创作与传播/公众号写作与发布SOP.md`、`raw/sources/src-20260701-wechat-writing-sop/original.md`、`知识库/06-内容创作与传播/内容创作导航中心.md`、`知识库/06-内容创作与传播/index.md`、`index.md`
+- 改动原因: 用户要求使用 `$grilling` 按照知识库补充完整公众号写作 SOP；本轮先从知识库、md2wechat 项目和 AI微信公众号项目中补证据，再沉淀正式页面
+- 关键修复: 将原有“发布流程”和“内容导航”扩展为完整闭环：选题入池、写作前拷问、证据收集、大纲、初稿、人工改稿、metadata、AI/API 排版、草稿创建、手机预览、发布和复盘
+- 验证结果: `tools/kb_validate.ps1` 通过 1029 个文件，仅保留既有两组 05-* 目录警告；`rg` 可命中新 SOP、raw 证据、内容导航和根索引入口；新增文件脱敏扫描未发现真实密钥，扫描只命中 `log.md` 历史 `EVEROS_API_KEY=...` 占位描述，非密钥泄露
+- 待复查项: 若后续确定公众号主线只做技术长文或同时做认知成长类，应在 SOP 的默认内容类型中进一步收窄

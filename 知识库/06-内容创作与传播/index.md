@@ -3,7 +3,7 @@ title: "06-内容创作与传播"
 type: index
 status: active
 created_at: 2026-06-27
-updated_at: 2026-06-27
+updated_at: 2026-07-01
 source_level: none
 sources: []
 raw_evidence: []
@@ -25,6 +25,7 @@ confidence: 0.5
 | [[Akkkk视频原文归档/]] | Akkkk 全部视频文案按月归档（31个月） |
 | [[知识库/06-内容创作与传播/prompts/md2wechat-AI模式发布流程|prompts/]] | md2wechat AI 模式发布 prompt（7个） |
 | [[内容创作导航中心]] | 内容平台入口汇总 |
+| [[公众号写作与发布SOP]] | 公众号从选题、证据、初稿、改稿、排版、草稿、发布到复盘的完整流程 |
 | [[Akkkk缺失视频补抓与转写索引]] | 50条无文案视频补抓入口 |
 | [[知识库/syntheses/SAAS代码图谱业务流程图]] | SAAS code-review-graph 图谱综合入口 |
 
