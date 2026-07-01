@@ -1,6 +1,7 @@
 param(
   [switch]$Restart,
-  [switch]$SkipApiCheck
+  [switch]$SkipApiCheck,
+  [switch]$CheckOnly
 )
 
 $ErrorActionPreference = "Stop"
@@ -64,21 +65,21 @@ function Ensure-ThinkFilter {
   param([string]$RepoPath)
   $agentFile = Join-Path $RepoPath "XianyuAgent.py"
   if (-not (Test-Path -LiteralPath $agentFile)) {
-    throw "未找到 XianyuAgent.py: $agentFile"
+    throw "XianyuAgent.py not found: $agentFile"
   }
   $content = Get-Content -LiteralPath $agentFile -Raw
   if ($content -match '<think>\.\*\?</think>') {
     return
   }
-  $needle = '        """安全过滤模块"""'
+  $needle = '        blocked_phrases = ['
   if (-not $content.Contains($needle)) {
-    throw "无法定位 _safe_filter 插入点，请人工检查 XianyuAgent.py"
+    throw "Cannot locate _safe_filter insertion point in XianyuAgent.py"
   }
   $insert = @'
-        """安全过滤模块"""
         if not text:
             return text
         text = re.sub(r"<think>.*?</think>\s*", "", text, flags=re.DOTALL | re.IGNORECASE).strip()
+        blocked_phrases = [
 '@
   $content = $content.Replace($needle, $insert.TrimEnd())
   Set-Content -LiteralPath $agentFile -Value $content -Encoding UTF8
@@ -87,7 +88,16 @@ function Ensure-ThinkFilter {
 function Get-XianyuProcesses {
   param([string]$RepoPath)
   $venvPath = Join-Path $RepoPath ".venv"
-  Get-CimInstance Win32_Process |
+  $pidFile = Join-Path $RepoPath "logs\xianyuautoagent.pid"
+  $knownPidProcesses = @()
+  if (Test-Path -LiteralPath $pidFile) {
+    $knownPid = (Get-Content -LiteralPath $pidFile -ErrorAction SilentlyContinue | Select-Object -First 1)
+    if ($knownPid -match '^\d+$') {
+      $knownPidProcesses = @(Get-CimInstance Win32_Process -Filter "ProcessId = $knownPid" -ErrorAction SilentlyContinue |
+        Where-Object { $_.Name -match '^python(\.exe)?$' -and $_.CommandLine -like '*main.py*' })
+    }
+  }
+  $queryProcesses = @(Get-CimInstance Win32_Process |
     Where-Object {
       $_.Name -match '^python(\.exe)?$' -and
       $_.CommandLine -like '*main.py*' -and
@@ -95,7 +105,8 @@ function Get-XianyuProcesses {
         ($_.ExecutablePath -and $_.ExecutablePath.StartsWith($venvPath, [System.StringComparison]::OrdinalIgnoreCase)) -or
         ($_.CommandLine -like "*$RepoPath*")
       )
-    }
+    })
+  @($knownPidProcesses + $queryProcesses) | Sort-Object ProcessId -Unique
 }
 
 if (-not (Test-Path -LiteralPath $repoPath)) {
@@ -120,11 +131,11 @@ try {
   $apiKey = Unquote-EnvValue $envMap["API_KEY"]
   $cookie = Unquote-EnvValue $envMap["COOKIES_STR"]
 
-  if ([string]::IsNullOrWhiteSpace($apiKey) -or $apiKey -match '默认使用|apikey|your|你的') {
-    throw "API_KEY 未配置。请在 $repoPath\.env 填入 MiniMax Token Plan Subscription Key。"
+  if ([string]::IsNullOrWhiteSpace($apiKey) -or $apiKey -match 'apikey|your|API_KEY') {
+    throw "API_KEY is not configured. Fill MiniMax Token Plan Subscription Key in $repoPath\.env."
   }
   if ([string]::IsNullOrWhiteSpace($cookie) -or $cookie.Length -lt 50 -or $cookie -notmatch '=') {
-    throw "COOKIES_STR 未正确配置。请在 $repoPath\.env 填入闲鱼网页端完整 Cookie。"
+    throw "COOKIES_STR is not configured correctly. Fill the full goofish web Cookie in $repoPath\.env."
   }
 
   if (-not (Test-Path -LiteralPath ".venv\Scripts\python.exe")) {
@@ -144,7 +155,7 @@ try {
     try {
       Invoke-WebRequest -Uri "https://api.minimaxi.com/v1/models" -Headers @{ Authorization = "Bearer $apiKey" } -Method Get -TimeoutSec 20 | Out-Null
     } catch {
-      throw "MiniMax 连通性检查失败。请确认 Token Plan Key、seat/Credits 与 MODEL_BASE_URL。"
+      throw "MiniMax connectivity check failed. Verify Token Plan Key, seat/Credits, and MODEL_BASE_URL."
     }
   }
 
@@ -156,10 +167,16 @@ try {
       }
       Start-Sleep -Seconds 2
     } else {
-      Write-Host "XianyuAutoAgent 已在运行:"
+      Write-Host "XianyuAutoAgent is already running:"
       $existing | Select-Object ProcessId, ExecutablePath, CommandLine | Format-Table -AutoSize
       return
     }
+  }
+
+  if ($CheckOnly) {
+    Write-Host "XianyuAutoAgent preflight check passed."
+    Write-Host "Project path: $repoPath"
+    return
   }
 
   New-Item -ItemType Directory -Force -Path "logs" | Out-Null
@@ -170,24 +187,25 @@ try {
   $env:PYTHONUNBUFFERED = "1"
   $env:PYTHONUTF8 = "1"
 
-  $process = Start-Process -FilePath $python -ArgumentList "-u", "main.py" -WorkingDirectory $repoPath -RedirectStandardOutput $stdout -RedirectStandardError $stderr -WindowStyle Hidden -PassThru
+  $mainPath = Join-Path $repoPath "main.py"
+  $process = Start-Process -FilePath $python -ArgumentList "-u", $mainPath -WorkingDirectory $repoPath -RedirectStandardOutput $stdout -RedirectStandardError $stderr -WindowStyle Hidden -PassThru
   Set-Content -LiteralPath (Join-Path "logs" "xianyuautoagent.pid") -Value $process.Id -Encoding ASCII
   Start-Sleep -Seconds 8
 
   $running = Get-CimInstance Win32_Process -Filter "ProcessId = $($process.Id)" -ErrorAction SilentlyContinue
   if (-not $running) {
-    Write-Host "启动后进程已退出，最近错误日志:"
+    Write-Host "Process exited after startup. Recent stderr log:"
     if (Test-Path -LiteralPath $stderr) {
       Get-Content -LiteralPath $stderr -Tail 80
     }
-    throw "XianyuAutoAgent 启动失败。"
+    throw "XianyuAutoAgent startup failed."
   }
 
-  Write-Host "XianyuAutoAgent 已启动。"
+  Write-Host "XianyuAutoAgent started."
   Write-Host "PID: $($process.Id)"
   Write-Host "stderr: $stderr"
   Write-Host "stdout: $stdout"
-  Write-Host "下一步: 用另一个闲鱼账号给商品发消息，确认自动回复。"
+  Write-Host "Next step: send a test message from another goofish account and confirm auto-reply."
 } finally {
   Pop-Location
 }

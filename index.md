@@ -9,7 +9,7 @@
 || 总览与索引 | 1 | 2026-05-22 |
 || 后端知识体系 | 146 | 2026-06-02 |
 || 方法论与工具 | 17 | 2026-06-30 |
-|| 智能体与Agent体系 | 3 | 2026-06-26 |
+|| 智能体与Agent体系 | 4 | 2026-07-01 |
 || 治理与元数据 | 6 | 2026-06-27 |
 || 内容创作与传播 | 45 | 2026-05-17 |
 || 面试备战 | 23 | 2026-05-22 |
@@ -359,6 +359,7 @@
 | [[知识库/05-智能体与Agent体系/mattpocock-skills研究|mattpocock/skills 研究]] | Matt Pocock 开源 agent skills 体系研究：handoff、diagnose、tdd、triage 等技能如何组成可复用代理能力 | 2026-05-16 |
 | [[知识库/05-智能体与Agent体系/EverOS 记忆层接入方案|EverOS 记忆层接入方案]] | EverOS Cloud 作为本知识库 AI Agent 外部记忆层的接入边界、CLI 命令和验证清单 | 2026-06-26 |
 | [[知识库/05-智能体与Agent体系/EverOS 本地长期记忆服务方案|EverOS 本地长期记忆服务方案]] | EverOS OSS 本地服务作为第二大脑长期记忆层的 API、数据落盘、安全边界和桥接脚本方案 | 2026-06-26 |
+| [[知识库/05-智能体与Agent体系/XianyuAutoAgent MiniMax部署与启动SOP|XianyuAutoAgent MiniMax部署与启动SOP]] | XianyuAutoAgent 使用 MiniMax Token Plan 与闲鱼网页端 Cookie 的本机部署、启动、验证和故障恢复 SOP | 2026-07-01 |
 
 ---
 
