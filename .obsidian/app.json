@@ -9,5 +9,6 @@
   "showBacklinks": true,
   "showOutline": true,
   "outlinePane": true,
-  "typeAheadTrigger": "/"
+  "typeAheadTrigger": "/",
+  "showUnsupportedFiles": true
 }
