@@ -368,3 +368,14 @@
 - 改动原因: 用户要求整理 GitHub 自动化迁移前内容；将旧固定报告页沉淀为 raw 证据，并把正式知识页更新为当前知识库目录结构下的唯一维护入口
 - 关键修复: 删除旧报告区固定页入口，移除报告索引和根索引中的 GitHub 报告行，正式页改为直接链接 2026-07-01 与 2026-06-29 raw 快照
 - 待复查项: 后续 GitHub 自动化不得恢复 `06-报告证据/latest-github-trending.md`，只更新正式知识页与 raw 快照
+
+## [2026-07-02] maintenance | 认知 raw 空笔记清理
+- 改动范围: `raw/sources/人智认知系列/16-案例分析.docx.md`、`raw/sources/人智认知系列/33-人智—抱猴心理.docx.md`、`raw/sources/人智认知系列/33-人智—抱猴心理.docx 1.md`、`raw/sources/人智认知系列/33-人智—抱猴心理.docx 2.md`、`log.md`
+- 改动原因: Obsidian 点击 `.docx` Wiki 附件时误建了 4 个 0 字节 `.md` 空笔记；用户已明确授权删除，避免这些空笔记干扰附件跳转判断
+- 验证结果: 删除前 4 个目标文件均存在且长度为 0；删除后 `Test-Path` 均为 false；正式知识页仍通过 `## 原文链接` 指向真实存在的 `raw/sources/人智认知系列/...` 原始附件
+- 待复查项: raw append-only 门禁会把本次用户授权删除识别为 raw 删除；后续全量校验如触发该门禁，应按本日志作为授权例外审计
+
+## [2026-07-02] automation | GitHub 热门项目滚动观察更新
+- 改动范围: `raw/sources/GitHub Trending/2026-07-02 GitHub Trending Daily 与 Repository API 快照.md`、`知识库/04-方法论与工具/实用工具/GitHub 热门项目滚动观察.md`、`log.md`
+- 改动原因: 按最新自动化口径抓取 2026-07-02 GitHub Trending Daily 与 Repository API，更新正式观察页并新增当天 raw 证据快照；本轮未更新 `06-报告证据/` 与根 `index.md`
+- 验证结果: 已执行 `tools/kb_validate.ps1 -ChangedOnly`、`rg` 命中检查与 `python tools/local_file_index.py --db tmp/local-file-index/files.sqlite3 search GitHub --limit 5`；若某项失败，以本轮自动化输出中的失败项和待复查项为准
