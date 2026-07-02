@@ -348,3 +348,4 @@
 - 改动原因: 用户要求检查公众号发布项目源码是否克隆到位，以及公众号发布 SOP 流程能否成功
 - 验证结果: `D:\Projects\OpenSource\md2wechat-skill` 为 Git 仓库，远程为 `geekjourneyx/md2wechat-skill`，当前提交 `3306fd1d9433d69d7881f097226c6d0fea472ad3`，但工作区存在 2 个修改文件和 1 个未跟踪测试文章；`D:\Projects\OpenSource\AI微信公众号\harness-engineering` 为 Git 仓库，远程为 `deusyu/harness-engineering`，当前提交 `bebc743a1bb3e1895b507c6e8fec726b4461ffc9`，工作区干净；`md2wechat version --json` 返回 `2.0.7`；capabilities/providers/themes/prompts discovery 命令成功；`inspect` 带封面后 `draft_ready=true`
 - 待复查项: 当前 Windows PATH 缺少 `go`，无法运行 `go test ./...`；API 模式 preview 因 md2wechat API key 格式无效降级；AI 模式仅生成 prompt，未生成最终 HTML；未执行 `test-draft/create_draft`，因为会触发远端微信草稿创建，需用户明确授权
+- 口径修正: 用户提醒“之前默认使用 AI 模式”；已明确本知识库 SOP 主链路应显式使用 `--mode ai`，裸命令/API key 错误只说明 CLI/config 默认值为 `api`，不作为 AI 模式主链路失败证据

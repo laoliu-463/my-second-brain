@@ -74,8 +74,15 @@ C:\Users\caojianing\.local\bin\md2wechat.exe
 
 - `md2wechat config validate` 返回 `CONFIG_VALIDATED`。
 - 配置文件存在：`~/.config\md2wechat\config.yaml`。
+- 当前 `md2wechat config show --format json` 返回的 `default_convert_mode` 为 `api`。
+- `md2wechat convert --help` 与 `md2wechat preview --help` 均显示 `--mode` 的 CLI 默认值为 `api`。
 - 当前 PowerShell 环境变量中未发现 `WECHAT_APPID`、`WECHAT_SECRET`、`MD2WECHAT_BASE_URL`、`IMAGE_API_KEY`、`IMAGE_MODEL`、`IMAGE_API_BASE`。
 - 本轮未打印任何密钥值。
+
+口径澄清：
+
+- 本知识库的公众号发布 SOP 主链路应优先使用 AI 模式，即显式传入 `--mode ai`。
+- CLI 裸命令默认值不是 AI，而是 `api`；因此不带 `--mode ai` 的 preview/convert 结果只能用于暴露配置默认值，不能作为 AI 模式发布 SOP 失败的直接证据。
 
 ## SOP 本地 smoke
 
@@ -111,7 +118,7 @@ draft_ready=true
 
 说明：测试文章 metadata 满足转换要求；草稿前置条件需要封面或已有封面素材 `media_id`。
 
-### preview 检查
+### preview 检查（裸命令默认 API 分支）
 
 命令：
 
@@ -127,7 +134,7 @@ md2wechat preview "D:\Projects\OpenSource\md2wechat-skill\test_article.md" --dra
 - `render.fidelity=degraded`。
 - 降级原因：`API returned error code 401: Invalid API Key format. Supported prefixes: wme_, wme2_, wmt_.`
 
-结论：API 模式当前不能按精确渲染路径成功，直接原因是 md2wechat API key 格式无效或仍为占位值。
+结论：裸命令默认进入 API 分支，当前不能按 API 精确渲染路径成功，直接原因是 md2wechat API key 格式无效或仍为占位值。该结果不代表 AI 模式失败，只说明本机 CLI/config 默认值与 SOP 推荐主链路不一致。
 
 ### AI 模式检查
 
@@ -162,19 +169,20 @@ CLI 层面：
 SOP 层面：
 
 - 本地 metadata 检查和草稿前置条件检查可以通过。
-- API 模式不能完整成功，原因是 md2wechat API key 格式无效。
+- 本次应判定的主链路是 AI 模式，必须显式使用 `--mode ai`。
 - AI 模式能生成 prompt，但不会自动生成最终 HTML，需要 LLM 执行 prompt。
+- 裸命令默认 API 模式不能完整成功，原因是 md2wechat API key 格式无效；这不是 AI 模式主链路的失败原因。
 - 本轮未执行 `test-draft` 或 `create_draft`，因为这会触发远端微信草稿创建，需明确发布授权。
 
 最终判断：
 
-> 当前不能认定公众号发布 SOP 已完整成功。只能认定“源码和 CLI 基础到位，本地前置检查部分通过；完整草稿发布被 API key/AI 生成步骤/远端上传授权挡住”。
+> 当前不能认定公众号发布 SOP 已完整成功。只能认定“源码和 CLI 基础到位，本地前置检查通过；AI 模式已生成待执行 prompt，但最终 HTML 尚未由 LLM 生成，远端微信草稿创建也尚未授权执行”。API key 问题只影响误入 API 默认分支或主动选择 API 模式时的路径。
 
 ## 下一步建议
 
-1. 修正 `~/.config\md2wechat\config.yaml` 中 md2wechat API key，确保前缀为 `wme_`、`wme2_` 或 `wmt_`。
-2. 明确是否使用 API 模式还是 AI 模式。
-3. 如果使用 AI 模式，先让 LLM 执行 `article.prompt.txt`，生成 `article.html`。
+1. 对本知识库公众号 SOP，后续命令必须显式写 `--mode ai`，不要依赖 CLI 默认值。
+2. 先让 LLM 执行 `article.prompt.txt`，生成 `article.html`。
+3. 如未来改用 API 模式，再修正 `~/.config\md2wechat\config.yaml` 中 md2wechat API key，确保前缀为 `wme_`、`wme2_` 或 `wmt_`。
 4. 对生成 HTML 执行兼容性检查：
 
 ```powershell
@@ -186,4 +194,3 @@ Select-String -Path "D:\Docs\Books\my second brain\tmp\wechat-sop-smoke\article.
 ```powershell
 md2wechat test-draft "D:\Docs\Books\my second brain\tmp\wechat-sop-smoke\article.html" "D:\Docs\Books\my second brain\tmp\wechat-sop-smoke\cover.png" --json
 ```
-
