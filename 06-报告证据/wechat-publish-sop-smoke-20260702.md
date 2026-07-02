@@ -178,11 +178,50 @@ SOP 层面：
 
 > 当前不能认定公众号发布 SOP 已完整成功。只能认定“源码和 CLI 基础到位，本地前置检查通过；AI 模式已生成待执行 prompt，但最终 HTML 尚未由 LLM 生成，远端微信草稿创建也尚未授权执行”。API key 问题只影响误入 API 默认分支或主动选择 API 模式时的路径。
 
+## 2026-07-02 继续执行记录
+
+用户明确要求继续执行后，已补齐 AI 模式的 HTML 产物：
+
+```text
+D:\Docs\Books\my second brain\tmp\wechat-sop-smoke\article.html
+```
+
+本地兼容检查：
+
+```powershell
+Select-String -Path "D:\Docs\Books\my second brain\tmp\wechat-sop-smoke\article.html" -Pattern '<style|<head|<link|@import'
+```
+
+结果：无命中。
+
+执行草稿创建：
+
+```powershell
+md2wechat test-draft "D:\Docs\Books\my second brain\tmp\wechat-sop-smoke\article.html" "D:\Docs\Books\my second brain\tmp\wechat-sop-smoke\cover.png" --json
+```
+
+结果：失败。
+
+```text
+TEST_DRAFT_COVER_FAILED
+errcode=40164
+invalid ip 42.84.232.254 ... not in whitelist
+```
+
+阶段性结论修正：
+
+- AI 模式 HTML 已生成。
+- HTML 本地兼容检查通过。
+- 微信草稿创建未成功。
+- 直接阻塞点是微信公众号后台 IP 白名单未包含当前出口 IP `42.84.232.254`。
+- 当前不是 metadata、封面尺寸或 HTML 兼容性问题。
+
 ## 下一步建议
 
 1. 对本知识库公众号 SOP，后续命令必须显式写 `--mode ai`，不要依赖 CLI 默认值。
 2. 先让 LLM 执行 `article.prompt.txt`，生成 `article.html`。
 3. 如未来改用 API 模式，再修正 `~/.config\md2wechat\config.yaml` 中 md2wechat API key，确保前缀为 `wme_`、`wme2_` 或 `wmt_`。
+4. 在微信公众号后台把当前出口 IP `42.84.232.254` 加入 IP 白名单，然后重新执行 `test-draft`。
 4. 对生成 HTML 执行兼容性检查：
 
 ```powershell
@@ -194,3 +233,26 @@ Select-String -Path "D:\Docs\Books\my second brain\tmp\wechat-sop-smoke\article.
 ```powershell
 md2wechat test-draft "D:\Docs\Books\my second brain\tmp\wechat-sop-smoke\article.html" "D:\Docs\Books\my second brain\tmp\wechat-sop-smoke\cover.png" --json
 ```
+
+## IP 白名单与固定出口补证
+
+问题：用户追问“之前提交成功的 IP 有哪些，这个 IP 如何固定”。
+
+已查到的本地证据：
+
+- `知识库/06-内容创作与传播/prompts/md2wechat-AI模式发布流程.md` 的 2026-05-03 实测时间线记录：微信公众号后台配置 IP 白名单 `42.84.233.154` 后，`access_token` 获取成功，`test-draft` 草稿创建 v1/v2 成功。
+- 本次 2026-07-02 实测失败记录：微信返回 `errcode=40164 invalid ip 42.84.232.254 ... not in whitelist`。
+- 当前普通公网探测一度返回 IPv4 `64.118.158.227`，但该值未经过微信接口验证；本机 Windows 用户代理存在 `127.0.0.1:7897`，不同命令可能走不同出口。
+
+阶段性结论：
+
+- 目前本地可验证的“历史提交成功 IP”只有 `42.84.233.154`。
+- `42.84.232.254` 是本次微信接口明确返回的失败出口 IP。
+- 该机器出口 IP 不稳定，不能把某一次公网查询结果直接视为长期白名单 IP。
+
+固定出口建议：
+
+1. 推荐把 md2wechat 草稿/发布动作迁移到带固定公网 IP 的云服务器或云 NAT/EIP，只把该固定 IP 加入公众号 IP 白名单。
+2. 若继续在本机执行，应使用固定出口代理/VPN，并在执行 md2wechat 前显式设置 `HTTP_PROXY` / `HTTPS_PROXY`，确保 Go 程序也走同一出口；仍需用微信接口返回结果验证。
+3. 家庭宽带、手机热点、校园网和普通动态代理不适合作为稳定发布出口。
+4. 不应把 `127.0.0.1`、局域网 IP、WSL 内网 IP 或单次查询到的临时 IP 当作固定白名单依据。
