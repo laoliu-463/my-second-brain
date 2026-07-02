@@ -288,3 +288,28 @@ md2wechat test-draft "D:\Docs\Books\my second brain\tmp\wechat-sop-smoke\article
 - 当前检测窗口内，建议加入公众号 IP 白名单的 IPv4 是 `64.118.158.227`。
 - 这只能证明当前节点/网络在约 100 秒采样窗口内稳定，不能替代长期固定 EIP 承诺。
 - 加白后重新执行 `md2wechat test-draft` 前，必须先做一次出口 IP 预检，确认仍为 `64.118.158.227`。
+
+## 小红书自动发布可行性补证
+
+问题：用户追问“该项目能否实现小红书自动发布”。
+
+本地源码证据：
+
+- `md2wechat-skill` 的 `create_image_post` 命令说明是 `Create WeChat image post (小绿书/newspic)`。
+- `cmd/md2wechat/create_image_post.go` 明确写明：创建的是 `WeChat Official Account image post (小绿书/图片消息)`。
+- `internal/draft/image_post_adapter.go` 注释说明该适配器是 `WeChat newspic draft API` 的 publish-layer adapter。
+- `internal/wechat/service.go` 的 `CreateNewspicDraft` 最终调用的是 `https://api.weixin.qq.com/cgi-bin/draft/add`。
+- 当前本地搜索未发现 `xiaohongshu`、`xhs`、`rednote` 相关平台适配器或认证配置。
+
+外部官方资料证据：
+
+- 小红书开放平台当前公开开发文档以商家/电商开放能力为主，应用类目包括一键搬家、商品优化、打单工具、订单管理、企业 ERP、商家后台系统等。
+- 小红书服务市场“发布服务”说明企业开发者可将应用上架至服务市场，供商家订阅；这属于开放平台服务商/商家工具路径，不等于普通个人账号的无人工自动发布笔记接口。
+- 内容工具类目规则面向服务商和商家内容工具，且有企业主体、技术/客服人员、付费用户等准入要求。
+
+阶段性结论：
+
+- 以当前 `md2wechat-skill` 代码和配置看，不能直接实现“小红书平台自动发布”。
+- 项目已有能力可以复用在小红书前置生产环节：Markdown 拆解、标题/正文生成、封面/配图生成、图文素材整理。
+- 若要实现合规小红书发布，需要新增独立 `xhs` 平台适配器，并先确认是否具备小红书官方开放平台/服务市场/内容工具类目权限。
+- 不建议使用未公开 Web 接口、Cookie 模拟、逆向接口或浏览器脚本作为默认发布路径；这类方案稳定性和合规风险都较高。
