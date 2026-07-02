@@ -324,3 +324,27 @@
 - 改动范围: `06-报告证据/latest-github-trending.md`、`06-报告证据/报告索引.md`、`index.md`、`log.md`
 - 改动原因: 按 GitHub Trending Daily 与 Repository API 更新最近 24 小时热门项目固定滚动页，并继续记录“知识库页 vs 固定报告页”口径冲突
 - 验证结果: 已执行行数、索引命中与 local_file_index 检索命令；结果以本次自动化输出为准
+
+## [2026-07-02] automation | GitHub 热门项目自动化落盘规则修正
+- 改动范围: Codex automation `github` 配置
+- 改动原因: 按用户要求改为更新 `知识库/04-方法论与工具/实用工具/GitHub 热门项目滚动观察.md`，并禁止该任务继续写入 `06-报告证据/latest-github-trending.md`、`06-报告证据/报告索引.md` 或根 `index.md`
+- 验证结果: 已通过 Codex automation API 更新，`automation.toml` 确认目标页、raw 快照、log.md 与验证命令已改为当前知识库结构口径
+
+## [2026-07-02] maintenance | XianyuAutoAgent 启动脚本检查兼容性修复
+- 改动范围: `tools/start_xianyu_autoagent.ps1`、`log.md`
+- 改动原因: 用户要求检查咸鱼 SOP 是否正常运行；排查发现 Windows PowerShell 5 下 `Invoke-WebRequest` 不带 `-UseBasicParsing` 会在 MiniMax `/v1/models` 检查阶段抛 `NullReferenceException`，造成脚本误报连通性失败
+- 关键修复: MiniMax 连通性检查增加 `-UseBasicParsing` 与 `-ErrorAction Stop`，不修改 `.env` 中的 `API_KEY` 与 `COOKIES_STR`，不重启当前机器人进程
+- 验证结果: `powershell -NoProfile -ExecutionPolicy Bypass -File tools/start_xianyu_autoagent.ps1 -CheckOnly` 与 `pwsh -NoProfile -ExecutionPolicy Bypass -File tools/start_xianyu_autoagent.ps1 -CheckOnly` 均能识别当前 PID 43432；MiniMax `/models` 与 `chat/completions` 最小探测返回 200；运行日志在 2026-07-02 12:01 持续出现心跳发送与响应
+- 待复查项: 本轮未用另一个闲鱼账号发送真实买家消息，因此“自动回复内容端到端到达买家端”仍需人工消息验证
+
+## [2026-07-02] maintenance | Raven Agent Harness 本机接入验证
+- 改动范围: `raw/sources/EverMind-Raven/`、`知识库/05-智能体与Agent体系/Raven Agent Harness 使用记录.md`、`index.md`、`log.md`
+- 改动原因: 用户要求查看并使用 EverMind-AI/Raven；按知识库规范将上游 README、依赖声明和 Windows 安装脚本作为 raw 快照留存，并记录本机安装、运行证据与阻塞项
+- 验证结果: 已克隆 `https://github.com/EverMind-AI/Raven` 至 `tmp/Raven`；`uv run --no-dev raven --help` 通过；`npm ci` 与 `npm run build` 生成 TUI bundle；`raven --version` 返回 `Raven v0.1.2`；`raven tui --check` 返回 0；`raven provider list` 可列出 provider 但均为 `not set`
+- 待复查项: `raven agent -m "hello"` 因 provider 未配置返回 `No API key configured`，真实 LLM agent 调用尚未完成；`npm run lint:rpc` 显示 `src/rpc/generated.ts` 与 `rpc-schema/openrpc.json` 不同步，属于上游源码一致性问题
+
+## [2026-07-02] maintenance | 公众号发布 SOP 冒烟验证
+- 改动范围: `06-报告证据/wechat-publish-sop-smoke-20260702.md`、`06-报告证据/报告索引.md`、`index.md`、`log.md`
+- 改动原因: 用户要求检查公众号发布项目源码是否克隆到位，以及公众号发布 SOP 流程能否成功
+- 验证结果: `D:\Projects\OpenSource\md2wechat-skill` 为 Git 仓库，远程为 `geekjourneyx/md2wechat-skill`，当前提交 `3306fd1d9433d69d7881f097226c6d0fea472ad3`，但工作区存在 2 个修改文件和 1 个未跟踪测试文章；`D:\Projects\OpenSource\AI微信公众号\harness-engineering` 为 Git 仓库，远程为 `deusyu/harness-engineering`，当前提交 `bebc743a1bb3e1895b507c6e8fec726b4461ffc9`，工作区干净；`md2wechat version --json` 返回 `2.0.7`；capabilities/providers/themes/prompts discovery 命令成功；`inspect` 带封面后 `draft_ready=true`
+- 待复查项: 当前 Windows PATH 缺少 `go`，无法运行 `go test ./...`；API 模式 preview 因 md2wechat API key 格式无效降级；AI 模式仅生成 prompt，未生成最终 HTML；未执行 `test-draft/create_draft`，因为会触发远端微信草稿创建，需用户明确授权

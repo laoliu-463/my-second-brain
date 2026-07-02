@@ -153,7 +153,7 @@ try {
 
   if (-not $SkipApiCheck) {
     try {
-      Invoke-WebRequest -Uri "https://api.minimaxi.com/v1/models" -Headers @{ Authorization = "Bearer $apiKey" } -Method Get -TimeoutSec 20 | Out-Null
+      Invoke-WebRequest -UseBasicParsing -Uri "https://api.minimaxi.com/v1/models" -Headers @{ Authorization = "Bearer $apiKey" } -Method Get -TimeoutSec 20 -ErrorAction Stop | Out-Null
     } catch {
       throw "MiniMax connectivity check failed. Verify Token Plan Key, seat/Credits, and MODEL_BASE_URL."
     }
